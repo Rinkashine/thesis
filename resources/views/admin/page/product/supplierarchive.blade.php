@@ -1,18 +1,24 @@
 @extends('admin.layout.admin')
 @section('content')
 @section('title', 'Supplier')
+<!-- Begin: Header -->
 <h2 class="intro-y text-lg font-medium mt-10">
     <a href="{{ url()->previous() }}" class="mr-2 btn">←</a>  Supplier Archive List
 </h2>
-
+<!-- End: Header -->
+<!-- Begin: Supplier Archive Table -->
 <livewire:table.suppler-archive-table/>
-
+<!-- End: Supplier Archive Table -->
+<!-- Begin: Delete Supplier Modal -->
 <livewire:modal.force-delete-supplier/>
-
+<!-- End: Delete Supplier Modal -->
+<!-- Begin: Supplier Restore Modal -->
 <livewire:modal.restore-supplier/>
-
+<!-- End: Supplier Restore Modal -->
+<!-- Begin: Supplier Show Modal -->
 <livewire:modal.show-supplier/>
-
+<!-- End: Supplier Show Modal -->
+<!-- Begin Success Notification -->
 <div id="success-notification-content" class="toastify-content hidden flex non-sticky-notification-content">
     <i class="fa-regular fa-circle-check fa-3x text-success mx-auto"></i>
     <div class="ml-4 mr-4">
@@ -20,10 +26,8 @@
         <div class="text-slate-500 mt-1" id="message"></div>
      </div>
 </div>
-
-
+<!-- End: Success Notification -->
 @endsection
-
 @push('scripts')
 <script>
  //SuccessAlert

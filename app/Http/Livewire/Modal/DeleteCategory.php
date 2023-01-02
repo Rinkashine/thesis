@@ -5,6 +5,7 @@ namespace App\Http\Livewire\Modal;
 use Livewire\Component;
 use App\Models\Category;
 use Illuminate\Support\Facades\Gate;
+use Illuminate\Support\Facades\Storage;
 class DeleteCategory extends Component
 {
     public $modelId;
@@ -17,7 +18,6 @@ class DeleteCategory extends Component
     public function forceCloseModal(){
         $this->cleanVars();
         $this->resetErrorBag();
-
     }
 
     public function render()
@@ -46,6 +46,7 @@ class DeleteCategory extends Component
                 'title' => 'Delete Failed!',
             ]);
         }else{
+            Storage::delete('public/category/'.$category->photo);
             $category->delete();
             $this->dispatchBrowserEvent('SuccessAlert',[
                 'name' => $category->name.' was successfully deleted!',

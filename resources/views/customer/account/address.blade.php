@@ -1,12 +1,14 @@
 @extends('customer.layout.base')
 @section('content')
 @section('title', 'Address Book')
-
+<!-- Begin: Header -->
 <div class="intro-y flex items-center mt-8">
     <h2 class="text-lg font-medium mr-auto">
             Welcome to Go Dental!
     </h2>
 </div>
+<!-- End: Header -->
+<!-- Begin: Address Body -->
 <div class="grid grid-cols-12 gap-6">
     <!-- BEGIN: Profile Menu -->
     @include('customer.component.side-profile')
@@ -20,13 +22,21 @@
                 </h2>
             </div>
             <div class="p-5">
+                <!-- Begin: Customer Address Table -->
                 <livewire:table.customer-address-table/>
+                <!-- End: Customer Address Table -->
+                <!-- Begin: Delete Customer Address Modal -->
                 <livewire:modal.delete-customer-address/>
+                <!-- End: Delete Customer Address Modal -->
+                <!-- Begin; Set Default Address Modal -->
                 <livewire:modal.set-default-address/>
+                <!-- End: Set Default Address Modal -->
             </div>
         </div>
     </div>
 </div>
+<!-- End: Address Body -->
+<!-- Success Notification -->
 <div id="success-notification-content" class="toastify-content hidden flex non-sticky-notification-content">
     <i class="fa-regular fa-circle-check fa-3x text-success mx-auto"></i>
     <div class="ml-4 mr-4">
@@ -34,6 +44,7 @@
         <div class="text-slate-500 mt-1" id="message"></div>
     </div>
 </div>
+<!-- End: Success Notification -->
 @endsection
 
 

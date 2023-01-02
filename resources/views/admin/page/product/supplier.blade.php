@@ -1,7 +1,7 @@
 @extends('admin.layout.admin')
 @section('content')
 @section('title', 'Supplier')
-
+<!-- Begin: Header -->
 <div class="intro-y flex justify-between  items-center mt-8">
     <div>
         <h2 class="text-lg font-medium mr-auto">
@@ -14,11 +14,14 @@
     </div>
     @endcan
 </div>
-
+<!-- End: Header -->
+<!-- Begin: Supplier Table -->
 <livewire:table.supplier-table/>
+<!-- End: Supplier Table -->
+<!-- Begin Supplier Archive Modal -->
 <livewire:modal.archive-supplier/>
-
-
+<!-- End: Supplier Archive Modal -->
+<!-- Begin: Success Notification-->
 <div id="success-notification-content" class="toastify-content hidden flex non-sticky-notification-content">
     <i class="fa-regular fa-circle-check fa-3x text-success mx-auto"></i>
     <div class="ml-4 mr-4">
@@ -26,7 +29,8 @@
         <div class="text-slate-500 mt-1" id="message"></div>
      </div>
 </div>
-
+<!-- End: Success Notification -->
+<!-- Begin: Invalid Notification-->
 <div id="invalid-success-notification-content" class="toastify-content hidden flex non-sticky-notification-content">
     <i class="fa-regular fa-circle-xmark fa-3x text-danger mx-auto"></i>
     <div class="ml-4 mr-4">
@@ -34,7 +38,9 @@
         <div class="text-slate-500 mt-1" id="message"></div>
      </div>
 </div>
+<!-- End: Invalid Notification-->
 
+<!-- Begin: Success Session Notification -->
 @if(session('success'))
 <div id="insert-success-notification-content" class="toastify-content hidden flex non-sticky-notification-content">
     <i class="fa-regular fa-circle-check fa-3x text-success mx-auto"></i>
@@ -54,6 +60,7 @@ Toastify({
     stopOnFocus: true, }).showToast();
 </script>
 @endif
+<!--End: Success Session Notification -->
 @endsection
 
 @push('scripts')

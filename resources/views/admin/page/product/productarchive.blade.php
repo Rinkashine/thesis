@@ -1,17 +1,25 @@
 @extends('admin.layout.admin')
 @section('content')
 @section('title', 'Product')
-
+<!-- Begin: Header -->
 <h2 class="text-lg font-medium mr-auto intro-y mt-10">
     <a href="{{ url()->previous() }}" class="mr-2 btn">←</a> List of Archive Products
 </h2>
-
+<!-- End: Header -->
+<!-- Begin: Product Archive Table -->
 <livewire:table.product-archive-table/>
+<!-- End: Product Archive Table -->
+<!-- Begin: Delete Product Modal-->
 <livewire:modal.force-delete-product/>
+<!-- End: Delete Product Modal -->
+<!-- Begin: Restore Product Modal -->
 <livewire:modal.restore-product/>
+<!-- End: Restore Product Modal -->
+<!-- Begin: Show Product Modal -->
 <livewire:modal.show-product/>
+<!-- End: Show Product Modal -->
 
-
+<!-- Begin: Success Notification -->
 <div id="success-notification-content" class="toastify-content hidden flex non-sticky-notification-content">
     <i class="fa-regular fa-circle-check fa-3x text-success mx-auto"></i>
     <div class="ml-4 mr-4">
@@ -19,7 +27,8 @@
         <div class="text-slate-500 mt-1" id="message"></div>
      </div>
 </div>
-
+<!-- End: Success Notification -->
+<!-- Begin: Invalid Notification -->
 <div id="invalid-success-notification-content" class="toastify-content hidden flex non-sticky-notification-content">
     <i class="fa-regular fa-circle-xmark fa-3x text-danger mx-auto"></i>
     <div class="ml-4 mr-4">
@@ -27,7 +36,7 @@
         <div class="text-slate-500 mt-1" id="message"></div>
      </div>
 </div>
-
+<!-- End: Invalid Notification -->
 
 @endsection
 @push('scripts')

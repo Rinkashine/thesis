@@ -1,6 +1,7 @@
 @extends('admin.layout.admin')
 @section('content')
 @section('title', 'Create Transfer')
+<!-- Begin: Header -->
 <div class="intro-y flex items-center mt-8">
     <div>
         <h2 class="text-lg font-medium mr-auto">
@@ -8,16 +9,15 @@
          </h2>
     </div>
 </div>
+<!-- End: Header -->
+<!-- Begin: Inventory Transfer Form -->
 <livewire:form.inventory-transfer-form/>
-
+<!-- End: Inventory Transfer Form -->
 @endsection
 @push('scripts')
 <script>
-        const onInput = (element,id, index)=>{
-            console.log(element.value)
-            console.log(id)
-            console.log(index)
-            livewire.emit('Prod',element.value,id,index);
-        }
+    const onInput = (element,id, index)=>{
+        livewire.emit('Prod',element.value,id,index);
+    }
 </script>
 @endpush

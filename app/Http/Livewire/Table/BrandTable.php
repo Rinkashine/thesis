@@ -24,7 +24,6 @@ class BrandTable extends Component
 
     public function render()
     {
-
         abort_if(Gate::denies('brand_access'),403);
 
         return view('livewire.table.brand-table',[
@@ -44,9 +43,12 @@ class BrandTable extends Component
         if($action == 'delete'){
             $this->emit('getModelDeleteModalId',$this->selectedItem);
             $this->dispatchBrowserEvent('openDeleteModal');
+        }elseif($action == 'change_photo'){
+            $this->emit('getModelInfo',$this->selectedItem);
+            $this->dispatchBrowserEvent('openChangePhotoModal');
         }else{
             $this->emit('getModelId',$this->selectedItem);
-            $this->dispatchBrowserEvent('OpenModal');
+            $this->dispatchBrowserEvent('OpenEditModal');
         }
         $this->action = $action;
     }

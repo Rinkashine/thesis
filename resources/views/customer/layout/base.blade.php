@@ -1,20 +1,16 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}" class="{{ $dark_mode ? 'dark' : '' }}{{ $color_scheme != 'default' ? ' ' . $color_scheme : '' }}">
-
     <!-- BEGIN: Head -->
     <head>
         <meta charset="utf-8">
         <link href="{{asset('icons/log.png')}}" rel="shortcut icon">
         <link rel="stylesheet" href="{{ asset('dist/css/build.css') }}" />
         <link rel="stylesheet" href="{{ asset('dist/css/app.css') }}" />
-
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="description" content="Go Dental E-Commerce Seller">
         <meta name="keywords" content="Go Dental">
         <meta name="author" content="Mark Joseph Manalo">
         <meta name="csrf-token" content="{{ csrf_token() }}">
-
-
         <title>Go Dental - @yield('title')</title>
         <!-- BEGIN: CSS Assets-->
         <script src="https://kit.fontawesome.com/1cff19edbf.js" crossorigin="anonymous"></script>
@@ -28,8 +24,6 @@
     </head>
     <!-- END: Head -->
     <body class="py-5 md:py-0 bg-black/[0.15] dark:bg-transparent">
-
-
         <!-- BEGIN: Mobile Menu -->
         @include('customer.component.mobile-menu')
         <!-- END: Mobile Menu -->
@@ -43,16 +37,12 @@
         <!-- END: Top Menu -->
         @include('customer.component.footer')
         <!-- BEGIN: JS Assets-->
-
         <script src="{{ asset('dist/js/app.js') }}"></script>
         @include('sweetalert::alert')
         @livewireScripts
         <!-- END: JS Assets-->
         <script type="text/javascript" charset="utf8" src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.2.min.js"></script>
-
         @stack('scripts')
-
-
     </body>
 </html>
 

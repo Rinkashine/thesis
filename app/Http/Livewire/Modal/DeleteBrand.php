@@ -5,6 +5,7 @@ namespace App\Http\Livewire\Modal;
 use Livewire\Component;
 use App\Models\Brand;
 use Illuminate\Support\Facades\Gate;
+use Illuminate\Support\Facades\Storage;
 class DeleteBrand extends Component
 {
     public $modelId;
@@ -40,7 +41,9 @@ class DeleteBrand extends Component
                 'title' => 'Delete Failed!',
             ]);
         }else{
+            Storage::delete('public/brand/'.$brand->photo);
             $brand->delete();
+
             $this->dispatchBrowserEvent('SuccessAlert',[
                 'name' => $brand->name.' was successfully deleted!',
                 'title' => 'Record Deleted',

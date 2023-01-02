@@ -2,11 +2,17 @@
 @section('content')
 @section('title', 'Inventory')
 <h2 class="intro-y text-lg font-medium mt-10">Inventory</h2>
-
+<!-- Begin: Product Inventory Table -->
 <livewire:table.product-inventory-table/>
+<!-- End: Product Inventory Table -->
+<!-- Begin: Inventory Adjust Modal -->
 <livewire:form.inventory-adjust-form/>
+<!-- End: Inventory Adjust Modal -->
+<!-- Begin: Inventory Edit Modal -->
 <livewire:form.inventory-edit-form/>
+<!-- End: Inventory Edit Modal -->
 
+<!-- Begin: Success Notification -->
 <div id="success-notification-content" class="toastify-content hidden flex non-sticky-notification-content">
     <i class="fa-regular fa-circle-check fa-3x text-success mx-auto"></i>
     <div class="ml-4 mr-4">
@@ -14,7 +20,8 @@
         <div class="text-slate-500 mt-1" id="message"></div>
      </div>
 </div>
-
+<!-- End: Success Notification -->
+<!-- Begin: Invalid Notification -->
 <div id="invalid-success-notification-content" class="toastify-content hidden flex non-sticky-notification-content">
     <i class="fa-regular fa-circle-xmark fa-3x text-danger mx-auto"></i>
     <div class="ml-4 mr-4">
@@ -22,7 +29,7 @@
         <div class="text-slate-500 mt-1" id="message"></div>
      </div>
 </div>
-
+<!-- End: Invalid Notification -->
 @endsection
 @push('scripts')
 <script>

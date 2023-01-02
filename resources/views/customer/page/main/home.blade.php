@@ -2,6 +2,7 @@
 @section('content')
 @section('title', 'Home')
 
+<!-- Begin: Header Container -->
 <div class="container flex flex-col-reverse items-center gap-16 px-10 py-10 mx-20 mt-10 mb-10 box lg:flex-row ml:14">
     <!-- Content -->
     <div class="flex flex-col items-center flex-1 lg:items-start lg:pt-10">
@@ -9,13 +10,11 @@
             <div class="font-medium text-5xl  ">
                 Welcome to Go-Dental
             </div>
-
         </h2>
         <div class="mb-6 text-xl italic font-normal text-center text-bookmark-grey lg:text-left">
             All your Dental needs in One GO! Shop Now!
         </div>
     </div>
-    <!-- Image -->
     <div class="z-10 justify-center flex-1 hidden w-full mb-5 md:flex md:mb-16 lg:mb-0">
         @if(count($banners) == 0)
             <img class=" h-5/6 sm:w-3/4" src="{{ asset('dist/images/undraw_web_shopping.svg') }}" alt="" />
@@ -32,6 +31,8 @@
         </div>
     </div>
 </div >
+<!-- End: Header Container -->
+<!-- Begin: Main Container -->
 <div class="container">
     <!-- Begin: Featured Products -->
     <div>
@@ -157,5 +158,5 @@
     </div>
     <!-- End: Top Selling Products -->
 </div>
-
+<!-- End: Main Container -->
 @endsection

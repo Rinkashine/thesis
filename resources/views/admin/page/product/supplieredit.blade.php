@@ -10,10 +10,9 @@
                 Edit Supplier Form
             </h2>
         </div>
-
-
         @livewire('form.supplier-form',['supplier' => $supplier])
     </div>
+    <!--  END: Display Supplier -->
 </div>
 @endsection
 

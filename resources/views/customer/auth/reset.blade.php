@@ -1,15 +1,14 @@
 @extends('customer.layout.base')
 @section('content')
 @section('title', 'Reset Password')
-
+<!-- Begin: Reset Body -->
 <div class="intro-y items-center justify-center flex">
     <div class="bg-white my-10" style="width: 30rem">
         <div class="flex flex-col sm:flex-row items-center p-5 border-b border-slate-200/60 dark:border-darkmode-400">
-                <h2 class="font-medium text-base mr-auto">
-                   Reset Password
-                </h2>
+            <h2 class="font-medium text-base mr-auto">
+                Reset Password
+            </h2>
         </div>
-
         @if (session('success'))
             <div class="p-5" >
                 <div class="flex justify-center">
@@ -43,10 +42,6 @@
         </div>
     </div>
 </div>
-
+<!-- Begin: Reset Body -->
 @endsection
-@push('scripts')
-<script>
-</script>
-@endpush
 

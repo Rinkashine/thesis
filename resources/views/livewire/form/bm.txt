@@ -9,18 +9,12 @@
             </div>
             <form wire:submit.prevent="StoreBrandData">
                 <div class="modal-body grid grid-cols-12 gap-4 gap-y-3">
-                    @csrf
                     <div class="col-span-12">
-                        <label for="pos-form-1" class="form-label">Title</label>
-                        <input type="text" id="title" wire:model.lazy="name" class="form-control flex-1 @error('title') border-danger @enderror" placeholder="Brand Name" >
+                        @csrf
+                        <label for="pos-form-1" class="form-label">Name</label>
+                        <input type="text" id="name" wire:model.lazy="name" class="form-control flex-1 @error('name') border-danger @enderror" placeholder="Brand name" >
                         <div class="text-danger mt-2">@error('name'){{$message}}@enderror</div>
-                    </div>
 
-                    <div class="col-span-12">
-                        <label for="pos-form-1" class="form-label">Image:</label>
-                        <input type="file" wire:model.lazy="photo"  placeholder="text" accept="image/*"  class="form-control p-1 flex-1 @error('photo') border-danger @enderror">
-                        <div wire:loading wire:target="photo">Uploading...</div>
-                        <div class="text-danger mt-2">@error('photo'){{$message}}@enderror</div>
                     </div>
                 </div>
                 <div class="modal-footer text-right">

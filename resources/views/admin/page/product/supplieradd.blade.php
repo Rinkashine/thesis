@@ -10,10 +10,9 @@
                 Add Supplier Form
             </h2>
         </div>
-
-
         <livewire:form.supplier-form :supplier="null" />
     </div>
+    <!-- END: Display Supplier -->
 </div>
 @endsection
 

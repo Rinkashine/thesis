@@ -5,15 +5,19 @@ namespace App\Http\Livewire\Form;
 use Livewire\Component;
 use App\Models\Brand;
 use Illuminate\Validation\Rule;
+use Livewire\WithFileUploads;
 use Illuminate\Support\Facades\Gate;
+use Illuminate\Support\Facades\Storage;
 class BrandForm extends Component
 {
+
+    use WithFileUploads;
     public $name;
     public $modelId;
     public $oldname;
+    public $photo;
 
     protected $listeners = [
-        'getModelId',
         'refreshChild' => '$refresh',
         'forceCloseModal',
     ];
@@ -21,55 +25,54 @@ class BrandForm extends Component
     protected function rules(){
         return [
             'name'=> ['required', Rule::unique('brand')->ignore($this->modelId)],
+            'photo' => 'required|image',
         ];
-    }
-
-     public function forceCloseModal(){
-        $this->cleanVars();
-        $this->resetErrorBag();
-    }
-
-    public function getModelId($modelId){
-        $this->modelId = $modelId;
-        $brand = Brand::findorFail($this->modelId);
-        $this->name = $brand->name;
     }
 
     public function updated($fields){
         $this->validateOnly($fields,[
             'name' => 'required|unique:brand,name,'.$this->modelId.'',
-        ]);
+            'photo' => 'required|image',
+        ]) ;
     }
+
+    public function forceCloseModal(){
+        $this->cleanVars();
+        $this->resetErrorBag();
+    }
+
+
 
     public function closeModal(){
         $this->cleanVars();
         $this->resetErrorBag();
-        $this->dispatchBrowserEvent('CloseModal');
+        $this->dispatchBrowserEvent('CloseAddItemModal');
     }
 
     public function StoreBrandData(){
-        $model = Brand::find($this->modelId);
-        if($this->modelId){
-            abort_if(Gate::denies('brand_edit'),403);
-            $this->validate();
-            $this->oldname = $model->name;
-            $model->name = $this->name;
-            $model->update();
-
-            $this->dispatchBrowserEvent('SuccessAlert',[
-                'name' => $this->oldname.' was sucessfully changed to '.$this->name,
-                'title' => 'Record Successfully Edit',
-            ]);
-        }else{
-            abort_if(Gate::denies('brand_create'),403);
-            Brand::create($this->validate());
-            $this->dispatchBrowserEvent('SuccessAlert',[
-                'name' => $this->name.' was successfully saved!',
-                'title' => 'Record Saved',
-            ]);
+        if(!Storage::disk('public')->exists('brand'))
+        {
+            Storage::disk('public')->makeDirectory('brand', 0775, true);
         }
+
+        $model = Brand::find($this->modelId);
+        abort_if(Gate::denies('brand_create'),403);
+        $this->validate();
+        if(!empty($this->photo)){
+            $this->photo->store('public/brand');
+        }
+        $data = [
+            'name' => $this->name,
+            'photo' => $this->photo->hashName(),
+        ];
+        Brand::create($data);
+        $this->dispatchBrowserEvent('SuccessAlert',[
+            'name' => $this->name.' was successfully saved!',
+            'title' => 'Record Saved',
+        ]);
+
         $this->cleanVars();
-        $this->dispatchBrowserEvent('CloseModal');
+        $this->dispatchBrowserEvent('CloseAddItemModal');
         $this->emit('refreshParent');
         $this->resetErrorBag();
     }

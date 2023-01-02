@@ -1,12 +1,14 @@
 @extends('customer.layout.base')
 @section('content')
 @section('title', 'Address')
-
+<!-- Begin: Header -->
 <div class="intro-y flex items-center mt-8">
     <h2 class="text-lg font-medium mr-auto">
         Welcome to Go Dental!
     </h2>
 </div>
+<!-- End: Header -->
+<!-- Begin: Create Address Body -->
 <div class="grid grid-cols-12 gap-6">
     <!-- BEGIN: Profile Menu -->
     @include('customer.component.side-profile')
@@ -20,7 +22,7 @@
                 </h2>
             </div>
             <div class="p-5">
-                <!-- Show All Error in Field -->
+                <!--Begin: Display All Errors -->
                 @if ($errors->any())
                     <div class="alert alert-danger show mb-4" role="alert">
                         <div class="flex items-center">
@@ -34,9 +36,12 @@
                         </div>
                     </div>
                 @endif
+                <!-- End: Display All Errors -->
+                <!-- Begin: Fail Session -->
                 @if(session('fail'))
                      <div class="alert alert-danger show flex items-center mb-2" role="alert"> <i data-lucide="alert-octagon" class="w-6 h-6 mr-2"></i> {{ session('fail') }} </div>
                 @endif
+                <!-- End: Fail Session -->
                 <form action="{{ Route('customer.address.create') }}" method="POST">
                 @csrf
                 <div class="grid grid-cols-12 gap-x-5">
@@ -88,12 +93,10 @@
                 </form>
             </div>
         </div>
+        <!-- BEGIN: ADDRESS FORM  -->
     </div>
 </div>
-    <!-- END: ADDRESS FORM -->
-
-
-
+ <!-- End: Create Address Body -->
 @endsection
 @push('scripts')
 <script src="{{ asset('dist/js/address.js') }}"></script>

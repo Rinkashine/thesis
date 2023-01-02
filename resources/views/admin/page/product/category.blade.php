@@ -1,17 +1,25 @@
 @extends('admin.layout.admin')
 @section('content')
 @section('title', 'Category')
+<!-- Begin: Header -->
 <h2 class="intro-y text-lg font-medium mt-10">Category</h2>
-<!-- Begin: Category Form Modal -->
-<livewire:form.category-form/>
-<!-- End: Category Form Modal -->
+<!-- End: Header -->
+
 <!-- Begin: Category Table -->
 <livewire:table.category-table/>
 <!-- End: Category Table -->
 <!-- Begin: Delete Category Modal -->
 <livewire:modal.delete-category/>
 <!-- End: Delete Category Modal -->
-
+<!-- Begin: Category Form Modal -->
+<livewire:form.category-form/>
+<!-- End: Category Form Modal -->
+<!-- Begin: Category Edit Form Modal -->
+<livewire:form.category-edit-form/>
+<!-- End: Category Edit Form Modal -->
+<!-- Begin: Change Photo Form Modal -->
+<livewire:form.category-change-photo-form/>
+<!-- End: Change Photo Form Modal -->
 <!--Begin: Success Notification -->
 <div id="success-notification-content" class="toastify-content hidden flex non-sticky-notification-content">
     <i class="fa-regular fa-circle-check fa-3x text-success mx-auto"></i>
@@ -36,19 +44,48 @@
 @push('scripts')
 <script>
     //Show Form Modal
-    const myModal = tailwind.Modal.getInstance(document.querySelector("#add-item-modal"));
-    window.addEventListener('OpenModal',event => {
-        myModal.show();
-    });
+    const addItemModal = tailwind.Modal.getInstance(document.querySelector("#add-item-modal"));
     //Hide Form Modal
-    window.addEventListener('CloseModal',event => {
-        myModal.hide();
+    window.addEventListener('CloseAddItemModal',event => {
+        addItemModal.hide();
     });
     //Closing Modal and Refreshing its value
-    const myModalEl = document.getElementById('add-item-modal')
-     myModalEl.addEventListener('hidden.tw.modal', function(event) {
+    const ForceCloseaddItemModal = document.getElementById('add-item-modal')
+    ForceCloseaddItemModal.addEventListener('hidden.tw.modal', function(event) {
         livewire.emit('forceCloseModal');
-    })
+    });
+
+    //Show Edit Form Modal
+    const editItemModal = tailwind.Modal.getInstance(document.querySelector("#edit-item-modal"));
+    window.addEventListener('OpenEditModal',event => {
+        editItemModal.show();
+    });
+    //Hide Add Form Modal
+    window.addEventListener('closeEditModal',event => {
+        editItemModal.hide();
+
+    });
+    //Closing Modal and Refreshing its value
+    const ForceCloseEditItemModal = document.getElementById('edit-item-modal')
+    ForceCloseEditItemModal.addEventListener('hidden.tw.modal', function(event) {
+        livewire.emit('forceCloseEditModal');
+    });
+
+    //Show Form Modal
+    const ChangePhotoModal = tailwind.Modal.getInstance(document.querySelector("#change-item-modal"));
+    window.addEventListener('openChangePhotoModal',event => {
+        ChangePhotoModal.show();
+
+    });
+    //Hide Form Modal
+    window.addEventListener('closeChangePhotoModal',event => {
+        ChangePhotoModal.hide();
+    });
+    //Closing Modal and Refreshing its value
+    const ForceCloseChangePhotoModal = document.getElementById('change-item-modal')
+    ForceCloseChangePhotoModal.addEventListener('hidden.tw.modal', function(event) {
+        livewire.emit('forceClosePhotoModal');
+    });
     //SuccessAlert
     window.addEventListener('SuccessAlert',event => {
         let id = (Math.random() + 1).toString(36).substring(7);

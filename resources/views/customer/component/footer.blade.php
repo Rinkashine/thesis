@@ -4,23 +4,19 @@
  <footer class="pt-10 bg-success">
     <div>
       <div class="flex flex-col w-11/12 mx-auto gap-9 md:flex-row">
-
         <!-- GO DENTAL / Div1 -->
-
         <div class="intro-x flex-auto text-gray-200 md:w-72 ">
             <p class="mb-4 text-lg font-semibold md:text-center">GO DENTAL</p>
-                <span class="text-base font-light mb-7">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
-                in reprehenderit in voluptate velit esse cillum dolore eu fugiat
-                nulla pariatur.
-                </span>
+            <span class="text-base font-light mb-7">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+            enim ad minim veniam, quis nostrud exercitation ullamco laboris
+            nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
+            in reprehenderit in voluptate velit esse cillum dolore eu fugiat
+            nulla pariatur.
+            </span>
         </div>
-
         <!-- Contact Us / Div2 -->
-
         <div class="intro-x text-gray-200 md:w-48">
             <a href="{{ Route('contact') }}" class="mb-4 text-lg font-semibold">Contact Us</a>
               <ul>
@@ -58,9 +54,7 @@
                 </li>
               </ul>
         </div>
-
         <!-- Customer Care / Div3 -->
-
         <div class="intro-x text-gray-200 md:w-48">
             <h4 class="mb-4 text-lg font-semibold text-gray-200">Customer Care</h4>
             <ul>
@@ -91,9 +85,7 @@
               </li>
             </ul>
         </div>
-
         <!-- Our Address / Div4 -->
-
           <div class="intro-x md:w-96">
             <h4 class="intro-x mb-2 text-lg font-semibold text-gray-200">Our Address</h4>
                 <p class="inline-block mb-2 text-base leading-loose text-gray-200 hover:text-primary">
@@ -121,4 +113,4 @@
           </div>
       </div>
     </div>
-  </footer>
+</footer>

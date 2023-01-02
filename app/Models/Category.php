@@ -10,14 +10,14 @@ class Category extends Model
     use HasFactory;
     protected $table = 'category';
      protected $fillable = [
-        'name',     
+        'name','photo',
     ];
      public function categoryTransactions(){
         return $this->hasMany(Product::class,'category_id','id');
     }
 
     public static function search($search){
-        return empty($search) ? static::query() : 
+        return empty($search) ? static::query() :
         static::query()->where('name','like','%'.$search.'%');
     }
 }

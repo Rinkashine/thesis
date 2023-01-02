@@ -1,11 +1,13 @@
 @extends('customer.layout.base')
 @section('content')
 @section('title', 'About Us')
+<!-- Begin: Header -->
 <div class="intro-y flex items-center mt-8">
     <h2 class="text-lg font-medium mr-auto">
         About us
     </h2>
 </div>
+<!-- End: Header -->
 <!-- Begin: Main Container -->
 <div class="grid grid-cols-12 gap-6 mt-5">
     <!-- BEGIN: Mission, Vision, and Core Values -->
