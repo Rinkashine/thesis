@@ -12,18 +12,11 @@
                             <option value="nameza">Supplier Name Z-A</option>
                         </select>
                     </div>
-
                     <div class="sm:flex items-center sm:mr-4 mt-2 xl:mt-0">
                         <label class="w-12 flex-none xl:w-auto xl:flex-initial mr-2">Value</label>
                         <input type="search" wire:model.lazy="search" class="form-control sm:w-40 2xl:w-full mt-2 sm:mt-0" placeholder="Search...">
                     </div>
-                    <div class="mt-2 xl:mt-0">
-                        <a href="{{Route('supplier.index')}}">
-                            <button  type="button" class="btn btn-secondary w-full sm:w-32 mt-2 sm:mt-0 sm:ml-1" >  <i class="fa-solid fa-arrow-left w-4 h-4 mr-2"></i>Return</button>
-                        </a>
-                    </div>
                 </div>
-
             </div>
            <div class="overflow-x-auto scrollbar-hidden">
                @if($suppliers->count())

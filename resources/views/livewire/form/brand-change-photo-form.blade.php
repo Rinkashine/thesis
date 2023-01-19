@@ -11,7 +11,7 @@
                 <div class="modal-body grid grid-cols-12 gap-4 gap-y-3">
                     @csrf
                     <div class="col-span-12">
-                        <label for="pos-form-1" class="form-label">Image:</label>
+                        <label for="name" class="form-label w-full flex flex-col sm:flex-row">Brand Image: <span class="sm:ml-auto mt-1 sm:mt-0 text-xs text-slate-500">Required</span> </label>
                         <input type="file" wire:model.lazy="photo"  placeholder="text" accept="image/*"  class="form-control p-1 flex-1 @error('photo') border-danger @enderror">
                         <div wire:loading wire:target="photo">Uploading...</div>
                         <div class="text-danger mt-2">@error('photo'){{$message}}@enderror</div>

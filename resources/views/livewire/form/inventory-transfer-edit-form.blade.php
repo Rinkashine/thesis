@@ -1,5 +1,5 @@
 <div>
-    <form wire:submit.prevent="StoreTransferData">
+    <form wire:submit.prevent="UpdateTransferData">
         <div class="grid grid-cols-12 gap-x-6 mt-5 pb-20">
             <div class="intro-y col-span-12">
                 <!-- Begin: Product Information -->
@@ -131,15 +131,15 @@
                                     </thead>
                                     <tbody>
                                         @foreach ($selectedProducts as $key=>$selectedproduct)
-                                            <tr>
-                                                <td>{{ $selectedproduct['name'] }}</td>
-                                                <td> {{ $selectedproduct['SKU'] }}</td>
-                                                <td>
-                                                    <input type="number" oninput="onInput(this,{{ $selectedproduct['id'] }}, {{ $key }})" placeholder="Order Quantity" class="form-control">
-                                                </td>
-                                                <td> <button type="button" wire:click="DeleteTd({{ json_encode($selectedproduct)}})">Delete</button> </td>
-                                            </tr>
-                                        @endforeach
+                                        <tr>
+                                            <td>{{ $selectedproduct['name'] }}</td>
+                                            <td>{{ $selectedproduct['SKU'] }}</td>
+                                            <td>
+                                                <input type="number" value="{{ $selectedproduct['quantity'] }}" oninput="onInput(this,{{ $selectedproduct['id'] }}, {{ $key }})" placeholder="Order Quantity" class="form-control">
+                                            </td>
+                                            <td> <button type="button" wire:click="DeleteTd({{ json_encode($selectedproduct)}}, {{ $key }})">Delete</button> </td>
+                                        </tr>
+                                    @endforeach
                                     </tbody>
                                 </table>
                             </div>

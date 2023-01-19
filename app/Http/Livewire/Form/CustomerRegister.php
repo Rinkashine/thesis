@@ -24,6 +24,7 @@ class CustomerRegister extends Component
     public $password_confirmation;
     public $birthday;
     public $recaptcha;
+    public $maxdate;
 
     protected function rules(){
         return [

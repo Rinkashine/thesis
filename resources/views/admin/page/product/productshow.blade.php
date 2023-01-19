@@ -1,11 +1,13 @@
 @extends('admin.layout.admin')
 @section('content')
 @section('title', 'Product')
+<!-- Begin: Header -->
 <div class="intro-y flex flex-col sm:flex-row items-center mt-8">
     <h2 class="text-lg font-medium mr-auto">Showing Product - {{$product->name}}</h2>
 </div>
+<!-- End: Header -->
+<!-- Begin: Display Product Information -->
 <div class="col-span-12 lg:col-span-8 2xl:col-span-9">
-    <!-- BEGIN: Display Product Information -->
     <div class="intro-y box mt-2 lg:mt-5">
         <div class="flex items-center p-5 border-b border-slate-200/60 dark:border-darkmode-400">
             <h2 class="font-medium text-base mr-auto">
@@ -103,9 +105,9 @@
                     <a href="{{Route('product.index')}}"  class="btn btn-outline-secondary w-24 mr-1">Return</a>
                 </div>
             @endif
-
         </div>
     </div>
     <!-- END: Product Image  -->
 </div>
+<!-- End: Display Product Information -->
 @endsection

@@ -2,30 +2,34 @@
 @section('content')
 @section('title', 'Edit Product')
 
-    @livewire('form.product-edit-form',['product' => $product])
-
-    <livewire:modal.delete-product-image/>
-
-    @if(session('success'))
-        <div id="edit-success-notification-content" class="toastify-content hidden flex non-sticky-notification-content">
-            <i class="fa-regular fa-circle-check fa-3x text-success mx-auto"></i>
-            <div class="ml-4 mr-4">
-                <div class="font-medium">Product Added Successfully</div>
-                <div class="text-slate-500 mt-1">{{session('success')}}</div>
-            </div>
+<!-- Begin Product Edit Form -->
+@livewire('form.product-edit-form',['product' => $product])
+<!-- End: Product Edit Form -->
+<!-- Begin: Delete Product Image Modal -->
+<livewire:modal.delete-product-image/>
+<!-- End: Delete Product Image Moda -->
+<!-- Begin: Success Session Notifaction -->
+@if(session('success'))
+    <div id="edit-success-notification-content" class="toastify-content hidden flex non-sticky-notification-content">
+        <i class="fa-regular fa-circle-check fa-3x text-success mx-auto"></i>
+        <div class="ml-4 mr-4">
+            <div class="font-medium">Product Added Successfully</div>
+            <div class="text-slate-500 mt-1">{{session('success')}}</div>
         </div>
-        <script>
-        Toastify({
-            node: $("#edit-success-notification-content") .clone() .removeClass("hidden")[0],
-            duration: 7000,
-            newWindow: true,
-            close: true,
-            gravity: "top",
-            position: "right",
-            stopOnFocus: true, }).showToast();
-        </script>
-    @endif
-
+    </div>
+    <script>
+    Toastify({
+        node: $("#edit-success-notification-content") .clone() .removeClass("hidden")[0],
+        duration: 7000,
+        newWindow: true,
+        close: true,
+        gravity: "top",
+        position: "right",
+        stopOnFocus: true, }).showToast();
+    </script>
+@endif
+<!-- End: Success Session Notification -->
+<!-- Begin: Invalid Notification -->
 <div id="invalid-success-notification-content" class="toastify-content hidden flex non-sticky-notification-content">
     <i class="fa-regular fa-circle-xmark fa-3x text-danger mx-auto"></i>
     <div class="ml-4 mr-4">
@@ -33,7 +37,7 @@
         <div class="text-slate-500 mt-1" id="message"></div>
      </div>
 </div>
-
+<!-- End: Invalid Notification -->
 @push('scripts')
 
 <script>

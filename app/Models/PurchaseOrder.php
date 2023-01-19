@@ -19,4 +19,7 @@ class PurchaseOrder extends Model
      public function suppliers(){
        return $this-> belongsTo(Supplier::class);
     }
+    public function ordered_items(){
+        return $this->belongsTo(OrderedItems::class);
+    }
 }

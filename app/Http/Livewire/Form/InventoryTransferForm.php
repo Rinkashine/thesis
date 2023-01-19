@@ -12,7 +12,7 @@ use Illuminate\Support\Arr;
 class InventoryTransferForm extends Component
 {
     public $transferproducts = [];
-
+    public $mindate;
     protected $listeners = [
         'Prod',
     ];

@@ -84,12 +84,16 @@
                         <div class="relative p-3 rounded-md box zoom-in p-5">
                             <a href="{{ Route('product',['filterbycategory' => $category]) }}">
                                 <div class="h-48 2xl:h-48">
-                                    <img alt="" class="object-scale-down w-full h-48 rounded-md" src="dist/images/logo.png">
+
+                                    @if(!empty($category->photo))
+                                        <img alt="Missing Category Image" class="object-scale-down w-full h-48 rounded-md" src="{{ url('storage/category/'.$category->photo) }}">
+                                    @else
+                                        <img alt="Missing Category Image" class="object-scale-down w-full h-48 rounded-md" src="{{asset('dist/images/undraw_pic.svg')}}">
+                                    @endif
                                 </div>
                                 <div class="block mt-3 font-medium text-center truncate">{{$category->name }} </div>
                             </a>
                         </div>
-
                     @endforeach
                 </div>
             </div>

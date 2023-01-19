@@ -11,7 +11,7 @@
                 <div class="modal-body grid grid-cols-12 gap-4 gap-y-3">
                     @csrf
                     <div class="col-span-12">
-                        <label for="pos-form-1" class="form-label">Name</label>
+                        <label for="name" class="form-label w-full flex flex-col sm:flex-row">Category Name: <span class="sm:ml-auto mt-1 sm:mt-0 text-xs text-slate-500">Required</span> </label>
                         <input type="text" id="title" wire:model.lazy="name" class="form-control flex-1 @error('name') border-danger @enderror" placeholder="Brand Name" >
                         <div class="text-danger mt-2">@error('name'){{$message}}@enderror</div>
                     </div>

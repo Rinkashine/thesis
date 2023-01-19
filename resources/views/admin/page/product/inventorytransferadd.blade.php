@@ -20,4 +20,5 @@
         livewire.emit('Prod',element.value,id,index);
     }
 </script>
+
 @endpush

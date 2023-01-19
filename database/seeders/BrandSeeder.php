@@ -21,237 +21,207 @@ class BrandSeeder extends Seeder
         DB::table('brand') ->insert([
             [
                 'name' => 'Glomed', //1
-                'photo' => 'Sample.png',
+                'photo' => 'Glomed.png',
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
             ],[
                 'name' => 'Microsuper', //2
-                'photo' => 'Sample.png',
+                'photo' => 'Microsuper.png',
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
             ],[
-                'name' => 'HCD', //3
-                'photo' => 'Sample.png',
+                'name' => 'HomeCareDelivered', //3
+                'photo' => 'homecaredelivered.jpg',
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
             ],[
                 'name' => 'Defender', //4
-                'photo' => 'Sample.png',
+                'photo' => 'Defender.png',
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
             ],[
-                'name' => 'Worldworks', //5
-                'photo' => 'Sample.png',
+                'name' => 'WorldWork', //5
+                'photo' => 'WorldWork.png' ,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
             ],[
-                'name' => 'MICRO', //6
-                'photo' => 'Sample.png',
+                'name' => 'Armstrong', //6
+                'photo' => 'Armstrong.png',
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
             ],[
-                'name' => 'Flexi', //7
-                'photo' => 'Sample.png',
+                'name' => 'Cyanamid', //7
+                'photo' => 'Cyanamid.png',
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
             ],[
-                'name' => 'Armstrong', //8
-                'photo' => 'Sample.png',
+                'name' => 'Denject', //8
+                'photo' => 'Denject.png',
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
             ],[
-                'name' => 'Cyanamid', //9
-                'photo' => 'Sample.png',
+                'name' => 'Misawa Medical', //9
+                'photo' => 'Misawa_Medical.png',
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
             ],[
-                'name' => 'Denject', //10
-                'photo' => 'Sample.png',
+                'name' => 'Tudor', //10
+                'photo' => 'Tudor.png',
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
             ],[
-                'name' => 'Misawa Medical', //11
-                'photo' => 'Sample.png',
+                'name' => 'Dochem', //11
+                'photo' =>'Dochem.png',
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
             ],[
-                'name' => 'Vject', //12
-                'photo' => 'Sample.png',
+                'name' => 'Thomas', //12
+                'photo' => 'Thomas.png',
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
             ],[
-                'name' => 'Tudor', //13
-                'photo' => 'Sample.png',
+                'name' => 'Vericom', //13
+                'photo' => 'Vericom.png',
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
             ],[
-                'name' => 'Dochem', //14
-                'photo' => 'Sample.png',
+                'name' => 'WP Dental', //14
+                'photo' => 'WP_Dental.png',
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
             ],[
-                'name' => 'Thomas', //15
-                'photo' => 'Sample.png',
+                'name' => 'R&S', //15
+                'photo' =>  'R&S.png',
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
             ],[
-                'name' => 'Vericom', //16
-                'photo' => 'Sample.png',
+                'name' => 'Medicom', //16
+                'photo' => 'Medicom.png',
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
             ],[
-                'name' => 'V-Varnish', //17
-                'photo' => 'Sample.png',
+                'name' => 'ZT Dental', //17
+                'photo' => 'ZT_Dental.png',
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
             ],[
-                'name' => 'WP Dental', //18
-                'photo' => 'Sample.png',
+                'name' => 'Technew', //18
+                'photo' => 'Technew.png',
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
             ],[
-                'name' => 'R&S', //19
-                'photo' => 'Sample.png',
+                'name' => 'GC America', //19
+                'photo' => 'GC_America.png',
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
             ],[
-                'name' => 'Medicom', //20
-                'photo' => 'Sample.png',
+                'name' => 'Densply Sirona', //20
+                'photo' => 'Dentsply_Sirona.png',
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
             ],[
-                'name' => 'ZT Dental', //21
-                'photo' => 'Sample.png',
+                'name' => 'Wards', //21
+                'photo' => 'Wards.png',
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
             ],[
-                'name' => 'Technew', //22
-                'photo' => 'Sample.png',
+                'name' => 'Itena', //22
+                'photo' => 'Itena.png',
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
             ],[
-                'name' => 'Fuji', //23
-                'photo' => 'Sample.png',
+                'name' => '3M', //23
+                'photo' => '3M.png',
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
             ],[
-                'name' => 'Densply Sirona', //24
-                'photo' => 'Sample.png',
+                'name' => 'Mega Physik', //24
+                'photo' => 'Mega-Physik.png',
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
             ],[
-                'name' => 'Wards', //25
-                'photo' => 'Sample.png',
+                'name' => 'Megadenta', //25
+                'photo' => 'Megadenta.png',
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
             ],[
-                'name' => 'Ionocem', //26
-                'photo' => 'Sample.png',
+                'name' => 'Bosworth', //26
+                'photo' => 'Bosworth.png',
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
             ],[
-                'name' => '3M', //27
-                'photo' => 'Sample.png',
+                'name' => 'Spident', //27
+                'photo' => 'Spident.png',
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
             ],[
-                'name' => 'Hybrusin', //28
-                'photo' => 'Sample.png',
+                'name' => 'Zeyco', //28
+                'photo' => 'Zeyco.png',
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
             ],[
-                'name' => 'Megadenta', //29
-                'photo' => 'Sample.png',
+                'name' => 'AstraZeneca', //29
+                'photo' => 'AstraZeneca.png',
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
             ],[
-                'name' => 'Bosworth', //30
-                'photo' => 'Sample.png',
+                'name' => 'New Stetic', //30
+                'photo' =>  'New_Stetic.png',
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
             ],[
-                'name' => 'Spident', //31
-                'photo' => 'Sample.png',
+                'name' => 'Hizon', //31
+                'photo' => 'Hizon.png',
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
             ],[
-                'name' => 'Zeyco', //32
-                'photo' => 'Sample.png',
+                'name' => 'GC Australia', //32
+                'photo' => 'GC_Australia.png',
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
             ],[
-                'name' => 'AstraZeneca', //33
-                'photo' => 'Sample.png',
+                'name' => 'Dentflex', //33
+                'photo' => 'Dentflex.png',
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
             ],[
-                'name' => 'New Stetic', //34
-                'photo' => 'Sample.png',
+                'name' => 'PGO Dental', //34
+                'photo' => 'PGO_Dental.png',
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
             ],[
-                'name' => 'Artheek', //35
-                'photo' => 'Sample.png',
+                'name' => 'Zhermack', //35
+                'photo' => 'Zhermack.png',
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
             ],[
-                'name' => 'Hizon', //36
-                'photo' => 'Sample.png',
+                'name' => 'Sky Ortho', //36
+                'photo' => 'SkyOrtho.png',
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
             ],[
-                'name' => 'GC', //37
-                'photo' => 'Sample.png',
+                'name' => 'G&H', //37
+                'photo' => 'G&H.png',
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
             ],[
-                'name' => 'Densply', //38
-                'photo' => 'Sample.png',
+                'name' => 'Suntem', //38
+                'photo' => 'Suntem.png',
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
             ],[
-                'name' => 'Dentflex', //39
-                'photo' => 'Sample.png',
+                'name' => 'Dental America', //39
+                'photo' => 'Dental_America.png',
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
             ],[
-                'name' => 'Makintal', //40
-                'photo' => 'Sample.png',
+                'name' => 'Resplendent', //40
+                'photo' =>  'Resplendent.png',
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
             ],[
-                'name' => 'Zhermack', //41
-                'photo' => 'Sample.png',
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now(),
-            ],[
-                'name' => 'Sky Ortho', //42
-                'photo' => 'Sample.png',
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now(),
-            ],[
-                'name' => 'G&H', //43
-                'photo' => 'Sample.png',
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now(),
-            ],[
-                'name' => 'Suntem', //44
-                'photo' => 'Sample.png',
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now(),
-            ],[
-                'name' => 'Denta America', //45
-                'photo' => 'Sample.png',
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now(),
-            ],[
-                'name' => 'Respledent', //46
-                'photo' => 'Sample.png',
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now(),
-            ],[
-                'name' => 'Unbranded', //47
-                'photo' => 'Sample.png',
+                'name' => 'Unbranded', //41
+                'photo' => 'Unbranded.png',
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
             ]

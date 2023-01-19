@@ -18,6 +18,10 @@ class BrandEditForm extends Component
         'forceCloseEditModal',
     ];
 
+    protected $validationAttributes = [
+        'name' => 'brand name',
+    ];
+
     protected function rules(){
         return [
             'name'=> ['required', Rule::unique('brand')->ignore($this->modelId)],

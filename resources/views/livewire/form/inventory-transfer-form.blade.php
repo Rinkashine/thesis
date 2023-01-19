@@ -135,7 +135,7 @@
                                                 <td>{{ $selectedproduct['name'] }}</td>
                                                 <td> {{ $selectedproduct['SKU'] }}</td>
                                                 <td>
-                                                    <input type="number" oninput="onInput(this,{{ $selectedproduct['id'] }}, {{ $key }})" placeholder="Order Quantity" class="form-control">
+                                                    <input type="number"  oninput="onInput(this,{{ $selectedproduct['id'] }}, {{ $key }})" placeholder="Order Quantity" class="form-control">
                                                 </td>
                                                 <td> <button type="button" wire:click="DeleteTd({{ json_encode($selectedproduct)}})">Delete</button> </td>
                                             </tr>
@@ -168,7 +168,7 @@
                                         </div>
                                     </div>
                                     <div class="w-full mt-3 xl:mt-0 flex-1">
-                                        <input type="date" wire:model="shipping" class="form-control" data-single-mode="true">
+                                        <input type="date" min="{{ $mindate }}" id="estimatedate" wire:model="shipping" class="form-control" data-single-mode="true">
                                     </div>
                                 </div>
                                 <div class="form-inline items-start flex-col xl:flex-row mt-5 pt-5 first:mt-0 first:pt-0">
@@ -214,4 +214,24 @@
             </div>
         </div>
     </form>
+    @push('scripts')
+    <script>
+    document.addEventListener('livewire:load', function () {
+        var todayDate = new Date();
+        var month = todayDate.getMonth() + 1;
+        var year =  todayDate.getUTCFullYear();
+        var tdate = todayDate.getDate();
+        if(month < 9){
+            month = "0" + month;
+        }
+        if(tdate < 10){
+            tdate = "0" + tdate;
+        }
+        var maxDate = year + "-" + month + "-" + tdate;
+        @this.mindate = maxDate;
+        livewire.emit("minDate",maxDate)
+        document.getElementById("estimatedate").setAttribute("min", maxDate);
+    })
+    </script>
+    @endpush
 </div>

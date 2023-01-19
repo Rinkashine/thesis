@@ -23,7 +23,7 @@ class ProductSeeder extends Seeder
                 'category_id' => 1,
                 'brand_id' => 1,
                 'stock' => 12,
-                'stock_warning' => 2,
+                'stock_warning' => 5,
                 'SKU' => 'GLG001',
                 'cprice' => 450,
                 'sprice' => 490,
@@ -39,7 +39,7 @@ class ProductSeeder extends Seeder
                 'category_id' => 1,
                 'brand_id' => 2,
                 'stock' => 12,
-                'stock_warning' => 4,
+                'stock_warning' => 5,
                 'SKU' => 'MIG001',
                 'cprice' => 220,
                 'sprice' => 250,
@@ -88,7 +88,7 @@ class ProductSeeder extends Seeder
             ],[
                 'name' => 'Disposable Mask',
                 'category_id' => 2,
-                'brand_id' => 47,
+                'brand_id' => 41,
                 'stock' => 15,
                 'stock_warning' => 5,
                 'SKU' => 'DIM001',
@@ -103,7 +103,7 @@ class ProductSeeder extends Seeder
             ],[
                 'name' => 'KN-95 Mask',
                 'category_id' => 2,
-                'brand_id' => 47,
+                'brand_id' => 41,
                 'stock' => 20,
                 'stock_warning' => 20,
                 'SKU' => 'KN9001',
@@ -118,7 +118,7 @@ class ProductSeeder extends Seeder
             ],[
                 'name' => '2-Ply Dental Bib',
                 'category_id' => 3,
-                'brand_id' => 47,
+                'brand_id' => 41,
                 'stock' => 20,
                 'stock_warning' => 20,
                 'SKU' => '2PL001',
@@ -148,9 +148,9 @@ class ProductSeeder extends Seeder
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
             ],[
-                'name' => 'MICRO Saliva Ejector',
+                'name' => 'Micro Saliva Ejector',
                 'category_id' => 4,
-                'brand_id' => 6,
+                'brand_id' => 41,
                 'stock' => 20,
                 'stock_warning' => 20,
                 'SKU' => 'MSE001',
@@ -164,9 +164,9 @@ class ProductSeeder extends Seeder
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
             ],[
-                'name' => 'Flexi Saliva Ejector',
+                'name' => 'Flexible Saliva Ejector',
                 'category_id' => 4,
-                'brand_id' => 7,
+                'brand_id' => 41,
                 'stock' => 20,
                 'stock_warning' => 20,
                 'SKU' => 'FSE001',
@@ -183,7 +183,7 @@ class ProductSeeder extends Seeder
             ],[
                 'name' => 'Surgical Sunction Tip',
                 'category_id' => 4,
-                'brand_id' => 47,
+                'brand_id' => 41,
                 'stock' => 19,
                 'stock_warning' => 20,
                 'SKU' => 'SST001',
@@ -198,7 +198,7 @@ class ProductSeeder extends Seeder
             ],[
                 'name' => 'Armstrong Diestone',
                 'category_id' => 5,
-                'brand_id' => 8,
+                'brand_id' => 6,
                 'stock' => 40,
                 'stock_warning' => 20,
                 'SKU' => 'ARD001',
@@ -213,7 +213,7 @@ class ProductSeeder extends Seeder
             ],[
                 'name' => 'Armstrong Castone',
                 'category_id' => 5,
-                'brand_id' => 8,
+                'brand_id' => 6,
                 'stock' => 40,
                 'stock_warning' => 20,
                 'SKU' => 'ARC001',
@@ -228,7 +228,7 @@ class ProductSeeder extends Seeder
             ],[
                 'name' => 'Plaster of Paris',
                 'category_id' => 5,
-                'brand_id' => 47,
+                'brand_id' => 41,
                 'stock' => 40,
                 'stock_warning' => 20,
                 'SKU' => 'PLP001',
@@ -243,7 +243,7 @@ class ProductSeeder extends Seeder
             ],[
                 'name' => 'Cyanamid Surgical Silk',
                 'category_id' => 6,
-                'brand_id' => 9,
+                'brand_id' => 7,
                 'stock' => 40,
                 'stock_warning' => 20,
                 'SKU' => 'CYS001',
@@ -258,7 +258,7 @@ class ProductSeeder extends Seeder
             ],[
                 'name' => 'Denject Disposable Needles',
                 'category_id' => 10,
-                'brand_id' => 10,
+                'brand_id' => 8,
                 'stock' => 40,
                 'stock_warning' => 20,
                 'SKU' => 'DDN001',
@@ -276,7 +276,7 @@ class ProductSeeder extends Seeder
             ],[
                 'name' => 'Misawa Medical Disposable Needle',
                 'category_id' => 10,
-                'brand_id' => 11,
+                'brand_id' => 9,
                 'stock' => 40,
                 'stock_warning' => 20,
                 'SKU' => 'MMD001',
@@ -291,7 +291,7 @@ class ProductSeeder extends Seeder
             ],[
                 'name' => 'Vject Disposable Needles',
                 'category_id' => 10,
-                'brand_id' => 16,
+                'brand_id' => 13,
                 'stock' => 40,
                 'stock_warning' => 20,
                 'SKU' => 'VDN001',
@@ -309,7 +309,7 @@ class ProductSeeder extends Seeder
             ],[
                 'name' => 'Tudor Chromic Absorbable Suture',
                 'category_id' => 6,
-                'brand_id' => 13,
+                'brand_id' => 10,
                 'stock' => 40,
                 'stock_warning' => 20,
                 'SKU' => 'TCA001',
@@ -324,7 +324,7 @@ class ProductSeeder extends Seeder
             ],[
                 'name' => 'Tudor Silk Non-Absorbable Suture',
                 'category_id' => 6,
-                'brand_id' => 13,
+                'brand_id' => 10,
                 'stock' => 40,
                 'stock_warning' => 20,
                 'SKU' => 'TSN001',
@@ -339,7 +339,7 @@ class ProductSeeder extends Seeder
             ],[
                 'name' => 'Dochem Gutta Percha',
                 'category_id' => 7,
-                'brand_id' => 14,
+                'brand_id' => 11,
                 'stock' => 40,
                 'stock_warning' => 20,
                 'SKU' => 'DGP001',
@@ -358,7 +358,7 @@ class ProductSeeder extends Seeder
             ],[
                 'name' => 'Paper Point',
                 'category_id' => 7,
-                'brand_id' => 47,
+                'brand_id' => 41,
                 'stock' => 40,
                 'stock_warning' => 20,
                 'SKU' => 'PAP001',
@@ -377,7 +377,7 @@ class ProductSeeder extends Seeder
             ],[
                 'name' => 'Thomas L-25mm K-Files',
                 'category_id' => 7,
-                'brand_id' => 15,
+                'brand_id' => 12,
                 'stock' => 40,
                 'stock_warning' => 20,
                 'SKU' => 'TLK001',
@@ -393,7 +393,7 @@ class ProductSeeder extends Seeder
             ],[
                 'name' => 'Well-Pex',
                 'category_id' => 7,
-                'brand_id' => 16,
+                'brand_id' => 13,
                 'stock' => 40,
                 'stock_warning' => 20,
                 'SKU' => 'WEP001',
@@ -410,7 +410,7 @@ class ProductSeeder extends Seeder
             ],[
                 'name' => 'Well-Paste',
                 'category_id' => 7,
-                'brand_id' => 16,
+                'brand_id' => 13,
                 'stock' => 40,
                 'stock_warning' => 20,
                 'SKU' => 'WEP002',
@@ -427,7 +427,7 @@ class ProductSeeder extends Seeder
             ],[
                 'name' => 'Well-Root',
                 'category_id' => 7,
-                'brand_id' => 16,
+                'brand_id' => 13,
                 'stock' => 40,
                 'stock_warning' => 20,
                 'SKU' => 'WER001',
@@ -444,7 +444,7 @@ class ProductSeeder extends Seeder
             ],[
                 'name' => 'Well-Prep',
                 'category_id' => 7,
-                'brand_id' => 16,
+                'brand_id' => 13,
                 'stock' => 40,
                 'stock_warning' => 20,
                 'SKU' => 'WEP003',
@@ -459,7 +459,7 @@ class ProductSeeder extends Seeder
             ],[
                 'name' => 'Prophy Brush',
                 'category_id' => 8,
-                'brand_id' => 47,
+                'brand_id' => 41,
                 'stock' => 40,
                 'stock_warning' => 20,
                 'SKU' => 'PRB001',
@@ -474,7 +474,7 @@ class ProductSeeder extends Seeder
             ],[
                 'name' => 'Prophy Cup',
                 'category_id' => 8,
-                'brand_id' => 47,
+                'brand_id' => 41,
                 'stock' => 40,
                 'stock_warning' => 20,
                 'SKU' => 'PRC001',
@@ -489,7 +489,7 @@ class ProductSeeder extends Seeder
             ],[
                 'name' => 'Prophy Paste',
                 'category_id' => 8,
-                'brand_id' => 47,
+                'brand_id' => 41,
                 'stock' => 40,
                 'stock_warning' => 20,
                 'SKU' => 'PRP001',
@@ -502,9 +502,9 @@ class ProductSeeder extends Seeder
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
             ],[
-                'name' => 'Flouride Varnish',
+                'name' => 'V-Varnish',
                 'category_id' => 8,
-                'brand_id' => 17,
+                'brand_id' => 13,
                 'stock' => 40,
                 'stock_warning' => 20,
                 'SKU' => 'PLV001',
@@ -519,7 +519,7 @@ class ProductSeeder extends Seeder
             ],[
                 'name' => 'Pumice Powder',
                 'category_id' => 8,
-                'brand_id' => 47,
+                'brand_id' => 41,
                 'stock' => 40,
                 'stock_warning' => 20,
                 'SKU' => 'PUP001',
@@ -534,7 +534,7 @@ class ProductSeeder extends Seeder
             ],[
                 'name' => 'Pumice Powder Mint',
                 'category_id' => 8,
-                'brand_id' => 47,
+                'brand_id' => 41,
                 'stock' => 40,
                 'stock_warning' => 20,
                 'SKU' => 'PPM001',
@@ -549,7 +549,7 @@ class ProductSeeder extends Seeder
             ],[
                 'name' => 'Taxi Solution',
                 'category_id' => 8,
-                'brand_id' => 47,
+                'brand_id' => 41,
                 'stock' => 40,
                 'stock_warning' => 20,
                 'SKU' => 'TAS001',
@@ -564,7 +564,7 @@ class ProductSeeder extends Seeder
             ],[
                 'name' => 'C-Bond',
                 'category_id' => 9,
-                'brand_id' => 18,
+                'brand_id' => 14,
                 'stock' => 40,
                 'stock_warning' => 20,
                 'SKU' => 'CBO001',
@@ -582,7 +582,7 @@ class ProductSeeder extends Seeder
             ],[
                 'name' => 'Unibond',
                 'category_id' => 9,
-                'brand_id' => 19,
+                'brand_id' => 15,
                 'stock' => 40,
                 'stock_warning' => 20,
                 'SKU' => 'UNI001',
@@ -597,7 +597,7 @@ class ProductSeeder extends Seeder
             ],[
                 'name' => 'U-Bond',
                 'category_id' => 9,
-                'brand_id' => 16,
+                'brand_id' => 13,
                 'stock' => 40,
                 'stock_warning' => 20,
                 'SKU' => 'UBO001',
@@ -613,7 +613,7 @@ class ProductSeeder extends Seeder
             ],[
                 'name' => 'BC-Plus Bond',
                 'category_id' => 9,
-                'brand_id' => 16,
+                'brand_id' => 13,
                 'stock' => 40,
                 'stock_warning' => 20,
                 'SKU' => 'BPB001',
@@ -629,7 +629,7 @@ class ProductSeeder extends Seeder
             ],[
                 'name' => 'Applicator Tips',
                 'category_id' => 10,
-                'brand_id' => 47,
+                'brand_id' => 41,
                 'stock' => 40,
                 'stock_warning' => 20,
                 'SKU' => 'APT001',
@@ -646,7 +646,7 @@ class ProductSeeder extends Seeder
             ],[
                 'name' => 'Headcap',
                 'category_id' => 10,
-                'brand_id' => 47,
+                'brand_id' => 41,
                 'stock' => 40,
                 'stock_warning' => 20,
                 'SKU' => 'HEA001',
@@ -663,7 +663,7 @@ class ProductSeeder extends Seeder
             ],[
                 'name' => 'Mouth Mirror Head',
                 'category_id' => 10,
-                'brand_id' => 47,
+                'brand_id' => 41,
                 'stock' => 40,
                 'stock_warning' => 20,
                 'SKU' => 'MMH001',
@@ -678,7 +678,7 @@ class ProductSeeder extends Seeder
             ],[
                 'name' => 'Cottonroll',
                 'category_id' => 10,
-                'brand_id' => 20,
+                'brand_id' => 16,
                 'stock' => 40,
                 'stock_warning' => 20,
                 'SKU' => 'COT001',
@@ -694,7 +694,7 @@ class ProductSeeder extends Seeder
             ],[
                 'name' => 'Guaze',
                 'category_id' => 10,
-                'brand_id' => 20,
+                'brand_id' => 16,
                 'stock' => 40,
                 'stock_warning' => 20,
                 'SKU' => 'GUA001',
@@ -710,7 +710,7 @@ class ProductSeeder extends Seeder
             ],[
                 'name' => 'Cotton Swab',
                 'category_id' => 10,
-                'brand_id' => 20,
+                'brand_id' => 16,
                 'stock' => 40,
                 'stock_warning' => 20,
                 'SKU' => 'COT002',
@@ -726,7 +726,7 @@ class ProductSeeder extends Seeder
             ],[
                 'name' => 'Rubber Dam',
                 'category_id' => 10,
-                'brand_id' => 47,
+                'brand_id' => 41,
                 'stock' => 40,
                 'stock_warning' => 20,
                 'SKU' => 'RUD001',
@@ -743,7 +743,7 @@ class ProductSeeder extends Seeder
             ],[
                 'name' => 'Matrix Band',
                 'category_id' => 10,
-                'brand_id' => 21,
+                'brand_id' => 17,
                 'stock' => 40,
                 'stock_warning' => 20,
                 'SKU' => 'MAB001',
@@ -761,7 +761,7 @@ class ProductSeeder extends Seeder
             ],[
                 'name' => 'Foot Cover',
                 'category_id' => 10,
-                'brand_id' => 47,
+                'brand_id' => 41,
                 'stock' => 40,
                 'stock_warning' => 20,
                 'SKU' => 'FOC001',
@@ -776,7 +776,7 @@ class ProductSeeder extends Seeder
             ],[
                 'name' => 'Celluloid Strips',
                 'category_id' => 10,
-                'brand_id' => 47,
+                'brand_id' => 41,
                 'stock' => 40,
                 'stock_warning' => 20,
                 'SKU' => 'CES001',
@@ -792,7 +792,7 @@ class ProductSeeder extends Seeder
             ],[
                 'name' => 'Articulating Paper',
                 'category_id' => 10,
-                'brand_id' => 47,
+                'brand_id' => 41,
                 'stock' => 40,
                 'stock_warning' => 20,
                 'SKU' => 'ARP001',
@@ -807,7 +807,7 @@ class ProductSeeder extends Seeder
             ],[
                 'name' => 'Finishing Strip',
                 'category_id' => 10,
-                'brand_id' => 21,
+                'brand_id' => 17,
                 'stock' => 40,
                 'stock_warning' => 20,
                 'SKU' => 'FIS001',
@@ -824,7 +824,7 @@ class ProductSeeder extends Seeder
             ],[
                 'name' => 'Metal Strip Double Side',
                 'category_id' => 10,
-                'brand_id' => 47,
+                'brand_id' => 41,
                 'stock' => 40,
                 'stock_warning' => 20,
                 'SKU' => 'MSD001',
@@ -839,7 +839,7 @@ class ProductSeeder extends Seeder
             ],[
                 'name' => 'Metal Strip Single Side',
                 'category_id' => 10,
-                'brand_id' => 47,
+                'brand_id' => 41,
                 'stock' => 40,
                 'stock_warning' => 20,
                 'SKU' => 'MSS001',
@@ -854,7 +854,7 @@ class ProductSeeder extends Seeder
             ],[
                 'name' => 'Patient Dental Record',
                 'category_id' => 10,
-                'brand_id' => 47,
+                'brand_id' => 41,
                 'stock' => 40,
                 'stock_warning' => 20,
                 'SKU' => 'PDR001',
@@ -869,7 +869,7 @@ class ProductSeeder extends Seeder
             ],[
                 'name' => 'Hemospon',
                 'category_id' => 10,
-                'brand_id' => 22,
+                'brand_id' => 18,
                 'stock' => 40,
                 'stock_warning' => 20,
                 'SKU' => 'HEM001',
@@ -886,7 +886,7 @@ class ProductSeeder extends Seeder
             ],[
                 'name' => 'Cocoa Butter Paste',
                 'category_id' => 10,
-                'brand_id' => 47,
+                'brand_id' => 41,
                 'stock' => 40,
                 'stock_warning' => 20,
                 'SKU' => 'CBP001',
@@ -901,7 +901,7 @@ class ProductSeeder extends Seeder
             ],[
                 'name' => 'Dual Clean',
                 'category_id' => 11,
-                'brand_id' => 16,
+                'brand_id' => 13,
                 'stock' => 40,
                 'stock_warning' => 20,
                 'SKU' => 'DUC001',
@@ -917,7 +917,7 @@ class ProductSeeder extends Seeder
             ],[
                 'name' => 'Dual Vac', //tite
                 'category_id' => 11,
-                'brand_id' => 16,
+                'brand_id' => 13,
                 'stock' => 40,
                 'stock_warning' => 20,
                 'SKU' => 'DUV001',
@@ -933,7 +933,7 @@ class ProductSeeder extends Seeder
             ],[
                 'name' => 'Fuji Glass Ionomer Cement',
                 'category_id' => 12,
-                'brand_id' => 23,
+                'brand_id' => 19,
                 'stock' => 40,
                 'stock_warning' => 20,
                 'SKU' => 'FGI001',
@@ -950,7 +950,7 @@ class ProductSeeder extends Seeder
             ],[
                 'name' => 'Fuji II Restorative Glass Ionomer',
                 'category_id' => 12,
-                'brand_id' => 23,
+                'brand_id' => 19,
                 'stock' => 40,
                 'stock_warning' => 20,
                 'SKU' => 'FRG001',
@@ -966,7 +966,7 @@ class ProductSeeder extends Seeder
             ],[
                 'name' => 'Fuji IX Packable Restorative Posterior ',
                 'category_id' => 12,
-                'brand_id' => 23,
+                'brand_id' => 19,
                 'stock' => 40,
                 'stock_warning' => 20,
                 'SKU' => 'FPR001',
@@ -983,7 +983,7 @@ class ProductSeeder extends Seeder
             ],[
                 'name' => 'Densply IRM',
                 'category_id' => 12,
-                'brand_id' => 24,
+                'brand_id' => 20,
                 'stock' => 40,
                 'stock_warning' => 20,
                 'SKU' => 'DEI001',
@@ -999,7 +999,7 @@ class ProductSeeder extends Seeder
             ],[
                 'name' => 'Temrex',
                 'category_id' => 12,
-                'brand_id' => 47,
+                'brand_id' => 41,
                 'stock' => 40,
                 'stock_warning' => 20,
                 'SKU' => 'TEM001',
@@ -1015,7 +1015,7 @@ class ProductSeeder extends Seeder
             ],[
                 'name' => 'Tempak Zoe',
                 'category_id' => 12,
-                'brand_id' => 25,
+                'brand_id' => 21,
                 'stock' => 40,
                 'stock_warning' => 20,
                 'SKU' => 'TEZ001',
@@ -1031,7 +1031,7 @@ class ProductSeeder extends Seeder
             ],[
                 'name' => 'Ionocem Glass Ionomer Cement',
                 'category_id' => 12,
-                'brand_id' => 26,
+                'brand_id' => 22,
                 'stock' => 40,
                 'stock_warning' => 20,
                 'SKU' => 'IGI001',
@@ -1046,7 +1046,7 @@ class ProductSeeder extends Seeder
             ],[
                 'name' => 'U-Cem',
                 'category_id' => 12,
-                'brand_id' => 16,
+                'brand_id' => 13,
                 'stock' => 40,
                 'stock_warning' => 20,
                 'SKU' => 'UCE001',
@@ -1062,7 +1062,7 @@ class ProductSeeder extends Seeder
             ],[
                 'name' => 'Dual-Core',
                 'category_id' => 12,
-                'brand_id' => 16,
+                'brand_id' => 13,
                 'stock' => 40,
                 'stock_warning' => 20,
                 'SKU' => 'DUC002',
@@ -1077,7 +1077,7 @@ class ProductSeeder extends Seeder
             ],[
                 'name' => 'U-Bond Ortho',
                 'category_id' => 12,
-                'brand_id' => 16,
+                'brand_id' => 13,
                 'stock' => 40,
                 'stock_warning' => 20,
                 'SKU' => 'UBO002',
@@ -1093,7 +1093,7 @@ class ProductSeeder extends Seeder
             ],[
                 'name' => 'Denfil Composite',
                 'category_id' => 13,
-                'brand_id' => 16,
+                'brand_id' => 13,
                 'stock' => 40,
                 'stock_warning' => 20,
                 'SKU' => 'DEC001',
@@ -1108,7 +1108,7 @@ class ProductSeeder extends Seeder
             ],[
                 'name' => 'Denfil Flow',
                 'category_id' => 13,
-                'brand_id' => 16,
+                'brand_id' => 13,
                 'stock' => 40,
                 'stock_warning' => 20,
                 'SKU' => 'DEF001',
@@ -1123,7 +1123,7 @@ class ProductSeeder extends Seeder
             ],[
                 'name' => 'Denfil Etchant',
                 'category_id' => 13,
-                'brand_id' => 16,
+                'brand_id' => 13,
                 'stock' => 40,
                 'stock_warning' => 20,
                 'SKU' => 'DEE001',
@@ -1140,7 +1140,7 @@ class ProductSeeder extends Seeder
             ],[
                 'name' => 'Denfil Hybrid Kit',
                 'category_id' => 13,
-                'brand_id' => 16,
+                'brand_id' => 13,
                 'stock' => 40,
                 'stock_warning' => 20,
                 'SKU' => 'DHK001',
@@ -1156,7 +1156,7 @@ class ProductSeeder extends Seeder
             ],[
                 'name' => 'Denfil Nano Hybrid Kit',
                 'category_id' => 13,
-                'brand_id' => 16,
+                'brand_id' => 13,
                 'stock' => 40,
                 'stock_warning' => 20,
                 'SKU' => 'DNH001',
@@ -1172,7 +1172,7 @@ class ProductSeeder extends Seeder
             ],[
                 'name' => 'Denfil Composite Capsule',
                 'category_id' => 13,
-                'brand_id' => 16,
+                'brand_id' => 13,
                 'stock' => 40,
                 'stock_warning' => 20,
                 'SKU' => 'DCC001',
@@ -1187,7 +1187,7 @@ class ProductSeeder extends Seeder
             ],[
                 'name' => 'Filtek Composite',
                 'category_id' => 13,
-                'brand_id' => 27,
+                'brand_id' => 23,
                 'stock' => 40,
                 'stock_warning' => 20,
                 'SKU' => 'FIC001',
@@ -1203,7 +1203,7 @@ class ProductSeeder extends Seeder
             ],[
                 'name' => 'Filtek Flow',
                 'category_id' => 13,
-                'brand_id' => 27,
+                'brand_id' => 23,
                 'stock' => 40,
                 'stock_warning' => 20,
                 'SKU' => 'FIF001',
@@ -1219,7 +1219,7 @@ class ProductSeeder extends Seeder
             ],[
                 'name' => 'Hybrisun Composite',
                 'category_id' => 13,
-                'brand_id' => 28,
+                'brand_id' => 24,
                 'stock' => 40,
                 'stock_warning' => 20,
                 'SKU' => 'HYC001',
@@ -1235,7 +1235,7 @@ class ProductSeeder extends Seeder
             ],[
                 'name' => 'Hybrisun Flow',
                 'category_id' => 13,
-                'brand_id' => 28,
+                'brand_id' => 24,
                 'stock' => 40,
                 'stock_warning' => 20,
                 'SKU' => 'HYF001',
@@ -1252,7 +1252,7 @@ class ProductSeeder extends Seeder
             ],[
                 'name' => 'Megafill Composite',
                 'category_id' => 13,
-                'brand_id' => 29,
+                'brand_id' => 25,
                 'stock' => 40,
                 'stock_warning' => 20,
                 'SKU' => 'MEC001',
@@ -1284,7 +1284,7 @@ class ProductSeeder extends Seeder
             ],[
                 'name' => 'Cavity Liner',
                 'category_id' => 13,
-                'brand_id' => 47,
+                'brand_id' => 41,
                 'stock' => 40,
                 'stock_warning' => 20,
                 'SKU' => 'CAL001',
@@ -1300,7 +1300,7 @@ class ProductSeeder extends Seeder
             ],[
                 'name' => 'Copalite Intermediatary Varnish',
                 'category_id' => 13,
-                'brand_id' => 30,
+                'brand_id' => 26,
                 'stock' => 40,
                 'stock_warning' => 20,
                 'SKU' => 'CIV001',
@@ -1316,7 +1316,7 @@ class ProductSeeder extends Seeder
             ],[
                 'name' => 'Eco-S',
                 'category_id' => 13,
-                'brand_id' => 16,
+                'brand_id' => 13,
                 'stock' => 40,
                 'stock_warning' => 20,
                 'SKU' => 'ECS001',
@@ -1333,7 +1333,7 @@ class ProductSeeder extends Seeder
             ],[
                 'name' => 'NOP Dental Needles',
                 'category_id' => 10,
-                'brand_id' => 31,
+                'brand_id' => 27,
                 'stock' => 40,
                 'stock_warning' => 20,
                 'SKU' => 'NDN001',
@@ -1351,7 +1351,7 @@ class ProductSeeder extends Seeder
             ],[
                 'name' => 'Zeyco Topicaina',
                 'category_id' => 23,
-                'brand_id' => 32,
+                'brand_id' => 28,
                 'stock' => 40,
                 'stock_warning' => 20,
                 'SKU' => 'ZET001',
@@ -1367,7 +1367,7 @@ class ProductSeeder extends Seeder
             ],[
                 'name' => 'Zeyco FD',
                 'category_id' => 14,
-                'brand_id' => 32,
+                'brand_id' => 28,
                 'stock' => 40,
                 'stock_warning' => 20,
                 'SKU' => 'ZEF001',
@@ -1382,7 +1382,7 @@ class ProductSeeder extends Seeder
             ],[
                 'name' => 'Lidocaine Mint Ointment',
                 'category_id' => 23,
-                'brand_id' => 47,
+                'brand_id' => 41,
                 'stock' => 40,
                 'stock_warning' => 20,
                 'SKU' => 'LMO001',
@@ -1398,7 +1398,7 @@ class ProductSeeder extends Seeder
             ],[
                 'name' => 'Xylocaine Pump Spray',
                 'category_id' => 14,
-                'brand_id' => 33,
+                'brand_id' => 29,
                 'stock' => 40,
                 'stock_warning' => 20,
                 'SKU' => 'XPS001',
@@ -1413,7 +1413,7 @@ class ProductSeeder extends Seeder
             ],[
                 'name' => 'Xylestesin',
                 'category_id' => 14,
-                'brand_id' => 27,
+                'brand_id' => 23,
                 'stock' => 40,
                 'stock_warning' => 20,
                 'SKU' => 'XYL001',
@@ -1430,7 +1430,7 @@ class ProductSeeder extends Seeder
             ],[
                 'name' => 'New Stetic Lidocaine',
                 'category_id' => 14,
-                'brand_id' => 34,
+                'brand_id' => 30,
                 'stock' => 40,
                 'stock_warning' => 20,
                 'SKU' => 'NSL001',
@@ -1446,7 +1446,7 @@ class ProductSeeder extends Seeder
             ],[
                 'name' => 'Articaine',
                 'category_id' => 14,
-                'brand_id' => 35,
+                'brand_id' => 30,
                 'stock' => 40,
                 'stock_warning' => 20,
                 'SKU' => 'ATR001',
@@ -1462,7 +1462,7 @@ class ProductSeeder extends Seeder
             ],[
                 'name' => 'Lidocaine HCI Ephiniprine',
                 'category_id' => 14,
-                'brand_id' => 36,
+                'brand_id' => 31,
                 'stock' => 40,
                 'stock_warning' => 20,
                 'SKU' => 'LHE001',
@@ -1478,7 +1478,7 @@ class ProductSeeder extends Seeder
             ],[
                 'name' => 'Turbocaina',
                 'category_id' => 14,
-                'brand_id' => 32,
+                'brand_id' => 28,
                 'stock' => 40,
                 'stock_warning' => 20,
                 'SKU' => 'LID001',
@@ -1494,7 +1494,7 @@ class ProductSeeder extends Seeder
             ],[
                 'name' => 'Dentocain',
                 'category_id' => 14,
-                'brand_id' => 32,
+                'brand_id' => 28,
                 'stock' => 40,
                 'stock_warning' => 20,
                 'SKU' => 'DEN001',
@@ -1511,7 +1511,7 @@ class ProductSeeder extends Seeder
             ],[
                 'name' => 'Tooth Mousse',
                 'category_id' => 15,
-                'brand_id' => 37,
+                'brand_id' => 32,
                 'stock' => 40,
                 'stock_warning' => 20,
                 'SKU' => 'TOM001',
@@ -1526,7 +1526,7 @@ class ProductSeeder extends Seeder
             ],[
                 'name' => 'Denture Case',
                 'category_id' => 15,
-                'brand_id' => 47,
+                'brand_id' => 41,
                 'stock' => 40,
                 'stock_warning' => 20,
                 'SKU' => 'DEC002',
@@ -1543,7 +1543,7 @@ class ProductSeeder extends Seeder
             ],[
                 'name' => 'Retainer Case',
                 'category_id' => 15,
-                'brand_id' => 47,
+                'brand_id' => 41,
                 'stock' => 40,
                 'stock_warning' => 20,
                 'SKU' => 'REC001',
@@ -1560,7 +1560,7 @@ class ProductSeeder extends Seeder
             ],[
                 'name' => 'Hygietol',
                 'category_id' => 15,
-                'brand_id' => 47,
+                'brand_id' => 41,
                 'stock' => 40,
                 'stock_warning' => 20,
                 'SKU' => 'HYG001',
@@ -1577,7 +1577,7 @@ class ProductSeeder extends Seeder
             ],[
                 'name' => 'Mirror Defogger',
                 'category_id' => 15,
-                'brand_id' => 47,
+                'brand_id' => 41,
                 'stock' => 40,
                 'stock_warning' => 20,
                 'SKU' => 'MID001',
@@ -1592,7 +1592,7 @@ class ProductSeeder extends Seeder
             ],[
                 'name' => 'Self-Curing Liquid',
                 'category_id' => 15,
-                'brand_id' => 47,
+                'brand_id' => 41,
                 'stock' => 40,
                 'stock_warning' => 20,
                 'SKU' => 'SCL001',
@@ -1608,7 +1608,7 @@ class ProductSeeder extends Seeder
             ],[
                 'name' => 'Self-Curing Powder',
                 'category_id' => 15,
-                'brand_id' => 47,
+                'brand_id' => 41,
                 'stock' => 40,
                 'stock_warning' => 20,
                 'SKU' => 'SCP001',
@@ -1624,7 +1624,7 @@ class ProductSeeder extends Seeder
             ],[
                 'name' => 'Jeltrate',
                 'category_id' => 16,
-                'brand_id' => 38,
+                'brand_id' => 20,
                 'stock' => 40,
                 'stock_warning' => 20,
                 'SKU' => 'JEL001',
@@ -1642,7 +1642,7 @@ class ProductSeeder extends Seeder
             ],[
                 'name' => 'Dental Alginate',
                 'category_id' => 16,
-                'brand_id' => 39,
+                'brand_id' => 33,
                 'stock' => 40,
                 'stock_warning' => 20,
                 'SKU' => 'DEA001',
@@ -1659,7 +1659,7 @@ class ProductSeeder extends Seeder
             ],[
                 'name' => 'Dental Alginate',
                 'category_id' => 16,
-                'brand_id' => 40,
+                'brand_id' => 34,
                 'stock' => 40,
                 'stock_warning' => 20,
                 'SKU' => 'DEA002',
@@ -1674,7 +1674,7 @@ class ProductSeeder extends Seeder
             ],[
                 'name' => 'Hydrogum 5',
                 'category_id' => 16,
-                'brand_id' => 41,
+                'brand_id' => 35,
                 'stock' => 40,
                 'stock_warning' => 20,
                 'SKU' => 'HYD001',
@@ -1691,7 +1691,7 @@ class ProductSeeder extends Seeder
             ],[
                 'name' => 'Hydrogum',
                 'category_id' => 16,
-                'brand_id' => 41,
+                'brand_id' => 35,
                 'stock' => 40,
                 'stock_warning' => 20,
                 'SKU' => 'HYD002',
@@ -1708,7 +1708,7 @@ class ProductSeeder extends Seeder
             ],[
                 'name' => 'Tropicalgin',
                 'category_id' => 16,
-                'brand_id' => 41,
+                'brand_id' => 35,
                 'stock' => 40,
                 'stock_warning' => 20,
                 'SKU' => 'TRO001',
@@ -1723,7 +1723,7 @@ class ProductSeeder extends Seeder
             ],[
                 'name' => 'Surgical Handpiece',
                 'category_id' => 17,
-                'brand_id' => 46,
+                'brand_id' => 40,
                 'stock' => 40,
                 'stock_warning' => 20,
                 'SKU' => 'SUH001',
@@ -1741,7 +1741,7 @@ class ProductSeeder extends Seeder
             ],[
                 'name' => 'Micro Motor',
                 'category_id' => 17,
-                'brand_id' => 46,
+                'brand_id' => 40,
                 'stock' => 40,
                 'stock_warning' => 20,
                 'SKU' => 'MIM001',
@@ -1758,7 +1758,7 @@ class ProductSeeder extends Seeder
             ],[
                 'name' => 'Dental Chair',
                 'category_id' => 17,
-                'brand_id' => 44,
+                'brand_id' => 38,
                 'stock' => 1,
                 'stock_warning' => 1,
                 'SKU' => 'SUN001',
@@ -1790,7 +1790,7 @@ class ProductSeeder extends Seeder
             ],[
                 'name' => 'Edgewise',
                 'category_id' => 18,
-                'brand_id' => 42,
+                'brand_id' => 36,
                 'stock' => 40,
                 'stock_warning' => 20,
                 'SKU' => 'EDG001',
@@ -1806,7 +1806,7 @@ class ProductSeeder extends Seeder
             ],[
                 'name' => 'Mini MBT',
                 'category_id' => 18,
-                'brand_id' => 42,
+                'brand_id' => 36,
                 'stock' => 40,
                 'stock_warning' => 20,
                 'SKU' => 'MIM002',
@@ -1822,7 +1822,7 @@ class ProductSeeder extends Seeder
             ],[
                 'name' => 'Mini ROTH',
                 'category_id' => 18,
-                'brand_id' => 42,
+                'brand_id' => 36,
                 'stock' => 40,
                 'stock_warning' => 20,
                 'SKU' => 'MIR001',
@@ -1838,7 +1838,7 @@ class ProductSeeder extends Seeder
             ],[
                 'name' => 'Standard MBT',
                 'category_id' => 18,
-                'brand_id' => 42,
+                'brand_id' => 36,
                 'stock' => 40,
                 'stock_warning' => 20,
                 'SKU' => 'STM001',
@@ -1854,7 +1854,7 @@ class ProductSeeder extends Seeder
             ],[
                 'name' => 'Standard ROTH',
                 'category_id' => 18,
-                'brand_id' => 42,
+                'brand_id' => 36,
                 'stock' => 40,
                 'stock_warning' => 20,
                 'SKU' => 'STR001',
@@ -1870,7 +1870,7 @@ class ProductSeeder extends Seeder
             ],[
                 'name' => 'Convertible Buccal Tubes',
                 'category_id' => 19,
-                'brand_id' => 42,
+                'brand_id' => 36,
                 'stock' => 40,
                 'stock_warning' => 20,
                 'SKU' => 'CBT001',
@@ -1886,7 +1886,7 @@ class ProductSeeder extends Seeder
             ],[
                 'name' => 'Second Molar Buccal Tubes',
                 'category_id' => 19,
-                'brand_id' => 42,
+                'brand_id' => 36,
                 'stock' => 40,
                 'stock_warning' => 20,
                 'SKU' => 'SMB001',
@@ -1902,7 +1902,7 @@ class ProductSeeder extends Seeder
             ],[
                 'name' => 'Standard Buccal Tubes',
                 'category_id' => 19,
-                'brand_id' => 42,
+                'brand_id' => 36,
                 'stock' => 40,
                 'stock_warning' => 20,
                 'SKU' => 'SBT001',
@@ -1918,7 +1918,7 @@ class ProductSeeder extends Seeder
             ],[
                 'name' => 'Co Axial Wire',
                 'category_id' => 20,
-                'brand_id' => 42,
+                'brand_id' => 36,
                 'stock' => 40,
                 'stock_warning' => 20,
                 'SKU' => 'CAW001',
@@ -1934,7 +1934,7 @@ class ProductSeeder extends Seeder
             ],[
                 'name' => 'Nickel Titanium Upper & Lower Coated Ovoid',
                 'category_id' => 20,
-                'brand_id' => 42,
+                'brand_id' => 36,
                 'stock' => 40,
                 'stock_warning' => 20,
                 'SKU' => 'NTU001',
@@ -1950,7 +1950,7 @@ class ProductSeeder extends Seeder
             ],[
                 'name' => 'Nickel Titanium Upper & Lower Coated Square',
                 'category_id' => 20,
-                'brand_id' => 42,
+                'brand_id' => 36,
                 'stock' => 40,
                 'stock_warning' => 20,
                 'SKU' => 'NTU002',
@@ -1966,7 +1966,7 @@ class ProductSeeder extends Seeder
             ],[
                 'name' => 'Nickel Titanium Upper & Lower Ovoid',
                 'category_id' => 20,
-                'brand_id' => 42,
+                'brand_id' => 36,
                 'stock' => 40,
                 'stock_warning' => 20,
                 'SKU' => 'NTU003',
@@ -1982,7 +1982,7 @@ class ProductSeeder extends Seeder
             ],[
                 'name' => 'Nickel Titanium Upper & Lower Square',
                 'category_id' => 20,
-                'brand_id' => 42,
+                'brand_id' => 36,
                 'stock' => 40,
                 'stock_warning' => 20,
                 'SKU' => 'NTU004',
@@ -1998,7 +1998,7 @@ class ProductSeeder extends Seeder
             ],[
                 'name' => 'Open Coil Spring',
                 'category_id' => 20,
-                'brand_id' => 42,
+                'brand_id' => 36,
                 'stock' => 40,
                 'stock_warning' => 20,
                 'SKU' => 'OCS001',
@@ -2014,7 +2014,7 @@ class ProductSeeder extends Seeder
             ],[
                 'name' => 'Reverse Curve Wire Ovoid',
                 'category_id' => 20,
-                'brand_id' => 42,
+                'brand_id' => 36,
                 'stock' => 40,
                 'stock_warning' => 20,
                 'SKU' => 'RCW001',
@@ -2030,7 +2030,7 @@ class ProductSeeder extends Seeder
             ],[
                 'name' => 'Stainless Steel Upper & Lower Ovoid',
                 'category_id' => 20,
-                'brand_id' => 42,
+                'brand_id' => 36,
                 'stock' => 40,
                 'stock_warning' => 18,
                 'SKU' => 'SSU001',
@@ -2047,7 +2047,7 @@ class ProductSeeder extends Seeder
             ],[
                 'name' => 'Stainless Steel Upper & Lower Square',
                 'category_id' => 20,
-                'brand_id' => 42,
+                'brand_id' => 36,
                 'stock' => 40,
                 'stock_warning' => 20,
                 'SKU' => 'SSS002',
@@ -2064,7 +2064,7 @@ class ProductSeeder extends Seeder
             ],[
                 'name' => 'Nickel Titanium Upper & Lower Ovoid',
                 'category_id' => 20,
-                'brand_id' => 47,
+                'brand_id' => 41,
                 'stock' => 40,
                 'stock_warning' => 20,
                 'SKU' => 'NTU005',
@@ -2080,7 +2080,7 @@ class ProductSeeder extends Seeder
             ],[
                 'name' => 'Reverse Curve Wire Ovoid',
                 'category_id' => 20,
-                'brand_id' => 47,
+                'brand_id' => 41,
                 'stock' => 40,
                 'stock_warning' => 20,
                 'SKU' => 'RCW002',
@@ -2096,7 +2096,7 @@ class ProductSeeder extends Seeder
             ],[
                 'name' => 'Crimpable Hooks',
                 'category_id' => 21,
-                'brand_id' => 47,
+                'brand_id' => 41,
                 'stock' => 40,
                 'stock_warning' => 20,
                 'SKU' => 'CRH001',
@@ -2113,7 +2113,7 @@ class ProductSeeder extends Seeder
             ],[
                 'name' => 'Lingual Button',
                 'category_id' => 21,
-                'brand_id' => 47,
+                'brand_id' => 41,
                 'stock' => 40,
                 'stock_warning' => 20,
                 'SKU' => 'LIB001',
@@ -2128,7 +2128,7 @@ class ProductSeeder extends Seeder
             ],[
                 'name' => 'Lingual Retainer',
                 'category_id' => 21,
-                'brand_id' => 47,
+                'brand_id' => 41,
                 'stock' => 40,
                 'stock_warning' => 20,
                 'SKU' => 'LIR001',
@@ -2144,7 +2144,7 @@ class ProductSeeder extends Seeder
             ],[
                 'name' => 'Ligatures',
                 'category_id' => 22,
-                'brand_id' => 47,
+                'brand_id' => 41,
                 'stock' => 40,
                 'stock_warning' => 20,
                 'SKU' => 'LIG001',
@@ -2162,7 +2162,7 @@ class ProductSeeder extends Seeder
             ],[
                 'name' => 'Echain',
                 'category_id' => 22,
-                'brand_id' => 47,
+                'brand_id' => 41,
                 'stock' => 40,
                 'stock_warning' => 20,
                 'SKU' => 'ECH001',
@@ -2179,7 +2179,7 @@ class ProductSeeder extends Seeder
             ],[
                 'name' => 'Elastics',
                 'category_id' => 22,
-                'brand_id' => 47,
+                'brand_id' => 41,
                 'stock' => 40,
                 'stock_warning' => 20,
                 'SKU' => 'ELA001',
@@ -2194,7 +2194,7 @@ class ProductSeeder extends Seeder
             ],[
                 'name' => 'Rotation Wedge',
                 'category_id' => 22,
-                'brand_id' => 43,
+                'brand_id' => 37,
                 'stock' => 40,
                 'stock_warning' => 20,
                 'SKU' => 'ROW001',
@@ -2211,7 +2211,7 @@ class ProductSeeder extends Seeder
             ],[
                 'name' => 'Molar Separator',
                 'category_id' => 22,
-                'brand_id' => 47,
+                'brand_id' => 41,
                 'stock' => 40,
                 'stock_warning' => 20,
                 'SKU' => 'MOE001',
@@ -2227,7 +2227,7 @@ class ProductSeeder extends Seeder
             ],[
                 'name' => 'Ortho Wax',
                 'category_id' => 10,
-                'brand_id' => 47,
+                'brand_id' => 41,
                 'stock' => 40,
                 'stock_warning' => 20,
                 'SKU' => 'WAX001',
@@ -2242,7 +2242,7 @@ class ProductSeeder extends Seeder
             ],[
                 'name' => 'Ortho Brush',
                 'category_id' => 10,
-                'brand_id' => 47,
+                'brand_id' => 41,
                 'stock' => 40,
                 'stock_warning' => 20,
                 'SKU' => 'OBR001',
@@ -2260,7 +2260,7 @@ class ProductSeeder extends Seeder
             ],[
                 'name' => 'Stainless Steel Impression Tray',
                 'category_id' => 10,
-                'brand_id' => 47,
+                'brand_id' => 41,
                 'stock' => 40,
                 'stock_warning' => 20,
                 'SKU' => 'SSI001',
@@ -2276,7 +2276,7 @@ class ProductSeeder extends Seeder
             ],[
                 'name' => 'Rubber Impression Tray',
                 'category_id' => 10,
-                'brand_id' => 47,
+                'brand_id' => 41,
                 'stock' => 40,
                 'stock_warning' => 20,
                 'SKU' => 'RUI001',
@@ -2292,7 +2292,7 @@ class ProductSeeder extends Seeder
             ],[
                 'name' => 'Cheek Retractor',
                 'category_id' => 10,
-                'brand_id' => 47,
+                'brand_id' => 41,
                 'stock' => 40,
                 'stock_warning' => 20,
                 'SKU' => 'CHR001',

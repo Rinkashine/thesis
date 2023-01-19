@@ -11,13 +11,20 @@ use Illuminate\Support\Facades\Storage;
 class CategoryForm extends Component
 {
     use WithFileUploads;
+
     public $name;
     public $modelId;
     public $oldname;
     public $photo;
+
     protected $listeners = [
         'refreshChild' => '$refresh',
         'forceCloseModal',
+    ];
+
+    protected $validationAttributes = [
+        'name' => 'category name',
+        'photo' => 'category image'
     ];
 
     public function render()
@@ -55,6 +62,7 @@ class CategoryForm extends Component
         }
         $model = Category::find($this->modelId);
         abort_if(Gate::denies('category_create'),403);
+        $this->validate();
         if(!empty($this->photo)){
             $this->photo->store('public/category');
         }

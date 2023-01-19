@@ -22,6 +22,11 @@ class BrandForm extends Component
         'forceCloseModal',
     ];
 
+    protected $validationAttributes = [
+        'name' => 'brand name',
+        'photo' => 'brand image'
+    ];
+
     protected function rules(){
         return [
             'name'=> ['required', Rule::unique('brand')->ignore($this->modelId)],

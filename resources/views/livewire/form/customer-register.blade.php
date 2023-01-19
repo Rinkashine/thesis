@@ -63,7 +63,7 @@
                                 Birthday
                                 <span class="sm:ml-auto mt-1 sm:mt-0 text-xs text-slate-500">Required</span>
                             </label>
-                            <input type="date" class="form-control" wire:model.lazy="birthday">
+                            <input type="date" max="{{ $maxdate }}" class="form-control" wire:model.lazy="birthday" id="birthday">
                             <div class="text-danger mt-2">@error('birthday'){{$message}}@enderror</div>
                         </div>
                         <div class="intro-y col-span-12 md:col-span-6">
@@ -86,10 +86,25 @@
             </div>
         </div>
     </div>
-
-<script type="text/javascript">
-    var onloadCallback = function() {
-      @this.set('recaptcha',grecaptcha.getResponse());
-    };
-  </script>
+    @push('scripts')
+        <script type="text/javascript">
+             document.addEventListener('livewire:load', function () {
+                var todayDate = new Date();
+                var month = todayDate.getMonth() + 1;
+                var year =  todayDate.getUTCFullYear();
+                var tdate = todayDate.getDate();
+                if(month < 9){
+                    month = "0" + month;
+                }
+                if(tdate < 10){
+                    tdate = "0" + tdate;
+                }
+                var maxDate = year + "-" + month + "-" + tdate;
+                @this.maxdate = maxDate;
+            });
+          var onloadCallback = function() {
+                @this.set('recaptcha',grecaptcha.getResponse());
+            };
+        </script>
+    @endpush
 </div>

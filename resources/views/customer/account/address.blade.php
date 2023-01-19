@@ -46,8 +46,6 @@
 </div>
 <!-- End: Success Notification -->
 @endsection
-
-
 @push('scripts')
 <script>
        window.addEventListener('SuccessAlert',event => {
