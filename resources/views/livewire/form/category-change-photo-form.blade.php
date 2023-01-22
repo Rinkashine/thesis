@@ -15,11 +15,12 @@
                         <input type="file" wire:model.lazy="photo"  placeholder="text" accept="image/*"  class="form-control p-1 flex-1 @error('photo') border-danger @enderror">
                         <div wire:loading wire:target="photo">Uploading...</div>
                         <div class="text-danger mt-2">@error('photo'){{$message}}@enderror</div>
+                        <div class="text-warning mt-2" wire:offline> Attempting to Reconnect to the Internet...........</div>
                     </div>
                 </div>
                 <div class="modal-footer text-right">
-                    <button wire:click="closeChangePhotoModal" type="button" class="btn btn-outline-secondary w-32 mr-1">Cancel</button>
-                    <input type="submit" class="btn btn-primary w-32" value="Submit">
+                    <button wire:click="closeChangePhotoModal" type="button" class="btn btn-outline-secondary w-32 mr-1" wire:offline.attr="disabled">Cancel</button>
+                    <input type="submit" class="btn btn-primary w-32" value="Submit" wire:offline.attr="disabled">
                 </div>
             </form>
         </div>

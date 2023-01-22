@@ -90,14 +90,7 @@
             </a>
         </li>
         @endcan
-        @can('discount_access')
-        <li>
-            <a href="{{Route('discount.index')}}" class="menu">
-                <div class="menu__icon"> <i class="fa-solid fa-tag fa-lg p-1"></i></div>
-                <div class="menu__title"> Discount </div>
-            </a>
-        </li>
-        @endcan
+
         @can('post_access')
         <li>
             <a href="{{Route('post.index')}}" class="menu">
@@ -106,6 +99,7 @@
             </a>
         </li>
         @endcan
+
         @if (Auth::guard('web')->user()->can('user_management_access') || Auth::guard('web')->user()->can('role_access') || Auth::guard('web')->user()->can('user_create') || Auth::guard('web')->user()->can('customer_access'))
             <li class="menu__devider my-6"></li>
         @endif
