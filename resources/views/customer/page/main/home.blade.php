@@ -110,17 +110,21 @@
         <div class="my-5 box pt-5 pb-5 pl-2 pr-2">
             <div class="mx-6">
                 <div class="brands">
-                    @foreach ($brands as $brand )
+                    @foreach ($brands as $brand)
                         <div class="relative p-3 rounded-md box zoom-in p-5">
                             <a href="{{ Route('product',['filterbybrand' => $brand]) }}">
                                 <div class="h-48 2xl:h-48">
-                                    <img alt="" class="object-scale-down w-full h-48 rounded-md" src="dist/images/logo.png">
+                                    @if(!empty($brand->photo))
+                                        <img alt="Missing Brand Image" class="object-scale-down w-full h-48 rounded-md" src="{{ url('storage/brand/'.$brand->photo) }}">
+                                    @else
+                                        <img alt="Missing Brand Image" class="object-scale-down w-full h-48 rounded-md" src="{{asset('dist/images/undraw_pic.svg')}}">
+                                    @endif
                                 </div>
                                 <div class="block mt-3 font-medium text-center truncate">{{$brand->name }} </div>
                             </a>
                         </div>
-
                     @endforeach
+
                 </div>
             </div>
         </div>

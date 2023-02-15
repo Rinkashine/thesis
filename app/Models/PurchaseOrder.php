@@ -16,7 +16,11 @@ class PurchaseOrder extends Model
         'remarks'
     ];
 
-     public function suppliers(){
+    public static function search($search){
+        return empty($search) ? static::query() :
+        static::query()->where('id','like','%'.$search.'%');
+    }
+    public function suppliers(){
        return $this-> belongsTo(Supplier::class);
     }
     public function ordered_items(){

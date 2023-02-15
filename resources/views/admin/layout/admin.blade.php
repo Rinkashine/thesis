@@ -2,15 +2,6 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}" class="{{ $dark_mode ? 'dark' : '' }}{{ $color_scheme != 'default' ? ' ' . $color_scheme : '' }}">
     <!-- BEGIN: Head -->
     <head>
-        <!-- Google tag (gtag.js) -->
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-L2FGBKD7VC"></script>
-        <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-
-        gtag('config', 'G-L2FGBKD7VC');
-        </script>
         <meta charset="utf-8">
         <link href="{{asset('icons/log.png')}}" rel="shortcut icon">
         <link rel="stylesheet" href="{{ asset('dist/css/build.css') }}" />
@@ -30,7 +21,6 @@
     <!-- END: Head -->
 
     <body class="py-5 md:py-0 bg-black/[0.15] ">
-
         <!-- BEGIN: Mobile Menu -->
         @include('admin.component.mobile-menu')
         <!-- END: Mobile Menu -->
@@ -44,8 +34,6 @@
                 @include('admin.component.top-menu')
                 <!-- END: Top Bar -->
                 @yield('content')
-
-
             </div>
         </div>
         <!-- BEGIN: JS Assets-->

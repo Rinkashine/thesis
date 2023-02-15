@@ -5,19 +5,54 @@
 <div class="intro-y flex justify-between items-center mt-8">
     <div>
         <h2 class="text-lg font-medium mr-auto">
-            <a href="{{ url()->previous() }}" class="mr-2 btn">←</a> T00{{ $orderinfos->id }}
+            <a href="{{ Route('transfer.index') }}" class="mr-2 btn">←</a> T{{ $orderinfos->id }}
             @if($orderinfos->status == "Pending")
-                Pending
+                <span class=" btn-rounded btn-pending-soft w-12 text-sm mr-1 mb-2 p-1">
+                    {{ $orderinfos->status }}
+                </span>
+            @elseif($orderinfos->status == "Draft")
+                <span class=" btn-rounded btn-warning-soft w-12 text-sm mr-1 mb-2 p-1">
+                    {{ $orderinfos->status }}
+                </span>
+            @else
+            <div class=" btn-rounded btn-success-soft w-12 text-sm mr-1 mb-2 p-1">
+                {{ $orderinfos->status }}
+            </div>
             @endif
          </h2>
     </div>
     <div>
-        <a href="" class="btn btn-primary">Receive Inventory</a>
+        @if($orderinfos->status == "Pending")
+            <a href="{{ Route('inventory.receive', $orderinfos->id) }}" class="btn btn-primary">Receive Inventory</a>
+        @elseif($orderinfos->status == "Draft")
+            @livewire('component.inventory-transfer-mark-as-pending',['info' => $orderinfos])
+        @endif
     </div>
 </div>
+<livewire:modal.mark-as-pending-modal/>
 <!-- End: Header -->
 <!-- Begin: Inventory Transfer Edit Form -->
 @livewire('form.inventory-transfer-edit-form',['orderinfos' => $orderinfos])
 <!-- End: Inventory Transfer Edit Form -->
 @endsection
 
+@push('scripts')
+    <script>
+        //mark-as-pending-modal
+        //OpenMarkAsPendingModal
+        const PendingModal = tailwind.Modal.getInstance(document.querySelector("#mark-as-pending-modal"));
+        window.addEventListener('OpenMarkAsPendingModal',event=>{
+            PendingModal.show();
+        });
+        //Hide Order Notes Modal
+        window.addEventListener('CloseMarkAsPendingModal',event=>{
+            PendingModal.hide();
+        });
+        //Hide Modal and Refresh its value
+        const RefreshPendingModal = document.getElementById('mark-as-pending-modal')
+        RefreshPendingModal.addEventListener('hidden.tw.modal', function(event) {
+            livewire.emit('forceCloseModal');
+        });
+
+    </script>
+@endpush

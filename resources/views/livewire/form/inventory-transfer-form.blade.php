@@ -2,21 +2,23 @@
     <form wire:submit.prevent="StoreTransferData">
         <div class="grid grid-cols-12 gap-x-6 mt-5 pb-20">
             <div class="intro-y col-span-12">
-                <!-- Begin: Product Information -->
-                <div class="intro-y box p-5">
-                    @if ($errors->any())
-                    <div class="alert alert-danger show mb-2" role="alert">
-                        <div class="flex items-center">
-                            <div class="font-medium text-lg">Whoops Something Went Wrong</div>
-                            <div class="text-xs bg-white px-1 rounded-md text-slate-700 ml-auto">Error</div>
-                        </div>
-                        <div class="mt-3">
-                            @foreach ($errors->all() as $error)
-                            <div>{{$error}}</div>
-                            @endforeach
-                        </div>
+                <!-- Begin: Display All Errors-->
+                @if ($errors->any())
+                <div class="alert alert-danger show mb-2" role="alert">
+                    <div class="flex items-center">
+                        <div class="font-medium text-lg">Whoops Something Went Wrong</div>
+                        <div class="text-xs bg-white px-1 rounded-md text-slate-700 ml-auto">Error</div>
                     </div>
-                    @endif
+                    <div class="mt-3">
+                        @foreach ($errors->all() as $error)
+                        <div>{{$error}}</div>
+                        @endforeach
+                    </div>
+                </div>
+                @endif
+                <!-- End: Display All Errors -->
+                <!-- Begin: Supplier Information -->
+                <div class="intro-y box p-5">
                     <div class="border border-slate-200/60 dark:border-darkmode-400 rounded-md p-5">
                         <div class="flex justify-between items-center border-b border-slate-200/60 dark:border-darkmode-400 pb-5">
                             <div class="font-medium text-base">
@@ -79,10 +81,10 @@
                                     </select>
                                 </div>
                             </div>
-                            <!-- END: Supplier Origin  -->
                         </div>
                     </div>
                 </div>
+                <!-- End: Supplier Information -->
                 <!-- BEGIN: Add Products -->
                 <div class="intro-y box p-5 mt-5">
                     <div class="border border-slate-200/60 dark:border-darkmode-400 rounded-md p-5">
@@ -121,7 +123,7 @@
                             @if(!empty($selectedProducts))
                             <div class="overflow-x-auto mt-5">
                                 <table class="table table-bordered table-hover">
-                                    <thead>
+                                    <thead class="table-light">
                                         <tr>
                                             <th class="whitespace-nowrap">Product Name</th>
                                             <th class="whitespace-nowrap">SKU</th>
@@ -135,7 +137,7 @@
                                                 <td>{{ $selectedproduct['name'] }}</td>
                                                 <td> {{ $selectedproduct['SKU'] }}</td>
                                                 <td>
-                                                    <input type="number"  oninput="onInput(this,{{ $selectedproduct['id'] }}, {{ $key }})" placeholder="Order Quantity" class="form-control">
+                                                    <input type="number" min="1" oninput="onInput(this,{{ $selectedproduct['id'] }}, {{ $key }})" placeholder="Order Quantity" class="form-control">
                                                 </td>
                                                 <td> <button type="button" wire:click="DeleteTd({{ json_encode($selectedproduct)}})">Delete</button> </td>
                                             </tr>

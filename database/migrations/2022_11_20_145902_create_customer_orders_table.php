@@ -24,6 +24,7 @@ return new class extends Migration
             $table->string('payment_id')->nullable();
             $table->string('status');
             $table->string('cancellation_reason')->nullable();
+
             $table->string('received_by');
             $table->string('phone_number');
             $table->string('notes');

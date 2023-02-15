@@ -1,95 +1,86 @@
 <div>
-    <div class="intro-y box p-5 mt-5">
-        <div class="flex flex-col sm:flex-row sm:items-end xl:items-start">
-            <div class="xl:flex sm:mr-auto" >
-                <div class="sm:flex items-center sm:mr-4">
-                    <label class="flex-none xl:w-auto xl:flex-initial mr-2">Sort</label>
-                    <select  class="form-select w-full sm:w-32 2xl:w-full mt-2 sm:mt-0 sm:w-auto">
-                        <option value="nameaz" >Default Sorting</option>
-                        <option value="nameza">Sort by newness</option>
-                        <option value="createdold">Sort by price: low to high</option>
-                        <option value="creatednew">Sort by price: high to low</option>
-                    </select>
+    <h2 class="intro-y text-lg font-medium mt-10">
+        Transaction List
+    </h2>
+    <div class="grid grid-cols-12 gap-6 mt-5">
+        <div class="intro-y col-span-12 flex flex-wrap xl:flex-nowrap items-center mt-2">
+            <div class="flex w-full sm:w-auto">
+                <div class="w-48 relative text-slate-500">
+                    <input wire:model.lazy="search" type="search" class="form-control w-48 box " placeholder="Search by Order ID...">
                 </div>
-                <div class="sm:flex items-center sm:mr-4 mt-2 xl:mt-0">
-                    <label class="w-12 flex-none xl:w-auto xl:flex-initial mr-2">Value</label>
-                    <input  type="text" class="form-control sm:w-40 2xl:w-full mt-2 sm:mt-0" placeholder="Search...">
-                </div>
+                <select wire:model="sorting" class="form-select box ml-2">
+                    <option value="">Status</option>
+                    <option value="Pending For Approval">Pending For Approval</option>
+                    <option value="Processing">Processing</option>
+                    <option value="Ready For Delivery">Ready For Delivery</option>
+                    <option value="Will Try To Deliver Today">Will Try To Deliver Today</option>
+                    <option value="Rejected">Rejected</option>
+                    <option value="Completed">Completed</option>
+                </select>
             </div>
-            <!-- Begin: Export Orders -->
-            <div class="flex mt-5 sm:mt-0">
-                <div class="dropdown w-1/2 sm:w-auto">
-                    <button class="dropdown-toggle btn btn-outline-secondary w-full sm:w-auto" aria-expanded="false" data-tw-toggle="dropdown">
-                         <i class="fa-regular fa-newspaper w-4 h-4 mr-2"></i> Export <i class="fa-solid fa-chevron-down w-4 h-4 ml-auto sm:ml-2"></i>
-                    </button>
-                    <div class="dropdown-menu w-40">
-                        <ul class="dropdown-content">
-                            <li>
-                                <a href="{{Route('exportbrandexcel')}}" class="dropdown-item"> <i class="fa-solid fa-file-excel mr-1"></i> Export to Excel  </a>
-                            </li>
-                            <li>
-                                <a href="{{Route('exportbrandcsv')}}" class="dropdown-item"> <i class="fa-solid fa-file-csv mr-1"></i> Export to CSV </a>
-                            </li>
-                            <li>
-                                <a href="{{Route('exportbrandpdf')}}" class="dropdown-item"> <i class="fa-solid fa-file-pdf mr-1"></i>Export to PDF </a>
-                            </li>
-                            <li>
-                                <a href="{{Route('exportbrandhtml')}}" class="dropdown-item"> <i class="fa-brands fa-html5 mr-1"></i> Export to HTML </a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
+            <div class="hidden xl:block mx-auto text-slate-500">Showing {{ $Orders->firstItem() }} to {{ $Orders->lastItem() }} of {{ $Orders->total() }} entries</div>
+            <div class="w-full xl:w-auto flex items-center mt-3 xl:mt-0">
+                <button class="btn btn-primary shadow-md mr-2"> <i data-lucide="file-text" class="w-4 h-4 mr-2"></i> Export to Excel </button>
             </div>
-            <!-- End: Export Orders -->
         </div>
-        <!-- Begin: Orders Table -->
-        <div class="overflow-x-auto scrollbar-hidden">
-           <div class="overflow-x-auto">
-               <table class="table mt-5" >
-                   <thead class="table-dark">
-                       <tr>
-                           <th class="whitespace-nowrap">Products</th>
-                           <th class="whitespace-nowrap text-center">Order Total</th>
-                           <th class="whitespace-nowrap text-center">Status</th>
-                           <th class="whitespace-nowrap text-center">Actions</th>
-                       </tr>
-                   </thead>
-                   <tbody>
+        <!-- BEGIN: Data List -->
+        <div class="intro-y col-span-12 overflow-auto 2xl:overflow-visible">
+            <table class="table table-report -mt-2">
+                <thead>
+                    <tr>
+
+                        <th class="whitespace-nowrap">Order ID</th>
+                        <th class="whitespace-nowrap">BUYER NAME</th>
+                        <th class="text-center whitespace-nowrap">STATUS</th>
+                        <th class="whitespace-nowrap">PAYMENT</th>
+                        <th class="text-right whitespace-nowrap">
+                            <div class="pr-16">TOTAL TRANSACTION</div>
+                        </th>
+                        <th class="text-center whitespace-nowrap">ACTIONS</th>
+                    </tr>
+                </thead>
+                <tbody>
                     @forelse ($Orders as $order)
-                        <tr >
-                             <td colspan="3" class="whitespace-nowrap bg-gray-200"><a href="{{ Route('customer.show',$order->customers) }}">{{ $order->customers->name }}</a> </td>
-                             <td colspan="1" class="whitespace-nowrap text-center bg-gray-200">Order ID:{{ $order->id }}</td>
-                        </tr>
-                        <tr>
-                            <td class="whitespace-nowrap truncate">
-                                @foreach($ProductsOrdered as $index => $item)
-                                    @if($item->customer_orders_id == $order->id)
-                                        {{ $item->product_name }},
+                        <tr class="intro-x">
+                            <td class="w-40 !py-4"><a href="{{ Route('orders.show',$order->id) }}" class="underline decoration-dotted whitespace-nowrap"> #{{ $order->id }}</a>  </td>
+                            <td class="w-40"> <a href="{{ Route('customer.show',$order->customers) }}" class="font-medium whitespace-nowrap">{{ $order->customers->name }}</a></td>
+                            <td class="text-center">
+                                @if($order->status == "Completed")
+                                <div class="flex items-center justify-center whitespace-nowrap text-primary">{{ $order->status }}</div>
+                                @elseif($order->status == "Rejected")
+                                <div class="flex items-center justify-center whitespace-nowrap text-danger">{{ $order->status }}</div>
+                                @else
+                                <div class="flex items-center justify-center whitespace-nowrap text-pending">{{ $order->status }}</div>
+
+                                @endif
+                            </td>
+                            <td><div class="whitespace-nowrap">{{ $order->mode_of_payment }}</div></td>
+                            <td class="w-40 text-center"><div class="pr-16">₱{{ $order->total }}</div></td>
+                            <td class="table-report__action">
+                                <div class="flex justify-center items-center">
+                                    <a class="flex items-center text-primary whitespace-nowrap mr-5" href="{{ Route('orders.show',$order->id) }}">
+                                        <i class=" fa-regular fa-square-check w-4 h-4 mr-1"></i> View Details
+                                     </a>
+                                    @if ($order->status != "Pending for Approval" && $order->status != "Completed" && $order->status != "Rejected")
+                                        <button wire:click="selectItem({{$order->id}},'changeorderstatus')"class="flex items-center text-primary whitespace-nowrap">
+                                            <i class="fa-solid fa-arrow-right-arrow-left w-4 h-4 mr-1"></i>  Change Status
+                                        </button>
                                     @endif
-                                @endforeach
+                                </div>
                             </td>
-                            <td class="whitespace-nowrap text-center">
-                              <div>₱{{ $order->total }}</div>
-                               <div>{{ $order->mode_of_payment }}</div>
-                            </td>
-                            <td class="whitespace-nowrap text-center">
-                                {{ $order->status }}
-                            </td>
-                            <td class="whitespace-nowrap text-center"> <a href="{{ Route('orders.show',$order->id ) }}"> <i class="fa-solid fa-eye w-4 h-4 mr-1"></i> Show Details</td></a>
                         </tr>
                     @empty
-                    <tr>
-                        <td colspan="5" class="font-medium">No Orders Found</td>
-                    </tr>
+                        <tr>
+                            <td colspan="6">No Results Found <strong class="ml-1"> {{ $search }}</strong> </td>
+                        </tr>
                     @endforelse
-                   </tbody>
-               </table>
-           </div>
 
-
-       </div>
-        <!-- End: Orders Table -->
-        <div class="intro-y mt-5 col-span-12 flex flex-wrap sm:flex-row sm:flex-nowrap items-center">
+                </tbody>
+            </table>
+        </div>
+        <!-- END: Data List -->
+        <!-- BEGIN: Pagination -->
+        <div class="intro-y col-span-12 flex flex-wrap sm:flex-row sm:flex-nowrap items-center">
             <nav class="w-full sm:w-auto sm:mr-auto">
                 {!! $Orders->onEachSide(1)->links() !!}
             </nav>
@@ -100,5 +91,26 @@
                 <option>50</option>
             </select>
         </div>
+        <!-- END: Pagination -->
     </div>
 </div>
+<livewire:modal.change-order-status-modal/>
+
+@push('scripts')
+<script>
+    //Open Change Order Status Modal
+    const ChangeOrderStatusModal = tailwind.Modal.getInstance(document.querySelector("#change-order-status-modal"));
+    window.addEventListener('openChangeOrderStatusModal',event=>{
+        ChangeOrderStatusModal.show();
+    });
+    //Hide Change Order Status Modal
+    window.addEventListener('CloseChangeOrderStatusModal',event=>{
+        ChangeOrderStatusModal.hide();
+    });
+     //Hide Modal and Refresh its value
+     const RefreshChangeOrderStatusModal = document.getElementById('change-order-status-modal')
+     RefreshChangeOrderStatusModal.addEventListener('hidden.tw.modal', function(event) {
+        livewire.emit('forceCloseModal');
+    })
+</script>
+@endpush

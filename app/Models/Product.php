@@ -22,6 +22,7 @@ class Product extends Model
         'weight',
         'status',
         'description',
+        'committed',
     ];
 
 

@@ -74,13 +74,9 @@ Route::group(['prefix' => 'admin'],function(){
             Route::resource('category',  CategoryController::class)->only('index');
 
             Route::resource('inventory',  InventoryController::class)->except(['edit','show','create']);
-            Route::get('/receive', [InventoryTransferController::class, 'receive'])->name('inventory.receive');
 
+            Route::get('/receive/{id}', [InventoryTransferController::class, 'receive'])->name('inventory.receive');
             Route::resource('transfer', InventoryTransferController::class);
-
-            //This 2 Might Get deleted soon waiting for confirmation
-            Route::post('addimage/{id}', [ProductImageController::class,'addImages'])->name('add');
-            Route::delete('/productimage/{id}', [ProductImageController::class,'removeImage']);
 
             Route::get('/product/archive', [ProductController::class,'ProductArchiveIndex'])->name('ProductArchiveIndex');
             Route::put('/product/archive/{id}', [ProductController::class, 'ProductArchiveRestore']);

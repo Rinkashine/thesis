@@ -8,7 +8,7 @@ use App\Models\Product;
 use App\Models\PurchaseOrder;
 use App\Models\OrderedItems;
 use Illuminate\Support\Arr;
-
+use Alert;
 class InventoryTransferEditForm extends Component
 {
     public $transferproducts = [];
@@ -20,7 +20,7 @@ class InventoryTransferEditForm extends Component
     public function onchange(array $products){
         dd($products);
     }
-
+    public $status;
     public $selectedProducts = [];
     public $query;
 
@@ -34,7 +34,6 @@ class InventoryTransferEditForm extends Component
     public $Sproduct = [];
     public $Quantity = [];
     public $validatequantity ;
-
 
     public $toggleinfo = false;
 
@@ -70,6 +69,7 @@ class InventoryTransferEditForm extends Component
         $this->shipping = $orderinfos->shipping_date;
         $this->tracking = $orderinfos->tracking;
         $this->remarks = $orderinfos->remarks;
+        $this->status = $orderinfos->status;
         //wait na stuck ok na boi
         $this->products = [];
         $this->selectedProducts = [];
@@ -89,39 +89,33 @@ class InventoryTransferEditForm extends Component
 
 
     public function UpdateTransferData(){
-        $model = PurchaseOrder::find($this->model_id);
-        $model->suppliers_id = $this->origin;
-        $model->shipping_date = $this->shipping;
-        $model->tracking = $this->tracking;
-        $model->remarks = $this->remarks;
-        $model->update();
+        $this->validate();
 
+        $count = count($this->selectedProducts);
+        if($count == 0){
+            Alert::error('Invalid Transfer', 'Missing Products');
+            return redirect()->route('transfer.create');
+        }else{
+            $model = PurchaseOrder::find($this->model_id);
+            $model->suppliers_id = $this->origin;
+            $model->shipping_date = $this->shipping;
+            $model->tracking = $this->tracking;
+            $model->remarks = $this->remarks;
+            $model->update();
 
-        foreach($this->selectedProducts as $key=>$item){
-            // if(array_key_exists("isAdded", $item)){
-
-            // }
-            if(array_key_exists("isAdded", $item)){
-                    /// add ng new
+            foreach($this->selectedProducts as $key=>$item){
+                if(array_key_exists("isAdded", $item)){
                     OrderedItems::create([
                         'purchase_order_id' => $model->id,
                         'product_id' => $item['id'],
                         'quantity' => $item['quantity'],
                     ]);
-                unset($this->selectedProducts[$key]["isAdded"]);
-
-                continue;
+                    unset($this->selectedProducts[$key]["isAdded"]);
+                    continue;
+                }
             }
-            //update
-
-
+            return redirect()->route('transfer.edit',$this->model_id);
         }
-
-
-
-       return redirect()->route('transfer.edit',$this->model_id);
-
-
     }
 
     public function AddTd(array $product){

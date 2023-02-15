@@ -23,8 +23,12 @@ class InventoryTransferController extends Controller
             'orderinfos' => $orderinfo
         ]);
     }
-    public function receive(){
+    public function receive($orderinfo){
         abort_if(Gate::denies('inventory_transfer_receive'),403);
-        return view('admin.page.product.inventoryreceive');
+        $orderinfo = PurchaseOrder::findorfail($orderinfo);
+
+        return view('admin.page.product.inventoryreceive',[
+            'orderinfo' => $orderinfo
+        ]);
     }
 }

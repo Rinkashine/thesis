@@ -8,7 +8,7 @@ use App\Models\Product;
 use App\Models\PurchaseOrder;
 use App\Models\OrderedItems;
 use Illuminate\Support\Arr;
-
+use Alert;
 class InventoryTransferForm extends Component
 {
     public $transferproducts = [];
@@ -82,6 +82,8 @@ class InventoryTransferForm extends Component
                 return;
             }
         }
+        $selectedProd['t_quantity'] = 1;
+
         array_push($this->selectedProducts, $product);
         $this->query = '';
         $this->products = '';
@@ -101,26 +103,28 @@ class InventoryTransferForm extends Component
     public function StoreTransferData(){
         $this->validate();
 
-
-
-        $purchaseorder = PurchaseOrder::create([
-            'suppliers_id' => $this->origin,
-            'status' => 'Pending',
-            'shipping_date' => $this->shipping,
-            'tracking' => $this->tracking,
-            'remarks' => $this->remarks
-        ]);
-
-        foreach($this->selectedProducts as $value){
-            OrderedItems::create([
-                'purchase_order_id' => $purchaseorder->id,
-                'product_id' => $value['id'],
-                'quantity' => $value['t_quantity'],
+        $count = count($this->selectedProducts);
+        if($count == 0){
+            Alert::error('Invalid Transfer', 'Missing Products');
+            return redirect()->route('transfer.create');
+        }else{
+            $purchaseorder = PurchaseOrder::create([
+                'suppliers_id' => $this->origin,
+                'status' => 'Draft',
+                'shipping_date' => $this->shipping,
+                'tracking' => $this->tracking,
+                'remarks' => $this->remarks
             ]);
+
+            foreach($this->selectedProducts as $value){
+                OrderedItems::create([
+                    'purchase_order_id' => $purchaseorder->id,
+                    'product_id' => $value['id'],
+                    'quantity' => $value['t_quantity'],
+                ]);
+            }
+            return redirect()->route('transfer.index')->with('success','Purchase Order Created Successfully');
         }
-
-
-        return redirect()->route('transfer.index')->with('success','Purchase Order Created Successfully');
 
     }
     public function render()

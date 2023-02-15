@@ -34,6 +34,7 @@
                             <th class="whitespace-nowrap text-center">Category</th>
                             <th class="whitespace-nowrap text-center">SKU</th>
                             <th class="whitespace-nowrap text-center">Inventory</th>
+                            <th class="whitespace-nowrap text-center">Committed</th>
                             <th class="whitespace-nowrap text-center">Actions</th>
                         </tr>
                     </thead>
@@ -49,12 +50,13 @@
                             <td class="whitespace-nowrap text-center">{{$product->category->name}}</td>
                             <td class="whitespace-nowrap text-center">{{ $product->SKU }} </td>
                             <td class="whitespace-nowrap text-center">
-                             @if($product->stock <= 10)
-                             <div class="text-danger">{{$product->stock}} in stock</div>
-                             @else
-                                 {{$product->stock}} in stock
-                             @endif
-                         </td>
+                                @if($product->stock <= 10)
+                                    <div class="text-danger">{{$product->stock}} in stock</div>
+                                @else
+                                    {{$product->stock}} in stock
+                                @endif
+                             </td>
+                             <td class="whitespace-nowrap text-center">{{ $product->committed }} </td>
                             <td class="table-report__action w-56">
                                 <div class="flex justify-center items-center">
                                     <div class="flex justify-center items-center">
@@ -65,7 +67,6 @@
                                         <button wire:click="selectItem({{$product->id}},'adjust')" class="flex items-center mr-3">
                                             <i class="fa-solid fa-sliders w-4 h-4 mr-1"></i> Adjust
                                         </button>
-
                                         <a href="{{ Route('ProductInventoryHistory', $product) }}" class="flex items-center">
                                             <i class="fa-solid fa-timeline w-4 h-4 mr-1"></i>Logs
                                         </a>
@@ -83,8 +84,6 @@
             </h2>
             @endif
         </div>
-
-
        <div class="intro-y col-span-12 flex flex-wrap sm:flex-row sm:flex-nowrap items-center mt-5">
            <nav class="w-full sm:w-auto sm:mr-auto">
                {!! $products->onEachSide(1)->links() !!}

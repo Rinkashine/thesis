@@ -4,6 +4,10 @@ namespace App\Http\Livewire\Modal;
 
 use Livewire\Component;
 use App\Models\CustomerOrder;
+use App\Models\OrderedProduct;
+use App\Models\Product;
+use Illuminate\Support\Facades\Auth;
+use App\Models\InventoryHistory;
 use Alert;
 class OrderRejectForm extends Component
 {
@@ -54,11 +58,31 @@ class OrderRejectForm extends Component
     public function StoreRejectData(){
         $this->validate();
         $rejectorder = CustomerOrder::findorfail($this->modelId);
-        $rejectorder->cancellation_reason = $this->remarks;
+        $orderedproducts = OrderedProduct::where('customer_orders_id',$rejectorder->id)->get();
+        foreach($orderedproducts as $orderedproduct){
+            $products = Product::where('name',$orderedproduct->product_name)->get();
+            foreach($products as $product){
+                $product->stock += $orderedproduct->quantity;
+                $product->committed -= $orderedproduct->quantity;
+                $product->update();
+                $operationvalue = '(+'.$orderedproduct->quantity.')';
+                $latestvalue = $product->stock;
+                InventoryHistory::create([
+                    'product_id' => $product->id,
+                    'activity' => "Rejected Customer Order with Order ID of ".$rejectorder->id,
+                    'adjusted_by' => Auth::guard('web')->user()->name,
+                    'operation_value' => $operationvalue,
+                    'latest_value' => $latestvalue,
+                ]);
+            }
+        }
+        $rejectorder->rejected_reason = $this->remarks;
         $rejectorder->status = "Rejected";
         $rejectorder->update();
-        Alert::success('Order Rejected Successfully','' );
+        Alert::success('Order Rejected Success','' );
         return redirect()->route('orders.show',$this->modelId);
+
+
     }
 
     public function render()

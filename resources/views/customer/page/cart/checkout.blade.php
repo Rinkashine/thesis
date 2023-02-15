@@ -31,6 +31,7 @@
     window.addEventListener('openAddressModal', function(event) {
         mySlideOver.show();
     });
+
     window.addEventListener('CloseAddressModal', function(event) {
         mySlideOver.hide();
     });

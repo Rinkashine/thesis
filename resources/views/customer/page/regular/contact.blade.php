@@ -5,7 +5,7 @@
 <div class="items-center justify-center flex" >
     <div class="intro-y box py-10 sm:py-10 mt-5" style="width: 54rem">
         <div class="px-1 mt-0">
-            <div class="font-medium text-center text-2xl">Contact</div>
+            <div class="font-medium text-center text-2xl">Contact Us</div>
         </div>
             <livewire:form.contact-form/>
         </div>

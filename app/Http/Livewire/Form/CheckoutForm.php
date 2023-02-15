@@ -8,6 +8,9 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\CustomerCart;
 use App\Models\CustomerOrder;
 use App\Models\OrderedProduct;
+
+use App\Models\Product;
+use App\Models\InventoryHistory;
 use Alert;
 class CheckoutForm extends Component
 {
@@ -21,6 +24,7 @@ class CheckoutForm extends Component
     public $shipping;
     public $shippingfee = 100;
     public $total;
+
     public $orders;
     public $status;
     public $modeofpayment;
@@ -60,6 +64,22 @@ class CheckoutForm extends Component
                     'price' => $item->product->sprice,
                     'quantity' => $item->quantity,
                 ]);
+                $products = Product::where('name',$item->product->name)->get();
+                foreach($products as $product){
+                    $product->committed += $item->quantity;
+                    $product->stock -= $item->quantity;
+                    $product->update();
+                    $operationvalue = '(-'.$item->quantity.')';
+                    $latestvalue = $product->stock;
+                    InventoryHistory::create([
+                        'product_id' => $product->id,
+                        'activity' => "Customer Order with Order ID of ".$order_id->id,
+                        'adjusted_by' => '',
+                        'operation_value' => $operationvalue,
+                        'latest_value' => $latestvalue,
+                    ]);
+
+                }
                 $item->delete();
             }
         }
@@ -115,9 +135,27 @@ class CheckoutForm extends Component
                     'price' => $item->product->sprice,
                     'quantity' => $item->quantity,
                 ]);
+
+                $products = Product::where('name',$item->product->name)->get();
+                foreach($products as $product){
+                    $product->committed += $item->quantity;
+                    $product->stock -= $item->quantity;
+                    $product->update();
+                    $operationvalue = '(-'.$item->quantity.')';
+                    $latestvalue = $product->stock;
+                    InventoryHistory::create([
+                        'product_id' => $product->id,
+                        'activity' => "Customer Order with Order ID of ".$order_id->id,
+                        'adjusted_by' => '',
+                        'operation_value' => $operationvalue,
+                        'latest_value' => $latestvalue,
+                    ]);
+                }
+
                 $item->delete();
             }
         }
+
         Alert::success("Successfully Checkout");
         return redirect()->route('cart.index');
     }

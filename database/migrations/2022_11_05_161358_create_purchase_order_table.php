@@ -14,10 +14,10 @@ return new class extends Migration
     public function up()
     {
         Schema::create('purchase_order', function (Blueprint $table) {
-            $table->id();
+            $table->id()->from(1000);
             $table->foreignId('suppliers_id')->constrained('suppliers');
             $table->string('status');
-            $table->string('shipping_date');
+            $table->date('shipping_date');
             $table->string('tracking')->nullable();
             $table->string('remarks')->nullable();
             $table->timestamps();

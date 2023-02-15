@@ -18,6 +18,8 @@ class CustomerOrder extends Model
         'payment_id',
         'status',
         'cancellation_reason',
+        'rejected_reason',
+        'order_notes',
         'received_by',
         'phone_number',
         'notes',
@@ -27,6 +29,10 @@ class CustomerOrder extends Model
         'barangay'
     ];
 
+    public static function search($search){
+        return empty($search) ? static::query() :
+        static::query()->where('id','like','%'.$search.'%');
+    }
     public function customers(){
         return $this->belongsTo(Customer::class);
     }

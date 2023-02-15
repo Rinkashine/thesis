@@ -11,7 +11,8 @@ use App\Models\Customer;
 use App\Models\User;
 use App\Models\Supplier;
 use App\Models\Home;
-
+use Analytics;
+use Spatie\Analytics\Period;
 class DashboardController extends Controller
 {
    public function index(){
@@ -27,7 +28,14 @@ class DashboardController extends Controller
         $usercount = User::all()->count();
         $criticalproducts = Product::get()->where('stock','<=','stock_warning')->take(5);
 
+        $mostvisitedpage = Analytics::fetchMostVisitedPages(Period::years(1),20);
+        $browsers = Analytics::fetchTopBrowsers(Period::days(7),20);
+        $usertype = Analytics::fetchUserTypes(Period::months(1));
+
         return view('admin.page.dashboard',[
+            'browsers' => $browsers,
+            'mostvisitedpage' => $mostvisitedpage,
+            'usertype' => $usertype,
             'brandcount' => $brandcount,
             'categorycount' => $categorycount,
             'suppliercount' => $suppliercount,
@@ -40,4 +48,5 @@ class DashboardController extends Controller
             'criticalproducts' => $criticalproducts,
         ]);
     }
+
 }

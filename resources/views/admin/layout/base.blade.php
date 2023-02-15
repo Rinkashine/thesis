@@ -12,16 +12,9 @@
         <meta name="keywords" content="Go Dental">
         <meta name="author" content="Mark Joseph Manalo">
         <title>Go Dental - @yield('title')</title>
-                <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-                <!-- Google tag (gtag.js) -->
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-L2FGBKD7VC"></script>
-        <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+         <!-- Google tag (gtag.js) -->
 
-        gtag('config', 'G-L2FGBKD7VC');
-        </script>
     </head>
     <body class="login">
 

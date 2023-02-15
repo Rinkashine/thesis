@@ -473,6 +473,9 @@
                       <div class="f-fallback">
                         <h1 style="margin-top: 0; color: #333333; font-size: 22px; font-weight: bold; text-align: left;" align="left">{{ $subject }}</h1>
                         <p style="font-size: 16px; line-height: 1.625; color: #51545E; margin: .4em 0 1.1875em;">
+                            Name: {{ $name }}
+                        </p>
+                        <p style="font-size: 16px; line-height: 1.625; color: #51545E; margin: .4em 0 1.1875em;">
                             Email: {{ $email }}
                         </p>
                         <p style="font-size: 16px; line-height: 1.625; color: #51545E; margin: .4em 0 1.1875em;">
