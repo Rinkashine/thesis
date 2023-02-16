@@ -14,17 +14,17 @@
     <div class="intro-y col-span-12 lg:col-span-4 box py-10 ">
         <i data-lucide="shield" class="block w-12 h-12 text-primary mx-auto"></i>
         <div class="font-medium text-center text-base mt-3">Mission</div>
-        <div class="text-slate-500 mt-2 w-3/4 text-center mx-auto">Lorem Ipsum is simply dummy text of the printing</div>
+        <div class="text-slate-500 mt-2 w-3/4 text-center mx-auto">We believe in the transformative power of technology and want to change the world for the better by providing a platform to connect buyers and sellers within one community.</div>
     </div>
     <div class="intro-y col-span-12 lg:col-span-4 box py-10">
         <i data-lucide="send" class="block w-12 h-12 text-primary mx-auto"></i>
         <div class="font-medium text-center text-base mt-3">Vision</div>
-        <div class="text-slate-500 mt-2 w-3/4 text-center mx-auto">Lorem Ipsum is simply dummy text of the printing</div>
+        <div class="text-slate-500 mt-2 w-3/4 text-center mx-auto">To Internet users across the region, Go Dental offers a one-stop online shopping experience that provides a wide selection of products, a social community for exploration, and seamless fulfilment services.</div>
     </div>
     <div class="intro-y col-span-12 lg:col-span-4 box py-10">
         <i data-lucide="trending-up" class="block w-12 h-12 text-primary mx-auto"></i>
         <div class="font-medium text-center text-base mt-3">Core Values</div>
-        <div class="text-slate-500 mt-2 w-3/4 text-center mx-auto">Lorem Ipsum is simply dummy text of the printing</div>
+        <div class="text-slate-500 mt-2 w-3/4 text-center mx-auto">To define who we are - how we talk, behave or react to any given situation - in essence, we are Simple, Happy and Together. These key attributes are visible at every step of the Go Dental journey.</div>
     </div>
     <!-- END: Mission, Vision, and Core Values -->
     <!-- BEGIN:Go Dental Information -->
@@ -41,22 +41,16 @@
                     Bulacan. The company is an importer and distributor of dental supplies and equipment.
                     The company offers business transactions from 8:00 am to 5:00 pm, Monday to Saturday.</div>
                 <div class="indent-5 mt-2">
-                    Maecenas at sodales arcu. Sed euismod ligula quis lobortis gravida.
-                    Aliquam laoreet sagittis leo eu tempus. Curabitur tortor est, bibendum quis sapien ut,
-                    maximus vulputate mauris. Vestibulum gravida libero dui, et euismod sapien interdum vel.
-                    Aliquam venenatis tortor libero. Mauris ac ante id arcu tristique dapibus eget eu augue.
-                    Proin ac nunc et neque egestas gravida. Vivamus lacus odio, varius vehicula consectetur aliquam,
-                    blandit ut tellus. In sodales ipsum dui, quis ultrices risus tempor id. Curabitur tincidunt pulvinar nisi,
-                    at porttitor ex feugiat vel. Duis at rutrum mauris, non tristique massa.
+                The company has one employee, the owner, only himself, who covers all the services of the business. The owner handles the inventory, sales, billing, delivery, and inquiries.
+                Customers can reach the company through phone calls or SMS to inquire and make orders. After the customer makes an order, the owner then creates order details, providing the customer’s name, order date, names of products, the quantity of products, and its subtotal.
+                For payment, the company accepts cash on delivery, and Gcash. Which are received and processed by the owner.
+                Customers have options to acquire their orders, either through delivery, pick up or meet-up. There are no delivery fees if the order is made within the area coverage. On the other hand, the customer will have delivery fees if the product is delivered by a third-party delivering service like JNT.
+                The company does not have a list of its customers' information such as its addresses. Customers can request a replacement or refund within a week if the item has not been opened and in not good condition, otherwise, the request will be denied.
                 </div>
                 <div class="indent-5 mt-2">
-                    Maecenas at sodales arcu. Sed euismod ligula quis lobortis gravida.
-                    Aliquam laoreet sagittis leo eu tempus. Curabitur tortor est, bibendum quis sapien ut, maximus vulputate mauris.
-                    Vestibulum gravida libero dui, et euismod sapien interdum vel.
-                    Aliquam venenatis tortor libero. Mauris ac ante id arcu tristique dapibus eget eu augue.
-                    Proin ac nunc et neque egestas gravida. Vivamus lacus odio, varius vehicula consectetur aliquam, blandit ut tellus.
-                    In sodales ipsum dui, quis ultrices risus tempor id. Curabitur tincidunt pulvinar nisi, at porttitor ex feugiat vel.
-                     Duis at rutrum mauris, non tristique massa.
+                Therefore, the company seeks a system that can help them adapt to the current era of today.
+                Having the Go-Dental, an e-commerce system can make the company more competitive and boost its way of endorsing products. Most of the people in our nation already have a phone and internet access. It will showcase the mobility and flexibility of our current technology in terms of daily browsing and transactions.
+
                 </div>
             </div>
         </div>

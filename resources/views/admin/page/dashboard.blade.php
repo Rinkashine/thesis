@@ -20,8 +20,8 @@
                                 <div class="flex">
                                     <i data-lucide="shopping-cart" class="report-box__icon text-primary"></i>
                                 </div>
-                                <div class="text-3xl font-medium leading-8 mt-6">4.710</div>
-                                <div class="text-base text-slate-500 mt-1">Item Sales</div>
+                                <div class="text-3xl font-medium leading-8 mt-6">₱{{ number_format($totalsales,2) }}</div>
+                                <div class="text-base text-slate-500 mt-1">Total Sales</div>
                             </div>
                         </div>
                     </div>

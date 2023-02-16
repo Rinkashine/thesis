@@ -51,11 +51,20 @@
                                 <div class="flex items-center justify-center whitespace-nowrap text-danger">{{ $order->status }}</div>
                                 @else
                                 <div class="flex items-center justify-center whitespace-nowrap text-pending">{{ $order->status }}</div>
-
                                 @endif
                             </td>
                             <td><div class="whitespace-nowrap">{{ $order->mode_of_payment }}</div></td>
-                            <td class="w-40 text-center"><div class="pr-16">₱{{ $order->total }}</div></td>
+                            <td class="w-40 text-center">
+                                <div class="pr-16">₱
+                                    @php
+                                        $total = 0
+                                    @endphp
+                                    @foreach ($order->orderTransactions as $item)
+                                        <?php $total += $item->quantity * $item->price ?>
+                                    @endforeach
+                                    {{number_format($total,2)}}
+                                </div>
+                            </td>
                             <td class="table-report__action">
                                 <div class="flex justify-center items-center">
                                     <a class="flex items-center text-primary whitespace-nowrap mr-5" href="{{ Route('orders.show',$order->id) }}">

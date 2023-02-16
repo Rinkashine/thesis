@@ -11,9 +11,7 @@ class CustomerOrder extends Model
     protected $table = 'customer_orders';
     protected $fillable = [
         'customers_id',
-        'subtotal',
         'shippingfee',
-        'total',
         'mode_of_payment',
         'payment_id',
         'status',
@@ -35,6 +33,9 @@ class CustomerOrder extends Model
     }
     public function customers(){
         return $this->belongsTo(Customer::class);
+    }
+    public function orderTransactions(){
+        return $this->hasMany(OrderedProduct::class, 'customer_orders_id','id');
     }
 
 

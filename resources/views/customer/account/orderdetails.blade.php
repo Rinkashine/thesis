@@ -87,7 +87,15 @@
 
                 <div class="flex justify-between">
                     <div>Subtotal</div>
-                    <div>₱{{ number_format($orderdetails->subtotal) }}</div>
+                    <div>₱
+                        @php
+                            $total = 0
+                        @endphp
+                        @foreach ($orderdetails->orderTransactions as $item)
+                            <?php $total += $item->quantity * $item->price ?>
+                        @endforeach
+                        {{ number_format($total,2) }}
+                    </div>
                 </div>
                 <div class="flex justify-between">
                     <div>Shipping Fee</div>
@@ -96,7 +104,7 @@
                 <div class="w-full border-t border-slate-200/60 mt-1 mb-2"></div>
                 <div class="flex justify-between">
                     <div>Total</div>
-                    <div>₱{{ number_format($orderdetails->total) }}</div>
+                    <div>₱{{ number_format($total+$orderdetails->shippingfee,2) }}</div>
                 </div>
             </div>
         </div>

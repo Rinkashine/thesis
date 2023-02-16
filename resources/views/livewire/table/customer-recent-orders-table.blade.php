@@ -24,7 +24,15 @@
                         @endforeach
                     </td>
                     <td class="whitespace-nowrap text-center">
-                        <div>     ₱{{ $order->total }}</div>
+                        <div>₱
+                            @php
+                                $total = 0
+                             @endphp
+                            @foreach ($order->orderTransactions as $item)
+                                <?php $total += $item->quantity * $item->price ?>
+                            @endforeach
+                            {{number_format($total,2)}}
+                        </div>
                         <div>{{ $order->mode_of_payment }}</div>
 
                     </td>

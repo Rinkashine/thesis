@@ -8,6 +8,8 @@ use App\Models\Brand;
 use App\Models\Category;
 use App\Models\Product;
 use App\Models\Customer;
+use App\Models\CustomerOrder;
+use App\Models\OrderedProduct;
 use App\Models\User;
 use App\Models\Supplier;
 use App\Models\Home;
@@ -16,6 +18,16 @@ use Spatie\Analytics\Period;
 class DashboardController extends Controller
 {
    public function index(){
+
+
+        $completedorders = CustomerOrder::where('status','Completed')->get();
+        $totalsales = 0;
+        foreach($completedorders as $completeorder){
+            foreach($completeorder->orderTransactions as $orderproduct){
+                $totalsales += $orderproduct->quantity * $orderproduct->price;
+            }
+        }
+
 
         $brandcount = Brand::all()->count();
         $categorycount = Category::all()->count();
@@ -36,6 +48,7 @@ class DashboardController extends Controller
             'browsers' => $browsers,
             'mostvisitedpage' => $mostvisitedpage,
             'usertype' => $usertype,
+            'totalsales' => $totalsales,
             'brandcount' => $brandcount,
             'categorycount' => $categorycount,
             'suppliercount' => $suppliercount,

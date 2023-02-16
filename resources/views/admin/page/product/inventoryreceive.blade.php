@@ -2,14 +2,16 @@
 @section('content')
 @section('title', 'Receive Transfer')
 <!-- Begin: Header -->
-<div class="intro-y flex justify-between items-center mt-8">
-    <div>
+<div class="intro-y items-center mt-8">
+
         <h2 class="text-lg font-medium mr-auto">
             Receive Items: # {{ $orderinfo->id }}
          </h2>
-    </div>
+
 <div>
-<livewire:receive-transfer-form/>
+    @livewire('form.receive-transfer-form',['orderinfo' => $orderinfo])
+
+
 @endsection
 
 @push('scripts')

@@ -30,7 +30,15 @@
             </div>
             <div class="flex items-center mt-3">
                 <i data-lucide="credit-card" class="w-4 h-4 text-slate-500 mr-2"></i> Total Price:
-                <div class="ml-auto">₱{{ number_format($orderdetails->subtotal,2) }}</div>
+                <div class="ml-auto">₱
+                    @php
+                        $total = 0
+                    @endphp
+                    @foreach ($orderdetails->orderTransactions as $item)
+                        <?php $total += $item->quantity * $item->price ?>
+                    @endforeach
+                    {{ number_format($total,2) }}
+                </div>
             </div>
             <div class="flex items-center mt-3">
                 <i data-lucide="credit-card" class="w-4 h-4 text-slate-500 mr-2"></i> Total Shipping Cost:
@@ -39,7 +47,7 @@
 
             <div class="flex items-center border-t border-slate-200/60 dark:border-darkmode-400 pt-5 mt-5 font-medium">
                 <i data-lucide="credit-card" class="w-4 h-4 text-slate-500 mr-2"></i> Grand Total:
-                <div class="ml-auto">₱{{ number_format($orderdetails->total) }}</div>
+                <div class="ml-auto">₱{{ number_format($total+$orderdetails->shippingfee,2) }}</div>
             </div>
         </div>
         <div class="box p-5 rounded-md mt-5">
