@@ -66,6 +66,31 @@ Route::group(['prefix' => 'admin'],function(){
         Route::get('/role/csv',[RoleController::class,'exportrolecsv'])->name('exportrolecsv');
         Route::get('/role/html',[RoleController::class,'exportrolehtml'])->name('exportrolehtml');
         Route::get('/role/pdf',[RoleController::class,'exportrolepdf'])->name('exportrolepdf');
+        //Export Files For Browser Type
+        Route::get('/report/browser/excel',[ReportController::class,'exportbrowsertypeexcel'])->name('exportbrowsertypeexcel');
+        //Export Files For User Type
+        Route::get('/report/UserType/excel',[ReportController::class,'exportusertypeexcel'])->name('exportusertypeexcel');
+        //Export Files For Sales Over Time
+        Route::get('/report/SalesOvertime/excel',[ReportController::class,'exportsalesovertime'])->name('exportsalesovertime');
+
+        //Export Files for Sales Product
+        Route::get('/report/salesprod/pdf',[ReportController::class,'exportSalesProductPDF'])->name('exportSalesProductPDF');
+        Route::get('/report/salesprod/excel/{startdate}/{enddate}',[ReportController::class,'exportSalesProductEXCEL'])->name('exportSalesProductEXCEL');
+        Route::get('/report/salesprod/csv',[ReportController::class,'exportSalesProductCSV'])->name('exportSalesProductCSV');
+        Route::get('/report/salesprod/html',[ReportController::class,'exportSalesProductHTML'])->name('exportSalesProductHTML');
+        //Export Files for Sales Customer
+        Route::get('/report/salescustomer/pdf',[ReportController::class,'exportSalesCustomerPDF'])->name('exportSalesCustomerPDF');
+        Route::get('/report/salescustomer/excel',[ReportController::class,'exportSalesCustomerEXCEL'])->name('exportSalesCustomerEXCEL');
+        Route::get('/report/salescustomer/csv',[ReportController::class,'exportSalesCustomerCSV'])->name('exportSalesCustomerCSV');
+        Route::get('/report/salescustomer/html',[ReportController::class,'exportSalesCustomerHTML'])->name('exportSalesCustomerHTML');
+        //Export Files for Sales Brand
+        Route::get('/report/salesbrand/excel',[ReportController::class,'exportSalesBrandEXCEL'])->name('exportSalesBrandEXCEL');
+        Route::get('/report/salesbrand/csv',[ReportController::class,'exportSalesBrandCSV'])->name('exportSalesBrandCSV');
+        //Export Files for Sales Category
+        Route::get('/report/salescategory/excel',[ReportController::class,'exportSalesCategoryEXCEL'])->name('exportSalesCategoryEXCEL');
+        Route::get('/report/salescategory/csv',[ReportController::class,'exportSalesCategoryCSV'])->name('exportSalesCategoryCSV');
+
+
 
         Route::middleware(['PreventBackHistory'])->group(function () {
             Route::get('/logout', [LogoutController::class, 'store'])->name('logout');
@@ -95,6 +120,20 @@ Route::group(['prefix' => 'admin'],function(){
             Route::resource('changepassword', ChangePasswordController::class)->only('index');
             Route::resource('analytics', AnalyticsController::class)->only('index');
             Route::resource('discount', DiscountController::class);
+
+            Route::get('/report/GrossSales',[ReportController::class,'GrossSalesIndex'])->name('report.GrossSales');
+            Route::get('/report/PaymentByType}',[ReportController::class,'PaymentTypeIndex'])->name('report.PaymentByType');
+            Route::get('/report/ProfitByProduct',[ReportController::class,'ProfitByProductIndex'])->name('report.ProfitByProduct');
+            Route::get('/report/UserType',[ReportController::class,'UserTypeIndex'])->name('report.UserType');
+            Route::get('/report/SalesOvertime',[ReportController::class,'SalesOvertimeIndex'])->name('report.SalesOvertime');
+            Route::get('/report/MostVisitedPage',[ReportController::class,'MostVisitedPageIndex'])->name('report.MostVisitedPageIndex');
+
+            Route::get('/report/salesprod', [ReportController::class, 'salesProd'])->name('report.SalesProd');
+            Route::get('/report/salesCustomer',[ReportController::class,'salesCustomer'])->name('report.SalesCustomer');
+            Route::get('/report/salesbrand', [ReportController::class, 'salesBrand'])->name('report.SalesBrand');
+            Route::get('/report/salescategory',[ReportController::class,'salesCategory'])->name('report.SalesCategory');
+
+            Route::get('/report/browser',[ReportController::class,'BrowserIndex'])->name('report.browser');
             Route::resource('report', ReportController::class);
 
             Route::get('/customer/archive',[CustomerController::class,'CustomerArchiveIndex'])->name('CustomerArchiveIndex');

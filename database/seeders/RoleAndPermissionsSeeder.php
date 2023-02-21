@@ -59,7 +59,6 @@ class RoleAndPermissionsSeeder extends Seeder
             'product_export',
             'product_restore',
             'product_forcedelete',
-            'analytics_access',
             'report_access',
             'order_access',
             'order_details_access',

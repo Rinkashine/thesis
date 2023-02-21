@@ -146,7 +146,7 @@
             </ul>
         </li>
         @endif
-        @if (Auth::guard('web')->user()->can('report_access') || Auth::guard('web')->user()->can('analytics_access'))
+        @if (Auth::guard('web')->user()->can('report_access'))
         <!--Divider-->
         <li class="menu__devider my-6"></li>
         @endif
@@ -156,15 +156,6 @@
             <a href="{{Route('report.index')}}" class="menu">
                 <div class="menu__icon"> <i class="fa-solid fa-chart-pie fa-lg p-1"></i> </div>
                 <div class="menu__title"> Reports </div>
-            </a>
-        </li>
-        @endcan
-        @can('analytics_access')
-        <!--Analytics-->
-        <li>
-            <a href="{{Route('analytics.index')}}" class="menu">
-                <div class="menu__icon">  <i class="fa-solid fa-chart-simple fa-lg p-1"></i></div>
-                <div class="menu__title"> Analytics </div>
             </a>
         </li>
         @endcan

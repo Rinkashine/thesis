@@ -6,5 +6,6 @@
     "/dist/js/ckeditor-balloon-block.js": "/dist/js/ckeditor-balloon-block.js",
     "/dist/js/ckeditor-document.js": "/dist/js/ckeditor-document.js",
     "/dist/js/address.js": "/dist/js/address.js",
+    "/dist/js/chart.js": "/dist/js/chart.js",
     "/dist/css/build.css": "/dist/css/build.css"
 }

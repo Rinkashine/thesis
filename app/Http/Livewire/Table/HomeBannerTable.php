@@ -9,7 +9,7 @@ class HomeBannerTable extends Component
 {
     use WithPagination;
 
-    public $perPage = 10;
+    public $perPage = 12;
     public $search = null;
     protected $queryString = ['search' => ['except' => '']];
     protected $paginationTheme = 'bootstrap';

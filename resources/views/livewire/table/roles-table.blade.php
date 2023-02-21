@@ -60,7 +60,7 @@
                 <td class="table-report__action w-72">
                     <div class="flex justify-center items-center">
                         <a href="{{ Route('role.edit',$role) }}" class="flex items-center mr-3" >
-                            <i class="fa-regular fa-pen-to-square w-4 h-4 mr-1"></i> Permissions
+                            <i class="fa-solid fa-list w-4 h-4 mr-1"></i> Permissions
                         </a>
                         <button wire:click="selectItem({{$role->id}},'update')"  class="flex items-center mr-3" >
                             <i class="fa-regular fa-pen-to-square w-4 h-4 mr-1"></i> Edit

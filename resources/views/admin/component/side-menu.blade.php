@@ -169,7 +169,7 @@
             </ul>
         </li>
         @endif
-        @if (Auth::guard('web')->user()->can('report_access') || Auth::guard('web')->user()->can('analytics_access'))
+        @if (Auth::guard('web')->user()->can('report_access'))
         <!--Divider-->
         <li class="side-nav__devider my-6"></li>
         @endif
@@ -182,16 +182,5 @@
                 </a>
             </li>
         @endcan
-
-        @can('analytics_access')
-            <!--Analytics-->
-            <li>
-                <a href="{{Route('analytics.index')}}" class="side-menu {{ (request()->is('admin/analytics')) ? 'side-menu--active' : '' }}">
-                    <div class="side-menu__icon"> <i class="fa-solid fa-chart-simple fa-lg p-1"></i> </div>
-                    <div class="side-menu__title"> Analytics </div>
-                </a>
-            </li>
-        @endcan
-
     </ul>
 </nav>

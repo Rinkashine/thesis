@@ -4,7 +4,47 @@ import Chart from "chart.js/auto";
 
 (function () {
     "use strict";
+    //test
 
+    if ($("#user-chart-widget").length) {
+        let ctx = $("#user-chart-widget")[0].getContext("2d");
+        let myPieChart = new Chart(ctx, {
+            type: "pie",
+            data: {
+                labels: ["New User", "Returning User"],
+                datasets: [
+                    {
+                        data: [25, 65],
+                        backgroundColor: [
+                            colors.pending(0.9),
+                            colors.primary(0.9),
+                        ],
+                        hoverBackgroundColor: [
+                            colors.pending(0.9),
+                            colors.primary(0.9),
+                        ],
+                        borderWidth: 5,
+                        borderColor: $("html").hasClass("dark")
+                            ? colors.darkmode[700]()
+                            : colors.white,
+                    },
+                ],
+            },
+            options: {
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        labels: {
+                            color: colors.slate["500"](0.8),
+                        },
+                    },
+                },
+            },
+        });
+    }
+
+
+    //end test
     // Chart
     if ($("#report-line-chart").length) {
         let ctx = $("#report-line-chart")[0].getContext("2d");

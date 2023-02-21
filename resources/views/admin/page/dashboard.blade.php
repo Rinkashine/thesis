@@ -32,24 +32,36 @@
                                 <div class="flex">
                                     <i data-lucide="monitor" class="report-box__icon text-warning"></i>
                                 </div>
-                                <div class="text-3xl font-medium leading-8 mt-6">{{ $productcount }}</div>
-                                <div class="text-base text-slate-500 mt-1">Total Products</div>
+                                <div class="text-3xl font-medium leading-8 mt-6">{{ $completedorderscount }}</div>
+                                <div class="text-base text-slate-500 mt-1">Completed Orders</div>
                             </div>
                         </div>
                     </div>
-                    @foreach ($usertype as $usertype)
+
                     <div class="col-span-12 sm:col-span-6 xl:col-span-3 intro-y">
                         <div class="report-box zoom-in">
                             <div class="box p-5">
                                 <div class="flex">
-                                    <i data-lucide="user" class="report-box__icon text-success"></i>
+                                    <i data-lucide="monitor" class="report-box__icon text-warning"></i>
                                 </div>
-                                <div class="text-3xl font-medium leading-8 mt-6">{{ $usertype['sessions'] }}</div>
-                                <div class="text-base text-slate-500 mt-1">{{ $usertype['type'] }}</div>
+                                <div class="text-3xl font-medium leading-8 mt-6">{{ $activeproductcount }}</div>
+                                <div class="text-base text-slate-500 mt-1">Active Products </div>
                             </div>
                         </div>
                     </div>
-                    @endforeach
+
+                    <div class="col-span-12 sm:col-span-6 xl:col-span-3 intro-y">
+                        <div class="report-box zoom-in">
+                            <div class="box p-5">
+                                <div class="flex">
+                                    <i data-lucide="monitor" class="report-box__icon text-warning"></i>
+                                </div>
+                                <div class="text-3xl font-medium leading-8 mt-6">{{ $inactiveproductcount }}</div>
+                                <div class="text-base text-slate-500 mt-1">Inactive Products </div>
+                            </div>
+                        </div>
+                    </div>
+
 
                 </div>
             </div>
@@ -57,79 +69,110 @@
 
             <!-- BEGIN: Most Visited Page -->
             <div class="col-span-12 xl:col-span-8 mt-6">
-                <div class="intro-y block sm:flex items-center h-10">
-                    <h2 class="text-lg font-medium truncate mr-5">
-                        Most Visited Page
-                    </h2>
-                </div>
-                <div class="intro-y box p-5 mt-12 sm:mt-5">
-                    <div class="intro-y overflow-auto lg:overflow-visible mt-8 sm:mt-0">
-                        <table class="table table-report sm:mt-2">
-                            <thead>
-                                <tr>
-                                    <th class="whitespace-nowrap">Page Title</th>
-                                    <th class="whitespace-nowrap">Views</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @forelse ($mostvisitedpage as $product)
-                                <tr class="intro-x">
-                                    <td class="w-full">
-                                        <a href="http://127.0.0.1:8000{{ $product['url'] }}" class="underline text-primary">{{$product['pageTitle']}}</a>
-                                    </td>
-                                    <td>
-                                        {{ $product['pageViews'] }}
-                                    </td>
-                                </tr>
-                                @empty
-                                <tr class="intro-x">
-                                    <td colspan="2">No Data</td>
-                                </tr>
-                                @endforelse
-                            </tbody>
-                        </table>
-
+                <div class=" box mt-5 w-full">
+                    <div class="flex items-center p-5 border-b border-slate-200/60 dark:border-darkmode-400">
+                        <h2 class="font-medium text-base mr-auto">
+                            Summary of Sales
+                        </h2>
+                    </div>
+                    <div class="p-5">
+                        <canvas id="test" height="140px"></canvas>
                     </div>
                 </div>
             </div>
             <!-- END: Official Store -->
             <!-- BEGIN: Weekly Best Sellers -->
             <div class="col-span-12 xl:col-span-4 mt-6">
-                <div class="intro-y flex items-center h-10">
-                    <h2 class="text-lg font-medium truncate mr-5">
-                        Weekly Top Browser
-                    </h2>
+                <div class=" box mt-5 w-full">
+                    <div class="flex items-center p-5 border-b border-slate-200/60 dark:border-darkmode-400">
+                        <h2 class="font-medium text-base mr-auto">
+                            User Type
+                        </h2>
+                    </div>
+                    <div class="p-5">
+                        <canvas id="UserType" height="80px"></canvas>
+                    </div>
                 </div>
-                <div class="mt-5">
-                    @forelse ($browsers as $browser)
-                    <div class="intro-y">
-                        <div class="box px-4 py-4 mb-3 flex items-center zoom-in">
-                            <div class="ml-4 mr-auto">
-                                <div class="font-medium">{{ $browser['browser'] }}</div>
-
-                            </div>
-                            <div class="py-1 px-2 rounded-full text-xs bg-success text-white cursor-pointer font-medium">{{ $browser['sessions'] }}</div>
-                        </div>
-                    </div>
-                    @empty
-                    <div class="intro-y">
-                        <div class="box px-4 py-4 mb-3 flex items-center zoom-in">
-                            <div class="ml-4 mr-auto">
-                                <div class="font-medium">No Data</div>
-                            </div>
-                        </div>
-                    </div>
-                    @endforelse
-               </div>
             </div>
             <!-- END: Weekly Best Sellers -->
-
         </div>
     </div>
 
 </div>
 
 @endsection
+@push('scripts')
+<script>
 
+    //Begin: User Type Chart
+    var usertypelabel =  {{ Js::from($usertypelabel) }};
+    var usertypedataset =  {{ Js::from($usertypedataset) }};
+    const usertypedata = {
+    labels: usertypelabel,
+    datasets: [{
+        label: 'User Type',
+        data: usertypedataset,
+        backgroundColor: [
+        'rgb(30,95,78)',
+        'rgb(250,209,44)',
+        ],
+        hoverOffset: 4
+    }]
+    };
+    const usertypeconfig = {
+        type: 'pie',
+        data: usertypedata,
+    };
+
+    const UserTypeChart = new Chart(
+        document.getElementById('UserType'),
+        usertypeconfig
+    );
+    //End: User Type Chart
+    //Begin: Sales Chart
+    var MONTHS = [
+		'January',
+		'February',
+		'March',
+		'April',
+		'May',
+		'June',
+		'July',
+        'August',
+        'September',
+        'October',
+        'November',
+        'December'
+	];
+    var saleschartlabel = {{ Js::from($saleschartlabel) }}
+    var saleschartdataset = {{ Js::from($saleschartdataset) }}
+    const labels = saleschartlabel;
+    const data = {
+    labels: labels,
+    datasets: [{
+        label: 'Sales',
+        data: saleschartdataset,
+        fill: false,
+        borderColor: 'rgb(30,95,78)',
+        tension: 0.1
+    }]
+    };
+
+    const config = {
+        type: 'line',
+        data: data,
+    };
+
+
+    const Sales = new Chart(
+        document.getElementById('test'),
+        config
+    );
+    //End: Sales Chart
+
+</script>
+
+
+@endpush
 
 

@@ -20,7 +20,7 @@
                         <div class="flex items-center gap-1">
                             <i class="text-base fas fa-phone"></i>
                             <a href="javascript:void(0)" class="text-base leading-loose text-body-color hover:text-primary">
-                                +012 (345) 678 99
+                                09214048218
                             </a>
                         <div>
                     </li>

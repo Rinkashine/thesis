@@ -62,7 +62,7 @@
         <!-- BEGIN: Account Menu -->
         <div class="intro-x dropdown w-8 h-8">
             <div class="dropdown-toggle w-8 h-8 rounded-full overflow-hidden shadow-lg image-fit zoom-in scale-110" role="button" aria-expanded="false" data-tw-toggle="dropdown">
-                @if(!empty(Auth::guard('customer')->user()->photo))
+            @if(!empty(Auth::guard('customer')->user()->photo))
                 <img src="{{ url('storage/customer_profile_picture/'.Auth::guard('customer')->user()->photo) }}" class="rounded-full"  alt="Missing Image">
             @else
                 <img alt="Missing Image" class="rounded-full" src="{{asset('dist/images/undraw_pic.svg')}}">

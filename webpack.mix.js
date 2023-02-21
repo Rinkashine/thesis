@@ -12,6 +12,7 @@ const mix = require("laravel-mix");
  */
 
 mix.js("resources/js/app.js", "public/dist/js")
+
     .js("resources/js/ckeditor-classic.js", "public/dist/js")
     .js("resources/js/ckeditor-inline.js", "public/dist/js")
     .js("resources/js/ckeditor-balloon.js", "public/dist/js")
@@ -20,6 +21,7 @@ mix.js("resources/js/app.js", "public/dist/js")
     //.js("resources/js/product-show.js", "public/dist/js")
     //.js("resources/js/cart.vue.js", "public/dist/js")
     .js("resources/js/address.js","public/dist/js")
+    .js("resources/js/chart.js","public/dist/js")
     //.css("public/dist/css/_app.css", "public/dist/css/app.css")
     .css("resources/css/_tailwind.css", "public/dist/css/build.css")
     .options({

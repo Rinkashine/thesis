@@ -76,10 +76,10 @@
                 {!! $banners->onEachSide(1)->links() !!}
             </nav>
             <select wire:model="perPage" class="w-20 form-select box mt-3 sm:mt-0">
-                <option>10</option>
-                <option>25</option>
-                <option>35</option>
-                <option>50</option>
+                <option>12</option>
+                <option>24</option>
+                <option>36</option>
+                <option>48</option>
             </select>
         </div>
         <!-- END: Pagination -->

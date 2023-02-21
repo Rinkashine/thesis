@@ -22,7 +22,7 @@ import "@left4code/tw-starter/dist/js/tab";
  | Import 3rd party library JS files.
  |
  */
-import "./chart";
+//import "./chart";
 import "./highlight";
 import "./lucide";
 import "./tiny-slider";

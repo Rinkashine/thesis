@@ -1,6 +1,6 @@
-@extends('customer.layout.productbase')
+@extends('customer.layout.base')
 @section('content')
-@section('title', 'Product')
+@section('title', 'Product Catalog')
 
 <!-- Begin: Show Product -->
 <livewire:table.product-catalog-table/>

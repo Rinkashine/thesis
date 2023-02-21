@@ -4,116 +4,84 @@
 
 <div class="intro-y box p-5">
     <div class="border border-slate-200/60 dark:border-darkmode-400 rounded-md p-5">
-    <div class="font-medium text-base flex items-center border-b border-slate-200/60 dark:border-darkmode-400 pb-5">
-        Report
-    </div>
-            <!-- Product Title -->
-            <div class="overflow-x-auto scrollbar-hidden">
-                <div class="overflow-x-auto">
-                        <table class="table table-striped mt-5 table-bordered table-hover">
-                            <thead class="table-dark">
-                                <tr>
-                                    <th class="whitespace-nowrap ">Name</th>
-                                    <th class="whitespace-nowrap text-center">Category</th>
-                                    <th class="whitespace-nowrap text-center">Last Viewed</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td class="whitespace-nowrap cursor-pointer hover:underline">Sales by billing location</td>
-                                    <td class="whitespace-nowrap text-center">Sales</td>
-                                    <td class="whitespace-nowrap text-center">Nov 28, 2022</td>
-                                </tr>
-                                <tr>
-                                    <td class="whitespace-nowrap cursor-pointer hover:underline">Sales by channel</td>
-                                    <td class="whitespace-nowrap text-center">Sales</td>
-                                    <td class="whitespace-nowrap text-center">Nov 28, 2022</td>
-                                </tr>
-                                <tr>
-                                    <td class="whitespace-nowrap cursor-pointer hover:underline">Sales by customer name</td>
-                                    <td class="whitespace-nowrap text-center">Sales</td>
-                                    <td class="whitespace-nowrap text-center">Nov 28, 2022</td>
-                                </tr>
-                                <tr>
-                                    <td class="whitespace-nowrap cursor-pointer hover:underline">Sales by discount</td>
-                                    <td class="whitespace-nowrap text-center">Sales</td>
-                                    <td class="whitespace-nowrap text-center">Nov 28, 2022</td>
-                                </tr>
-                                <tr>
-                                    <td class="whitespace-nowrap cursor-pointer hover:underline">Sales by product</td>
-                                    <td class="whitespace-nowrap text-center">Sales</td>
-                                    <td class="whitespace-nowrap text-center">Nov 28, 2022</td>
-                                </tr>
-                                <tr>
-                                    <td class="whitespace-nowrap cursor-pointer hover:underline">Sales over time</td>
-                                    <td class="whitespace-nowrap text-center">Sales</td>
-                                    <td class="whitespace-nowrap text-center">Nov 28, 2022</td>
-                                </tr>
-                                <tr>
-                                    <td class="whitespace-nowrap cursor-pointer hover:underline">Profit by product</td>
-                                    <td class="whitespace-nowrap text-center">Profit Margin</td>
-                                    <td class="whitespace-nowrap text-center">Nov 28, 2022</td>
-                                </tr>
-                                <tr>
-                                    <td class="whitespace-nowrap cursor-pointer hover:underline">Profit by product variant SKU</td>
-                                    <td class="whitespace-nowrap text-center">Profit Margin</td>
-                                    <td class="whitespace-nowrap text-center">Nov 28, 2022</td>
-                                </tr>
-                                <tr>
-                                    <td class="whitespace-nowrap cursor-pointer hover:underline">Cost of goods sold</td>
-                                    <td class="whitespace-nowrap text-center">Finances</td>
-                                    <td class="whitespace-nowrap text-center">Nov 28, 2022</td>
-                                </tr>
-                                <tr>
-                                    <td class="whitespace-nowrap cursor-pointer hover:underline">Discounts</td>
-                                    <td class="whitespace-nowrap text-center">Finances</td>
-                                    <td class="whitespace-nowrap text-center">Nov 28, 2022</td>
-                                </tr>
-                                <tr>
-                                    <td class="whitespace-nowrap cursor-pointer hover:underline">Gross profit</td>
-                                    <td class="whitespace-nowrap text-center">Finances</td>
-                                    <td class="whitespace-nowrap text-center">Nov 28, 2022</td>
-                                </tr>
-                                <tr>
-                                    <td class="whitespace-nowrap cursor-pointer hover:underline">Gross sales</td>
-                                    <td class="whitespace-nowrap text-center">Finances</td>
-                                    <td class="whitespace-nowrap text-center">Nov 28, 2022</td>
-                                </tr>
-                                <tr>
-                                    <td class="whitespace-nowrap cursor-pointer hover:underline">Net sales</td>
-                                    <td class="whitespace-nowrap text-center">Finances</td>
-                                    <td class="whitespace-nowrap text-center">Nov 28, 2022</td>
-                                </tr>
-                                <tr>
-                                    <td class="whitespace-nowrap cursor-pointer hover:underline">Payments by type</td>
-                                    <td class="whitespace-nowrap text-center">Finances</td>
-                                    <td class="whitespace-nowrap text-center">Nov 28, 2022</td>
-                                </tr>
-                                <tr>
-                                    <td class="whitespace-nowrap cursor-pointer hover:underline">Payments</td>
-                                    <td class="whitespace-nowrap text-center">Finances</td>
-                                    <td class="whitespace-nowrap text-center">Nov 28, 2022</td>
-                                </tr>
-                                <tr>
-                                    <td class="whitespace-nowrap cursor-pointer hover:underline">Returns</td>
-                                    <td class="whitespace-nowrap text-center">Finances</td>
-                                    <td class="whitespace-nowrap text-center">Nov 28, 2022</td>
-                                </tr>
-                                <tr>
-                                    <td class="whitespace-nowrap cursor-pointer hover:underline">Summary</td>
-                                    <td class="whitespace-nowrap text-center">Finances</td>
-                                    <td class="whitespace-nowrap text-center">Nov 28, 2022</td>
-                                </tr>
-                                <tr>
-                                    <td class="whitespace-nowrap cursor-pointer hover:underline">Total sales</td>
-                                    <td class="whitespace-nowrap text-center">Finances</td>
-                                    <td class="whitespace-nowrap text-center">Nov 28, 2022</td>
-                                </tr>
-                            </tbody>
-                        </table>
+        <div class="font-medium text-base flex items-center border-b border-slate-200/60 dark:border-darkmode-400 pb-5">
+            Report
+        </div>
+        <!-- Begin: Reports Table -->
+        <div class="overflow-x-auto scrollbar-hidden">
+            <div class="overflow-x-auto">
+                    <table class="table table-striped mt-5 table-bordered table-hover">
+                        <thead class="table-dark">
+                            <tr>
+                                <th class="whitespace-nowrap ">Name</th>
+                                <th class="whitespace-nowrap text-center">Category</th>
+                                <th class="whitespace-nowrap text-center"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="whitespace-nowrap cursor-pointer hover:underline">Browser</td>
+                                <td class="whitespace-nowrap text-center">System</td>
+                                <td class="whitespace-nowrap text-center"><a href="{{ Route('report.browser') }}">View Details</a> </td>
+                            </tr>
+
+                            <tr>
+                                <td class="whitespace-nowrap cursor-pointer hover:underline">Most Visited Page</td>
+                                <td class="whitespace-nowrap text-center">System</td>
+                                <td class="whitespace-nowrap text-center"><a href="{{ Route('report.MostVisitedPageIndex') }}">View Details</a></td>
+                            </tr>
+                            <tr>
+                                <td class="whitespace-nowrap cursor-pointer hover:underline">User Type</td>
+                                <td class="whitespace-nowrap text-center">Sales</td>
+                                <td class="whitespace-nowrap text-center"><a href="{{ Route('report.UserType') }}">View Details</a></td>
+                            </tr>
+                            <tr>
+                                <td class="whitespace-nowrap cursor-pointer hover:underline">Payment By Type</td>
+                                <td class="whitespace-nowrap text-center">Payment</td>
+                                <td class="whitespace-nowrap text-center"><a href="{{ Route('report.PaymentByType') }}">View Details</a></td>
+                            </tr>
+                            <tr>
+                                <td class="whitespace-nowrap cursor-pointer hover:underline">Gross Sales</td>
+                                <td class="whitespace-nowrap text-center">Sales</td>
+                                <td class="whitespace-nowrap text-center"><a href="{{ Route('report.GrossSales') }}">View Details</a></td>
+                            </tr>
+                            <tr>
+                                <td class="whitespace-nowrap cursor-pointer hover:underline">Profit By Product</td>
+                                <td class="whitespace-nowrap text-center">Sales</td>
+                                <td class="whitespace-nowrap text-center"><a href="{{ Route('report.ProfitByProduct') }}">View Details</a></td>
+                            </tr>
+                            <tr>
+                                <td class="whitespace-nowrap cursor-pointer hover:underline">Sales over time</td>
+                                <td class="whitespace-nowrap text-center">Sales</td>
+                                <td class="whitespace-nowrap text-center"><a href="{{ Route('report.SalesOvertime') }}">View Details</a></td>
+                            </tr>
+                            <tr>
+                                <td class="whitespace-nowrap cursor-pointer hover:underline">Sales by Product</td>
+                                <td class="whitespace-nowrap text-center">Sales</td>
+                                <td class="whitespace-nowrap text-center"><a href="{{ Route('report.SalesProd') }}">View Details</a></td>
+                            </tr>
+                            <tr>
+                                <td class="whitespace-nowrap cursor-pointer hover:underline">Sales by Customer</td>
+                                <td class="whitespace-nowrap text-center">Sales</td>
+                                <td class="whitespace-nowrap text-center"><a href="{{ Route('report.SalesCustomer') }}">View Details</a></td>
+                            </tr>
+                            <tr>
+                                <td class="whitespace-nowrap cursor-pointer hover:underline">Sales by Brand</td>
+                                <td class="whitespace-nowrap text-center">Sales</td>
+                                <td class="whitespace-nowrap text-center"><a href="{{ Route('report.SalesBrand') }}">View Details</a></td>
+                            </tr>
+                            <tr>
+                                <td class="whitespace-nowrap cursor-pointer hover:underline">Sales by Category</td>
+                                <td class="whitespace-nowrap text-center">Sales</td>
+                                <td class="whitespace-nowrap text-center"><a href="{{ Route('report.SalesCategory') }}">View Details</a></td>
+                            </tr>
+
+
+                        </tbody>
+                    </table>
                 </div>
             </div>
-
+            <!-- End: Reports Table -->
         </div>
     </div>
 </div>
