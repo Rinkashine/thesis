@@ -209,18 +209,21 @@
                 </div>
                 <div class="flex-1 hidden mx-3 mt-5 md:flex">
                     <div class="w-1/2 h-3 mt-2 progress">
-                        <div class="progress-bar w-{{$rate5}}/5" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">{{$rate5}}</div>
+                        <div class="progress-bar @if($rate5 == 0) w-0 @else w-{{$rate5}}/{{ $count_rate }} @endif" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">{{$rate5}}</div>
                         <div class="h-3 mt-3 progress">
-                            <div class="w-{{$rate4}}/5 progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">{{$rate4}}</div>
+                            <div class="@if($rate4 == 0) w-0 @else w-{{$rate4}}/{{ $count_rate }} @endif progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">{{$rate4}}</div>
                         </div>
                         <div class="h-3 mt-3 progress ">
-                            <div class="w-{{$rate3}}/5 progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">{{$rate3}}</div>
+                            <div class="@if($rate3 == 0) w-0 @else w-{{$rate3}}/{{ $count_rate }} @endif progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">{{$rate3}}</div>
                         </div>
                         <div class="h-3 mt-3 progress ">
-                            <div class="w-{{$rate2}}/5 progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">{{$rate2}}</div>
+                            <div class="@if($rate2 == 0) w-0 @else w-{{$rate2}}/{{ $count_rate }} @endif progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">{{$rate2}}</div>
                         </div>
                         <div class="h-3 mt-3 progress ">
-                            <div class="w-{{$rate1}}/5 progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">{{$rate1}}</div>
+                            <div class=" @if($rate1 == 0) w-0 @else w-{{$rate1}}/{{ $count_rate }} @endif  progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">{{$rate1}}</div>
+                        </div>
+                        <div>
+
                         </div>
                     </div>
                 </div>
@@ -238,7 +241,6 @@
                 Product Reviews
             </h2>
         </div>
-
         @forelse ($reviews as $rev)
             <div class="flex flex-col border-b lg:flex-row border-slate-200/60 dark:border-darkmode-400">
                 <div class="mt-5 ">
@@ -264,8 +266,6 @@
                             </div>
                         </div>
                     </div>
-
-
                     <div class="flex items-center px-5 py-4">
                         <div class="text-base text-black">{{ $rev->comment }}</div>
                     </div>
@@ -279,9 +279,6 @@
                 Let others know what do you think and be the first to write a review
             </div>
         @endforelse
-
-
-
     </div>
 </div>
 <!-- END Product Review -->
