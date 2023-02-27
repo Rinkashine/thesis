@@ -21,7 +21,6 @@ return new class extends Migration
             $table->string('mode_of_payment');
             $table->string('payment_id')->nullable();
             $table->string('status');
-            $table->string('cancellation_reason')->nullable();
             $table->string('received_by');
             $table->string('phone_number');
             $table->string('notes');
@@ -30,6 +29,13 @@ return new class extends Migration
             $table->string('city');
             $table->string('barangay');
             $table->string('remarks')->nullable();
+            $table->unsignedBigInteger('cancellation_reason_id')->nullable();
+            $table->foreign('cancellation_reason_id')->references('id')->on('cancellation_reason');
+
+
+            $table->string('cancellation_details')->nullable();
+            $table->string('rejected_reason')->nullable();
+            $table->string('order_notes')->nullable();
             $table->timestamps();
         });
     }

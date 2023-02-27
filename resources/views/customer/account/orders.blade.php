@@ -1,6 +1,6 @@
 @extends('customer.layout.base')
 @section('content')
-@section('title', 'Profile Information')
+@section('title', 'Order List')
 <!-- Begin: Header -->
 <div class="intro-y flex items-center mt-8">
     <h2 class="text-lg font-medium mr-auto">

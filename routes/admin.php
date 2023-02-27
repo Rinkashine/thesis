@@ -23,7 +23,6 @@ use App\Http\Controllers\Backend\Product\DiscountController;
 use App\Http\Controllers\Backend\Transaction\ChatController;
 use App\Http\Controllers\Backend\Transaction\OrderController;
 use App\Http\Controllers\Backend\Transaction\PostController;
-use App\Http\Controllers\Backend\Reports\AnalyticsController;
 use App\Http\Controllers\Backend\Reports\ReportController;
 use App\Http\Controllers\Backend\Users\CustomerController;
 use App\Http\Controllers\Backend\Users\RoleController;
@@ -67,9 +66,9 @@ Route::group(['prefix' => 'admin'],function(){
         Route::get('/role/html',[RoleController::class,'exportrolehtml'])->name('exportrolehtml');
         Route::get('/role/pdf',[RoleController::class,'exportrolepdf'])->name('exportrolepdf');
         //Export Files For Browser Type
-        Route::get('/report/browser/excel',[ReportController::class,'exportbrowsertypeexcel'])->name('exportbrowsertypeexcel');
+        Route::get('/report/browser/excel/{startdate}/{enddate}',[ReportController::class,'exportbrowsertypeexcel'])->name('exportbrowsertypeexcel');
         //Export Files For User Type
-        Route::get('/report/UserType/excel',[ReportController::class,'exportusertypeexcel'])->name('exportusertypeexcel');
+        Route::get('/report/UserType/excel/{startdate}/{enddate}',[ReportController::class,'exportusertypeexcel'])->name('exportusertypeexcel');
         //Export Files For Sales Over Time
         Route::get('/report/SalesOvertime/excel',[ReportController::class,'exportsalesovertime'])->name('exportsalesovertime');
 
@@ -84,13 +83,17 @@ Route::group(['prefix' => 'admin'],function(){
         Route::get('/report/salescustomer/csv',[ReportController::class,'exportSalesCustomerCSV'])->name('exportSalesCustomerCSV');
         Route::get('/report/salescustomer/html',[ReportController::class,'exportSalesCustomerHTML'])->name('exportSalesCustomerHTML');
         //Export Files for Sales Brand
-        Route::get('/report/salesbrand/excel',[ReportController::class,'exportSalesBrandEXCEL'])->name('exportSalesBrandEXCEL');
-        Route::get('/report/salesbrand/csv',[ReportController::class,'exportSalesBrandCSV'])->name('exportSalesBrandCSV');
+        Route::get('/report/salesbrand/excel/{startdate}/{enddate}',[ReportController::class,'exportSalesBrandEXCEL'])->name('exportSalesBrandEXCEL');
         //Export Files for Sales Category
-        Route::get('/report/salescategory/excel',[ReportController::class,'exportSalesCategoryEXCEL'])->name('exportSalesCategoryEXCEL');
-        Route::get('/report/salescategory/csv',[ReportController::class,'exportSalesCategoryCSV'])->name('exportSalesCategoryCSV');
-
-
+        Route::get('/report/salescategory/excel/{startdate}/{enddate}',[ReportController::class,'exportSalesCategoryEXCEL'])->name('exportSalesCategoryEXCEL');
+        //Export Files For No of Brand Orders
+        Route::get('/report/orderbrand/excel/{startdate}/{enddate}',[ReportController::class,'exportOrderBrandExcel'])->name('exportOrderBrandExcel');
+        //Export Files For No of Category Orders
+        Route::get('/report/ordercategory/excel/{startdate}/{enddate}',[ReportController::class,'exportOrderCategoryExcel'])->name('exportOrderCategoryExcel');
+        //Export Files for Most Viewed Product
+        Route::get('/report/MostVisitedPage/excel/{startdate}/{enddate}',[ReportController::class,'exportMostVisitedPageExcel'])->name('exportMostVisitedPageExcel');
+        //Export Files for Gender
+        Route::get('/report/gender/excel',[ReportController::class,'exportGenderExcel'])->name('exportGenderExcel');
 
         Route::middleware(['PreventBackHistory'])->group(function () {
             Route::get('/logout', [LogoutController::class, 'store'])->name('logout');
@@ -118,20 +121,39 @@ Route::group(['prefix' => 'admin'],function(){
             Route::post('/profile/changepassword', [ProfileController::class,'resetpass']);
             Route::resource('profile', ProfileController::class)->only('index');
             Route::resource('changepassword', ChangePasswordController::class)->only('index');
-            Route::resource('analytics', AnalyticsController::class)->only('index');
+
+
+
+
+
             Route::resource('discount', DiscountController::class);
 
-            Route::get('/report/GrossSales',[ReportController::class,'GrossSalesIndex'])->name('report.GrossSales');
+
             Route::get('/report/PaymentByType}',[ReportController::class,'PaymentTypeIndex'])->name('report.PaymentByType');
-            Route::get('/report/ProfitByProduct',[ReportController::class,'ProfitByProductIndex'])->name('report.ProfitByProduct');
+
             Route::get('/report/UserType',[ReportController::class,'UserTypeIndex'])->name('report.UserType');
+
             Route::get('/report/SalesOvertime',[ReportController::class,'SalesOvertimeIndex'])->name('report.SalesOvertime');
+
             Route::get('/report/MostVisitedPage',[ReportController::class,'MostVisitedPageIndex'])->name('report.MostVisitedPageIndex');
 
+            Route::get('/report/Cancellation',[ReportController::class,'CancellationIndex'])->name('report.Cancellation');
+
+            Route::get('/report/Return',[ReportController::class,'ReturnIndex'])->name('report.Return');
+
             Route::get('/report/salesprod', [ReportController::class, 'salesProd'])->name('report.SalesProd');
+
             Route::get('/report/salesCustomer',[ReportController::class,'salesCustomer'])->name('report.SalesCustomer');
+
+
             Route::get('/report/salesbrand', [ReportController::class, 'salesBrand'])->name('report.SalesBrand');
+            Route::get('/report/orderbrand', [ReportController::class, 'BrandOrderIndex'])->name('report.OrderBrand');
+
+
             Route::get('/report/salescategory',[ReportController::class,'salesCategory'])->name('report.SalesCategory');
+            Route::get('/report/ordercategory',[ReportController::class,'CategoryOrderIndex'])->name('report.OrderCategory');
+            Route::get('/report/gender',[ReportController::class,'GenderIndex'])->name('report.Gender');
+
 
             Route::get('/report/browser',[ReportController::class,'BrowserIndex'])->name('report.browser');
             Route::resource('report', ReportController::class);

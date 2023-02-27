@@ -205,7 +205,7 @@ class CustomerOrdersSeeder extends Seeder
             [
                 'customers_id' => 11,
                 'shippingfee' =>100.00 ,
-                'mode_of_payment' => 'Cash On Delivery',
+                'mode_of_payment' => 'Paid by Paypal',
                 'status' => 'Pending for Approval',
                 'received_by' => 'Mark Joseph Manalo',
                 'phone_number' => '09369332354',
@@ -220,7 +220,7 @@ class CustomerOrdersSeeder extends Seeder
             [
                 'customers_id' => 12,
                 'shippingfee' =>100.00 ,
-                'mode_of_payment' => 'Cash On Delivery',
+                'mode_of_payment' => 'Paid by Paypal',
                 'status' => 'Completed',
                 'received_by' => 'Mark Joseph Manalo',
                 'phone_number' => '09369332354',

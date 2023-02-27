@@ -15,7 +15,11 @@ use App\Exports\SalesProductExport;
 use App\Exports\SalesCategoryExport;
 use App\Exports\SalesCustomerExport;
 use App\Exports\SalesBrandExport;
+use App\Exports\MostVisitedPageExport;
+use App\Exports\GenderExport;
 
+use App\Exports\CategoryNoOrder;
+use App\Exports\BrandNoOrder;
 use App\Models\CustomerOrder;
 use Illuminate\Support\Facades\DB;
 
@@ -23,174 +27,137 @@ use Illuminate\Support\Facades\DB;
 
 class ReportController extends Controller
 {
-    //report_access
-    //Show Report Page
+    //Show Report Main Page
     public function index(){
         abort_if(Gate::denies('report_access'),403);
         return view('admin.page.Report.report');
     }
-
+    //Show Browser Report Page
     public function BrowserIndex(){
         abort_if(Gate::denies('report_access'),403);
-        $browsers = Analytics::fetchTopBrowsers(Period::days(7),20);
-        $browserchartlabel = [];
-        $browserchartdataset = [];
-
-        foreach($browsers as $browser){
-            array_push($browserchartlabel, $browser['browser']);
-            array_push($browserchartdataset, $browser['sessions']);
-        }
-
-        return view('admin.page.Report.reportbrowser',[
-            'browsers' => $browsers,
-            'browserchartlabel' => $browserchartlabel,
-            'browserchartdataset' => $browserchartdataset
-        ]);
+        return view('admin.page.Report.reportbrowser');
     }
-
-    public function exportbrowsertypeexcel(){
-        abort_if(Gate::denies('report_access'),403);
-        return Excel::download(new BrowserTypeExport,'browsertype.xlsx');
+    //Export Browser Report
+    public function exportbrowsertypeexcel(Request $request){
+        abort_if(Gate::denies('report_export'),403);
+        return Excel::download(new BrowserTypeExport($request->startdate,$request->enddate),'browsertype.xlsx');
     }
-
-    public function GrossSalesIndex(){
-        abort_if(Gate::denies('report_access'),403);
-        return view('admin.page.Report.reportgrosssales');
-    }
-
+    //Show Sales Over Time Report Page
     public function SalesOvertimeIndex(){
         abort_if(Gate::denies('report_access'),403);
         return view('admin.page.Report.reportsalesovertime');
     }
-
+    //Export Sales Over Tieme
     public function exportsalesovertime(){
         abort_if(Gate::denies('report_access'),403);
         return Excel::download(new SalesOverTimeExport,'salesovertime.xlsx');
     }
-
+    //Show User Type Report Page
     public function UserTypeIndex(){
         abort_if(Gate::denies('report_access'),403);
-        $usertype = Analytics::fetchUserTypes(Period::days(7));
-        $usertypelabel = [];
-        $usertypedataset = [];
-        foreach($usertype as $type){
-            //dd($test);
-            array_push($usertypelabel, $type['type']);
-            array_push($usertypedataset, $type['sessions']);
-        }
-        return view('admin.page.Report.reportusertype',[
-            'usertype' => $usertype,
-            'usertypelabel' => $usertypelabel,
-            'usertypedataset' => $usertypedataset
-
-        ]);
+        return view('admin.page.Report.reportusertype');
     }
-
-    public function exportusertypeexcel(){
-        abort_if(Gate::denies('report_access'),403);
-        return Excel::download(new UserTypeExport,'usertype.xlsx');
+    //Export User Type
+    public function exportusertypeexcel(Request $request){
+        abort_if(Gate::denies('report_export'),403);
+        return Excel::download(new UserTypeExport($request->startdate,$request->enddate),'usertype.xlsx');
     }
-
+    //Show Payment Type Report Page
     public function PaymentTypeIndex(){
         abort_if(Gate::denies('report_access'),403);
-        $cod = CustomerOrder::where('status','Completed')
-        ->where('mode_of_payment', "Cash On Delivery")
-        ->get()
-        ->count();
-
-        $paypal = CustomerOrder::where('status','Completed')
-        ->where('mode_of_payment', "Paid by Paypal")
-        ->get()
-        ->count();
-
-        $paymenttypedataset = [];
-        array_push($paymenttypedataset, $cod);
-        array_push($paymenttypedataset, $paypal);
-
-        $paymenttypelabel = ["Cash On Delivery", "Paypal"];
-
-
-        return view('admin.page.Report.reportpaymentbytype',[
-            'paymenttypelabel' => $paymenttypelabel,
-            'paymenttypedataset' => $paymenttypedataset,
-        ]);
+        return view('admin.page.Report.reportpaymentbytype');
     }
-
-    public function ProfitByProductIndex(){
+    //Show Cancellation Report Page
+    public function CancellationIndex(){
         abort_if(Gate::denies('report_access'),403);
-        return view('admin.page.Report.reportprofitbyproduct');
+        return view('admin.page.Report.reportcancellation');
     }
-
+    //Show Return Report Page
+    public function ReturnIndex(){
+        abort_if(Gate::denies('report_access'),403);
+        return view('admin.page.Report.reportreturn');
+    }
+    //Show Sales By Customer Report Page
     public function SalesByCustomerIndex(){
         abort_if(Gate::denies('report_access'),403);
         return view('admin.page.Report.reportbrowser');
     }
-
+    //Show Most Visited Page
     public function MostVisitedPageIndex(){
         abort_if(Gate::denies('report_access'),403);
         return view('admin.page.Report.reportmostvisitedpage');
-
     }
-
-
+    //Export Most Visited Page Report
+    public function exportMostVisitedPageExcel(Request $request){
+        abort_if(Gate::denies('report_export'),403);
+        return Excel::download(new MostVisitedPageExport($request->startdate,$request->enddate),'MostVisitedPage.xlsx');
+    }
+    //Show Product Sale Page
     public function salesProd(){
         abort_if(Gate::denies('report_access'),403);
-
         return view('admin.page.Report.reportsalesprod');
     }
-
+    //Export Product Sales
     public function exportSalesProductEXCEL(Request $request){
-        abort_if(Gate::denies('product_export'),403);
+        abort_if(Gate::denies('report_export'),403);
         return Excel::download(new SalesProductExport($request->startdate,$request->enddate),'SalesProduct.xlsx');
     }
-    public function exportSalesProductCSV(Request $request){
-        abort_if(Gate::denies('product_export'),403);
-        return Excel::download(new SalesProductExport($request->startdate,$request->enddate),'SalesProduct.csv');
-    }
-
-    // SalesCustomer
+    // Show Customer Sales Page
     public function salesCustomer(){
         abort_if(Gate::denies('report_access'),403);
         return view('admin.page.Report.reportsalescustomer');
     }
-
-
+    //Export Customer Sales
     public function exportSalesCustomerEXCEL(Request $request){
-        abort_if(Gate::denies('product_export'),403);
+        abort_if(Gate::denies('report_export'),403);
         return Excel::download(new SalesCustomerExport($request->startdate,$request->enddate),'SalesCustomer.xlsx');
     }
-    public function exportSalesCustomerCSV(Request $request){
-        abort_if(Gate::denies('product_export'),403);
-        return Excel::download(new SalesCustomerExport($request->startdate,$request->enddate),'SalesCustomer.csv');
-    }
-
-    public function exportSalesBrandEXCEL(Request $request){
-        abort_if(Gate::denies('product_export'),403);
-        return Excel::download(new SalesBrandExport($request->startdate,$request->enddate),'SalesBrand.xlsx');
-    }
-    public function exportSalesBrandCSV(Request $request){
-        abort_if(Gate::denies('product_export'),403);
-        return Excel::download(new SalesBrandExport($request->startdate,$request->enddate),'SalesBrand.csv');
-    }
-
-    public function exportSalesCategoryEXCEL(Request $request){
-        abort_if(Gate::denies('product_export'),403);
-        return Excel::download(new SalesCategoryExport($request->startdate,$request->enddate),'SalesCategory.xlsx');
-    }
-    public function exportSalesCategoryCSV(Request $request){
-        abort_if(Gate::denies('product_export'),403);
-        return Excel::download(new SalesCategoryExport($request->startdate,$request->enddate),'SalesCategory.csv');
-    }
-
+    //Show Brand Sales Page
     public function salesBrand(){
         abort_if(Gate::denies('report_access'),403);
         return view('admin.page.Report.reportsalesbrand');
     }
-
+    //Show No of Brand Orders Page
+    public function BrandOrderIndex(){
+        abort_if(Gate::denies('report_access'),403);
+        return view('admin.page.Report.reportbrandorder');
+    }
+    // Export Brand Sales
+    public function exportSalesBrandEXCEL(Request $request){
+        abort_if(Gate::denies('report_export'),403);
+        return Excel::download(new SalesBrandExport($request->startdate,$request->enddate),'SalesBrand.xlsx');
+    }
+    //Export No of Brand Orders
+    public function exportOrderBrandExcel(Request $request){
+        abort_if(Gate::denies('report_export'),403);
+        return Excel::download(new BrandNoOrder($request->startdate,$request->enddate),'OrderBrand.xlsx');
+    }
+    //Show Category Sales Page
     public function salesCategory(){
         abort_if(Gate::denies('report_access'),403);
         return view('admin.page.Report.reportsalescategory');
     }
-
-
+    //Show No. of Category Page
+    public function CategoryOrderIndex(){
+        abort_if(Gate::denies('report_access'),403);
+        return view('admin.page.Report.reportcategoryorder');
+    }
+    //Export Category Sales
+    public function exportSalesCategoryEXCEL(Request $request){
+        abort_if(Gate::denies('report_export'),403);
+        return Excel::download(new SalesCategoryExport($request->startdate,$request->enddate),'SalesCategory.xlsx');
+    }
+    //Export No of Category Orders
+    public function exportOrderCategoryExcel(Request $request){
+        abort_if(Gate::denies('report_export'),403);
+        return Excel::download(new CategoryNoOrder($request->startdate,$request->enddate),'OrderCategory.xlsx');
+    }
+    public function GenderIndex(){
+        abort_if(Gate::denies('report_access'),403);
+        return view('admin.page.Report.reportgender');
+    }
+    public function exportGenderExcel(){
+        abort_if(Gate::denies('report_export'),403);
+        return Excel::download(new GenderExport,'Gender.xlsx');
+    }
 }

@@ -29,8 +29,6 @@ class SalesCategoryExport implements FromCollection, ShouldAutoSize,WithHeadings
         ->select([
             DB::raw('(SELECT category.name from category where
             (SELECT product.category_id from product where ordered_products.product_name = product.name) = category.id) AS category_name'),
-            DB::raw(value: 'SUM(ordered_products.quantity) as order_quantity'),
-            DB::raw(value: 'COUNT(ordered_products.product_name) as order_total'),
             DB::raw(value: '(SUM(ordered_products.quantity*ordered_products.price)) as total_sales'),
 
         ])
@@ -45,8 +43,6 @@ class SalesCategoryExport implements FromCollection, ShouldAutoSize,WithHeadings
     {
         return [
             $category->category_name,
-            $category->order_total,
-            $category->order_quantity,
             $category->total_sales,
 
         ];
@@ -56,8 +52,6 @@ class SalesCategoryExport implements FromCollection, ShouldAutoSize,WithHeadings
     {
         return [
             'Category Name',
-            'Total Orders',
-            'Total Ordered Products',
             'Total Sales',
         ];
     }

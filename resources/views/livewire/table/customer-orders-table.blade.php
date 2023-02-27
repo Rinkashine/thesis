@@ -14,17 +14,28 @@
                 <tr>
                     <td class="whitespace-nowrap">#{{ $order->id }}</td>
                     <td class="whitespace-nowrap text-center truncate">
-                        @foreach($ProductsOrdered as $index => $item)
-                            @if($item->customer_orders_id == $order->id)
-                                {{ $item->product_name }},
-                            @endif
+                        @foreach ($order->orderTransactions as $product)
+                            {{ $product->product_name }}
                         @endforeach
                     </td>
                     <td class="whitespace-nowrap text-center">
-                        ₱{{ $order->total }}
+                        ₱
+                        @php
+                            $total = 0
+                        @endphp
+                        @foreach ($order->orderTransactions as $product)
+                            <?php $total += $product->quantity * $product->price ?>
+                        @endforeach
+                        {{number_format($total,2)}}
                     </td>
                     <td class="whitespace-nowrap text-center">
-                        {{ $order->status }}
+                        @if ($order->status == "Completed")
+                            <div class="text-success">{{ $order->status }} </div>
+                        @elseif($order->status == "Cancelled" || $order->status == "Rejected")
+                            <div class="text-danger">{{ $order->status }}</div>
+                        @else
+                            <div class="text-pending">{{ $order->status }}</div>
+                        @endif
                     </td>
                     <td class="whitespace-nowrap text-center"> <a href="{{ Route('order.show',$order->id ) }}"> <i class="fa-solid fa-eye w-4 h-4 mr-1"></i> Show Details</td></a>
                 </tr>

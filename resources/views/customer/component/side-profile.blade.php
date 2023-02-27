@@ -39,7 +39,7 @@
             <a class="flex items-center mt-5 {{ (request()->is('customer/reviews')) ? 'text-primary font-medium' : '' }}" href="{{ Route('reviews.index') }}">
                 <i data-lucide="box" class="w-4 h-4 mr-2"></i> My Reviews
             </a>
-            <a class="flex items-center mt-5 {{ (request()->is('customer/cancellations')) ? 'text-primary font-medium' : '' }}" href="{{ Route('cancellations.index') }}">
+            <a class="flex items-center mt-5 {{ (request()->is('customer/cancellations'))  || (request()->is('customer/cancellations/*')) ? 'text-primary font-medium' : '' }}" href="{{ Route('cancellations.index') }}">
                 <i data-lucide="box" class="w-4 h-4 mr-2"></i> My Cancellations
             </a>
         </div>

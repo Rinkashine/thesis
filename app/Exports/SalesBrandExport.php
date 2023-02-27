@@ -29,8 +29,6 @@ class SalesBrandExport implements FromCollection, ShouldAutoSize,WithHeadings,Wi
         ->select([
             DB::raw('(SELECT brand.name from brand where
             (SELECT product.brand_id from product where ordered_products.product_name = product.name) = brand.id) AS brand_name'),
-            DB::raw(value: 'SUM(ordered_products.quantity) as order_quantity'),
-            DB::raw(value: 'COUNT(ordered_products.product_name) as order_total'),
             DB::raw(value: '(SUM(ordered_products.quantity*ordered_products.price)) as total_sales'),
 
         ])
@@ -45,8 +43,6 @@ class SalesBrandExport implements FromCollection, ShouldAutoSize,WithHeadings,Wi
     {
         return [
             $brand->brand_name,
-            $brand->order_total,
-            $brand->order_quantity,
             $brand->total_sales,
 
         ];
@@ -56,8 +52,6 @@ class SalesBrandExport implements FromCollection, ShouldAutoSize,WithHeadings,Wi
     {
         return [
             'Brand Name',
-            'Total Orders',
-            'Total Ordered Products',
             'Total Sales',
         ];
     }

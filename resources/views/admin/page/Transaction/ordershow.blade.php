@@ -28,6 +28,12 @@
                 <i data-lucide="clipboard" class="w-4 h-4 text-slate-500 mr-2"></i> Payment Method:
                 <div class="ml-auto">{{ $orderdetails->mode_of_payment }}</div>
             </div>
+            @if($orderdetails->payment_id != null)
+                <div class="flex items-center mt-3">
+                    <i data-lucide="clipboard" class="w-4 h-4 text-slate-500 mr-2"></i> Payment ID:
+                    <div class="ml-auto">{{ $orderdetails->payment_id }}</div>
+                </div>
+            @endif
             <div class="flex items-center mt-3">
                 <i data-lucide="credit-card" class="w-4 h-4 text-slate-500 mr-2"></i> Total Price:
                 <div class="ml-auto">₱
@@ -147,7 +153,10 @@
                     @endif
                 </div>
                 <div class="overflow-auto lg:overflow-visible -mt-3">
-                    {{ $orderdetails->cancellation_reason }}
+                    Main Reason:{{ $orderdetails->cancellation_reason->name }}
+                </div>
+                <div>
+                    Detailed Reason: {{ $orderdetails->cancellation_details }}
                 </div>
             </div>
         @endif

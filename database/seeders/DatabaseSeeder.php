@@ -13,6 +13,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+        $this->call(CancellationReasonSeeder::class);
         $this->call(FolderSeeder::class);
         $this->call(RoleAndPermissionsSeeder::class);
         $this->call(CategorySeeder::class);

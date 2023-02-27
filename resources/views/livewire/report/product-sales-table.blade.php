@@ -27,7 +27,7 @@
                     </select>
                 </div>
             </div>
-            @can('product_export')
+            @can('report_export')
                 <div class="flex mt-5 sm:mt-0">
                     <div class="dropdown w-1/2 sm:w-auto">
                         <button class="dropdown-toggle btn btn-outline-secondary w-full sm:w-auto" aria-expanded="false" data-tw-toggle="dropdown"> <i class="fa-regular fa-newspaper w-4 h-4 mr-2"></i> Export <i class="fa-solid fa-chevron-down w-4 h-4 ml-auto sm:ml-2"></i> </button>

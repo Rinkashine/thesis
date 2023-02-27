@@ -96,7 +96,7 @@ Route::middleware(['PreventBackHistory'])->group(function () {
             Route::resource('order', CustomerOrdersController::class)->only('index','show');
             Route::resource('returns', CustomerReturnsController::class)->only('index','show');
             Route::resource('reviews', CustomerOrdersController::class)->only('index','show');
-            Route::resource('cancellations', CustomerReviewsController::class)->only('index','show');
+            Route::resource('cancellations', CustomerCancellationController::class)->only('index','show');
 
 
 

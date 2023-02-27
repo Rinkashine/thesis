@@ -41,14 +41,14 @@
                                 <td class="whitespace-nowrap text-center"><a href="{{ Route('report.PaymentByType') }}">View Details</a></td>
                             </tr>
                             <tr>
-                                <td class="whitespace-nowrap cursor-pointer hover:underline">Gross Sales</td>
+                                <td class="whitespace-nowrap cursor-pointer hover:underline">Return</td>
                                 <td class="whitespace-nowrap text-center">Sales</td>
-                                <td class="whitespace-nowrap text-center"><a href="{{ Route('report.GrossSales') }}">View Details</a></td>
+                                <td class="whitespace-nowrap text-center"><a href="{{ Route('report.Return') }}">View Details</a></td>
                             </tr>
                             <tr>
-                                <td class="whitespace-nowrap cursor-pointer hover:underline">Profit By Product</td>
+                                <td class="whitespace-nowrap cursor-pointer hover:underline">Cancellation</td>
                                 <td class="whitespace-nowrap text-center">Sales</td>
-                                <td class="whitespace-nowrap text-center"><a href="{{ Route('report.ProfitByProduct') }}">View Details</a></td>
+                                <td class="whitespace-nowrap text-center"><a href="{{ Route('report.Cancellation') }}">View Details</a></td>
                             </tr>
                             <tr>
                                 <td class="whitespace-nowrap cursor-pointer hover:underline">Sales over time</td>
@@ -75,6 +75,22 @@
                                 <td class="whitespace-nowrap text-center">Sales</td>
                                 <td class="whitespace-nowrap text-center"><a href="{{ Route('report.SalesCategory') }}">View Details</a></td>
                             </tr>
+                            <tr>
+                                <td class="whitespace-nowrap cursor-pointer hover:underline">No. Order - Category</td>
+                                <td class="whitespace-nowrap text-center">Sales</td>
+                                <td class="whitespace-nowrap text-center"><a href="{{ Route('report.OrderCategory') }}">View Details</a></td>
+                            </tr>
+                            <tr>
+                                <td class="whitespace-nowrap cursor-pointer hover:underline">No. Order - Brand</td>
+                                <td class="whitespace-nowrap text-center">Sales</td>
+                                <td class="whitespace-nowrap text-center"><a href="{{ Route('report.OrderBrand') }}">View Details</a></td>
+                            </tr>
+                            <tr>
+                                <td class="whitespace-nowrap cursor-pointer hover:underline">Gender</td>
+                                <td class="whitespace-nowrap text-center">Demographics</td>
+                                <td class="whitespace-nowrap text-center"><a href="{{ Route('report.Gender') }}">View Details</a></td>
+                            </tr>
+
 
 
                         </tbody>

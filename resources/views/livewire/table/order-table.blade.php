@@ -47,7 +47,7 @@
                             <td class="text-center">
                                 @if($order->status == "Completed")
                                 <div class="flex items-center justify-center whitespace-nowrap text-primary">{{ $order->status }}</div>
-                                @elseif($order->status == "Rejected")
+                                @elseif($order->status == "Rejected" || $order->status == "Cancelled")
                                 <div class="flex items-center justify-center whitespace-nowrap text-danger">{{ $order->status }}</div>
                                 @else
                                 <div class="flex items-center justify-center whitespace-nowrap text-pending">{{ $order->status }}</div>
@@ -70,7 +70,7 @@
                                     <a class="flex items-center text-primary whitespace-nowrap mr-5" href="{{ Route('orders.show',$order->id) }}">
                                         <i class=" fa-regular fa-square-check w-4 h-4 mr-1"></i> View Details
                                      </a>
-                                    @if ($order->status != "Pending for Approval" && $order->status != "Completed" && $order->status != "Rejected")
+                                    @if ($order->status != "Pending for Approval" && $order->status != "Completed" && $order->status != "Rejected" && $order->status != "Cancelled")
                                         <button wire:click="selectItem({{$order->id}},'changeorderstatus')"class="flex items-center text-primary whitespace-nowrap">
                                             <i class="fa-solid fa-arrow-right-arrow-left w-4 h-4 mr-1"></i>  Change Status
                                         </button>

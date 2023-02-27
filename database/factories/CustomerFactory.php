@@ -24,7 +24,7 @@ class CustomerFactory extends Factory
             'email_verified_at' => now(),
             'phone_number' => $this->faker->numerify('09#########'),
             'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
-            'gender' => ['male','femaile'][rand(0,1)],
+            'gender' => ['Male','Female'][rand(0,1)],
             'birthday' => $this->faker->date(),
             'remember_token' => Str::random(10)
         ];

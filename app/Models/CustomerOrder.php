@@ -15,7 +15,6 @@ class CustomerOrder extends Model
         'mode_of_payment',
         'payment_id',
         'status',
-        'cancellation_reason',
         'rejected_reason',
         'order_notes',
         'received_by',
@@ -24,7 +23,9 @@ class CustomerOrder extends Model
         'house',
         'province',
         'city',
-        'barangay'
+        'barangay',
+        'cancellation_reason_id',
+        'cancellation_details'
     ];
 
     public static function search($search){
@@ -34,9 +35,14 @@ class CustomerOrder extends Model
     public function customers(){
         return $this->belongsTo(Customer::class);
     }
+    public function cancellation_reason(){
+        return $this->belongsTo(CancellationReason::class);
+    }
+
     public function orderTransactions(){
         return $this->hasMany(OrderedProduct::class, 'customer_orders_id','id');
     }
+
 
 
 }

@@ -5,9 +5,11 @@
                 <a href="{{ Route('report.index') }}" class="mr-2 btn">←</a>Sales Over Time
             </h2>
         </div>
-        <div>
-            <a href="{{ Route('exportsalesovertime') }}" class="btn btn-primary">Export To Excel</a>
-        </div>
+        @can('report_export')
+            <div>
+                <a href="{{ Route('exportsalesovertime') }}" class="btn btn-primary">Export To Excel</a>
+            </div>
+        @endcan
     </div>
     <div class="intro-y box mt-5 ">
         <div class="flex items-center p-5 border-b border-slate-200/60 dark:border-darkmode-400">
@@ -17,14 +19,10 @@
                         Chart
                     </h2>
                 </div>
-
             </div>
-
-
         </div>
         <div class="p-5">
             <canvas id="test" height="80px"></canvas>
-
         </div>
     </div>
     <div class="intro-y box mt-5 ">

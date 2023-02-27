@@ -15,10 +15,8 @@
         <script src="https://kit.fontawesome.com/1cff19edbf.js" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-
         <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
         <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
         @livewireStyles
     </head>
     <!-- END: Head -->
@@ -36,6 +34,7 @@
                 <!-- BEGIN: Top Bar -->
                 @include('admin.component.top-menu')
                 <!-- END: Top Bar -->
+                <livewire:offline/>
                 @yield('content')
             </div>
         </div>
