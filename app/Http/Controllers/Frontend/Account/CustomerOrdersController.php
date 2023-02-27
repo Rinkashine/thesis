@@ -21,11 +21,9 @@ class CustomerOrdersController extends Controller
         if($orderdetails->customers_id != $customer_id){
             abort(403);
         }
-        $products = OrderedProduct::where('customer_orders_id',$orderdetails->id)->get();
 
         return view('customer.account.orderdetails',[
             'orderdetails' => $orderdetails,
-            'products' => $products
         ]);
     }
 }

@@ -21,5 +21,11 @@ class OrderedProduct extends Model
         return $this->belongsTo(CustomerOrder::class);
     }
 
+    public function reviewTransactions(){
+        return $this->hasMany(Review::class, 'ordered_products_id','id' );
+    }
+
+
+
 
 }

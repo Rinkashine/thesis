@@ -131,22 +131,20 @@
     </div>
 </div>
 <!-- END Product Description -->
-
-
 <!-- Begin Product Rating -->
-<div class="items-center justify-center flex">
+<div class="flex items-center justify-center">
     <div style="width: 60rem">
-        <div class="intro-y box px-1 mt-7 pb-3">
+        <div class="px-1 pb-3 intro-y box mt-7">
             <div class="flex items-center px-5 py-3 border-b border-slate-200/60 dark:border-darkmode-400">
-                <h2 class="font-medium text-base mr-auto">
+                <h2 class="mr-auto text-base font-medium">
                     Product Ratings
                 </h2>
             </div>
             <div class="flex flex-col lg:flex-row ">
                 <div class="mt-5 ">
                     <div class="flex items-center px-5">
-                        <h1 class=" text-5xl font-medium">4.55</h1>
-                        <h1 class=" text-3xl font-medium">/5</span>
+                        <h1 class="text-5xl font-medium ">{{ number_format($ave_rate,2)}}</h1>
+                        <h1 class="text-3xl font-medium ">/5</span>
                     </div>
                     <div class="flex items-center px-5">
                         <div class="star">
@@ -158,7 +156,7 @@
                         </div>
                     </div>
                     <div class="flex items-center px-5 py-2">
-                        <div class="text-slate-500 text-base">350 Ratings</div>
+                        <div class="text-base text-slate-500">{{ $count_rate }} Ratings</div>
                     </div>
                 </div>
 
@@ -169,64 +167,60 @@
                                 @for($i=1; $i<6; $i++)
                                     <i class="fa fa-star"> </i>
                                 @endfor
-                                <div class="progress h-3 mt-3 md:hidden w-1/2">
-                                    <div class="progress-bar w-5/5" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">100</div>
+                                <div class="w-1/2 h-3 mt-3 progress md:hidden">
+                                    <div class="progress-bar w-5/5" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
                                 </div>
                             </div>
                             <div class="mt-1">
                                 @for($i=1; $i<5; $i++)
                                     <i class="fa fa-star"> </i>
                                 @endfor
-                                <div class="progress h-3 mt-3 md:hidden w-1/2">
-                                    <div class="progress-bar w-4/5" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">80</div>
+                                <div class="w-1/2 h-3 mt-3 progress md:hidden">
+                                    <div class="w-4/5 progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
                                 </div>
                             </div>
                             <div class="mt-1">
                                 @for($i=1; $i<4; $i++)
                                     <i class="fa fa-star"> </i>
                                 @endfor
-                                <div class="progress h-3 mt-3 md:hidden w-1/2">
-                                    <div class="progress-bar w-3/5" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">70</div>
+                                <div class="w-1/2 h-3 mt-3 progress md:hidden">
+                                    <div class="w-3/5 progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
                                 </div>
                             </div>
                             <div class="mt-1">
                                 @for($i=1; $i<3; $i++)
                                     <i class="fa fa-star"> </i>
                                 @endfor
-                                <div class="progress h-3 mt-3 md:hidden w-1/2">
-                                    <div class="progress-bar w-2/5" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">60</div>
+                                <div class="w-1/2 h-3 mt-3 progress md:hidden">
+                                    <div class="w-2/5 progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
                                 </div>
                             </div>
                             <div class="mt-1">
                                 @for($i=1; $i<2; $i++)
                                     <i class="fa fa-star"> </i>
                                 @endfor
-                                <div class="progress h-3 mt-3 md:hidden w-1/2">
-                                    <div class="progress-bar w-1/5" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">50</div>
+                                <div class="w-1/2 h-3 mt-3 progress md:hidden">
+                                    <div class="w-1/5 progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
                                 </div>
                             </div>
-                            <div class="mt-1">
-                                @for($i=1; $i<1; $i++)
-                                    <i class="fa fa-star"> </i>
-                                @endfor
-                            </div>
+
                         </div>
                     </div>
                 </div>
-                <div class="mt-5 mx-3 md:flex flex-1 hidden">
-                    <div class="progress h-3 mt-2  w-1/2">
-                        <div class="progress-bar w-5/5" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">100</div>
-                        <div class="progress h-3 mt-3">
-                            <div class="progress-bar w-4/5" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">90</div>
+                <div class="flex-1 hidden mx-3 mt-5 md:flex">
+                    <div class="w-1/2 h-3 mt-2 progress">
+                        <div class="progress-bar w-{{$rate5}}/5" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">{{$rate5}}</div>
+                        <div class="h-3 mt-3 progress">
+                            <div class="w-{{$rate4}}/5 progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">{{$rate4}}</div>
                         </div>
-                        <div class="progress h-3 mt-3 ">
-                            <div class="progress-bar w-3/5" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">70</div>
+                        <div class="h-3 mt-3 progress ">
+                            <div class="w-{{$rate3}}/5 progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">{{$rate3}}</div>
                         </div>
-                        <div class="progress h-3 mt-3 ">
-                            <div class="progress-bar w-2/5" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">60</div>
+                        <div class="h-3 mt-3 progress ">
+                            <div class="w-{{$rate2}}/5 progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">{{$rate2}}</div>
                         </div>
-                        <div class="progress h-3 mt-3 ">
-                            <div class="progress-bar w-1/5" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">30</div>
+                        <div class="h-3 mt-3 progress ">
+                            <div class="w-{{$rate1}}/5 progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">{{$rate1}}</div>
                         </div>
                     </div>
                 </div>
@@ -237,46 +231,56 @@
 <!-- END Product Rating -->
 
 <!-- Begin Product Review -->
-<div class="items-center justify-center flex">
-    <div class="intro-y box px-1 pt-1 mt-7 " style="width: 60rem">
-        <div class="flex items-center px-5 py-5 sm:py-3 border-b border-slate-200/60 dark:border-darkmode-400">
-            <h2 class="font-medium text-base mr-auto">
+<div class="flex items-center justify-center">
+    <div class="px-1 pt-1 intro-y box mt-7 " style="width: 60rem">
+        <div class="flex items-center px-5 py-5 border-b sm:py-3 border-slate-200/60 dark:border-darkmode-400">
+            <h2 class="mr-auto text-base font-medium">
                 Product Reviews
             </h2>
         </div>
-        @for($i=1; $i<3; $i++)
-            <div class="flex flex-col lg:flex-row border-b border-slate-200/60 dark:border-darkmode-400">
+
+        @forelse ($reviews as $rev)
+            <div class="flex flex-col border-b lg:flex-row border-slate-200/60 dark:border-darkmode-400">
                 <div class="mt-5 ">
                     <div class="flex items-center px-5">
                             <div class="star">
                                 <div class="star-bg">
-                                    @for($x=1; $x<6; $x++)
+                                    @for($x=0; $x<$rev->rate; $x++)
                                         <i class="fa fa-star"> </i>
                                     @endfor
                                 </div>
                             </div>
                         </div>
                     <div class="flex justify-start gap-2">
-                        <div class="pl-5 pt-3 w-12 h-12 image-fit">
+                        <div class="w-12 h-12 pt-3 pl-5 image-fit">
                             <img class="rounded-full" src="{{ asset('dist/images/undraw_pic.svg') }}" alt=""  >
                         </div>
                         <div>
-                            <div class="flex pt-3 items-center px-5">
-                                <div class="text-base">Paul Reyes <span class="  text-primary  text-xs rounded-md">Verified Purchase</span></div>
+                            <div class="flex items-center px-5 pt-3">
+                                <div class="text-base"> {{ $rev->customer_name }} <span class="text-xs rounded-md text-primary">Verified Purchase</span></div>
                             </div>
                             <div class="flex items-center px-5">
-                                <div class="text-slate-500 text-base">10/22/25</div>
+                                <div class="text-base text-slate-500">{{$rev->created_at->diffForHumans()  }}</div>
                             </div>
                         </div>
                     </div>
 
 
                     <div class="flex items-center px-5 py-4">
-                        <div class="text-black text-base">I love it I always forget to drive water but this a great help tormenting me to drink water hahaha I can't leave with this jug so happy with the sticker thank you so much</div>
+                        <div class="text-base text-black">{{ $rev->comment }}</div>
                     </div>
                 </div>
             </div>
-        @endfor
+            @empty
+            <div class="pt-5 pl-5 pr-5  font-medium flex justify-center text-slate-500">
+                This product has no reviews
+            </div>
+            <div class="pb-5 pl-5 pr-5 font-medium flex justify-center text-slate-500">
+                Let others know what do you think and be the first to write a review
+            </div>
+        @endforelse
+
+
 
     </div>
 </div>

@@ -26,10 +26,9 @@
                     @if($orderdetails->status == "Rejected" || $orderdetails->status == "Cancelled")
                         <div class="btn btn-rounded btn-danger-soft w-24 mr-1 mb-2">{{ $orderdetails->status }}</div>
                     @elseif($orderdetails->status == "Completed")
-                    <div class="btn btn-rounded btn-pending-soft w-full text-xs	">{{ $orderdetails->status }}</div>
-
+                        <div class="btn btn-rounded btn-success-soft w-full text-xs	">{{ $orderdetails->status }}</div>
                     @else
-                    <div class="ml-2 px-2 py-2 bg-slate-200 text-slate-600  text-xs rounded-md">{{ $orderdetails->status }}</div>
+                        <div class="ml-2 px-2 py-2 bg-slate-200 text-slate-600  text-xs rounded-md">{{ $orderdetails->status }}</div>
                     @endif
                 </div>
             </div>
@@ -41,13 +40,28 @@
                             <th class="whitespace-nowrap">Product Name</th>
                             <th class="whitespace-nowrap text-center">Price</th>
                             <th class="whitespace-nowrap text-center">Quantity</th>
-                        </thead>
+                            @if($orderdetails->status == "Completed")
+                                <th class="whitespace-nowrap text-center">Action</th>
+                            @endif
+                            </thead>
                         <tbody>
-                            @foreach ($products as $product)
+                            @foreach ($orderdetails->orderTransactions as $order)
                                 <tr>
-                                    <td class="whitespace-nowrap">{{ $product->product_name }}</td>
-                                    <td class="whitespace-nowrap text-center">₱{{ number_format($product->price,2) }}</td>
-                                    <td class="whitespace-nowrap text-center">{{ number_format($product->quantity) }}</td>
+                                    <td class="whitespace-nowrap">{{ $order->product_name }}</td>
+                                    <td class="whitespace-nowrap text-center">₱{{ number_format($order->price,2) }}</td>
+                                    <td class="whitespace-nowrap text-center">{{ number_format($order->quantity) }}</td>
+                                    @if($orderdetails->status == "Completed")
+                                        @if($order->reviewTransactions->count() == 0)
+                                            <td class="whitespace-nowrap text-center text-success">
+                                                <a onclick="setProductToReview('{{$order->product_name}}', {{$order->id}})" href="javascript:;">
+                                                    <i class="fa-solid fa-eye w-4 h-4 mr-1"></i> Make a review
+                                                </a>
+                                            </td>
+                                        @else
+                                            <td class="text-center whitespace-nowrap">Reviewed</td>
+                                        @endif
+
+                                    @endif
                                 </tr>
                             @endforeach
                         </tbody>
@@ -123,6 +137,13 @@
         @livewire('component.cancel-order',['orderdetails' => $orderdetails])
         <livewire:modal.cancel-order-modal/>
 
+
+
+
+        <!-- Begin: Product Review Modal -->
+        <livewire:form.product-review-form :orderDetails="$orderdetails" >
+        <!-- End: Product Review Modal -->
+
     </div>
     <!-- BEGIN: Display Information -->
 </div>
@@ -145,6 +166,25 @@
     ForceCloseCancelOrderModal.addEventListener('hidden.tw.modal', function(event) {
         livewire.emit('forceCloseModal');
     });
+    //Reviews
+    const reviewModalElement = document.querySelector("#review-product-modal");
+    const reviewModal =  tailwind.Modal.getOrCreateInstance(reviewModalElement)
+    const setProductToReview = (productName, productId)=>{
+        livewire.emit("selectProductToReview", productName, productId);
+    }
 
+    window.addEventListener('CloseReviewModal',event => {
+        reviewModal.hide()
+    });
+    window.addEventListener('ShowReviewModal', event => {
+        console.log(event)
+        reviewModal.show()
+    });
+    window.addEventListener('swal:modal',event =>{
+        Swal.fire({
+            title: event.detail.title,
+            icon: event.detail.type
+        })
+    });
 </script>
 @endpush
