@@ -35,7 +35,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($cancelledorders as $orders)
+                            @forelse ($cancelledorders as $orders)
                                 <tr>
                                     <td class="whitespace-nowrap">{{ $orders->id }}</td>
                                     <td class="whitespace-nowrap text-center">
@@ -58,7 +58,11 @@
                                     <td class="whitespace-nowrap text-center">{{ $orders->updated_at }}</td>
                                     <td class="whitespace-nowrap text-center"><a href="{{ Route('cancellations.show',$orders) }}"><i class="fa-solid fa-eye w-4 h-4 mr-1"></i> View Details</a></td>
                                 </tr>
-                            @endforeach
+                            @empty
+                            <tr>
+                                <td class="whitespace-nowrap text-center" colspan="6"> No Cancellation Orders Found </td>
+                            </tr>
+                            @endforelse
 
 
                         </tbody>

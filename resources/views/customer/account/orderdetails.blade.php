@@ -80,6 +80,11 @@
             <div>
                 Mode of Payment: {{ $orderdetails->mode_of_payment }}
             </div>
+            @if($orderdetails->payment_id != null)
+            <div>
+                Payment ID: {{ $orderdetails->payment_id }}
+            </div>
+            @endif
         </div>
         <div class="flex justify-between flex-col  md:flex-col lg:flex-row  2xl:flex-row  sm:flex-col gap-5 ">
             <div class="intro-y box p-5 mt-5 w-full">

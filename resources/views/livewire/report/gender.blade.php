@@ -75,7 +75,7 @@
         const data = {
             labels: genderlabel,
             datasets: [{
-                label: 'Most Used Browser',
+                label: 'Gender',
                 data: genderdataset,
                 backgroundColor: [
                 'rgb(30,95,78)',

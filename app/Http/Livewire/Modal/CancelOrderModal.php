@@ -31,7 +31,25 @@ class CancelOrderModal extends Component
         $this->cleanVars();
         $this->dispatchBrowserEvent('CloseOrderCancellationModal');
     }
+
+    protected function rules(){
+        return [
+            'reason'=> 'required|max:255',
+            'details' => 'max:255',
+        ];
+    }
+
+    public function updated($fields){
+        $this->validateOnly($fields,[
+            'reason'=> 'required|max:255',
+            'details' => 'max:255',
+        ]) ;
+    }
+
+
+
     public function CancelOrder(){
+        $this->validate();
         $order = CustomerOrder::find($this->modelId);
         $order->status = "Cancelled";
         $order->cancellation_reason_id = $this->reason;

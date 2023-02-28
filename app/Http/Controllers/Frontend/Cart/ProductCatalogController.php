@@ -31,7 +31,8 @@ class ProductCatalogController extends Controller
             'product_review.created_at'
             ])
             ->where('product_name', $product->name)
-        ->get();
+            ->orderby('product_review.created_at','desc')
+        ->paginate(5);
 
         $sum_rate =  Review::
         join('ordered_products', 'product_review.ordered_products_id','=', 'ordered_products.id')

@@ -20,6 +20,12 @@ class Review extends Model
        'rate',
        'customer_id',
    ];
+
+   public function reviewTransactions()
+   {
+       return $this->hasOne(OrderedProduct::class, 'id','ordered_products_id');
+   }
+
    public function customer_reviews(){
         return $this->belongsTo(OrderedProduct::class);
     }

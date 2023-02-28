@@ -25,7 +25,7 @@
                <p>
                 Where applicable, this Privacy Notice should be read in conjunction with the Country-Specific Riders for your jurisdiction as set out. In the course of you using Go Dental’s applications and websites (both web and mobile versions), as well as products, information, functions and other services operated by Go Dental, we will be collecting, using, disclosing, storing and/or processing data, including your personal data. In this Privacy Notice, Platform shall refer to all relevant applications and websites (both web and mobile versions), and Services shall refer to all products, information, functions and services provided by Go Dental from time to time at the Platform(s).
 
-                This Privacy Notice exists to keep you in the know about how we collect, use, disclose, store and/or process the data we collect and receive during the course of providing the Services or access to the Platform to you, our user, whether or not you have registered to use our Platform as a buyer or a seller. We will only collect, use, disclose, store and/or process your personal data in accordance with this Privacy Notice.
+                This Privacy Notice exists to keep you in the know about how we collect, use, disclose, store and/or process the data we collect and receive during the course of providing the Services or access to the Platform to you, our user, whether or not you have registered to use our Platform as a buyer. We will only collect, use, disclose, store and/or process your personal data in accordance with this Privacy Notice.
 
                 It is important that you read this Privacy Notice together with any other applicable notices we may provide for special applications where when we are collecting, using, disclosing and/or processing personal data about you, so that you are fully aware of how and why we are using your personal data.
 
@@ -33,7 +33,7 @@
 
                 This Privacy Notice applies in conjunction with other notices, contractual clauses and consent clauses that apply in relation to the collection, storage, use, disclosure and/or processing of your personal data by us and is not intended to override them unless we state expressly otherwise.
 
-                All of these terms apply to Go Dental's users, whether or not the users have created an account as buyers and/or sellers, unless otherwise stated specifically to apply only to buyers or only to sellers.
+                All of these terms apply to Go Dental's users, whether or not the users have created an account as buyers, unless otherwise stated specifically to apply only to buyers.
                     </p>
                     <br>
                 <div class="font-medium text-base mt-1 mb-1">2. When will Go Dental Collect Personal Data</div>
@@ -43,36 +43,21 @@
                 <p>
                 (a) When you browse our websites (both mobile and web versions);
                 </p>
-                (b) When you create an account with us (as buyer or seller or otherwise);  </p>
+                (b) When you create an account with us (as buyer);  </p>
                 <p>
-                (c) When, as a seller, you list products and/or services for sale on the Platform and/or on the platforms of our affiliates and conduct transactions with buyers in respect of the sale and purchase of those products and/or services; </p>
-                <p>
-                (d) When you apply for, subscribe to or otherwise use any of the Services on our Platform and/or on the
+                (c)  When you apply for, subscribe to or otherwise use any of the Services on our Platform and/or on the
                 platforms of our affiliates;</p>
                 <p>
-                (e) When you make a transaction regarding the products available on the Platform;</p>
+                (d) When you make a transaction regarding the products available on the Platform;</p>
                 <p>
-                (f) When you activate or use any payment-related functions available on the Platform or provided by our third party service providers;</p>
+                (e) When you activate or use any payment-related functions available on the Platform or provided by our third party service providers;</p>
                 <p>
-                (g) When you use any of the features, functions, mini-apps or mobile games available on the Platform or Services;</p>
+                (f) When you log in to your account on the Platform or otherwise interact with us via an external service or application, such as Facebook, Twitter, or Instagram;</p>
                 <p>
-                (h) When you record any user-generated content which is uploaded on the Platform;</p>
+                (g) When any other user of the Platform posts any comments on the content you have uploaded on the Platform or when you post any comments on other users’ content uploaded to the Platform;</p>
                 <p>
-                (i) When you use the chat function on the Platform;</p>
-                <p>
-                (j) When you subscribe to our publications or marketing collaterals;</p>
-                <p>
-                (k) When you enter a competition, promotion or survey;</p>
-                <p>
-                (l) When you participate in any activity or campaign on the Platform;</p>
-                <p>
-                (m) When you log in to your account on the Platform or otherwise interact with us via an external service or application, such as Facebook or Google;</p>
-                <p>
-                (n) When any other user of the Platform posts any comments on the content you have uploaded on the Platform or when you post any comments on other users’ content uploaded to the Platform;</p>
-                <p>
-                (o) When a third party lodges a complaint against you or the content you have posted on the Platform; </p>
-                <p>
-                (p) When you interact with us offline, including when you interact with our outsourced customer service agents.</p>
+                (h) When a third party lodges a complaint against you or the content you have posted on the Platform; </p>
+
 
                 <br>
 
@@ -84,16 +69,10 @@
                 Depending on your use of our Platform and/or your interaction with our Services (such as when registering for our Services and/or logging into our Platform), you may be asked to provide us with certain information. While you can choose not to provide us with certain information, you might not be able to take advantage of many of our Services that are provided to you.
                 The personal data that you may opt to provide to us are as follows:
 
-                    <li> Identity and Profile Data, which may include your name, date of birth, gender, username and password, email address, telephone number, your interests, and
-                        any personal data in any photographs or videos or audio recordings that you upload onto our Platform.
+                    <li> Identity and Profile Data, which may include your name, date of birth, gender, username and password, email address, telephone number, and
+                        any personal data that you upload onto our Platform.
                         </li>
 
-
-                        <ul>
-                            <li>
-                               - Where you are a seller, we may also collect your company name, address, date of incorporation, and other business-related information (e.g. company registration number, business license, tax information, shareholder and director information
-                            </li>
-                        </ul>
 
                         <li>
                         Account and Transaction Data, which may include your credit card details, bank account details, bank statements, delivery/ billing address, payments and orders to and from you, and other details of products and services that you have supplied to or purchased through the Platform.
@@ -103,7 +82,7 @@
                         </li>
 
                         <li>
-                        Marketing and Communications Data, which may include your interests, survey responses, preferences in receiving marketing materials from us and your communication preferences, your preferences for particular products or services, as well as your feedback, chat, email or call history on the Platform or with third party service providers.
+                        Marketing and Communications Data, which may include your interests, survey responses, preferences in receiving marketing materials from us and your communication preferences, your preferences for particular products or services, as well as your feedback, or email on the Platform.
                         </li>
 
                         <li>
@@ -166,7 +145,7 @@
                 <div class="font-medium text-base mt-1 mb-1">9. Does Go Dental Disclose the information it collects form its visitors to outside parties?</div>
 
                 We use and disclose personal data for the purposes described below in accordance with applicable local laws and, if required, upon obtaining your consent.
-                Depending on your relationship with us (for example, whether you are a buyer, a seller, a visitor to our websites, or a user of our mobile applications), the personal data which we collect from you or via third parties may be used for certain purposes, as follows:  <br>
+                Depending on your relationship with us (for example, whether you are a buyer, a visitor to our websites, or a user of our mobile applications), the personal data which we collect from you or via third parties may be used for certain purposes, as follows:  <br>
                 <p>(a) To facilitate your use of the Services or access to the Platform.  </p>
                 <p>(b) To administer the online account that you may have set up with us.  </p>
                 <p>(c) To conduct analytics, research, business and development:  </p>
@@ -175,7 +154,7 @@
                 <li>To better understand user experience with the Services and the Platform; </li>
 	            <li>To improve the layout or content of the pages of the Platform and customise them for users; </li>
 	            <li>To identify visitors on the Platform;</li>
-	            <li>To conduct surveys, including carrying out research on our users’ demographics and behaviour to improve our current technology (e.g. voice recognition tech, etc) via machine learning or other means;</li>
+	            <li>To conduct surveys, including carrying out research on our users’ demographics and behaviour to improve our current technology via machine learning or other means;</li>
 	            <li>To derive further attributes relating to you based on personal data provided by you (whether to us or third parties), in order to provide you with more targeted and/or relevant information;</li>
 	            <li>To conduct data analysis, testing and research, monitoring and analysing usage and activity trends;</li>
 	            <li>To further develop our products and services;</li>
@@ -227,12 +206,14 @@
                 Our legal rights and remedies are expressly reserved in such an event.
 
             </div>
+
+
+
+
+
         </div>
     </div>
 </section>
 
 @endsection
-@push('scripts')
-<script>
-</script>
-@endpush
+

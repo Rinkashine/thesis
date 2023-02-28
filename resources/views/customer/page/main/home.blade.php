@@ -140,9 +140,10 @@
         <div class="my-5 box pt-5 pb-5 pl-2 pr-2">
             <div class="mx-6">
                 <div class="top-selling-products">
-                    @foreach ($products as $product )
+                    @foreach ($top_selling as $product )
                         <div class="relative p-3 rounded-md box zoom-in ">
-                            <a href="{{ Route('productshow', $product) }}">
+
+                            <a href=" {{ Route('productshow', $product) }}">
                                 <div class="h-48 2xl:h-48">
                                     @foreach ($product->images->take(1) as $model)
                                         <img alt="" class="object-scale-down w-full h-48 rounded-md" src="{{ url('storage/product_photos/'.$model->images) }}">
@@ -154,7 +155,7 @@
                                 <div class="px-2 pt-3 pb-2 border-t border-slate-200/60 dark:border-darkmode-400">
                                     <div class="flex w-full text-xs text-slate-500">
                                         <div class="mr-auto"> Price: <span class="">₱{{$product->sprice }}</span> </div>
-                                        <div class="text-xs">{{$product->brand->name }}</div>
+                                        <div class="text-xs">{{$product->brand_name }}</div>
                                     </div>
                                 </div>
                             </a>
@@ -165,6 +166,42 @@
         </div>
     </div>
     <!-- End: Top Selling Products -->
+    <!-- Begin: Trending Products -->
+    <div>
+        <div>
+            <p class="text-2xl italic font-normal text-center border-b-2 border-slate-300 text-bookmark-grey lg:text-left">
+                Trending Products
+            </p>
+        </div>
+        <div class="my-5 box pt-5 pb-5 pl-2 pr-2">
+            <div class="mx-6">
+                <div class="top-selling-products">
+                    @foreach ($top_trending as $product )
+                        <div class="relative p-3 rounded-md box zoom-in ">
+
+                            <a href=" {{ Route('productshow', $product) }}">
+                                <div class="h-48 2xl:h-48">
+                                    @foreach ($product->images->take(1) as $model)
+                                        <img alt="" class="object-scale-down w-full h-48 rounded-md" src="{{ url('storage/product_photos/'.$model->images) }}">
+                                    @endforeach
+                                </div>
+                                <div class="my-3 ">
+                                    <div class="text-base font-medium truncate text-primary">{{$product->name}}</div>
+                                </div>
+                                <div class="px-2 pt-3 pb-2 border-t border-slate-200/60 dark:border-darkmode-400">
+                                    <div class="flex w-full text-xs text-slate-500">
+                                        <div class="mr-auto"> Price: <span class="">₱{{$product->sprice }}</span> </div>
+                                        <div class="text-xs">{{$product->brand_name }}</div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    @endforeach
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End: Trending Products -->
 </div>
 <!-- End: Main Container -->
 @endsection

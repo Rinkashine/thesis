@@ -49,8 +49,11 @@ Route::middleware(['PreventBackHistory'])->group(function () {
     Route::get('/terms', [PageController::class,'terms'])->name('terms');
     Route::get('/faq', [PageController::class,'faq'])->name('faq');
     Route::get('/privacy', [PageController::class,'privacy'])->name('privacy');
-    Route::get('/shippingdelivery', [PageController::class,'shipping'])->name('shippingdelivery');
-    Route::get('/returnexchanges', [PageController::class,'return'])->name('return');
+
+
+
+
+
     Route::get('/productcatalog', [ProductCatalogController::class,'index'])->name('product');
     Route::get('/productcatalog/{product:id}', [ProductCatalogController::class,'show'])->name('productshow');
     Route::get('/product/cart');
@@ -95,11 +98,8 @@ Route::middleware(['PreventBackHistory'])->group(function () {
         Route::group(['prefix' => 'customer'],function(){
             Route::resource('order', CustomerOrdersController::class)->only('index','show');
             Route::resource('returns', CustomerReturnsController::class)->only('index','show');
-            Route::resource('reviews', CustomerOrdersController::class)->only('index','show');
+            Route::resource('reviews', CustomerReviewsController::class)->only('index','show');
             Route::resource('cancellations', CustomerCancellationController::class)->only('index','show');
-
-
-
         });
     });
 });

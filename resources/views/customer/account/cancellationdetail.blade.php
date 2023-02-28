@@ -79,23 +79,4 @@
 </div>
 <!-- End: Order Details Body -->
 @endsection
-@push('scripts')
-<script>
-     //Show Edit Form Modal
-     const cancelOrderModal = tailwind.Modal.getInstance(document.querySelector("#cancel-order-modal"));
-    window.addEventListener('openCancelModal',event => {
-        cancelOrderModal.show();
-    });
-    //Hide Add Form Modal
-    window.addEventListener('CloseOrderCancellationModal',event => {
-        cancelOrderModal.hide();
 
-    });
-    //Closing Modal and Refreshing its value
-    const ForceCloseCancelOrderModal = document.getElementById('cancel-order-modal')
-    ForceCloseCancelOrderModal.addEventListener('hidden.tw.modal', function(event) {
-        livewire.emit('forceCloseModal');
-    });
-
-</script>
-@endpush

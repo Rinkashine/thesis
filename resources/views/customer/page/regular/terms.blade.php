@@ -37,7 +37,6 @@
 <li> “Password” refers to the valid password that a customer who has an account with Go Dental may use in conjunction with the Username to access the relevant Platform and/or Services. </li>
 <li> “Personal Data” means data, whether true or not, that can be used to identify, contact, or locate you. Personal Data can include your name, e-mail address, billing address, shipping address, phone number and credit card information. “Personal Data” shall be deemed to include any data that you have provided to us when placing an Order, regardless of whether you have an account with us. </li>
 <li> “Platform” means (a) both the web and mobile versions of the website operated and/or owned by Go Dental which is presently located at the following URL: www.godentalph.com; and (b) the mobile applications made available from time to time by Go Dental, including the Android versions. </li>
-<li> “Privacy Policy” means the privacy policy. </li>
 <li> “Product” means a product (including any installment of the product or any parts thereof) available for sale to Customers on the Platform. </li>
 <li> “Prohibited Material” means any information, graphics, photographs, data and/or any other material that: </li>
 <p>(a) contains any computer virus or other invasive or damaging code, program, or macro; </p>
@@ -101,7 +100,7 @@
 
                <li> Product description: While we endeavor to provide an accurate description of the Products, we do not warrant that such description is accurate, current or free from error.
                 Prices of Products: All Listing Prices are subject to taxes, unless otherwise stated. We reserve the right to amend the Listing Prices at any time without giving any reason or prior notice.
-                Third Party Vendors: You acknowledge that parties other than Go Dental (i.e., Third Party-Vendors or Sellers) list and sell Products on the Platform. Whether a particular Product is listed for sale on the Platform by Go Dental or a Third-Party Vendor may be stated on the webpage listing that Product. For the avoidance of doubt, each agreement entered into for the sale of a Third-Party Vendor’s Products to a Customer shall be an agreement entered into directly and only between the Third-Party Vendor and the Customer. You further acknowledge that Third Party Vendors may utilize paid services offered by Go Dental to promote their Product listings within your search results on the Platform. Such Product listings may be accompanied by a “megaphone” logo.
+                Third Party Vendors: You acknowledge that parties other than Go Dental (i.e., Third Party-Vendors) list and sell Products on the Platform. Whether a particular Product is listed for sale on the Platform by Go Dental or a Third-Party Vendor may be stated on the webpage listing that Product. For the avoidance of doubt, each agreement entered into for the sale of a Third-Party Vendor’s Products to a Customer shall be an agreement entered into directly and only between the Third-Party Vendor and the Customer. You further acknowledge that Third Party Vendors may utilize paid services offered by Go Dental to promote their Product listings within your search results on the Platform. Such Product listings may be accompanied by a “megaphone” logo.
                 </li>
                 <br>
 
@@ -208,7 +207,3 @@
 </section>
 
 @endsection
-@push('scripts')
-<script>
-</script>
-@endpush
