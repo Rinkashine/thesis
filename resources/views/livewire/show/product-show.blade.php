@@ -32,6 +32,7 @@
                             <h2 class="font-medium text-base mr-auto">
                                 Product Details
                             </h2>
+                            @livewire('form.add-to-wishlist',['product'=> $product])
                         </div>
                         <div class="p-5">
                             <div class="flex items-center">

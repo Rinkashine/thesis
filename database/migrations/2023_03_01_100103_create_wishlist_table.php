@@ -13,13 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('inventory_history', function (Blueprint $table) {
+        Schema::create('wishlist', function (Blueprint $table) {
             $table->id();
+            $table->unsignedInteger('customers_id');
+            $table->foreign('customers_id')->references('id')->on('customers')->onDelete('cascade');
             $table->foreignId('product_id')->constrained('product')->onDelete('cascade');
-            $table->string('activity');
-            $table->string('adjusted_by')->nullable();
-            $table->string('operation_value');
-            $table->string('latest_value');
             $table->timestamps();
         });
     }
@@ -31,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('inventory_history');
+        Schema::dropIfExists('wishlist');
     }
 };

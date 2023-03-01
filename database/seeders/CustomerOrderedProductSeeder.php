@@ -261,7 +261,7 @@ class CustomerOrderedProductSeeder extends Seeder
             ],
             [ //41
                 'customer_orders_id' => 104153233,
-                'product_name' => 'Temprex',
+                'product_name' => 'Temrex',
                 'price' => 550.00,
                 'quantity' => 1,
             ],
@@ -326,37 +326,37 @@ class CustomerOrderedProductSeeder extends Seeder
                 'quantity' => 4,
             ],
             [ //52
-                'customer_orders_id' => 104153243,
+                'customer_orders_id' => 104153243, //pending
                 'product_name' => 'Headcap',
                 'price' => 200.00,
                 'quantity' => 1,
             ],
             [ //53
-                'customer_orders_id' => 104153244,
+                'customer_orders_id' => 104153244, //pending
                 'product_name' => 'Jeltrate',
                 'price' => 250.00,
                 'quantity' => 2,
             ],
             [ //54
-                'customer_orders_id' => 104153245,
+                'customer_orders_id' => 104153245, //pending
                 'product_name' => 'Mirror Defogger',
                 'price' => 100.00,
                 'quantity' => 2,
             ],
             [ //55
-                'customer_orders_id' => 104153246,
+                'customer_orders_id' => 104153246, //pending
                 'product_name' => 'Patient Dental Record',
                 'price' => 100.00,
                 'quantity' => 1,
             ],
             [ //56
-                'customer_orders_id' => 104153247,
+                'customer_orders_id' => 104153247, //pending
                 'product_name' => 'Plaster of Paris',
                 'price' => 120.00,
                 'quantity' => 2,
             ],
             [ //57
-                'customer_orders_id' => 104153248,
+                'customer_orders_id' => 104153248, //pending
                 'product_name' => 'Pumice Powder Mint',
                 'price' => 100.00,
                 'quantity' => 6,

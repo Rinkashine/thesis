@@ -34,10 +34,10 @@ class Reportbrowser extends Component
                 array_push($this->browserchartdataset, $browser['sessions']);
             }
 
-            // $this->dispatchBrowserEvent('render-chart', [
-            //     "label" => $this->browserchartlabel,
-            //     "dataset" => $this->browserchartdataset,
-            // ]);
+            $this->dispatchBrowserEvent('render-chart', [
+                "label" => $this->browserchartlabel,
+                "dataset" => $this->browserchartdataset,
+            ]);
         }
 
 

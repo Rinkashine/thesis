@@ -12,7 +12,7 @@
                     <div class="col-span-12">
                         @csrf
                         <label for="pos-form-1" class="form-label">Photo</label>
-                        <input type="file" wire:model="photo" class="form-control flex-1 p-2 @error('name') border-danger @enderror" >
+                        <input type="file" wire:model="photo" class="form-control flex-1 p-2 @error('photo') border-danger @enderror"  accept="image/*">
                         <div wire:loading wire:target="photo">Uploading...</div>
                         <div class="text-danger mt-2">@error('photo'){{$message}}@enderror</div>
                     </div>

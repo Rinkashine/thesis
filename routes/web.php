@@ -30,7 +30,7 @@ use App\Http\Controllers\Frontend\Account\CustomerOrdersController;
 use App\Http\Controllers\Frontend\Account\CustomerCancellationController;
 use App\Http\Controllers\Frontend\Account\CustomerReturnsController;
 use App\Http\Controllers\Frontend\Account\CustomerReviewsController;
-
+use App\Http\Controllers\Frontend\Account\CustomerWishlistController;
 
 //Dark Mode Switcher Route
 Route::get('dark-mode-switcher', [DarkModeController::class, 'switch'])->name('dark-mode-switcher');
@@ -100,6 +100,8 @@ Route::middleware(['PreventBackHistory'])->group(function () {
             Route::resource('returns', CustomerReturnsController::class)->only('index','show');
             Route::resource('reviews', CustomerReviewsController::class)->only('index','show');
             Route::resource('cancellations', CustomerCancellationController::class)->only('index','show');
+            Route::resource('wishlist', CustomerWishlistController::class)->only('index');
+
         });
     });
 });

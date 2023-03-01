@@ -61,12 +61,13 @@ class OrderRejectForm extends Component
         $orderedproducts = OrderedProduct::where('customer_orders_id',$rejectorder->id)->get();
         foreach($orderedproducts as $orderedproduct){
             $products = Product::where('name',$orderedproduct->product_name)->get();
+
             foreach($products as $product){
-                $product->stock += $orderedproduct->quantity;
-                $product->committed -= $orderedproduct->quantity;
+                $product->stock = $product->stock + $orderedproduct->quantity;
                 $product->update();
                 $operationvalue = '(+'.$orderedproduct->quantity.')';
                 $latestvalue = $product->stock;
+
                 InventoryHistory::create([
                     'product_id' => $product->id,
                     'activity' => "Rejected Customer Order with Order ID of ".$rejectorder->id,
@@ -76,6 +77,7 @@ class OrderRejectForm extends Component
                 ]);
             }
         }
+
         $rejectorder->rejected_reason = $this->remarks;
         $rejectorder->status = "Rejected";
         $rejectorder->update();

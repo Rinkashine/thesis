@@ -66,7 +66,6 @@ class CheckoutForm extends Component
                 ]);
                 $products = Product::where('name',$item->product->name)->get();
                 foreach($products as $product){
-                    $product->committed += $item->quantity;
                     $product->stock -= $item->quantity;
                     $product->update();
                     $operationvalue = '(-'.$item->quantity.')';
@@ -138,7 +137,6 @@ class CheckoutForm extends Component
 
                 $products = Product::where('name',$item->product->name)->get();
                 foreach($products as $product){
-                    $product->committed += $item->quantity;
                     $product->stock -= $item->quantity;
                     $product->update();
                     $operationvalue = '(-'.$item->quantity.')';

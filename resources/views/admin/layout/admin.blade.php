@@ -22,6 +22,11 @@
     <!-- END: Head -->
 
     <body class="py-5 md:py-0 bg-black/[0.15] ">
+
+        <!-- Dark Mode Switcher -->
+        @include('admin.component.dark-mode-switcher')
+        <!-- Color Switcher -->
+        @include('admin.component.main-color-switcher')
         <!-- BEGIN: Mobile Menu -->
         @include('admin.component.mobile-menu')
         <!-- END: Mobile Menu -->

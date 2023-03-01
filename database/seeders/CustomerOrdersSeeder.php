@@ -48,8 +48,8 @@ class CustomerOrdersSeeder extends Seeder
                 'province' => 'Second District(NCR)',
                 'city' => 'Quezon City',
                 'barangay' => "Baesa",
-                'created_at' => '2022-02-17 00:00:00',
-                'updated_at' => '2022-02-17 00:00:00',
+                'created_at' => '2022-01-17 00:00:00',
+                'updated_at' => '2022-01-17 00:00:00',
             ],
             [ //104153207
                 'customers_id' => 1,
@@ -64,8 +64,8 @@ class CustomerOrdersSeeder extends Seeder
                 'province' => 'Second District(NCR)',
                 'city' => 'Quezon City',
                 'barangay' => "Baesa",
-                'created_at' => '2022-01-12 00:00:00',
-                'updated_at' => '2022-01-12 00:00:00',
+                'created_at' => '2022-01-18 00:00:00',
+                'updated_at' => '2022-01-18 00:00:00',
             ],
             [ //104153208
                 'customers_id' => 15,
@@ -585,7 +585,7 @@ class CustomerOrdersSeeder extends Seeder
                 'shippingfee' =>100.00 ,
                 'mode_of_payment' => 'Paid by Paypal',
                 'payment_id' => Str::random(7),
-                'status' => 'Pending for Approval',
+                'status' => 'Pending for Approval', //!!!!!!!!!!!! PENDING
                 'received_by' => 'Mark Joseph Manalo',
                 'phone_number' => '09369332354',
                 'notes' => 'Yellow Gate',
@@ -723,7 +723,7 @@ class CustomerOrdersSeeder extends Seeder
                 'barangay' => "Baesa",
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
-            ], // - RECENT DATA 4 TEST - END
+            ], // - RECENT DATA 4 TEST - END !!!!!!!! PENDING END
             [ //104153249
                 'customers_id' => 20,
                 'shippingfee' =>100.00 ,
@@ -737,8 +737,8 @@ class CustomerOrdersSeeder extends Seeder
                 'province' => 'Second District(NCR)',
                 'city' => 'Quezon City',
                 'barangay' => "Baesa",
-                'created_at' => '2022-3-23 00:00:00',
-                'updated_at' => '2022-3-23 00:00:00',
+                'created_at' => '2023-2-27 12:00:00',
+                'updated_at' => '2023-2-27 12:00:00',
             ],
             [ //104153250
                 'customers_id' => 19,
@@ -753,8 +753,8 @@ class CustomerOrdersSeeder extends Seeder
                 'province' => 'Second District(NCR)',
                 'city' => 'Quezon City',
                 'barangay' => "Baesa",
-                'created_at' => '2022-2-23 00:00:00',
-                'updated_at' => '2022-2-23 00:00:00',
+                'created_at' => '2023-2-28 15:00:00',
+                'updated_at' => '2023-2-28 15:00:00',
             ],
             [ //104153251
                 'customers_id' => 18,
@@ -769,8 +769,8 @@ class CustomerOrdersSeeder extends Seeder
                 'province' => 'Second District(NCR)',
                 'city' => 'Quezon City',
                 'barangay' => "Baesa",
-                'created_at' => '2022-1-23 00:00:00',
-                'updated_at' => '2022-1-23 00:00:00',
+                'created_at' => '2023-2-28 16:00:00',
+                'updated_at' => '2023-2-28 16:00:00',
             ],
             [ //104153252
                 'customers_id' => 21,
@@ -785,8 +785,8 @@ class CustomerOrdersSeeder extends Seeder
                 'province' => 'Second District(NCR)',
                 'city' => 'Quezon City',
                 'barangay' => "Baesa",
-                'created_at' => '2022-1-25 00:00:00',
-                'updated_at' => '2022-1-25 00:00:00',
+                'created_at' => '2023-2-28 19:00:00',
+                'updated_at' => '2023-2-28 19:00:00',
             ],
         ]);
     }
