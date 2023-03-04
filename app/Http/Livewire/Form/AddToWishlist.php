@@ -13,16 +13,18 @@ class AddToWishlist extends Component
     public $showbutton = 0;
     public function mount($product){
         $this->product = $product;
-        $this->customer_id = Auth::guard('customer')->user()->id;
 
     }
     public function AddToWishlist(){
+                $this->customer_id = Auth::guard('customer')->user()->id;
+
         Wishlist::create([
             'customers_id' => $this->customer_id,
             'product_id' => $this->product->id,
         ]);
     }
     public function RemoveToWishlist(){
+        $this->customer_id = Auth::guard('customer')->user()->id;
         Wishlist::where('customers_id',$this->customer_id)
         ->where('product_id',$this->product->id)->delete();
     }

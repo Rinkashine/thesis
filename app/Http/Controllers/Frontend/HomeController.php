@@ -49,7 +49,7 @@ class HomeController extends Controller
             ->orderBy('quantity','desc')
             ->get()
             ->take(10);
-        // dd($top_selling->toArray(), $top_trending->toArray());
+
         return view('customer.page.main.home',[
         'banners' => $banners,
         'categories' => $categories,

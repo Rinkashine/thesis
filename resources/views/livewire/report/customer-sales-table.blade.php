@@ -6,44 +6,35 @@
         <div class="flex flex-col sm:flex-row sm:items-end xl:items-start">
             <div class="xl:flex sm:mr-auto mt-5" >
                 <div class="sm:flex items-center sm:mr-4">
-                    <label for="date" class="flex-none xl:w-auto xl:flex-initial mr-2">Date from</label>
-                    <div class="col-sm-3">
-                        <input class="form-control input-sm w-32 " wire:model="from" id="from" name ="from"  type="date" />
-                    </div>
-                    <label for="date" class="flex-none xl:w-auto xl:flex-initial mr-2 ml-3">Date to</label>
-                    <div class="col-sm-3">
-                        <input type="date" class="form-control input-sm w-32 " id="to" name ="to" wire:model="to"/>
-                    </div>
-                </div>
-                <div class="sm:flex items-center sm:mr-4">
                     <label class="flex-none xl:w-auto xl:flex-initial mr-2">Sort</label>
-                    <select wire:model="sorting"  class="form-select w-32 mt-2 sm:mt-0 sm:w-auto">
-                        <option value="name">Customer Name</option>
-                        <option value="order_total">Total Orders</option>
-                        <option value="order_quantity">Total Total Ordered Products</option>
-                        <option value="total_sales">Total Sales</option>
+                    <select wire:model="sorting"  class="form-select w-full sm:w-32 2xl:w-full mt-2 sm:mt-0 sm:w-auto">
+                        <option value="customer_name_asc">Customer Name (A-Z)</option>
+                        <option value="customer_name_desc">Customer Name (Z-A)</option>
+                        <option value="total_spent_asc">Total Spent(Low To High)</option>
+                        <option value="total_spent_desc">Total Spent (High To Low)</option>
                     </select>
                 </div>
+                <div class="sm:flex items-center sm:mr-4 mt-2 xl:mt-0">
+                    <label class="w-12 flex-none xl:w-auto xl:flex-initial mr-2">From:</label>
+                    <input " class="form-control sm:w-40 2xl:w-full mt-2 sm:mt-0" wire:model="from" id="from" name ="from"  type="datetime-local" max="{{ $to }}" />
+                </div>
+                <div class="sm:flex items-center sm:mr-4 mt-2 xl:mt-0">
+                    <label class="w-12 flex-none xl:w-auto xl:flex-initial mr-2">To:</label>
+                    <input type="datetime-local" class="form-control sm:w-40 2xl:w-full mt-2 sm:mt-0" id="to" name ="to" wire:model="to" min="{{ $from }}"/>
+                </div>
+                <div class="sm:flex items-center sm:mr-4 mt-2 xl:mt-0">
+                    <label class="w-12 flex-none xl:w-auto xl:flex-initial mr-2">Seach</label>
+                    <input wire:model.lazy="search" type="search" class="form-control sm:w-40 2xl:w-full mt-2 sm:mt-0" placeholder="Search...">
+                </div>
             </div>
-            @can('product_export')
-                <div class="flex mt-5 sm:mt-0">
-                    <div class="dropdown w-1/2 sm:w-auto">
-                        <button class="dropdown-toggle btn btn-outline-secondary w-full sm:w-auto" aria-expanded="false" data-tw-toggle="dropdown"> <i class="fa-regular fa-newspaper w-4 h-4 mr-2"></i> Export <i class="fa-solid fa-chevron-down w-4 h-4 ml-auto sm:ml-2"></i> </button>
-                        <div class="dropdown-menu w-40">
-                            <ul class="dropdown-content">
-                                <li>
-                                    <a href="{{Route('exportSalesCustomerEXCEL',['startdate'=>$from,'enddate'=>$to])}}" class="dropdown-item"> <i class="fa-solid fa-file-excel mr-1"></i> Export Excel </a>
-                                </li>
-                                <li>
-                                    <a  href="{{Route('exportSalesCustomerCSV',['startdate'=>$from,'enddate'=>$to])}}" class="dropdown-item"> <i class="fa-solid fa-file-csv mr-1"></i>  Export CSV </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
+            @can('report_export')
+                <div class="mt-5">
+                    <a href="{{Route('exportOrderBrandExcel',['sorting'=>$sorting,'startdate'=>$from,'enddate'=>$to])}}" class="btn btn-primary"> <i class="fa-solid fa-file-excel mr-1"></i> Export Excel </a>
                 </div>
             @endcan
         </div>
-            <!-- Product Title -->
+
+            <!-- Begin: Customers Table -->
             <div class="overflow-x-auto scrollbar-hidden">
                 <div class="overflow-x-auto">
                     <table class="table table-striped mt-5 table-bordered table-hover">
@@ -51,9 +42,8 @@
                             <tr>
                                 <th class="whitespace-nowrap ">Customer Name</th>
                                 <th class="whitespace-nowrap text-center">Customer Email</th>
-                                <th class="whitespace-nowrap text-center">Total Orders</th>
                                 <th class="whitespace-nowrap text-center">Total Ordered Products</th>
-                                <th class="whitespace-nowrap text-center">Total Sales</th>
+                                <th class="whitespace-nowrap text-center">Total Spent</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -61,25 +51,36 @@
                                 <tr>
                                     <td class="whitespace-nowrap ">{{$customer->name}}</td>
                                     <td class="whitespace-nowrap text-center">{{$customer->email}}</td>
-                                    <td class="whitespace-nowrap text-center">{{$customer->order_total}}</td>
                                     <td class="whitespace-nowrap text-center">{{$customer->order_quantity}}</td>
-                                    <td class="whitespace-nowrap text-center">{{$customer->total_sales}}</td>
+                                    <td class="whitespace-nowrap text-center">₱{{ number_format($customer->total_spent,2)}}</td>
                                 </tr>
                             @endforeach
-                            @foreach ($nonbuyer as $customer )
-                                <tr>
-                                    <td class="whitespace-nowrap ">{{$customer->name}}</td>
-                                    <td class="whitespace-nowrap text-center">{{$customer->email}}</td>
-                                    <td class="whitespace-nowrap text-center">0</td>
-                                    <td class="whitespace-nowrap text-center">0</td>
-                                    <td class="whitespace-nowrap text-center">0</td>
-                                </tr>
-                            @endforeach
+
                         </tbody>
                     </table>
                 </div>
             </div>
-
+            <!-- End: Customers Table -->
+            <!-- Begin: Customers Pagination -->
+            <div class="intro-y col-span-12 flex flex-wrap sm:flex-row sm:flex-nowrap items-center mt-5">
+                <nav class="w-full sm:w-auto sm:mr-auto">
+                    {!! $customers->onEachSide(1)->links() !!}
+                </nav>
+                <div class="mx-auto text-slate-500">
+                    @if($customers->count() == 0)
+                        Showing 0 to 0 of 0 entries
+                    @else
+                        Showing {{$customers->firstItem()}} to {{$customers->lastItem()}} of {{$customers->total()}} entries
+                    @endif
+                </div>
+                <select wire:model="perPage" class="w-20 form-select box mt-3 sm:mt-0">
+                    <option>10</option>
+                    <option>25</option>
+                    <option>50</option>
+                    <option>100</option>
+                </select>
+            </div>
+            <!-- End: Customers Pagination -->
         </div>
     </div>
 </div>

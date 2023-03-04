@@ -74,18 +74,19 @@ Route::group(['prefix' => 'admin'],function(){
 
         //Export Files for Sales Product
         Route::get('/report/salesprod/pdf',[ReportController::class,'exportSalesProductPDF'])->name('exportSalesProductPDF');
-        Route::get('/report/salesprod/excel/{startdate}/{enddate}',[ReportController::class,'exportSalesProductEXCEL'])->name('exportSalesProductEXCEL');
+
+        Route::get('/report/salesprod/excel/{sorting}/{startdate}/{enddate}',[ReportController::class,'exportSalesProductEXCEL'])->name('exportSalesProductEXCEL');
+
+
+
         Route::get('/report/salesprod/csv',[ReportController::class,'exportSalesProductCSV'])->name('exportSalesProductCSV');
         Route::get('/report/salesprod/html',[ReportController::class,'exportSalesProductHTML'])->name('exportSalesProductHTML');
         //Export Files for Sales Customer
-        Route::get('/report/salescustomer/pdf',[ReportController::class,'exportSalesCustomerPDF'])->name('exportSalesCustomerPDF');
-        Route::get('/report/salescustomer/excel',[ReportController::class,'exportSalesCustomerEXCEL'])->name('exportSalesCustomerEXCEL');
-        Route::get('/report/salescustomer/csv',[ReportController::class,'exportSalesCustomerCSV'])->name('exportSalesCustomerCSV');
-        Route::get('/report/salescustomer/html',[ReportController::class,'exportSalesCustomerHTML'])->name('exportSalesCustomerHTML');
+        Route::get('/report/salescustomer/excel/{sorting}/{startdate}/{enddate}',[ReportController::class,'exportSalesCustomerEXCEL'])->name('exportSalesCustomerEXCEL');
         //Export Files for Sales Brand
-        Route::get('/report/salesbrand/excel/{startdate}/{enddate}',[ReportController::class,'exportSalesBrandEXCEL'])->name('exportSalesBrandEXCEL');
+        Route::get('/report/salesbrand/excel/{sorting}/{startdate}/{enddate}',[ReportController::class,'exportSalesBrandEXCEL'])->name('exportSalesBrandEXCEL');
         //Export Files for Sales Category
-        Route::get('/report/salescategory/excel/{startdate}/{enddate}',[ReportController::class,'exportSalesCategoryEXCEL'])->name('exportSalesCategoryEXCEL');
+        Route::get('/report/salescategory/excel/{sorting}/{startdate}/{enddate}',[ReportController::class,'exportSalesCategoryEXCEL'])->name('exportSalesCategoryEXCEL');
         //Export Files For No of Brand Orders
         Route::get('/report/orderbrand/excel/{startdate}/{enddate}',[ReportController::class,'exportOrderBrandExcel'])->name('exportOrderBrandExcel');
         //Export Files For No of Category Orders

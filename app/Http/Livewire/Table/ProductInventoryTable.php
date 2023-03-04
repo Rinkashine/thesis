@@ -2,15 +2,17 @@
 
 namespace App\Http\Livewire\Table;
 
+use App\Models\Images;
+use App\Models\Product;
 use Livewire\Component;
 use Livewire\WithPagination;
-use App\Models\Product;
-use App\Models\Images;
+use App\Models\OrderedProduct;
+use Illuminate\Support\Facades\DB;
 
 class ProductInventoryTable extends Component
 {
     use WithPagination;
-    public $sorting;
+    public $sorting ;
     public $perPage = 10;
     public $search = null;
     protected $queryString = ['search' => ['except' => '']];
@@ -18,6 +20,7 @@ class ProductInventoryTable extends Component
 
     public $action;
     public $selectedItem;
+    public $x = 'asc';
 
 
     protected $listeners = [
@@ -25,7 +28,6 @@ class ProductInventoryTable extends Component
     ];
 
     public function mount(){
-        $this->sorting = "nameaz";
         $this->perPage = 10;
     }
 
@@ -44,54 +46,59 @@ class ProductInventoryTable extends Component
 
     public function render()
     {
+
         if($this->sorting == 'nameaz'){
-            $products = Product::search($this->search)->with('category','brand','images')
-            ->orderBy('name','asc')
-            ->paginate($this->perPage);
+            $this->sorting = 'name';
+            $this->x = 'asc';
         }elseif($this->sorting == 'nameza'){
-            $products = Product::search($this->search)->with('category','brand','images')
-            ->orderBy('name','desc')
-            ->paginate($this->perPage);
+            $this->sorting = 'name';
+            $this->x = 'desc';
         }elseif($this->sorting == 'createdold'){
-            $products = Product::search($this->search)->with('category','brand','images')
-            ->orderBy('created_at','asc')
-            ->paginate($this->perPage);
+            $this->sorting = 'product.created_at';
+            $this->x = 'asc';
         }elseif($this->sorting == 'creatednew'){
-            $products = Product::search($this->search)->with('category','brand','images')
-            ->orderBy('created_at','desc')
-            ->paginate($this->perPage);
+            $this->sorting = 'product.created_at';
+            $this->x = 'desc';
         }elseif($this->sorting == 'updatedatold'){
-            $products = Product::search($this->search)->with('category','brand','images')
-            ->orderBy('updated_at','asc')
-            ->paginate($this->perPage);
+            $this->sorting = 'product.updated_at';
+            $this->x = 'asc';
         }elseif($this->sorting == 'updatedat'){
-            $products = Product::search($this->search)->with('category','brand','images')
-            ->orderBy('updated_at','desc')
-            ->paginate($this->perPage);
+            $this->sorting = 'product.updated_at';
+            $this->x = 'desc';
         }elseif($this->sorting == 'lowinventory'){
-            $products = Product::search($this->search)->with('category','brand','images')
-            ->orderBy('stock','asc')
-            ->paginate($this->perPage);
+            $this->sorting = 'stock';
+            $this->x = 'asc';
         }elseif($this->sorting == 'highinventory'){
-            $products = Product::search($this->search)->with('category','brand','images')
-            ->orderBy('stock','desc')
-            ->paginate($this->perPage);
+            $this->sorting = 'stock';
+            $this->x = 'desc';
         }
         elseif($this->sorting == 'cataz'){
-            $products = Product::search($this->search)->with('category','brand','images')
-            ->orderBy('category_id','asc')
-            ->paginate($this->perPage);
+            $this->sorting = 'category_id';
+            $this->x = 'asc';
         }
         elseif($this->sorting == 'catza'){
-            $products = Product::search($this->search)->with('category','brand','images')
-            ->orderBy('category_id','desc')
-            ->paginate($this->perPage);
+            $this->sorting = 'category_id';
+            $this->x = 'desc';
         }
         else{
-            $products = Product::search($this->search)->with('category','brand','images')
-            ->paginate($this->perPage);
+            $this->sorting = 'name';
         }
-
+        $products = Product::search($this->search)->select([
+            'product.id',
+            'product.name',
+            'product.SKU',
+            'product.stock',
+            DB::raw(value: 'SUM(CASE WHEN customer_orders.status = "Completed" then "0"
+            WHEN customer_orders.status = "Rejected" then "0" WHEN customer_orders.status = "Cancelled" then "0" else ordered_products.quantity end) as committed'),
+            DB::raw('(SELECT brand.name FROM brand WHERE brand.id = product.brand_id) as brand_name'),
+            DB::raw('(SELECT category.name FROM category WHERE category.id = product.category_id) as category_name'),
+        ])
+        ->leftjoin('ordered_products', 'product.name', '=', 'ordered_products.product_name')
+        ->leftjoin('customer_orders', 'customer_orders.id', '=', 'ordered_products.customer_orders_id')
+        ->groupBy('product.stock','product.SKU','product.name', 'product.id', 'product.brand_id', 'product.category_id')
+        ->orderBy($this->sorting, $this->x)
+        ->paginate($this->perPage);
+        // dd($products->toArray());
         return view('livewire.table.product-inventory-table',[
             'products' => $products,
         ]);

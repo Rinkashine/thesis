@@ -2546,10 +2546,6 @@ select {
     display: block;
   }
 
-  .\32xl\:hidden {
-    display: none;
-  }
-
   .\32xl\:h-48 {
     height: 12rem;
   }

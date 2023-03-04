@@ -291,13 +291,13 @@ class CustomerOrderedProductSeeder extends Seeder
             ],
             [ //46
                 'customer_orders_id' => 104153238,
-                'product_name' => 'Megafil Composite',
+                'product_name' => 'Megafill Composite',
                 'price' => 600.00,
                 'quantity' => 2,
             ],
             [ //47
                 'customer_orders_id' => 104153238,
-                'product_name' => 'Megafil Flow',
+                'product_name' => 'Megafill Flow',
                 'price' => 600.00,
                 'quantity' => 2,
             ],
@@ -308,19 +308,19 @@ class CustomerOrderedProductSeeder extends Seeder
                 'quantity' => 1,
             ],
             [ //49
-                'customer_orders_id' => 104153240,
+                'customer_orders_id' => 104153240, //pending
                 'product_name' => 'Mini ROTH',
                 'price' => 230.00,
                 'quantity' => 12,
             ],
             [ //50
-                'customer_orders_id' => 104153241,
+                'customer_orders_id' => 104153241, //pending
                 'product_name' => 'Ligatures',
                 'price' => 120.00,
                 'quantity' => 4,
             ],
             [ //51
-                'customer_orders_id' => 104153242,
+                'customer_orders_id' => 104153242, //pending
                 'product_name' => 'Hygietol',
                 'price' => 120.00,
                 'quantity' => 4,
@@ -365,13 +365,13 @@ class CustomerOrderedProductSeeder extends Seeder
                 'customer_orders_id' => 104153249,
                 'product_name' => '2-Ply Dental Bib',
                 'price' => 200.00,
-                'quantity' => 1,
+                'quantity' => 2,
             ],
             [ //59
                 'customer_orders_id' => 104153250,
                 'product_name' => '2-Ply Dental Bib',
                 'price' => 200.00,
-                'quantity' => 1,
+                'quantity' => 3,
             ],
             [ //60
                 'customer_orders_id' => 104153251,
@@ -383,12 +383,12 @@ class CustomerOrderedProductSeeder extends Seeder
                 'customer_orders_id' => 104153252,
                 'product_name' => '2-Ply Dental Bib',
                 'price' => 200.00,
-                'quantity' => 1,
+                'quantity' => 4,
             ],
             [ //62 - Applicator Tips - Begin
                 'customer_orders_id' => 104153207,
                 'product_name' => 'Applicator Tips',
-                'price' => 120.00,
+                'price' => 100.00,
                 'quantity' => 1,
             ],
             [//63

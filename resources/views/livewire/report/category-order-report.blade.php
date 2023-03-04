@@ -4,24 +4,29 @@
             <div class="font-medium text-base flex items-center border-b border-slate-200/60 dark:border-darkmode-400 pb-5">
                 <a href="{{Route('report.index')}}" class="mr-2 btn">←</a> Sales by category
             </div>
+
             <div class="flex flex-col sm:flex-row sm:items-end xl:items-start">
                 <div class="xl:flex sm:mr-auto mt-5" >
                     <div class="sm:flex items-center sm:mr-4">
-                        <label for="date" class="flex-none xl:w-auto xl:flex-initial mr-2">Date from</label>
-                        <div class="col-sm-3">
-                            <input class="form-control input-sm w-32 " wire:model="from" id="from" name ="from"  type="date" />
-                        </div>
-                        <label for="date" class="flex-none xl:w-auto xl:flex-initial mr-2 ml-3">Date to</label>
-                        <div class="col-sm-3">
-                            <input type="date" class="form-control input-sm w-32 " id="to" name ="to" wire:model="to"/>
-                        </div>
-                    </div>
-                    <div class="sm:flex items-center sm:mr-4">
                         <label class="flex-none xl:w-auto xl:flex-initial mr-2">Sort</label>
-                        <select wire:model="sorting"  class="form-select w-32 mt-2 sm:mt-0 sm:w-auto">
-                            <option value="category_name">Category Name</option>
-                            <option value="order_quantity">Total Ordered Products</option>
+                        <select wire:model="sorting"  class="form-select w-full sm:w-32 2xl:w-full mt-2 sm:mt-0 sm:w-auto">
+                            <option value="category_name_asc">Category Name (A-Z)</option>
+                            <option value="category_name_desc">Category Name (Z-A)</option>
+                            <option value="order_quantity_asc">Order Quantity (Low To High)</option>
+                            <option value="order_quantity_desc">Order Quantity (High To Low)</option>
                         </select>
+                    </div>
+                    <div class="sm:flex items-center sm:mr-4 mt-2 xl:mt-0">
+                        <label class="w-12 flex-none xl:w-auto xl:flex-initial mr-2">From:</label>
+                        <input " class="form-control sm:w-40 2xl:w-full mt-2 sm:mt-0" wire:model="from" id="from" name ="from"  type="datetime-local" max="{{ $to }}" />
+                    </div>
+                    <div class="sm:flex items-center sm:mr-4 mt-2 xl:mt-0">
+                        <label class="w-12 flex-none xl:w-auto xl:flex-initial mr-2">To:</label>
+                        <input type="datetime-local" class="form-control sm:w-40 2xl:w-full mt-2 sm:mt-0" id="to" name ="to" wire:model="to" min="{{ $from }}"/>
+                    </div>
+                    <div class="sm:flex items-center sm:mr-4 mt-2 xl:mt-0">
+                        <label class="w-12 flex-none xl:w-auto xl:flex-initial mr-2">Seach</label>
+                        <input wire:model.lazy="search" type="search" class="form-control sm:w-40 2xl:w-full mt-2 sm:mt-0" placeholder="Search...">
                     </div>
                 </div>
                 @can('report_export')
@@ -30,7 +35,7 @@
                     </div>
                 @endcan
             </div>
-                <!-- Product Title -->
+                <!-- Begin: Category Table -->
                 <div class="overflow-x-auto scrollbar-hidden">
                     <div class="overflow-x-auto">
                         <table class="table table-striped mt-5 table-bordered table-hover">
@@ -43,7 +48,7 @@
                             <tbody>
                                 @foreach ($categories as $category )
                                     <tr>
-                                        <td class="whitespace-nowrap ">{{$category->category_name}}</td>
+                                        <td class="whitespace-nowrap ">{{$category->name}}</td>
                                         <td class="whitespace-nowrap text-center">{{ number_format($category->order_quantity)}}</td>
                                     </tr>
                                 @endforeach
@@ -51,6 +56,27 @@
                         </table>
                     </div>
                 </div>
+                <!-- End: Category Table -->
+                <!-- Begin: Category Pagination -->
+                <div class="intro-y col-span-12 flex flex-wrap sm:flex-row sm:flex-nowrap items-center mt-5">
+                    <nav class="w-full sm:w-auto sm:mr-auto">
+                        {!! $categories->onEachSide(1)->links() !!}
+                    </nav>
+                    <div class="mx-auto text-slate-500">
+                        @if($categories->count() == 0)
+                            Showing 0 to 0 of 0 entries
+                        @else
+                            Showing {{$categories->firstItem()}} to {{$categories->lastItem()}} of {{$categories->total()}} entries
+                        @endif
+                    </div>
+                    <select wire:model="perPage" class="w-20 form-select box mt-3 sm:mt-0">
+                        <option>10</option>
+                        <option>25</option>
+                        <option>50</option>
+                        <option>100</option>
+                    </select>
+                </div>
+                <!-- End: Category Pagination -->
             </div>
         </div>
     </div>
@@ -62,7 +88,7 @@
                 </div>
             </div>
             <div class="flex justify-center">
-                <div class="mt-5 w-1/3" >
+                <div class="w-full" >
                     <canvas id="SalesOrderChart"  ></canvas>
                 </div>
             </div>
@@ -96,8 +122,15 @@
         }]
         };
         const ordertypeconfig = {
-            type: 'pie',
+            type: 'bar',
             data: ordertypedata,
+            options: {
+                scales: {
+                y: {
+                    beginAtZero: true
+                    }
+                }
+            },
         };
 
         const SalesOrderChart = new Chart(

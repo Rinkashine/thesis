@@ -549,7 +549,7 @@ class CustomerOrdersSeeder extends Seeder
                 'updated_at' => '2023-2-25 00:00:00',
             ],
             [ //104153238
-                'customers_id' => 17,
+                'customers_id' => 16,
                 'shippingfee' =>100.00 ,
                 'mode_of_payment' => 'Cash On Delivery',
                 'payment_id' => null,
@@ -561,8 +561,8 @@ class CustomerOrdersSeeder extends Seeder
                 'province' => 'Second District(NCR)',
                 'city' => 'Quezon City',
                 'barangay' => "Baesa",
-                'created_at' => '2023-2-26 00:00:00',
-                'updated_at' => '2023-2-26 00:00:00',
+                'created_at' => '2023-2-25 00:00:00',
+                'updated_at' => '2023-2-25 00:00:00',
             ],
             [ //104153239
                 'customers_id' => 18,
@@ -593,8 +593,8 @@ class CustomerOrdersSeeder extends Seeder
                 'province' => 'Second District(NCR)',
                 'city' => 'Quezon City',
                 'barangay' => "Baesa",
-                'created_at' => '2023-2-26 00:00:00',
-                'updated_at' => '2023-2-26 00:00:00',
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
             ],
             [ //104153241
                 'customers_id' => 20,
@@ -609,8 +609,8 @@ class CustomerOrdersSeeder extends Seeder
                 'province' => 'Second District(NCR)',
                 'city' => 'Quezon City',
                 'barangay' => "Baesa",
-                'created_at' => '2023-2-27 00:00:00',
-                'updated_at' => '2023-2-27 00:00:00',
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
             ],
             [ //104153242
                 'customers_id' => 20,
@@ -625,8 +625,8 @@ class CustomerOrdersSeeder extends Seeder
                 'province' => 'Second District(NCR)',
                 'city' => 'Quezon City',
                 'barangay' => "Baesa",
-                'created_at' => '2023-2-23 00:00:00',
-                'updated_at' => '2023-2-23 00:00:00',
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
             ],
             [ //104153243
                 'customers_id' => 20,
@@ -641,8 +641,8 @@ class CustomerOrdersSeeder extends Seeder
                 'province' => 'Second District(NCR)',
                 'city' => 'Quezon City',
                 'barangay' => "Baesa",
-                'created_at' => '2023-2-23 00:00:00',
-                'updated_at' => '2023-2-23 00:00:00',
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
             ],
             [ //104153244 - RECENT DATA 4 TEST - BEGIN
                 'customers_id' => 9,

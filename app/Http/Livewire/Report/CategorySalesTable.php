@@ -3,17 +3,24 @@
 namespace App\Http\Livewire\Report;
 
 use Livewire\Component;
-use App\Models\CustomerOrder;
+use App\Models\Category;
 use Illuminate\Support\Facades\DB;
+use Livewire\WithPagination;
 
 class CategorySalesTable extends Component
 {
-    public $categories;
-    public $status = 'COMPLETED';
-    public $from ='2023-01-01';
-    public $to ='2023-12-31';
-    public $sorting = 'category_name';
-    public $x = 'asc';
+    use WithPagination;
+    protected $paginationTheme = 'bootstrap';
+
+    public $from ='2023-01-01T00:00';
+    public $to ='2023-12-31T00:00';
+    public $sorting = 'total_sales_desc';
+    public $column_name;
+    public $order_name;
+    public $perPage = 10;
+    public $search = null;
+    protected $queryString = ['search' => ['except' => '']];
+
 
     public $categorylabel = [];
     public $categorysalesdataset = [];
@@ -26,36 +33,66 @@ class CategorySalesTable extends Component
     {
         $this->cleanvars();
 
-        if($this->sorting == 'category_name'){
-            $this->x = 'asc';
-        }
-        else{
-            $this->x = 'desc';
-        }
-        $this->categories = CustomerOrder::join('ordered_products', 'customer_orders.id', '=', 'ordered_products.customer_orders_id')
-        ->select([
-            DB::raw('(SELECT category.name from category where
-            (SELECT product.category_id from product where ordered_products.product_name = product.name) = category.id) AS category_name'),
-            DB::raw(value: '(SUM(ordered_products.quantity*ordered_products.price)) as total_sales'),
-
-        ])
-        ->where('customer_orders.status','Completed')
-        ->where('customer_orders.created_at', '>=', $this->from)
-        ->where('customer_orders.created_at', '<=', $this->to)
-        ->groupBy('category_name')
-        ->orderBy($this->sorting, $this->x)
-        ->get();
-
-        foreach($this->categories as $category){
-            array_push($this->categorylabel, $category->category_name);
-            array_push($this->categorysalesdataset,$category->total_sales);
+        if($this->sorting == 'category_name_asc'){
+            $this->column_name = "name";
+            $this->order_name = "asc";
+        }elseif($this->sorting == 'category_name_desc'){
+            $this->column_name = "name";
+            $this->order_name = 'desc';
+        }elseif($this->sorting == 'total_sales_asc'){
+            $this->column_name = 'total_sales';
+            $this->order_name = "asc";
+        }elseif($this->sorting == 'total_sales_desc'){
+            $this->column_name = 'total_sales';
+            $this->order_name = 'desc';
+        }else{
+            $this->column_name = "name";
+            $this->order_name = "asc";
         }
 
-        $this->dispatchBrowserEvent('render-chart', [
-            "label" => $this->categorylabel,
-            "salesdataset" => $this->categorysalesdataset,
+        $categories = Category::select([
+            'category.id',
+            'category.name',
+            DB::raw(value: 'SUM(CASE WHEN customer_orders.status = "Completed" then ordered_products.quantity * ordered_products.price else 0 end) as total_sales')
+            ])->leftjoin('product','category.id','=','product.category_id')
+            ->leftjoin('ordered_products', 'product.name','=','ordered_products.product_name')
+            ->leftjoin('customer_orders',function($join){
+                $join->on('ordered_products.customer_orders_id', '=', 'customer_orders.id')
+                ->where('customer_orders.created_at', '>', $this->from)
+                ->where('customer_orders.created_at','<',$this->to);
+            })
+            ->where('category.name','like','%'.$this->search.'%')
+            ->groupBy('category.id','category.name')
+            ->orderBy($this->column_name, $this->order_name)
+            ->paginate($this->perPage);
+
+        $categorieschart = Category::select([
+            'category.id',
+            'category.name',
+            DB::raw(value: 'SUM(CASE WHEN customer_orders.status = "Completed" then ordered_products.quantity * ordered_products.price else 0 end) as total_sales')
+            ])->leftjoin('product','category.id','=','product.category_id')
+            ->leftjoin('ordered_products', 'product.name','=','ordered_products.product_name')
+            ->leftjoin('customer_orders',function($join){
+                $join->on('ordered_products.customer_orders_id', '=', 'customer_orders.id')
+                ->where('customer_orders.created_at', '>', $this->from)
+                ->where('customer_orders.created_at','<',$this->to);
+            })
+            ->groupBy('category.id','category.name')
+            ->orderBy($this->column_name, $this->order_name)
+            ->get();
+
+            foreach($categorieschart as $category){
+                array_push($this->categorylabel, $category->name);
+                array_push($this->categorysalesdataset,$category->total_sales);
+            }
+
+            $this->dispatchBrowserEvent('render-chart', [
+                "label" => $this->categorylabel,
+                "salesdataset" => $this->categorysalesdataset,
+            ]);
+
+        return view('livewire.report.category-sales-table',[
+            'categories' => $categories
         ]);
-
-        return view('livewire.report.category-sales-table');
     }
 }

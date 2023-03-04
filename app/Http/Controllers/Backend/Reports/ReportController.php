@@ -100,7 +100,7 @@ class ReportController extends Controller
     //Export Product Sales
     public function exportSalesProductEXCEL(Request $request){
         abort_if(Gate::denies('report_export'),403);
-        return Excel::download(new SalesProductExport($request->startdate,$request->enddate),'SalesProduct.xlsx');
+        return Excel::download(new SalesProductExport($request->sorting,$request->startdate,$request->enddate),'SalesProduct.xlsx');
     }
     // Show Customer Sales Page
     public function salesCustomer(){
@@ -110,7 +110,7 @@ class ReportController extends Controller
     //Export Customer Sales
     public function exportSalesCustomerEXCEL(Request $request){
         abort_if(Gate::denies('report_export'),403);
-        return Excel::download(new SalesCustomerExport($request->startdate,$request->enddate),'SalesCustomer.xlsx');
+        return Excel::download(new SalesCustomerExport($request->sorting,$request->startdate,$request->enddate),'SalesCustomer.xlsx');
     }
     //Show Brand Sales Page
     public function salesBrand(){
@@ -125,12 +125,12 @@ class ReportController extends Controller
     // Export Brand Sales
     public function exportSalesBrandEXCEL(Request $request){
         abort_if(Gate::denies('report_export'),403);
-        return Excel::download(new SalesBrandExport($request->startdate,$request->enddate),'SalesBrand.xlsx');
+        return Excel::download(new SalesBrandExport($request->sorting,$request->startdate,$request->enddate),'SalesBrand.xlsx');
     }
     //Export No of Brand Orders
     public function exportOrderBrandExcel(Request $request){
         abort_if(Gate::denies('report_export'),403);
-        return Excel::download(new BrandNoOrder($request->startdate,$request->enddate),'OrderBrand.xlsx');
+        return Excel::download(new BrandNoOrder($request->sorting,$request->startdate,$request->enddate),'OrderBrand.xlsx');
     }
     //Show Category Sales Page
     public function salesCategory(){
@@ -145,7 +145,7 @@ class ReportController extends Controller
     //Export Category Sales
     public function exportSalesCategoryEXCEL(Request $request){
         abort_if(Gate::denies('report_export'),403);
-        return Excel::download(new SalesCategoryExport($request->startdate,$request->enddate),'SalesCategory.xlsx');
+        return Excel::download(new SalesCategoryExport($request->sorting,$request->startdate,$request->enddate),'SalesCategory.xlsx');
     }
     //Export No of Category Orders
     public function exportOrderCategoryExcel(Request $request){

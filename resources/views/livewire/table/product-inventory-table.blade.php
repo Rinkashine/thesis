@@ -3,6 +3,7 @@
         <div class="flex flex-col sm:flex-row sm:items-end xl:items-start">
             <div class="xl:flex sm:mr-auto" >
                 <div class="sm:flex items-center sm:mr-4">
+
                     <label class="w-14 flex-none xl:w-auto xl:flex-initial mr-2">Sort:</label>
                     <select  wire:model="sorting" class="form-select w-full sm:w-32 2xl:w-full mt-2 sm:mt-0 sm:w-auto">
                         <option value="nameaz" >Product Title A-Z</option>
@@ -16,6 +17,7 @@
                         <option value="cataz">Category A-Z</option>
                         <option value="catza">Category Z-A</option>
                     </select>
+
                 </div>
 
                 <div class="sm:flex items-center sm:mr-4 mt-2 xl:mt-0">
@@ -44,10 +46,10 @@
                             <td class="whitespace-nowrap font-medium">
                                 <a href="{{ Route('productshow', $product) }}" target="_blank">
                                     <div class="hover:underline">{{$product->name}}</div>
-                                    <div class="text-slate-500 text-xs whitespace-nowrap mt-0.5">{{$product->brand->name}}</div>
+                                    <div class="text-slate-500 text-xs whitespace-nowrap mt-0.5">{{$product->brand_name}}</div>
                                 </a>
                             </td>
-                            <td class="whitespace-nowrap text-center">{{$product->category->name}}</td>
+                            <td class="whitespace-nowrap text-center">{{$product->category_name}}</td>
                             <td class="whitespace-nowrap text-center">{{ $product->SKU }} </td>
                             <td class="whitespace-nowrap text-center">
                                 @if($product->stock <= 10)
@@ -56,7 +58,11 @@
                                     {{$product->stock}} in stock
                                 @endif
                              </td>
-                             <td class="whitespace-nowrap text-center">{{ $product->committed }} </td>
+                            @if($product->committed == null)
+                                <td class="whitespace-nowrap text-center">0</td>
+                            @else
+                                <td class="whitespace-nowrap text-center">{{ $product->committed }} </td>
+                            @endif
                             <td class="table-report__action w-56">
                                 <div class="flex justify-center items-center">
                                     <div class="flex justify-center items-center">
