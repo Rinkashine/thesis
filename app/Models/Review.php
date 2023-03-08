@@ -14,8 +14,8 @@ class Review extends Model
 
     protected $fillable = [
         'customer_id',
-       'ordered_products_id',
-       'customer_orders_id',
+       'customer_order_items_id',
+       'customer_order_id',
        'comment',
        'rate',
        'customer_id',
@@ -30,3 +30,4 @@ class Review extends Model
         return $this->belongsTo(OrderedProduct::class);
     }
 }
+?>

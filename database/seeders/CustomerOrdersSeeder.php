@@ -18,7 +18,7 @@ class CustomerOrdersSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('customer_orders') ->insert([
+        DB::table('customer_order') ->insert([
             [ //104153205
                 'customers_id' => 1,
                 'shippingfee' =>100.00 ,
@@ -262,8 +262,8 @@ class CustomerOrdersSeeder extends Seeder
             [ //104153220
                 'customers_id' => 8,
                 'shippingfee' =>100.00 ,
-                'mode_of_payment' => 'Cash On Delivery',
-                'payment_id' => null,
+                'mode_of_payment' => 'Paid by Paypal',
+                'payment_id' => Str::random(7),
                 'status' => 'Completed',
                 'received_by' => 'Mark Joseph Manalo',
                 'phone_number' => '09369332354',
@@ -272,8 +272,8 @@ class CustomerOrdersSeeder extends Seeder
                 'province' => 'Second District(NCR)',
                 'city' => 'Quezon City',
                 'barangay' => "Baesa",
-                'created_at' => '2022-12-14 00:00:00',
-                'updated_at' => '2022-12-14 00:00:00',
+                'created_at' => '2022-11-15 00:00:00',
+                'updated_at' => '2022-11-15 00:00:00',
             ],
             [ //104153221
                 'customers_id' => 8,

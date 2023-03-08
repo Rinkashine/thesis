@@ -5,7 +5,7 @@ namespace App\Exports;
 use App\Models\Product;
 use App\Models\SalesProduct;
 use App\Models\CustomerOrder;
-use App\Models\OrderedProduct;
+use App\Models\CustomerOrderItems;
 use Illuminate\Support\Facades\DB;
 use Maatwebsite\Excel\Concerns\FromArray;
 use Maatwebsite\Excel\Concerns\WithMapping;

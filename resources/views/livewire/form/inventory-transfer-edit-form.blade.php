@@ -84,6 +84,7 @@
                 </div>
                 <!-- End: Supplier Information -->
                 <!-- BEGIN: Add Products -->
+
                 <div class="intro-y box p-5 mt-5">
                     <div class="border border-slate-200/60 dark:border-darkmode-400 rounded-md p-5">
                         <div class="flex justify-between items-center border-b border-slate-200/60 dark:border-darkmode-400 pb-5">
@@ -161,6 +162,7 @@
                     </div>
                 </div>
                  <!-- END: Add Products -->
+
 
                  <div class="flex justify-between flex-col  md:flex-col lg:flex-row  2xl:flex-row  sm:flex-col gap-5 ">
                     <div class=" box p-5 mt-5 w-full">

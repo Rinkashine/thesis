@@ -6,7 +6,7 @@ use Livewire\Component;
 use App\Models\Supplier;
 use App\Models\Product;
 use App\Models\PurchaseOrder;
-use App\Models\OrderedItems;
+use App\Models\PurchaseOrderItems;
 use Illuminate\Support\Arr;
 use Alert;
 class InventoryTransferEditForm extends Component
@@ -62,7 +62,7 @@ class InventoryTransferEditForm extends Component
         'origin' => 'Supplier',
         'shipping' => 'Estimated Arrival',
     ];
-
+    public $received_items;
     public function mount($orderinfos){
         $this->model_id = $orderinfos->id;
         $this->origin = $orderinfos->suppliers_id;
@@ -73,11 +73,17 @@ class InventoryTransferEditForm extends Component
         //wait na stuck ok na boi
         $this->products = [];
         $this->selectedProducts = [];
-        $this->selectedProducts = OrderedItems::where('purchase_order_id',$orderinfos->id)
-        ->join('product', 'ordered_items.product_id','=', 'product.id')
-        ->select('product.id as product_id', 'ordered_items.id as id', "quantity", "product.name as name", "product.sku as SKU")
+        $this->selectedProducts = PurchaseOrderItems::where('purchase_order_id',$orderinfos->id)
+        ->join('product', 'purchase_order_items.product_id','=', 'product.id')
+        ->select('product.id as product_id', 'purchase_order_items.id as id', "quantity", "product.name as name", "product.sku as SKU")
         ->get()
         ->toArray();
+
+
+        if($this->status == "Received"){
+            $this->received_items = PurchaseOrderItems::where('purchase_order_id',$orderinfos->id)->get();;
+
+        }
    //dd($this->selectedProducts);
     }
 
@@ -105,7 +111,7 @@ class InventoryTransferEditForm extends Component
 
             foreach($this->selectedProducts as $key=>$item){
                 if(array_key_exists("isAdded", $item)){
-                    OrderedItems::create([
+                    PurchaseOrderItems::create([
                         'purchase_order_id' => $model->id,
                         'product_id' => $item['id'],
                         'quantity' => $item['quantity'],
@@ -141,7 +147,7 @@ class InventoryTransferEditForm extends Component
 
 
         array_slice($this->selectedProducts, $index);
-        $item = OrderedItems::find($product['id']);
+        $item = PurchaseOrderItems::find($product['id']);
         if(!$item) return 0;
         $item->delete();
 

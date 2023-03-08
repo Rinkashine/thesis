@@ -16,8 +16,8 @@ return new class extends Migration
         Schema::create('product_review', function (Blueprint $table) {
             $table->id();
             $table->foreignId('customer_id')->onDelete('cascade');
-            $table->foreignId('ordered_products_id')->constrained('ordered_products');
-            $table->foreignId('customer_orders_id')->constrained('customer_orders');
+            $table->foreignId('customer_order_item_id')->constrained('customer_order_item')->onDelete('cascade');
+            $table->foreignId('customer_order_id')->constrained('customer_order')->onDelete('cascade');
             $table->longText('comment');
             $table->integer('rate');
             $table->timestamps();

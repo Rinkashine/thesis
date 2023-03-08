@@ -5,12 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class OrderedProduct extends Model
+class CustomerOrderItems extends Model
 {
     use HasFactory;
     public $timestamps = false;
 
-    protected $table = 'ordered_products';
+    protected $table = 'customer_order_item';
     protected $fillable = [
         'customer_orders_id',
         'product_name',
@@ -22,7 +22,7 @@ class OrderedProduct extends Model
     }
 
     public function reviewTransactions(){
-        return $this->hasMany(Review::class, 'ordered_products_id','id' );
+        return $this->hasMany(Review::class, 'customer_order_item','id' );
     }
 
 

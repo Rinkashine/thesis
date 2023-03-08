@@ -5,7 +5,6 @@ namespace App\Http\Livewire\Table;
 use Livewire\Component;
 use Livewire\WithPagination;
 use App\Models\CustomerOrder;
-use App\Models\OrderedProduct;
 use Illuminate\Support\Facades\Auth;
 class CustomerOrdersTable extends Component
 {

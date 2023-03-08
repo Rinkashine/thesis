@@ -4,7 +4,7 @@ namespace App\Http\Livewire\Modal;
 
 use Livewire\Component;
 use App\Models\CustomerOrder;
-use App\Models\OrderedProduct;
+use App\Models\CustomerOrderItems;
 
 class ChangeOrderStatusModal extends Component
 {

@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class CustomerOrder extends Model
 {
     use HasFactory;
-    protected $table = 'customer_orders';
+    protected $table = 'customer_order';
     protected $fillable = [
         'customers_id',
         'shippingfee',
@@ -40,9 +40,10 @@ class CustomerOrder extends Model
     }
 
     public function orderTransactions(){
-        return $this->hasMany(OrderedProduct::class, 'customer_orders_id','id');
+        return $this->hasMany(CustomerOrderItems::class, 'customer_order_id','id');
     }
 
 
 
 }
+?>

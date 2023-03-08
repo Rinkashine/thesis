@@ -18,6 +18,9 @@ class InventoryTransferController extends Controller
     }
     public function edit($id){
         $orderinfo = PurchaseOrder::findorfail($id);
+        if($orderinfo->status == "Received"){
+            return redirect()->route('transfer.show', $id);
+        }
         abort_if(Gate::denies('inventory_transfer_edit'),403);
         return view('admin.page.product.inventorytransferedit',[
             'orderinfos' => $orderinfo
@@ -28,6 +31,18 @@ class InventoryTransferController extends Controller
         $orderinfo = PurchaseOrder::findorfail($orderinfo);
 
         return view('admin.page.product.inventoryreceive',[
+            'orderinfo' => $orderinfo
+        ]);
+    }
+    public function show($id){
+        abort_if(Gate::denies('inventory_transfer_show'),403);
+
+        $orderinfo = PurchaseOrder::with('suppliers','ordered_items')->findorfail($id);
+        if($orderinfo->status != "Received"){
+            return redirect()->route('transfer.edit', $id);
+        }
+
+        return view('admin.page.product.inventoryreceiveshow',[
             'orderinfo' => $orderinfo
         ]);
     }

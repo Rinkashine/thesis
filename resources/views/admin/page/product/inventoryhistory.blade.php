@@ -5,5 +5,3 @@
 @livewire('table.product-inventory-history',['product' => $product])
 
 @endsection
-@push('scripts')
-@endpush

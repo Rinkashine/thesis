@@ -5,8 +5,8 @@ namespace App\Http\Controllers\Backend\Transaction;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
+use App\Models\CustomerOrderItems;
 use App\Models\CustomerOrder;
-use App\Models\OrderedProduct;
 use App\Models\Customer;
 class OrderController extends Controller
 {
@@ -16,10 +16,11 @@ class OrderController extends Controller
         return view('admin.page.Transaction.order');
     }
     public function show($id){
+        abort_if(Gate::denies('order_access'),403);
 
         $orderdetails = CustomerOrder::findorfail($id);
         $customerinfo = Customer::findorfail($orderdetails->customers_id);
-        $products = OrderedProduct::where('customer_orders_id',$orderdetails->id)->get();
+        $products = CustomerOrderItems::where('customer_order_id',$orderdetails->id)->get();
         return view('admin.page.Transaction.ordershow',[
             'orderdetails' => $orderdetails,
             'products' => $products,

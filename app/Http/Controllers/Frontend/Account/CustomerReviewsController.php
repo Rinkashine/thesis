@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Review;
 use App\Models\CustomerOrder;
-use App\Models\OrderedProduct;
+use App\Models\CustomerOrderItems;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 

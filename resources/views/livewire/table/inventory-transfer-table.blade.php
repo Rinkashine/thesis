@@ -8,11 +8,11 @@
                 <div class="w-48 relative text-slate-500">
                     <input wire:model.lazy="search" type="search" class="form-control w-48 box " placeholder="Search by Order ID...">
                 </div>
-                <select class="form-select box ml-2">
-                    <option>Status</option>
-                    <option>Draft</option>
-                    <option>Pending</option>
-                    <option>Completed</option>
+                <select class="form-select box ml-2" wire:model="sorting">
+                    <option value="">Status</option>
+                    <option value="Draft">Draft</option>
+                    <option value="Pending">Pending</option>
+                    <option value="Received">Received</option>
                 </select>
             </div>
             <div class="hidden xl:block mx-auto text-slate-500">Showing {{ $orders->firstItem() }} to {{ $orders->lastItem() }} of {{ $orders->total() }} entries</div>
@@ -27,7 +27,6 @@
                     <tr>
                         <th class="whitespace-nowrap">Transfer Code</th>
                         <th class="whitespace-nowrap">Supplier</th>
-                        <th class="whitespace-nowrap text-center">Estimate Arrival</th>
                         <th class="text-center whitespace-nowrap">STATUS</th>
                         <th class="whitespace-nowrap text-center">ACTION</th>
 
@@ -36,12 +35,9 @@
                 <tbody>
                     @forelse ($orders as $order)
                     <tr class="intro-x">
-                        <td class="w-40 !py-4"> <a href="{{ Route('transfer.edit',$order->id) }}">T{{ $order->id }}</a></td>
+                        <td class="w-40 !py-4"> <a href="{{ Route('transfer.edit',$order->id) }}">{{ $order->id }}</a></td>
                         <td class="w-40">
                             <span class="whitespace-nowrap">{{ $order->suppliers->name }}</span>
-                        </td>
-                        <td class="text-center">
-                            <div class="flex items-center justify-center whitespace-nowrap">  {{\Carbon\Carbon::parse($order->shipping_date)->format('m/d/Y')  }} </div>
                         </td>
                         <td>
                             <div class="whitespace-nowrap text-center">
@@ -65,9 +61,15 @@
 
                         <td class="table-report__action">
                             <div class="flex justify-center items-center">
-                                <a class="flex items-center text-primary whitespace-nowrap mr-5" href="{{ Route('transfer.edit',$order->id) }}">
-                                    <i class=" fa-regular fa-square-check w-4 h-4 mr-1"></i> View Details
-                                </a>
+                                @if($order->status == "Received")
+                                    <a class="flex items-center text-primary whitespace-nowrap mr-5" href="{{ Route('transfer.show',$order->id) }}">
+                                        <i class=" fa-regular fa-square-check w-4 h-4 mr-1"></i> View Details
+                                    </a>
+                                @else
+                                    <a class="flex items-center text-primary whitespace-nowrap mr-5" href="{{ Route('transfer.edit',$order->id) }}">
+                                        <i class=" fa-regular fa-square-check w-4 h-4 mr-1"></i> View Details
+                                    </a>
+                                @endif
                             </div>
                         </td>
                     </tr>

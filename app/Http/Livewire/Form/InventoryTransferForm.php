@@ -6,7 +6,7 @@ use Livewire\Component;
 use App\Models\Supplier;
 use App\Models\Product;
 use App\Models\PurchaseOrder;
-use App\Models\OrderedItems;
+use App\Models\PurchaseOrderItems;
 use Illuminate\Support\Arr;
 use Alert;
 class InventoryTransferForm extends Component
@@ -16,9 +16,7 @@ class InventoryTransferForm extends Component
     protected $listeners = [
         'Prod',
     ];
-    public function onchange(array $products){
-        dd($products);
-    }
+
 
     public $selectedProducts = [];
     public $query;
@@ -117,7 +115,7 @@ class InventoryTransferForm extends Component
             ]);
 
             foreach($this->selectedProducts as $value){
-                OrderedItems::create([
+                PurchaseOrderItems::create([
                     'purchase_order_id' => $purchaseorder->id,
                     'product_id' => $value['id'],
                     'quantity' => $value['t_quantity'],

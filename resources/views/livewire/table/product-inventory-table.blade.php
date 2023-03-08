@@ -36,6 +36,7 @@
                             <th class="whitespace-nowrap text-center">Category</th>
                             <th class="whitespace-nowrap text-center">SKU</th>
                             <th class="whitespace-nowrap text-center">Inventory</th>
+                            <th class="whitespace-nowrap text-center">Incoming</th>
                             <th class="whitespace-nowrap text-center">Committed</th>
                             <th class="whitespace-nowrap text-center">Actions</th>
                         </tr>
@@ -58,11 +59,15 @@
                                     {{$product->stock}} in stock
                                 @endif
                              </td>
+                            <td class="whitespace-nowrap text-center">{{ $product->incoming }} </td>
+
                             @if($product->committed == null)
                                 <td class="whitespace-nowrap text-center">0</td>
                             @else
                                 <td class="whitespace-nowrap text-center">{{ $product->committed }} </td>
+
                             @endif
+
                             <td class="table-report__action w-56">
                                 <div class="flex justify-center items-center">
                                     <div class="flex justify-center items-center">

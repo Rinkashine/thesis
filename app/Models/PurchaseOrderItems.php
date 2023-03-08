@@ -4,13 +4,14 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class OrderedItems extends Model
+class PurchaseOrderItems extends Model
 {
-    protected $table = 'ordered_items';
+    protected $table = 'purchase_order_items';
     protected $fillable = [
         'purchase_order_id',
         'product_id',
         'quantity',
+        'accepted_quantity'
     ];
     public function product(){
         return $this->belongsTo(Product::class);

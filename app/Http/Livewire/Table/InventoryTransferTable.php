@@ -14,7 +14,7 @@ class InventoryTransferTable extends Component
     public $perPage = 10;
     public $search = null;
     protected $queryString = ['search' => ['except' => '']];
-
+    public $sorting;
     protected $paginationTheme = 'bootstrap';
 
     protected $listeners = [
@@ -25,7 +25,17 @@ class InventoryTransferTable extends Component
     public function render()
     {
         abort_if(Gate::denies('inventory_transfer_access'),403);
-        $purchaseorders = PurchaseOrder::search($this->search)->paginate($this->perPage);
+        if($this->sorting == null){
+            $purchaseorders = PurchaseOrder::search($this->search)
+            ->orderby('created_at', 'desc')
+            ->paginate($this->perPage);
+        }else{
+            $purchaseorders = PurchaseOrder::search($this->search)
+            ->where('status',$this->sorting)
+            ->orderby('created_at', 'desc')
+            ->paginate($this->perPage);
+        }
+
         return view('livewire.table.inventory-transfer-table',[
             'orders' => $purchaseorders
         ]);

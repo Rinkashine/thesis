@@ -4,7 +4,7 @@ namespace App\Http\Livewire\Modal;
 
 use Livewire\Component;
 use App\Models\CustomerOrder;
-use App\Models\OrderedProduct;
+use App\Models\CustomerOrderItems;
 use App\Models\Product;
 use Illuminate\Support\Facades\Auth;
 use App\Models\InventoryHistory;
@@ -58,7 +58,7 @@ class OrderRejectForm extends Component
     public function StoreRejectData(){
         $this->validate();
         $rejectorder = CustomerOrder::findorfail($this->modelId);
-        $orderedproducts = OrderedProduct::where('customer_orders_id',$rejectorder->id)->get();
+        $orderedproducts = CustomerOrderItems::where('customer_orders_id',$rejectorder->id)->get();
         foreach($orderedproducts as $orderedproduct){
             $products = Product::where('name',$orderedproduct->product_name)->get();
 

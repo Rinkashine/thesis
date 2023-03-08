@@ -46,14 +46,14 @@ class CustomerSalesTable extends Component
             'customers.id',
             'customers.name',
             'customers.email',
-            DB::raw(value: 'sum(CASE WHEN customer_orders.status = "Completed" then ordered_products.quantity else 0 end) AS order_quantity'),
-            DB::raw(value: 'sum(CASE WHEN customer_orders.status = "Completed" then ordered_products.price * ordered_products.quantity else 0 end) AS total_spent')
+            DB::raw(value: 'sum(CASE WHEN customer_order.status = "Completed" then customer_order_item.quantity else 0 end) AS order_quantity'),
+            DB::raw(value: 'sum(CASE WHEN customer_order.status = "Completed" then customer_order_item.price * customer_order_item.quantity else 0 end) AS total_spent')
         ])
-        ->leftjoin('customer_orders','customers.id','=','customer_orders.customers_id')
-        ->leftjoin('ordered_products',function($join){
-            $join->on('ordered_products.customer_orders_id', '=', 'customer_orders.id')
-            ->where('customer_orders.created_at', '>', $this->from)
-            ->where('customer_orders.created_at','<',$this->to);
+        ->leftjoin('customer_order','customers.id','=','customer_order.customers_id')
+        ->leftjoin('customer_order_item',function($join){
+            $join->on('customer_order_item.customer_order_id', '=', 'customer_order.id')
+            ->where('customer_order.created_at', '>', $this->from)
+            ->where('customer_order.created_at','<',$this->to);
         })
         ->where('customers.name','like','%'.$this->search.'%')
         ->orwhere('customers.email','like','%'.$this->search.'%')

@@ -6,7 +6,7 @@ use App\Models\Images;
 use App\Models\Product;
 use Livewire\Component;
 use Livewire\WithPagination;
-use App\Models\OrderedProduct;
+use App\Models\CustomerOrderItems;
 use Illuminate\Support\Facades\DB;
 
 class ProductInventoryTable extends Component
@@ -88,17 +88,16 @@ class ProductInventoryTable extends Component
             'product.name',
             'product.SKU',
             'product.stock',
-            DB::raw(value: 'SUM(CASE WHEN customer_orders.status = "Completed" then "0"
-            WHEN customer_orders.status = "Rejected" then "0" WHEN customer_orders.status = "Cancelled" then "0" else ordered_products.quantity end) as committed'),
+            DB::raw(value: 'SUM(CASE WHEN customer_order.status = "Completed" then "0"
+            WHEN customer_order.status = "Rejected" then "0" WHEN customer_order.status = "Cancelled" then "0" else customer_order_item.quantity end) as committed'),
             DB::raw('(SELECT brand.name FROM brand WHERE brand.id = product.brand_id) as brand_name'),
             DB::raw('(SELECT category.name FROM category WHERE category.id = product.category_id) as category_name'),
         ])
-        ->leftjoin('ordered_products', 'product.name', '=', 'ordered_products.product_name')
-        ->leftjoin('customer_orders', 'customer_orders.id', '=', 'ordered_products.customer_orders_id')
+        ->leftjoin('customer_order_item', 'product.name', '=', 'customer_order_item.product_name')
+        ->leftjoin('customer_order', 'customer_order.id', '=', 'customer_order_item.customer_order_id')
         ->groupBy('product.stock','product.SKU','product.name', 'product.id', 'product.brand_id', 'product.category_id')
         ->orderBy($this->sorting, $this->x)
         ->paginate($this->perPage);
-        // dd($products->toArray());
         return view('livewire.table.product-inventory-table',[
             'products' => $products,
         ]);

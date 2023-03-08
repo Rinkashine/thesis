@@ -7,7 +7,7 @@ use App\Models\CustomerShippingAddress;
 use Illuminate\Support\Facades\Auth;
 use App\Models\CustomerCart;
 use App\Models\CustomerOrder;
-use App\Models\OrderedProduct;
+use App\Models\CustomerOrderItems;
 
 use App\Models\Product;
 use App\Models\InventoryHistory;
@@ -58,8 +58,8 @@ class CheckoutForm extends Component
             ]);
 
             foreach($this->orders as $item){
-                OrderedProduct::create([
-                    'customer_orders_id' => $order_id->id,
+                CustomerOrderItems::create([
+                    'customer_order_id' => $order_id->id,
                     'product_name' => $item->product->name,
                     'price' => $item->product->sprice,
                     'quantity' => $item->quantity,
@@ -128,7 +128,7 @@ class CheckoutForm extends Component
             ]);
 
             foreach($this->orders as $item){
-                OrderedProduct::create([
+                CustomerOrderItems::create([
                     'customer_orders_id' => $order_id->id,
                     'product_name' => $item->product->name,
                     'price' => $item->product->sprice,

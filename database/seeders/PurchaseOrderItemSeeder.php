@@ -16,7 +16,7 @@ class PurchaseOrderItemSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('ordered_items') ->insert([
+        DB::table('purchase_order_items') ->insert([
             [
                 'purchase_order_id' => 1000,
                 'product_id' => 12,

@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\CustomerOrder;
 use Illuminate\Support\Facades\Auth;
-use App\Models\OrderedProduct;
+use App\Models\CustomerOrderItems;
 
 
 class CustomerCancellationController extends Controller
@@ -22,7 +22,7 @@ class CustomerCancellationController extends Controller
     }
     public function show($customerorder){
         $orderdetails = CustomerOrder::findorfail($customerorder);
-        $products = OrderedProduct::where('customer_orders_id',$orderdetails->id)->get();
+        $products = CustomerOrderItems::where('customer_orders_id',$orderdetails->id)->get();
 
 
         return view('customer.account.cancellationdetail',[

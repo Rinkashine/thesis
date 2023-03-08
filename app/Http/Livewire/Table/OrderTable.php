@@ -4,7 +4,6 @@ namespace App\Http\Livewire\Table;
 
 use Livewire\Component;
 use App\Models\CustomerOrder;
-use App\Models\OrderedProduct;
 use Livewire\WithPagination;
 use Illuminate\Support\Facades\Gate;
 class OrderTable extends Component

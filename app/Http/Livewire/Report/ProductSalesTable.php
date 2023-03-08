@@ -51,14 +51,14 @@ class ProductSalesTable extends Component
         $products = Product::select([
             'product.id',
             'product.name',
-            DB::raw(value: 'SUM(CASE WHEN customer_orders.status = "Completed" then ordered_products.quantity else 0 end) AS quantity'),
-            DB::raw(value: 'SUM(CASE WHEN customer_orders.status = "Completed" then ordered_products.quantity * ordered_products.price  else 0 end) as total_sales')
+            DB::raw(value: 'SUM(CASE WHEN customer_order.status = "Completed" then customer_order_item.quantity else 0 end) AS quantity'),
+            DB::raw(value: 'SUM(CASE WHEN customer_order.status = "Completed" then customer_order_item.quantity * customer_order_item.price  else 0 end) as total_sales')
         ])
-        ->leftjoin('ordered_products', 'product.name', '=', 'ordered_products.product_name')
-        ->leftjoin('customer_orders', function($join){
-            $join->on('ordered_products.customer_orders_id', '=', 'customer_orders.id')
-            ->where('customer_orders.created_at', '>', $this->from)
-            ->where('customer_orders.created_at', '<', $this->to);
+        ->leftjoin('customer_order_item', 'product.name', '=', 'customer_order_item.product_name')
+        ->leftjoin('customer_order', function($join){
+            $join->on('customer_order_item.customer_order_id', '=', 'customer_order.id')
+            ->where('customer_order.created_at', '>', $this->from)
+            ->where('customer_order.created_at', '<', $this->to);
         })
         ->where('name','like','%'.$this->search.'%')
         ->groupBy('product.name','product.id')

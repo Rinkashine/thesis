@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('purchase_order', function (Blueprint $table) {
             $table->id()->from(1000);
-            $table->foreignId('suppliers_id')->constrained('suppliers');
+            $table->foreignId('suppliers_id')->constrained('suppliers')->onDelete('cascade');
             $table->string('status');
             $table->date('shipping_date');
             $table->string('tracking')->nullable();
@@ -32,6 +32,8 @@ return new class extends Migration
      */
     public function down()
     {
+        Schema::dropIfExists('purchase_order_items');
+
         Schema::dropIfExists('purchase_order');
     }
 };

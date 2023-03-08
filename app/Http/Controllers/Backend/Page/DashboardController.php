@@ -9,7 +9,7 @@ use App\Models\Category;
 use App\Models\Product;
 use App\Models\Customer;
 use App\Models\CustomerOrder;
-use App\Models\OrderedProduct;
+use App\Models\CustomerOrderItems;
 use App\Models\User;
 use App\Models\Supplier;
 use App\Models\Home;
@@ -24,14 +24,14 @@ class DashboardController extends Controller
    public function index(){
          $currentyear = date("Y");
 
-         $monthlysales = CustomerOrder::join('ordered_products', 'customer_orders.id', '=', 'ordered_products.customer_orders_id')
+         $monthlysales = CustomerOrder::join('customer_order_item', 'customer_order.id', '=', 'customer_order_item.customer_order_id')
          ->select([
-             DB::raw(value: 'YEAR(customer_orders.created_at) as year'),
-             DB::raw(value: 'MONTHNAME(customer_orders.created_at) as month_name'),
-             DB::raw(value: 'MONTH(customer_orders.created_at) as month'),
-             DB::raw(value: 'SUM(ordered_products.quantity*ordered_products.price) as total'),
+             DB::raw(value: 'YEAR(customer_order.created_at) as year'),
+             DB::raw(value: 'MONTHNAME(customer_order.created_at) as month_name'),
+             DB::raw(value: 'MONTH(customer_order.created_at) as month'),
+             DB::raw(value: 'SUM(customer_order_item.quantity*customer_order_item.price) as total'),
          ])
-         ->where('customer_orders.status','Completed')
+         ->where('customer_order.status','Completed')
          ->whereYear('created_at', $currentyear)
          ->groupBy('month_name', 'year','month')
          ->orderBy('year','asc')

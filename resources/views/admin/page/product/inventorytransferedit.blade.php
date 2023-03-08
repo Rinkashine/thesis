@@ -14,6 +14,10 @@
                 <span class=" btn-rounded btn-warning-soft w-12 text-sm mr-1 mb-2 p-1">
                     {{ $orderinfos->status }}
                 </span>
+            @elseif($orderinfos->status == "Received")
+                <span class=" btn-rounded btn-success-soft w-12 text-sm mr-1 mb-2 p-1">
+                    {{ $orderinfos->status }}
+                </span>
             @else
             <div class=" btn-rounded btn-success-soft w-12 text-sm mr-1 mb-2 p-1">
                 {{ $orderinfos->status }}

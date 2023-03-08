@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Frontend\Account;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\CustomerOrder;
-use App\Models\OrderedProduct;
+use App\Models\CustomerOrderItems;
 use Exception;
 
 use Illuminate\Support\Facades\Auth;
