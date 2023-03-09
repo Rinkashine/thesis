@@ -86,18 +86,37 @@ class ProductInventoryTable extends Component
         $products = Product::search($this->search)->select([
             'product.id',
             'product.name',
-            'product.SKU',
             'product.stock',
-            DB::raw(value: 'SUM(CASE WHEN customer_order.status = "Completed" then "0"
-            WHEN customer_order.status = "Rejected" then "0" WHEN customer_order.status = "Cancelled" then "0" else customer_order_item.quantity end) as committed'),
+            'product.SKU',
+            DB::raw('COALESCE(co.commited,0) as committed'),
+            DB::raw('COALESCE(po.incoming, 0) as incoming'),
             DB::raw('(SELECT brand.name FROM brand WHERE brand.id = product.brand_id) as brand_name'),
             DB::raw('(SELECT category.name FROM category WHERE category.id = product.category_id) as category_name'),
+
         ])
-        ->leftjoin('customer_order_item', 'product.name', '=', 'customer_order_item.product_name')
-        ->leftjoin('customer_order', 'customer_order.id', '=', 'customer_order_item.customer_order_id')
-        ->groupBy('product.stock','product.SKU','product.name', 'product.id', 'product.brand_id', 'product.category_id')
+        ->leftjoin(DB::raw("  (
+            SELECT customer_order_item.product_id, SUM(customer_order_item.quantity) as commited
+            FROM customer_order
+            LEFT JOIN customer_order_item on customer_order.id = customer_order_item.customer_order_id
+            WHERE customer_order.status = 'Pending for Approval'
+            GROUP BY customer_order_item.product_id
+        )  as co  "),function($join){
+            $join->on('product.id','=','co.product_id');
+        })
+        ->leftjoin(DB::raw(" (
+            SELECT  purchase_order_items.product_id, sum(purchase_order_items.quantity) as incoming FROM purchase_order_items
+        LEFT JOIN
+             purchase_order on purchase_order_items.purchase_order_id = purchase_order.id
+             WHERE purchase_order.status = 'Pending'
+             GROUP BY purchase_order_items.product_id
+            ) as po"),function($join){
+                $join->on('product.id','=','po.product_id');
+            })
+
+        ->groupby('product.id','product.name','committed','product.stock','product.SKU','incoming','product.brand_id', 'product.category_id')
         ->orderBy($this->sorting, $this->x)
         ->paginate($this->perPage);
+
         return view('livewire.table.product-inventory-table',[
             'products' => $products,
         ]);

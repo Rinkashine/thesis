@@ -82,15 +82,15 @@ Route::group(['prefix' => 'admin'],function(){
         Route::get('/report/salesprod/csv',[ReportController::class,'exportSalesProductCSV'])->name('exportSalesProductCSV');
         Route::get('/report/salesprod/html',[ReportController::class,'exportSalesProductHTML'])->name('exportSalesProductHTML');
         //Export Files for Sales Customer
-        Route::get('/report/salescustomer/excel/{sorting}/{startdate}/{enddate}',[ReportController::class,'exportSalesCustomerEXCEL'])->name('exportSalesCustomerEXCEL');
+        Route::get('/report/salescustomer/excel/{sorting}/{startdate}/{enddate}',[ReportController::class,'exportCustomerTotalSpent'])->name('exportCustomerTotalSpent');
         //Export Files for Sales Brand
         Route::get('/report/salesbrand/excel/{sorting}/{startdate}/{enddate}',[ReportController::class,'exportSalesBrandEXCEL'])->name('exportSalesBrandEXCEL');
         //Export Files for Sales Category
         Route::get('/report/salescategory/excel/{sorting}/{startdate}/{enddate}',[ReportController::class,'exportSalesCategoryEXCEL'])->name('exportSalesCategoryEXCEL');
         //Export Files For No of Brand Orders
-        Route::get('/report/orderbrand/excel/{startdate}/{enddate}',[ReportController::class,'exportOrderBrandExcel'])->name('exportOrderBrandExcel');
+        Route::get('/report/orderbrand/excel/{sorting}/{startdate}/{enddate}',[ReportController::class,'exportOrderBrandExcel'])->name('exportOrderBrandExcel');
         //Export Files For No of Category Orders
-        Route::get('/report/ordercategory/excel/{startdate}/{enddate}',[ReportController::class,'exportOrderCategoryExcel'])->name('exportOrderCategoryExcel');
+        Route::get('/report/ordercategory/excel/{sorting}/{startdate}/{enddate}',[ReportController::class,'exportOrderCategoryExcel'])->name('exportOrderCategoryExcel');
         //Export Files for Most Viewed Product
         Route::get('/report/MostVisitedPage/excel/{startdate}/{enddate}',[ReportController::class,'exportMostVisitedPageExcel'])->name('exportMostVisitedPageExcel');
         //Export Files for Gender
@@ -144,7 +144,7 @@ Route::group(['prefix' => 'admin'],function(){
 
             Route::get('/report/salesprod', [ReportController::class, 'salesProd'])->name('report.SalesProd');
 
-            Route::get('/report/salesCustomer',[ReportController::class,'salesCustomer'])->name('report.SalesCustomer');
+            Route::get('/report/CustomersTotalSpent',[ReportController::class,'CustomersTotalSpent'])->name('report.CustomersTotalSpent');
 
 
             Route::get('/report/salesbrand', [ReportController::class, 'salesBrand'])->name('report.SalesBrand');

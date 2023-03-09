@@ -14,7 +14,7 @@ class BrandOrderReport extends Component
 
     public $from ='2023-01-01T00:00';
     public $to ='2023-12-31T00:00';
-    public $sorting = 'quantity_asc';
+    public $sorting = 'order_quantity_desc';
     public $column_name;
     public $order_name;
     public $perPage = 10;
@@ -56,7 +56,7 @@ class BrandOrderReport extends Component
             DB::raw(value: 'SUM(CASE WHEN customer_order.status = "Completed" then customer_order_item.quantity else 0 end) as order_quantity')
         ])
         ->leftjoin('product','brand.id','=','product.brand_id')
-        ->leftjoin('customer_order_item', 'product.name','=','customer_order_item.product_name')
+        ->leftjoin('customer_order_item', 'product.id','=','customer_order_item.product_id')
         ->leftjoin('customer_order',function($join){
             $join->on('customer_order_item.customer_order_id', '=', 'customer_order.id')
             ->where('customer_order.created_at', '>', $this->from)
@@ -74,7 +74,7 @@ class BrandOrderReport extends Component
             DB::raw(value: 'SUM(CASE WHEN customer_order.status = "Completed" then customer_order_item.quantity else 0 end) as order_quantity')
         ])
         ->leftjoin('product','brand.id','=','product.brand_id')
-        ->leftjoin('customer_order_item', 'product.name','=','customer_order_item.product_name')
+        ->leftjoin('customer_order_item', 'product.id','=','customer_order_item.product_id')
         ->leftjoin('customer_order',function($join){
             $join->on('customer_order_item.customer_order_id', '=', 'customer_order.id')
             ->where('customer_order.created_at', '>', $this->from)

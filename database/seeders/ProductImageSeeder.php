@@ -34,7 +34,8 @@ class ProductImageSeeder extends Seeder
                 'product_id' => 3,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
-            ],[
+            ],
+            [
                 'images' => 'Mask_Disposable_Defender.png',
                 'product_id' => 4,
                 'created_at' => Carbon::now(),

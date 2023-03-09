@@ -137,7 +137,7 @@
                                                 <td>{{ $selectedproduct['name'] }}</td>
                                                 <td> {{ $selectedproduct['SKU'] }}</td>
                                                 <td>
-                                                    <input type="number" min="1" oninput="onInput(this,{{ $selectedproduct['id'] }}, {{ $key }})" placeholder="Order Quantity" class="form-control">
+                                                    <input type="number" min="1" oninput="onInput(this,{{ $selectedproduct['id'] }}, {{ $key }})" placeholder="Order Quantity" class="form-control" onkeypress="return event.charCode >= 48">
                                                 </td>
                                                 <td> <button type="button" wire:click="DeleteTd({{ json_encode($selectedproduct)}})">Delete</button> </td>
                                             </tr>

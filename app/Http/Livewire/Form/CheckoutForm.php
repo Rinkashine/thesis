@@ -60,6 +60,7 @@ class CheckoutForm extends Component
             foreach($this->orders as $item){
                 CustomerOrderItems::create([
                     'customer_order_id' => $order_id->id,
+                    'product_id' => $item->product->id,
                     'product_name' => $item->product->name,
                     'price' => $item->product->sprice,
                     'quantity' => $item->quantity,
@@ -129,7 +130,8 @@ class CheckoutForm extends Component
 
             foreach($this->orders as $item){
                 CustomerOrderItems::create([
-                    'customer_orders_id' => $order_id->id,
+                    'customer_order_id' => $order_id->id,
+                    'product_id' => $item->product->id,
                     'product_name' => $item->product->name,
                     'price' => $item->product->sprice,
                     'quantity' => $item->quantity,

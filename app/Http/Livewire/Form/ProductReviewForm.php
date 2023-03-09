@@ -31,9 +31,9 @@ class ProductReviewForm extends Component
     //dd($this->productId);
     Review::create([
         'customer_id' => $customer_id,
-        'ordered_products_id' => $this->productId,
+        'customer_order_item_id' => $this->productId,
         'comment' => $this->comment,
-        'customer_orders_id' => $this->orderDetails->id,
+        'customer_order_id' => $this->orderDetails->id,
         'rate' => $this->rate,
         ])
         ->save();
@@ -47,9 +47,6 @@ class ProductReviewForm extends Component
        $this->productId = $productId;
        $this->productName = $productName;
 
-
-
-    //    dd($this->productId);
        $this->dispatchBrowserEvent('ShowReviewModal');
    }
 

@@ -12,7 +12,8 @@ class CustomerOrderItems extends Model
 
     protected $table = 'customer_order_item';
     protected $fillable = [
-        'customer_orders_id',
+        'customer_order_id',
+        'product_id',
         'product_name',
         'price',
         'quantity',
@@ -22,7 +23,7 @@ class CustomerOrderItems extends Model
     }
 
     public function reviewTransactions(){
-        return $this->hasMany(Review::class, 'customer_order_item','id' );
+        return $this->hasMany(Review::class,'customer_order_item_id' ,'id',);
     }
 
 

@@ -17,6 +17,7 @@ class PurchaseOrderItemSeeder extends Seeder
     public function run()
     {
         DB::table('purchase_order_items') ->insert([
+            /*
             [
                 'purchase_order_id' => 1000,
                 'product_id' => 12,
@@ -45,6 +46,7 @@ class PurchaseOrderItemSeeder extends Seeder
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
             ],
+            */
         ]);
     }
 }

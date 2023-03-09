@@ -14,20 +14,19 @@ class Review extends Model
 
     protected $fillable = [
         'customer_id',
-       'customer_order_items_id',
+       'customer_order_item_id',
        'customer_order_id',
        'comment',
        'rate',
        'customer_id',
    ];
 
-   public function reviewTransactions()
-   {
-       return $this->hasOne(OrderedProduct::class, 'id','ordered_products_id');
-   }
+   public function customers(){
+    return $this->belongsTo(Customer::class);
 
+   }
    public function customer_reviews(){
-        return $this->belongsTo(OrderedProduct::class);
+        return $this->belongsTo(CustomerOrderItems::class);
     }
 }
 ?>

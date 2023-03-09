@@ -3,17 +3,17 @@
         <div class="grid grid-cols-12 gap-x-6 mt-5 pb-20">
             <div class="intro-y col-span-12">
                 @if ($errors->any())
-                <div class="alert alert-danger show mb-2" role="alert">
-                    <div class="flex items-center">
-                        <div class="font-medium text-lg">Whoops Something Went Wrong</div>
-                        <div class="text-xs bg-white px-1 rounded-md text-slate-700 ml-auto">Error</div>
+                    <div class="alert alert-danger show mb-2" role="alert">
+                        <div class="flex items-center">
+                            <div class="font-medium text-lg">Whoops Something Went Wrong</div>
+                            <div class="text-xs bg-white px-1 rounded-md text-slate-700 ml-auto">Error</div>
+                        </div>
+                        <div class="mt-3">
+                            @foreach ($errors->all() as $error)
+                            <div>{{$error}}</div>
+                            @endforeach
+                        </div>
                     </div>
-                    <div class="mt-3">
-                        @foreach ($errors->all() as $error)
-                        <div>{{$error}}</div>
-                        @endforeach
-                    </div>
-                </div>
                 @endif
                 <!-- Begin: Supplier Information -->
                 <div class="intro-y box p-5">
@@ -84,7 +84,6 @@
                 </div>
                 <!-- End: Supplier Information -->
                 <!-- BEGIN: Add Products -->
-
                 <div class="intro-y box p-5 mt-5">
                     <div class="border border-slate-200/60 dark:border-darkmode-400 rounded-md p-5">
                         <div class="flex justify-between items-center border-b border-slate-200/60 dark:border-darkmode-400 pb-5">
@@ -124,31 +123,31 @@
                             @if(!empty($selectedProducts))
                                 <div class="overflow-x-auto mt-5">
                                     <table class="table table-bordered table-hover">
-                                        <thead>
+                                        <thead class="table-dark">
                                             <tr>
                                                 <th class="whitespace-nowrap">Product Name</th>
-                                                <th class="whitespace-nowrap">SKU</th>
+                                                <th class="whitespace-nowrap text-center">SKU</th>
                                                 <th class="whitespace-nowrap text-center">Quantity</th>
                                                 @if($status != "Pending")
-                                                    <th class="whitespace-nowrap">Action </th>
+                                                    <th class="whitespace-nowrap text-center">Action </th>
                                                 @endif
                                             </tr>
                                         </thead>
                                         <tbody>
                                             @foreach ($selectedProducts as $key=>$selectedproduct)
                                                 <tr>
-                                                    <td>{{ $selectedproduct['name'] }}</td>
-                                                    <td>{{ $selectedproduct['SKU'] }}</td>
-                                                    <td>
+                                                    <td class="whitespace-nowrap">{{ $selectedproduct['name'] }}</td>
+                                                    <td class="whitespace-nowrap text-center">{{ $selectedproduct['SKU'] }}</td>
+                                                    <td class="whitespace-nowrap text-center">
                                                         @if($status == "Pending")
-                                                        <span class="flex justify-center">{{ $selectedproduct['quantity'] }}</span>
+                                                            <span class="flex justify-center">{{ $selectedproduct['quantity'] }}</span>
                                                         @else
-                                                        <input type="number" value="{{ $selectedproduct['quantity'] }}" oninput="onInput(this,{{ $selectedproduct['id'] }}, {{ $key }})" placeholder="Order Quantity" class="form-control">
+                                                            <input type="number" wire:model='selectedProducts.{{ $key }}.quantity' placeholder="Order Quantity" min="1" class="form-control" onkeypress="return event.charCode >= 48">
                                                         @endif
 
                                                     </td>
                                                     @if($status != "Pending")
-                                                        <td>
+                                                        <td class="whitespace-nowrap text-center">
                                                             <button type="button" wire:click="DeleteTd({{ json_encode($selectedproduct)}}, {{ $key }})">Delete</button>
                                                         </td>
                                                     @endif

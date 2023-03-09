@@ -73,6 +73,7 @@ class RoleAndPermissionsSeeder extends Seeder
             'inventory_edit',
             'inventory_logs',
             'inventory_transfer_access',
+            'inventory_transfer_delete',
             'inventory_transfer_create',
             'discount_access'
 

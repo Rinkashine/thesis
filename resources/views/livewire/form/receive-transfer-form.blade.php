@@ -21,12 +21,9 @@
                                         <td>
                                             <input type="number" wire:model="receive.{{ $transfer->id }}" min="0" max="{{ $transfer->quantity }}"  placeholder="Order Quantity" class="form-control">
                                         </td>
-
                                         <td> 0 out of {{ $transfer->quantity }}</td>
                                     </tr>
                                 @endforeach
-
-
                             </tbody>
                         </table>
                     </div>

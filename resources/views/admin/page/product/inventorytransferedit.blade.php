@@ -29,11 +29,17 @@
         @if($orderinfos->status == "Pending")
             <a href="{{ Route('inventory.receive', $orderinfos->id) }}" class="btn btn-primary">Receive Inventory</a>
         @elseif($orderinfos->status == "Draft")
-            @livewire('component.inventory-transfer-mark-as-pending',['info' => $orderinfos])
+            <div class="flex gap-1">
+                <a onclick="deletePurchaseOrder('{{$orderinfos->id}}')" href="javascript:;" class="btn btn-danger">
+                    Delete
+                </a>
+                <livewire:modal.delete-purchase-order/>
+                @livewire('component.inventory-transfer-mark-as-pending',['info' => $orderinfos])
+                <livewire:modal.mark-as-pending-modal/>
+            </div>
         @endif
     </div>
 </div>
-<livewire:modal.mark-as-pending-modal/>
 <!-- End: Header -->
 <!-- Begin: Inventory Transfer Edit Form -->
 @livewire('form.inventory-transfer-edit-form',['orderinfos' => $orderinfos])
@@ -56,6 +62,19 @@
         const RefreshPendingModal = document.getElementById('mark-as-pending-modal')
         RefreshPendingModal.addEventListener('hidden.tw.modal', function(event) {
             livewire.emit('forceCloseModal');
+        });
+        //Delete Purchase Order
+        const deletepurchaseordermodalelement = document.querySelector("#delete-confirmation-modal");
+        const deletepurchaseordermodal =  tailwind.Modal.getOrCreateInstance(deletepurchaseordermodalelement)
+        const deletePurchaseOrder = (purchaseorderid)=>{
+            livewire.emit("PurchaseOrderID", purchaseorderid);
+        }
+
+        window.addEventListener('CloseDeleteModal',event => {
+            deletepurchaseordermodal.hide()
+        });
+        window.addEventListener('showDeleteModal', event => {
+            deletepurchaseordermodal.show()
         });
 
     </script>

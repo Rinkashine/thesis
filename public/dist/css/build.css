@@ -1031,9 +1031,6 @@ select {
 .h-56 {
   height: 14rem;
 }
-.h-\[400px\] {
-  height: 400px;
-}
 .h-5\/6 {
   height: 83.333333%;
 }
@@ -1240,6 +1237,9 @@ select {
 }
 .gap-16 {
   gap: 4rem;
+}
+.gap-1 {
+  gap: 0.25rem;
 }
 .gap-x-5 {
   -moz-column-gap: 1.25rem;
@@ -2044,6 +2044,10 @@ select {
 
   .sm\:ml-2 {
     margin-left: 0.5rem;
+  }
+
+  .sm\:mb-4 {
+    margin-bottom: 1rem;
   }
 
   .sm\:block {

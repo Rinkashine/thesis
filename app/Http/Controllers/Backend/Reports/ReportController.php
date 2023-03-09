@@ -13,10 +13,11 @@ use App\Exports\UserTypeExport;
 use App\Exports\SalesOverTimeExport;
 use App\Exports\SalesProductExport;
 use App\Exports\SalesCategoryExport;
-use App\Exports\SalesCustomerExport;
 use App\Exports\SalesBrandExport;
 use App\Exports\MostVisitedPageExport;
 use App\Exports\GenderExport;
+use App\Exports\CustomerSpentExport;
+
 
 use App\Exports\CategoryNoOrder;
 use App\Exports\BrandNoOrder;
@@ -103,14 +104,14 @@ class ReportController extends Controller
         return Excel::download(new SalesProductExport($request->sorting,$request->startdate,$request->enddate),'SalesProduct.xlsx');
     }
     // Show Customer Sales Page
-    public function salesCustomer(){
+    public function CustomersTotalSpent(){
         abort_if(Gate::denies('report_access'),403);
-        return view('admin.page.Report.reportsalescustomer');
+        return view('admin.page.Report.reportcustomerstotalspent');
     }
     //Export Customer Sales
-    public function exportSalesCustomerEXCEL(Request $request){
+    public function exportCustomerTotalSpent(Request $request){
         abort_if(Gate::denies('report_export'),403);
-        return Excel::download(new SalesCustomerExport($request->sorting,$request->startdate,$request->enddate),'SalesCustomer.xlsx');
+        return Excel::download(new CustomerSpentExport($request->sorting,$request->startdate,$request->enddate),'CustomerTotalSpent.xlsx');
     }
     //Show Brand Sales Page
     public function salesBrand(){
@@ -150,7 +151,7 @@ class ReportController extends Controller
     //Export No of Category Orders
     public function exportOrderCategoryExcel(Request $request){
         abort_if(Gate::denies('report_export'),403);
-        return Excel::download(new CategoryNoOrder($request->startdate,$request->enddate),'OrderCategory.xlsx');
+        return Excel::download(new CategoryNoOrder($request->sorting,$request->startdate,$request->enddate),'OrderCategory.xlsx');
     }
     public function GenderIndex(){
         abort_if(Gate::denies('report_access'),403);

@@ -51,7 +51,7 @@
                                     <td class="whitespace-nowrap text-center">₱{{ number_format($order->price,2) }}</td>
                                     <td class="whitespace-nowrap text-center">{{ number_format($order->quantity) }}</td>
                                     @if($orderdetails->status == "Completed")
-                                        @if($order->reviewTransactions->count() == 0)
+                                        @if($order->reviewTransactions->count()  == 0)
                                             <td class="whitespace-nowrap text-center text-success">
                                                 <a onclick="setProductToReview('{{$order->product_name}}', {{$order->id}})" href="javascript:;">
                                                     <i class="fa-solid fa-eye w-4 h-4 mr-1"></i> Make a review
@@ -182,7 +182,6 @@
         reviewModal.hide()
     });
     window.addEventListener('ShowReviewModal', event => {
-        console.log(event)
         reviewModal.show()
     });
     window.addEventListener('swal:modal',event =>{

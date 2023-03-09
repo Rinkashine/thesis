@@ -19,25 +19,28 @@ class ProductShow extends Component
     }
     public function render()
     {
-        $sold = CustomerOrder::join('ordered_products', 'ordered_products.customer_orders_id', '=', 'customer_orders.id')
-        ->where('ordered_products.product_name', $this->product->name)
-        ->where('customer_orders.status', "Completed")
+        $sold = CustomerOrder::join('customer_order_item', 'customer_order_item.customer_order_id', '=', 'customer_order.id')
+        ->where('customer_order_item.product_id', $this->product->id)
+        ->where('customer_order.status', "Completed")
         ->sum('quantity');
 
-        $reviews = Review::join('ordered_products', 'product_review.ordered_products_id','=', 'ordered_products.id')
+        $reviews = Review::join('customer_order_item', 'product_review.customer_order_item_id','=', 'customer_order_item.id')
         ->select(['product_name','rate','comment',
         DB::raw('(SELECT customers.name FROM customers WHERE customers.id = product_review.customer_id) as customer_name'),
+        DB::raw('(SELECT customers.photo FROM customers WHERE customers.id = product_review.customer_id) as customer_photo'),
+
         'product_review.created_at'])
-        ->where('product_name', $this->product->name)
+        ->where('product_id', $this->product->id)
         ->orderby('product_review.created_at','desc')
         ->paginate(5);
 
-        $sum_rate =  Review::join('ordered_products', 'product_review.ordered_products_id','=', 'ordered_products.id')
+
+        $sum_rate =  Review::join('customer_order_item', 'product_review.customer_order_item_id','=', 'customer_order_item.id')
         ->select('product_name','rate',)
         ->where('product_name', $this->product->name)
         ->get()->sum('rate');
 
-        $count_rate =  Review::join('ordered_products', 'product_review.ordered_products_id','=', 'ordered_products.id')
+        $count_rate =  Review::join('customer_order_item', 'product_review.customer_order_item_id','=', 'customer_order_item.id')
         ->select('product_name','rate',)
         ->where('product_name', $this->product->name)
         ->get()->count();
@@ -48,27 +51,27 @@ class ProductShow extends Component
         else{
             $ave_rate = 0;
         }
-        $rate1 =  Review::join('ordered_products', 'product_review.ordered_products_id','=', 'ordered_products.id')
+        $rate1 =  Review::join('customer_order_item', 'product_review.customer_order_item_id','=', 'customer_order_item.id')
         ->select('product_name','rate',)
         ->where('product_name', $this->product->name)
         ->where('rate','1')
         ->get()->count();
-        $rate2 =  Review::join('ordered_products', 'product_review.ordered_products_id','=', 'ordered_products.id')
+        $rate2 =  Review::join('customer_order_item', 'product_review.customer_order_item_id','=', 'customer_order_item.id')
         ->select('product_name','rate',)
         ->where('product_name', $this->product->name)
         ->where('rate','2')
         ->get()->count();
-        $rate3 =  Review::join('ordered_products', 'product_review.ordered_products_id','=', 'ordered_products.id')
+        $rate3 =  Review::join('customer_order_item', 'product_review.customer_order_item_id','=', 'customer_order_item.id')
         ->select('product_name','rate',)
         ->where('product_name', $this->product->name)
         ->where('rate','3')
         ->get()->count();
-        $rate4 =  Review::join('ordered_products', 'product_review.ordered_products_id','=', 'ordered_products.id')
+        $rate4 =  Review::join('customer_order_item', 'product_review.customer_order_item_id','=', 'customer_order_item.id')
         ->select('product_name','rate',)
         ->where('product_name', $this->product->name)
         ->where('rate','4')
         ->get()->count();
-        $rate5 =  Review::join('ordered_products', 'product_review.ordered_products_id','=', 'ordered_products.id')
+        $rate5 =  Review::join('customer_order_item', 'product_review.customer_order_item_id','=', 'customer_order_item.id')
         ->select('product_name','rate',)
         ->where('product_name', $this->product->name)
         ->where('rate','5')

@@ -20,14 +20,14 @@ class HomeController extends Controller
         $products = Product::where('status', 1)->with('images')->get()->shuffle()->take(10);
 
 
-        $top_selling = Product::join('ordered_products', 'product.name', '=', 'ordered_products.product_name')
+        $top_selling = Product::join('customer_order_item', 'product.id', '=', 'customer_order_item.id')
         ->select(
             [
                 'product.id',
                 'product.name',
                 'product.sprice',
-                DB::raw(value: 'SUM(ordered_products.quantity) as quantity'),
-                DB::raw(value: 'product.sprice*(SUM(ordered_products.quantity)) as sales'),
+                DB::raw(value: 'SUM(customer_order_item.quantity) as quantity'),
+                DB::raw(value: 'product.sprice*(SUM(customer_order_item.quantity)) as sales'),
                 DB::raw('(SELECT brand.name FROM brand WHERE product.brand_id = brand.id) as brand_name'),
             ])
             ->groupBy('product.id', 'product.name', 'product.sprice', 'product.brand_id')
@@ -35,14 +35,14 @@ class HomeController extends Controller
             ->get()
             ->take(10);
 
-        $top_trending = Product::join('ordered_products', 'product.name', '=', 'ordered_products.product_name')
+        $top_trending = Product::join('customer_order_item', 'product.id', '=', 'customer_order_item.id')
         ->select(
             [
                 'product.id',
                 'product.name',
                 'product.sprice',
-                DB::raw(value: 'SUM(ordered_products.quantity) as quantity'),
-                DB::raw(value: 'product.sprice*(SUM(ordered_products.quantity)) as sales'),
+                DB::raw(value: 'SUM(customer_order_item.quantity) as quantity'),
+                DB::raw(value: 'product.sprice*(SUM(customer_order_item.quantity)) as sales'),
                 DB::raw('(SELECT brand.name FROM brand WHERE product.brand_id = brand.id) as brand_name'),
             ])
             ->groupBy('product.id', 'product.name', 'product.sprice', 'product.brand_id')

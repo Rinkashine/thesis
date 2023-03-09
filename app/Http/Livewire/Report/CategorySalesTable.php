@@ -55,7 +55,7 @@ class CategorySalesTable extends Component
             'category.name',
             DB::raw(value: 'SUM(CASE WHEN customer_order.status = "Completed" then customer_order_item.quantity * customer_order_item.price else 0 end) as total_sales')
             ])->leftjoin('product','category.id','=','product.category_id')
-            ->leftjoin('customer_order_item', 'product.name','=','customer_order_item.product_name')
+            ->leftjoin('customer_order_item', 'product.id','=','customer_order_item.product_id')
             ->leftjoin('customer_order',function($join){
                 $join->on('customer_order_item.customer_order_id', '=', 'customer_order.id')
                 ->where('customer_order.created_at', '>', $this->from)
@@ -71,7 +71,7 @@ class CategorySalesTable extends Component
             'category.name',
             DB::raw(value: 'SUM(CASE WHEN customer_order.status = "Completed" then customer_order_item.quantity * customer_order_item.price else 0 end) as total_sales')
             ])->leftjoin('product','category.id','=','product.category_id')
-            ->leftjoin('customer_order_item', 'product.name','=','customer_order_item.product_name')
+            ->leftjoin('customer_order_item', 'product.id','=','customer_order_item.product_id')
             ->leftjoin('customer_order',function($join){
                 $join->on('customer_order_item.customer_order_id', '=', 'customer_order.id')
                 ->where('customer_order.created_at', '>', $this->from)

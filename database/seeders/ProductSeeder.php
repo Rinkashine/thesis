@@ -67,7 +67,9 @@ class ProductSeeder extends Seeder
                                   <p>100 Pcs per box</p><br>",
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
-            ],[
+            ],
+
+            [
                 'name' => 'Defenders Mask',
                 'category_id' => 2,
                 'brand_id' => 4,

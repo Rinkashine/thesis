@@ -7,7 +7,7 @@ use App\Models\Customer;
 use Illuminate\Support\Facades\DB;
 use Livewire\WithPagination;
 
-class CustomerSalesTable extends Component
+class CustomerTotalSpent extends Component
 {
     use WithPagination;
     protected $paginationTheme = 'bootstrap';
@@ -24,7 +24,7 @@ class CustomerSalesTable extends Component
 
     public function render()
     {
-        if($this->sorting == 'customer_name_asc'){
+         if($this->sorting == 'customer_name_asc'){
             $this->column_name = "name";
             $this->order_name = "asc";
         }elseif($this->sorting == 'customer_name_desc'){
@@ -41,8 +41,7 @@ class CustomerSalesTable extends Component
             $this->order_name = "asc";
         }
 
-
-        $customers = Customer::select([
+         $customers = Customer::select([
             'customers.id',
             'customers.name',
             'customers.email',
@@ -60,8 +59,7 @@ class CustomerSalesTable extends Component
         ->orderBy($this->column_name, $this->order_name)
         ->paginate($this->perPage);
 
-
-        return view('livewire.report.customer-sales-table',[
+        return view('livewire.report.customer-total-spent',[
             'customers' => $customers
         ]);
     }

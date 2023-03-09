@@ -1,28 +1,27 @@
 <?php
 
-namespace App\Http\Livewire\Report;
+namespace App\Exports;
 
-use Livewire\Component;
 use App\Models\Customer;
+use Maatwebsite\Excel\Concerns\FromCollection;
 use Illuminate\Support\Facades\DB;
-use Livewire\WithPagination;
+use Maatwebsite\Excel\Concerns\WithMapping;
+use Maatwebsite\Excel\Concerns\WithHeadings;
+use Maatwebsite\Excel\Concerns\ShouldAutoSize;
 
-class CustomerSalesTable extends Component
+class CustomerSpentExport implements FromCollection, ShouldAutoSize,WithHeadings,WithMapping
 {
-    use WithPagination;
-    protected $paginationTheme = 'bootstrap';
+    protected $startdate,$enddate,$sorting,$column_name,$order_name;
 
-    public $from ='2023-01-01T00:00';
-    public $to ='2023-12-31T00:00';
-
-    public $sorting = 'total_spent_desc';
-    public $column_name;
-    public $order_name;
-    public $perPage = 10;
-    public $search = null;
-    protected $queryString = ['search' => ['except' => '']];
-
-    public function render()
+    function __construct($sorting,$startdate,$enddate){
+        $this->sorting = $sorting;
+        $this->startdate = $startdate;
+        $this->enddate = $enddate;
+    }
+    /**
+    * @return \Illuminate\Support\Collection
+    */
+    public function collection()
     {
         if($this->sorting == 'customer_name_asc'){
             $this->column_name = "name";
@@ -41,8 +40,7 @@ class CustomerSalesTable extends Component
             $this->order_name = "asc";
         }
 
-
-        $customers = Customer::select([
+        return Customer::select([
             'customers.id',
             'customers.name',
             'customers.email',
@@ -51,18 +49,31 @@ class CustomerSalesTable extends Component
         ->leftjoin('customer_order','customers.id','=','customer_order.customers_id')
         ->leftjoin('customer_order_item',function($join){
             $join->on('customer_order_item.customer_order_id', '=', 'customer_order.id')
-            ->where('customer_order.created_at', '>=', $this->from)
-            ->where('customer_order.created_at','<=',$this->to);
+            ->where('customer_order.created_at', '>=', $this->startdate)
+            ->where('customer_order.created_at','<=',$this->enddate);
         })
-        ->where('customers.name','like','%'.$this->search.'%')
-        ->orwhere('customers.email','like','%'.$this->search.'%')
         ->groupBy('customers.name','customers.id','customers.email')
         ->orderBy($this->column_name, $this->order_name)
-        ->paginate($this->perPage);
+        ->get();
+    }
 
+    public function map($customer): array
+    {
+        return [
+            $customer->name,
+            $customer->email,
 
-        return view('livewire.report.customer-sales-table',[
-            'customers' => $customers
-        ]);
+            number_format($customer->total_spent),
+
+        ];
+    }
+
+    public function headings(): array
+    {
+        return [
+            'Customer Name',
+            'Customer Email',
+            'Total Spent'
+        ];
     }
 }

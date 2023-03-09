@@ -248,7 +248,13 @@
                         </div>
                     <div class="flex justify-start gap-2">
                         <div class="w-12 h-12 pt-3 pl-5 image-fit">
-                            <img class="rounded-full" src="{{ asset('dist/images/undraw_pic.svg') }}" alt=""  >
+                            @if($rev->customer_photo != null)
+                                <img src="{{ url('storage/customer_profile_picture/'.$rev->customer_photo) }}" class="rounded-full"  alt="Missing Image">
+
+                            @else
+                                <img class="rounded-full" src="{{ asset('dist/images/undraw_pic.svg') }}" alt=""  >
+
+                            @endif
                         </div>
                         <div>
                             <div class="flex items-center px-5 pt-3">

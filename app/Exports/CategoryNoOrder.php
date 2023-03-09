@@ -2,9 +2,7 @@
 
 namespace App\Exports;
 
-use App\Models\Customer;
-use App\Models\CustomerOrder;
-use App\Models\SalesCustomer;
+use App\Models\Category;
 use Illuminate\Support\Facades\DB;
 use Maatwebsite\Excel\Concerns\WithMapping;
 use Maatwebsite\Excel\Concerns\WithHeadings;
@@ -14,8 +12,9 @@ use Maatwebsite\Excel\Concerns\ShouldAutoSize;
 
 class CategoryNoOrder implements FromCollection, ShouldAutoSize,WithHeadings,WithMapping
 {
-    protected $startdate, $enddate;
-    function __construct($startdate,$enddate){
+    protected $startdate,$enddate,$sorting,$column_name,$order_name;
+    function __construct($sorting,$startdate,$enddate){
+        $this->sorting = $sorting;
         $this->startdate = $startdate;
         $this->enddate = $enddate;
     }
@@ -24,25 +23,44 @@ class CategoryNoOrder implements FromCollection, ShouldAutoSize,WithHeadings,Wit
     */
     public function collection()
     {
-        return CustomerOrder::join('ordered_products', 'customer_orders.id', '=', 'ordered_products.customer_orders_id')
-        ->select([
-            DB::raw('(SELECT category.name from category where
-            (SELECT product.category_id from product where ordered_products.product_name = product.name) = category.id) AS category_name'),
-            DB::raw(value: 'SUM(ordered_products.quantity) as order_quantity'),
-            DB::raw(value: 'COUNT(ordered_products.product_name) as order_total'),
 
-        ])
-        ->where('customer_orders.status','Completed')
-        ->where('customer_orders.created_at', '>=', $this->startdate)
-        ->where('customer_orders.created_at', '<=', $this->enddate)
-        ->groupBy('category_name')
-        ->get();
+        if($this->sorting == 'category_name_asc'){
+            $this->column_name = "name";
+            $this->order_name = "asc";
+        }elseif($this->sorting == 'category_name_desc'){
+            $this->column_name = "name";
+            $this->order_name = 'desc';
+        }elseif($this->sorting == 'order_quantity_asc'){
+            $this->column_name = 'order_quantity';
+            $this->order_name = "asc";
+        }elseif($this->sorting == 'order_quantity_desc'){
+            $this->column_name = 'order_quantity';
+            $this->order_name = 'desc';
+        }else{
+            $this->column_name = "name";
+            $this->order_name = "asc";
+        }
+
+        return Category::select([
+            'category.id',
+            'category.name',
+            DB::raw(value: 'SUM(CASE WHEN customer_order.status = "Completed" then customer_order_item.quantity else 0 end) as order_quantity')
+            ])->leftjoin('product','category.id','=','product.category_id')
+            ->leftjoin('customer_order_item', 'product.id','=','customer_order_item.product_id')
+            ->leftjoin('customer_order',function($join){
+                $join->on('customer_order_item.customer_order_id', '=', 'customer_order.id')
+                ->where('customer_order.created_at', '>=', $this->startdate)
+                ->where('customer_order.created_at','<=',$this->enddate);
+            })
+            ->groupBy('category.id','category.name')
+            ->orderBy($this->column_name, $this->order_name)
+            ->get();
     }
     public function map($category): array
     {
         return [
-            $category->category_name,
-            $category->order_quantity,
+            $category->name,
+            number_format($category->order_quantity),
 
         ];
     }

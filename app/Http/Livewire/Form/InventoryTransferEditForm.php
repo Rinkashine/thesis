@@ -17,9 +17,7 @@ class InventoryTransferEditForm extends Component
         'Prod',
         'refreshChild' => '$refresh',
     ];
-    public function onchange(array $products){
-        dd($products);
-    }
+
     public $status;
     public $selectedProducts = [];
     public $query;
@@ -63,6 +61,7 @@ class InventoryTransferEditForm extends Component
         'shipping' => 'Estimated Arrival',
     ];
     public $received_items;
+
     public function mount($orderinfos){
         $this->model_id = $orderinfos->id;
         $this->origin = $orderinfos->suppliers_id;
@@ -70,7 +69,6 @@ class InventoryTransferEditForm extends Component
         $this->tracking = $orderinfos->tracking;
         $this->remarks = $orderinfos->remarks;
         $this->status = $orderinfos->status;
-        //wait na stuck ok na boi
         $this->products = [];
         $this->selectedProducts = [];
         $this->selectedProducts = PurchaseOrderItems::where('purchase_order_id',$orderinfos->id)
@@ -79,20 +77,16 @@ class InventoryTransferEditForm extends Component
         ->get()
         ->toArray();
 
-
         if($this->status == "Received"){
             $this->received_items = PurchaseOrderItems::where('purchase_order_id',$orderinfos->id)->get();;
 
         }
-   //dd($this->selectedProducts);
     }
-
     public function updatedQuery(){
         $this->products = Product::where('name','like',$this->query.'%')->take(10)
         ->get()
         ->toArray();
     }
-
 
     public function UpdateTransferData(){
         $this->validate();
@@ -108,27 +102,22 @@ class InventoryTransferEditForm extends Component
             $model->tracking = $this->tracking;
             $model->remarks = $this->remarks;
             $model->update();
+            $purchase_items = PurchaseOrderItems::where('purchase_order_id',$this->model_id)->delete();
 
             foreach($this->selectedProducts as $key=>$item){
-                if(array_key_exists("isAdded", $item)){
                     PurchaseOrderItems::create([
                         'purchase_order_id' => $model->id,
                         'product_id' => $item['id'],
                         'quantity' => $item['quantity'],
                     ]);
-                    unset($this->selectedProducts[$key]["isAdded"]);
-                    continue;
-                }
             }
+
             return redirect()->route('transfer.edit',$this->model_id);
         }
     }
 
     public function AddTd(array $product){
-    // dd($product);
-
         foreach($this->selectedProducts as $selectedProd){
-           // dd($selectedProd);
             if($selectedProd['product_id'] == $product['id']){
                 return;
             }
@@ -143,18 +132,12 @@ class InventoryTransferEditForm extends Component
     }
 
     public function DeleteTd(array $product, $index){
-         $key = array_search($product,$this->selectedProducts);
-
-
+        $key = array_search($product,$this->selectedProducts);
         array_slice($this->selectedProducts, $index);
         $item = PurchaseOrderItems::find($product['id']);
         if(!$item) return 0;
         $item->delete();
-
         return redirect()->route('transfer.edit',$this->model_id);
-
-        // unset($this->selectedProducts[$key]);
-
     }
 
     public function Cancel(){
@@ -174,6 +157,7 @@ class InventoryTransferEditForm extends Component
         return view('livewire.form.inventory-transfer-edit-form',[
             'suppliers'  => $suppliers,
             'supplierinfo' => $supplierinfo,
+            'selectedProducts' => $this->selectedProducts
         ]);
     }
 }
