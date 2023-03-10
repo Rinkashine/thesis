@@ -82,7 +82,6 @@ Route::group(['prefix' => 'admin'],function(){
         Route::get('/report/salesprod/csv',[ReportController::class,'exportSalesProductCSV'])->name('exportSalesProductCSV');
         Route::get('/report/salesprod/html',[ReportController::class,'exportSalesProductHTML'])->name('exportSalesProductHTML');
         //Export Files for Sales Customer
-        Route::get('/report/salescustomer/excel/{sorting}/{startdate}/{enddate}',[ReportController::class,'exportCustomerTotalSpent'])->name('exportCustomerTotalSpent');
         //Export Files for Sales Brand
         Route::get('/report/salesbrand/excel/{sorting}/{startdate}/{enddate}',[ReportController::class,'exportSalesBrandEXCEL'])->name('exportSalesBrandEXCEL');
         //Export Files for Sales Category

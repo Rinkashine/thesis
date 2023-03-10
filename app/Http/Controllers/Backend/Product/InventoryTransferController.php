@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
 use App\Models\PurchaseOrder;
+use App\Models\PurchaseOrderTimeline;
+
 class InventoryTransferController extends Controller
 {
     public function index(){
@@ -38,12 +40,14 @@ class InventoryTransferController extends Controller
         abort_if(Gate::denies('inventory_transfer_show'),403);
 
         $orderinfo = PurchaseOrder::with('suppliers','ordered_items')->findorfail($id);
+        $purchase_order_timeline = PurchaseOrderTimeline::where('purchase_order_id',$id)->get();
         if($orderinfo->status != "Received"){
             return redirect()->route('transfer.edit', $id);
         }
 
         return view('admin.page.product.inventoryreceiveshow',[
-            'orderinfo' => $orderinfo
+            'orderinfo' => $orderinfo,
+            'purchase_order_timeline' => $purchase_order_timeline,
         ]);
     }
 }

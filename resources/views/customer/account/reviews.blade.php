@@ -39,7 +39,7 @@
                             <tbody>
                                 @foreach ($reviews as $review)
                                 <tr>
-                                    <td class="whitespace-nowrap">{{ $review->customer_orders_id }}</td>
+                                    <td class="whitespace-nowrap">{{ $review->customer_order_id }}</td>
                                     <td  class="whitespace-nowrap text-center">
                                         {{ $review->reviewTransactions->product_name }}
                                     </td>

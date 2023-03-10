@@ -78,7 +78,14 @@
                         </a>
                     </li>
                 @endcan
-
+                @can('product_edit')
+                <li>
+                    <a href="{{Route('product.create')}}" class="side-menu">
+                        <div class="side-menu__icon"> <i class="fa-solid fa-bookmark mr-1 fa-lg p-1"></i> </div>
+                        <div class="side-menu__title"> Featured Products </div>
+                    </a>
+                </li>
+                @endcan
                 @can('product_create')
                 <li>
                     <a href="{{Route('product.create')}}" class="side-menu">

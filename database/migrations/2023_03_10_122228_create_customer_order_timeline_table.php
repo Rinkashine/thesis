@@ -13,9 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('cancellation_reason', function (Blueprint $table) {
+        Schema::create('customer_order_timeline', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->timestamps();
         });
     }
 
@@ -26,6 +26,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('cancellation_reason');
+        Schema::dropIfExists('customer_order_timeline');
     }
 };

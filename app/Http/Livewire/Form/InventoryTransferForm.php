@@ -7,6 +7,7 @@ use App\Models\Supplier;
 use App\Models\Product;
 use App\Models\PurchaseOrder;
 use App\Models\PurchaseOrderItems;
+use App\Models\PurchaseOrderTimeline;
 use Illuminate\Support\Arr;
 use Alert;
 class InventoryTransferForm extends Component
@@ -121,6 +122,10 @@ class InventoryTransferForm extends Component
                     'quantity' => $value['t_quantity'],
                 ]);
             }
+            PurchaseOrderTimeline::create([
+                'purchase_order_id' => $purchaseorder->id,
+                'title' => "Created as Draft"
+            ]);
             return redirect()->route('transfer.index')->with('success','Purchase Order Created Successfully');
         }
 
@@ -140,6 +145,7 @@ class InventoryTransferForm extends Component
         return view('livewire.form.inventory-transfer-form',[
             'suppliers'  => $suppliers,
             'supplierinfo' => $supplierinfo,
+
         ]);
     }
 }

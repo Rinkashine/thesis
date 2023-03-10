@@ -161,8 +161,7 @@
                     </div>
                 </div>
                  <!-- END: Add Products -->
-
-
+                <!--  Begin: Shipping Details and Estimate Delivery Time -->
                  <div class="flex justify-between flex-col  md:flex-col lg:flex-row  2xl:flex-row  sm:flex-col gap-5 ">
                     <div class=" box p-5 mt-5 w-full">
                         <div class="border border-slate-200/60 dark:border-darkmode-400 rounded-md p-5">
@@ -219,6 +218,36 @@
                         </div>
                     </div>
                  </div>
+                 <!-- End: Shipping Details and Estimate Delivery Time -->
+                 <!-- Begin: Purchase Order Timeline -->
+                 <div class="intro-y box p-5 mt-5">
+                    <div class="border border-slate-200/60 dark:border-darkmode-400 rounded-md p-5">
+                        <div class="flex justify-between items-center border-b border-slate-200/60 dark:border-darkmode-400 pb-5">
+                            <div class="font-medium text-base">
+                                Timeline
+                            </div>
+                        </div>
+                        <div class="mt-5 overflow-x-auto ">
+                            <table class="table table-bordered">
+                                <thead class="table-dark">
+                                    <tr>
+                                        <th class="whitespace-nowrap">Title</th>
+                                        <th class="whitespace-nowrap text-center">Time</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach ($purchase_order_timeline as $item)
+                                        <tr>
+                                            <td class="whitespace-nowrap truncate">{{ $item->title }}</td>
+                                            <td class="whitespace-nowrap text-center">{{ $item->created_at->DiffForHumans() }}</td>
+                                        </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                 <!-- End: Purchase Order Timeline -->
             </div>
         </div>
         @if($status != "Pending")

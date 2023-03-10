@@ -38,8 +38,6 @@ class InventoryEditForm extends Component
         'inventoryedit.numeric' => 'Product Stock Must Be A Number'
     ];
 
-
-
     public function forceCloseModal(){
         $this->cleanVars();
         $this->resetErrorBag();
@@ -79,12 +77,7 @@ class InventoryEditForm extends Component
                 'name' => $this->productname.' stock was successfully edited!',
                 'title' => 'Product Inventory Edited',
             ]);
-
         }
-
-
-
-
         $this->cleanVars();
         $this->dispatchBrowserEvent('CloseModal');
         $this->emit('refreshParent');
@@ -102,9 +95,9 @@ class InventoryEditForm extends Component
         $this->resetErrorBag();
         $this->dispatchBrowserEvent('CloseModal');
     }
+
     public function render()
     {
         return view('livewire.form.inventory-edit-form');
     }
-
 }

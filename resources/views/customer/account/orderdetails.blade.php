@@ -47,7 +47,7 @@
                         <tbody>
                             @foreach ($orderdetails->orderTransactions as $order)
                                 <tr>
-                                    <td class="whitespace-nowrap">{{ $order->product_name }}</td>
+                                    <td class="whitespace-nowrap"> <a href="{{ Route('productshow',$order->product_id) }}">{{ $order->product_name }}</a></td>
                                     <td class="whitespace-nowrap text-center">₱{{ number_format($order->price,2) }}</td>
                                     <td class="whitespace-nowrap text-center">{{ number_format($order->quantity) }}</td>
                                     @if($orderdetails->status == "Completed")

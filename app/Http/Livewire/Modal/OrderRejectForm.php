@@ -58,7 +58,7 @@ class OrderRejectForm extends Component
     public function StoreRejectData(){
         $this->validate();
         $rejectorder = CustomerOrder::findorfail($this->modelId);
-        $orderedproducts = CustomerOrderItems::where('customer_orders_id',$rejectorder->id)->get();
+        $orderedproducts = CustomerOrderItems::where('customer_order_id',$rejectorder->id)->get();
         foreach($orderedproducts as $orderedproduct){
             $products = Product::where('name',$orderedproduct->product_name)->get();
 

@@ -415,7 +415,7 @@ class CustomerOrderedProductSeeder extends Seeder
             ],
             [ //57
                 'customer_order_id' => 104153248, //pending
-                'product_id' => 32,
+                'product_id' => 33,
                 'product_name' => 'Pumice Powder Mint',
                 'price' => 100.00,
                 'quantity' => 6,

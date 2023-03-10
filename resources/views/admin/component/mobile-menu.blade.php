@@ -61,7 +61,22 @@
                     </a>
                 </li>
                 @endcan
-
+                @can('inventory_transfer_access')
+                    <li>
+                        <a href="{{Route('transfer.index')}}" class="side-menu">
+                            <div class="side-menu__icon"> <i class="fa-solid fa-shuffle mr-1 fa-lg p-1"></i> </div>
+                            <div class="side-menu__title"> Transfer </div>
+                        </a>
+                    </li>
+                @endcan
+                @can('product_edit')
+                    <li>
+                        <a href="{{Route('product.create')}}" class="side-menu">
+                            <div class="side-menu__icon"> <i class="fa-solid fa-bookmark mr-1 fa-lg p-1"></i> </div>
+                            <div class="side-menu__title"> Featured Products </div>
+                        </a>
+                    </li>
+                @endcan
                 @can('product_create')
                 <li>
                     <a href="{{Route('product.create')}}" class="menu">

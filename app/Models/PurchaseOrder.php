@@ -26,4 +26,7 @@ class PurchaseOrder extends Model
     public function ordered_items(){
         return $this->hasMany(PurchaseOrderItems::class,'purchase_order_id','id');
     }
+    public function order_timeline(){
+        return $this->hasMany(PurchaseOrderTimeline::class,'purchase_order_id','id');
+    }
 }

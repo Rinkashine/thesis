@@ -54,7 +54,7 @@ class CancelOrderModal extends Component
         $this->validate();
         $order = CustomerOrder::findorfail($this->modelId);
         foreach($order->orderTransactions as $item){
-            $products = Product::where('name',$item->product_name)->get();
+            $products = Product::where('id',$item->product_id)->get();
             foreach($products as $product){
                 $product->stock = $product->stock + $item->quantity;
                 $product->update();

@@ -18,7 +18,7 @@
                     <td class="whitespace-nowrap text-center"> {{ $order->created_at->toFormattedDateString() }}</td>
                     <td class="whitespace-nowrap text-center truncate">
                         @foreach($ProductsOrdered as $index => $item)
-                            @if($item->customer_orders_id == $order->id)
+                            @if($item->customer_order_id == $order->id)
                                 {{ $item->product_name }},
                             @endif
                         @endforeach

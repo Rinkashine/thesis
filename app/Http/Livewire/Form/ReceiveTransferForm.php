@@ -5,6 +5,8 @@ namespace App\Http\Livewire\Form;
 use Livewire\Component;
 use App\Models\PurchaseOrderItems;
 use App\Models\PurchaseOrder;
+use App\Models\PurchaseOrderTimeline;
+
 use App\Models\Product;
 use App\Models\InventoryHistory;
 use Illuminate\Support\Facades\Auth;
@@ -43,6 +45,12 @@ class ReceiveTransferForm extends Component
                 'operation_value' => $operationvalue,
                 'latest_value' => $product->stock,
             ]);
+
+        PurchaseOrderTimeline::create([
+            'purchase_order_id' => $Tprod->purchase_order_id,
+            'title' => "Received the Items"
+        ]);
+
 
         }
         Alert::success('Success Title', 'Success Message');

@@ -7,6 +7,7 @@ use App\Models\Supplier;
 use App\Models\Product;
 use App\Models\PurchaseOrder;
 use App\Models\PurchaseOrderItems;
+use App\Models\PurchaseOrderTimeline;
 use Illuminate\Support\Arr;
 use Alert;
 class InventoryTransferEditForm extends Component
@@ -28,7 +29,7 @@ class InventoryTransferEditForm extends Component
     public $remarks;
     public $model_id;
     public $products;
-
+    public $timeline;
     public $Sproduct = [];
     public $Quantity = [];
     public $validatequantity ;
@@ -145,6 +146,7 @@ class InventoryTransferEditForm extends Component
     }
     public function render()
     {
+        $timeline = PurchaseOrderTimeline::where('purchase_order_id',$this->model_id)->get();
         $suppliers = Supplier::get();
         if($this->origin != null){
             $supplierinfo = Supplier::where('id',$this->origin)->get();
@@ -157,7 +159,9 @@ class InventoryTransferEditForm extends Component
         return view('livewire.form.inventory-transfer-edit-form',[
             'suppliers'  => $suppliers,
             'supplierinfo' => $supplierinfo,
-            'selectedProducts' => $this->selectedProducts
+            'selectedProducts' => $this->selectedProducts,
+            'purchase_order_timeline' => $timeline
+
         ]);
     }
 }

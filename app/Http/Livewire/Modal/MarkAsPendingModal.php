@@ -4,6 +4,7 @@ namespace App\Http\Livewire\Modal;
 
 use Livewire\Component;
 use App\Models\PurchaseOrder;
+use App\Models\PurchaseOrderTimeline;
 use Alert;
 class MarkAsPendingModal extends Component
 {
@@ -34,6 +35,12 @@ class MarkAsPendingModal extends Component
         $model = PurchaseOrder::findorfail($this->model_id);
         $model->status = "Pending";
         $model->update();
+
+        PurchaseOrderTimeline::create([
+            'purchase_order_id' => $this->model_id,
+            'title' => "Mark As Pending"
+        ]);
+
         return redirect()->route('transfer.edit',$this->model_id);
 
     }

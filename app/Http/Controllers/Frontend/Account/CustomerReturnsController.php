@@ -12,7 +12,6 @@ class CustomerReturnsController extends Controller
 
     public function index(){
         $customer_id = Auth::guard('customer')->user()->id;
-
         $returns = CustomerOrder::where('status','Refunded')
         ->where('customers_id',$customer_id)
         ->get();

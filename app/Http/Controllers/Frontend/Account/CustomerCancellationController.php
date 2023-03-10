@@ -22,7 +22,7 @@ class CustomerCancellationController extends Controller
     }
     public function show($customerorder){
         $orderdetails = CustomerOrder::findorfail($customerorder);
-        $products = CustomerOrderItems::where('customer_orders_id',$orderdetails->id)->get();
+        $products = CustomerOrderItems::where('customer_order_id',$orderdetails->id)->get();
 
 
         return view('customer.account.cancellationdetail',[
