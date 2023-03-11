@@ -55,7 +55,6 @@
                                                     ₱{{ number_format($product->price,2) }}
                                                 </td>
                                             </tr>
-
                                         @endforeach
                                         <tr>
                                             <td colspan="3" class="text-right">
@@ -65,14 +64,14 @@
                                                 @foreach ($order->orderTransactions as $product)
                                                     <?php $total += $product->quantity * $product->price ?>
                                                 @endforeach
-                                            Total: ₱{{number_format($total,2)}}
+                                                Total: ₱{{number_format($total,2)}}
                                             </td>
                                         </tr>
                                     </tbody>
                                 </table>
                             </div>
                         </div>
-                        @empty
+                    @empty
                             <tr>
                                 <td colspan="5" class="font-medium">No Orders Found</td>
                             </tr>
@@ -85,7 +84,3 @@
 </div>
 <!-- End: Canccelation Body -->
 @endsection
-@push('scripts')
-<script>
-</script>
-@endpush

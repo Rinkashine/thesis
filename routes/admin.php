@@ -12,7 +12,6 @@ use App\Http\Controllers\Backend\Page\ProfileController;
 //Import Admin Product Related Stuff
 use App\Http\Controllers\Backend\Product\BrandController;
 use App\Http\Controllers\Backend\Product\CategoryController;
-use App\Http\Controllers\Backend\Product\DiscountController;
 use App\Http\Controllers\Backend\Product\InventoryController;
 use App\Http\Controllers\Backend\Product\InventoryTransferController;
 use App\Http\Controllers\Backend\Product\ProductController;
@@ -116,7 +115,9 @@ Route::group(['prefix' => 'admin'], function () {
             Route::delete('/product/archive/{id}', [ProductController::class, 'ProductArchiveDestroy']);
             Route::get('product/inventory_history/{id}', [ProductController::class, 'ProductInventoryHistory'])->name('ProductInventoryHistory');
 
+            Route::get('/product/featuredproducts', [ProductController::class, 'FeaturedProductIndex'])->name('product.FeaturedProduct');
             Route::resource('product', ProductController::class);
+
             Route::resource('orders', OrderController::class)->only('index', 'show');
             Route::resource('chat', ChatController::class)->only('index');
             Route::resource('post', PostController::class)->only('index');
@@ -127,7 +128,7 @@ Route::group(['prefix' => 'admin'], function () {
             Route::resource('profile', ProfileController::class)->only('index');
             Route::resource('changepassword', ChangePasswordController::class)->only('index');
 
-            Route::resource('discount', DiscountController::class);
+
 
             Route::get('/report/cancelledorders',[ReportController::class,'CancelledOrders'])->name('report.CancelledOrders');
             Route::get('/report/cancellationreasons',[ReportController::class,'CancellationReasons'])->name('report.CancellationReasons');

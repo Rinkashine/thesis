@@ -54,14 +54,6 @@ class ProductController extends Controller
         ]);
     }
 
-    /*
-    //Show Product Page Info
-    public function show(Product $product){
-        abort_if(Gate::denies('product_show'),403);
-        return view('admin.page.product.productshow', compact('product'));
-    }
-    */
-
       //Show Product Archive Page
       public function ProductArchiveIndex()
       {
@@ -112,5 +104,9 @@ class ProductController extends Controller
         abort_if(Gate::denies('product_export'), 403);
 
         return Excel::download(new ProductExport, 'products.pdf');
+    }
+
+    public function FeaturedProductIndex(){
+        abort_if(Gate::denies('product_edit'),403);
     }
 }
