@@ -22,9 +22,9 @@ return new class extends Migration
             $table->integer('stock');
             $table->integer('stock_warning')->nullable();
             $table->string('SKU')->unique();
-            $table->decimal('cprice',8,2)->nullable();
-            $table->decimal('sprice',8,2);
-            $table->decimal('weight',8,2);
+            $table->decimal('cprice', 8, 2)->nullable();
+            $table->decimal('sprice', 8, 2);
+            $table->decimal('weight', 8, 2);
             $table->string('status');
             $table->longText('description');
 

@@ -2,14 +2,17 @@
 
 namespace App\Http\Livewire\Form;
 
-use Livewire\Component;
+use App\Models\Category;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Validation\Rule;
-use App\Models\Category;
+use Livewire\Component;
+
 class CategoryEditForm extends Component
 {
     public $name;
+
     public $modelId;
+
     public $oldname;
 
     protected $listeners = [
@@ -18,42 +21,51 @@ class CategoryEditForm extends Component
         'forceCloseEditModal',
     ];
 
-    protected function rules(){
+    protected function rules()
+    {
         return [
-            'name'=> ['required', Rule::unique('category')->ignore($this->modelId)],
+            'name' => ['required', Rule::unique('category')->ignore($this->modelId)],
         ];
     }
 
-    public function updated($fields){
-        $this->validateOnly($fields,[
+    public function updated($fields)
+    {
+        $this->validateOnly($fields, [
             'name' => 'required|unique:category,name,'.$this->modelId.'',
-        ]) ;
+        ]);
     }
-    public function forceCloseEditModal(){
+
+    public function forceCloseEditModal()
+    {
         $this->cleanVars();
         $this->resetErrorBag();
     }
 
-    public function getModelId($modelId){
+    public function getModelId($modelId)
+    {
         $this->modelId = $modelId;
         $category = Category::findorFail($this->modelId);
         $this->name = $category->name;
     }
-    public function closeEditModal(){
+
+    public function closeEditModal()
+    {
         $this->cleanVars();
         $this->resetErrorBag();
         $this->dispatchBrowserEvent('closeEditModal');
     }
-    public function UpdateCategoryData(){
+
+    public function UpdateCategoryData()
+    {
         $model = Category::find($this->modelId);
-        if($this->modelId){
-            abort_if(Gate::denies('brand_edit'),403);
+        if ($this->modelId) {
+            abort_if(Gate::denies('brand_edit'), 403);
             $this->validate();
             $this->oldname = $model->name;
             $model->name = $this->name;
             $model->update();
 
-            $this->dispatchBrowserEvent('SuccessAlert',[
+            $this->dispatchBrowserEvent('SuccessAlert', [
                 'name' => $this->oldname.' was sucessfully changed to '.$this->name,
                 'title' => 'Record Successfully Edit',
             ]);
@@ -64,7 +76,8 @@ class CategoryEditForm extends Component
         $this->resetErrorBag();
     }
 
-    private function cleanVars(){
+    private function cleanVars()
+    {
         $this->modelId = null;
         $this->name = null;
         $this->oldname = null;

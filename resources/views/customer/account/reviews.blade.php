@@ -22,9 +22,6 @@
                     </h2>
                 </div>
                 <div class="p-5">
-                    <!-- Dummy -->
-
-                    <!-- Dummy -->
                     <div class="overflow-x-auto">
                         <table class="table table-bordered table-hover">
                             <thead class="table-dark">
@@ -39,9 +36,15 @@
                             <tbody>
                                 @foreach ($reviews as $review)
                                 <tr>
-                                    <td class="whitespace-nowrap">{{ $review->customer_order_id }}</td>
+                                    <td class="whitespace-nowrap">
+                                        <a href="{{ Route('order.show',$review->customer_order_id ) }}">
+                                            {{ $review->customer_order_id }}
+                                        </a>
+                                    </td>
                                     <td  class="whitespace-nowrap text-center">
+                                        <a href="{{  Route('productshow', $review->reviewTransactions->product_id )  }}">
                                         {{ $review->reviewTransactions->product_name }}
+                                        </a>
                                     </td>
                                     <td  class="whitespace-nowrap text-center">
                                         @for($x=0; $x<$review->rate; $x++)

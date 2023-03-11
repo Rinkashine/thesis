@@ -7,6 +7,7 @@ use Illuminate\View\Component;
 class InsertModal extends Component
 {
     public $message;
+
     /**
      * Create a new component instance.
      *

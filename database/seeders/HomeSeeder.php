@@ -2,10 +2,9 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use Carbon\Carbon;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
-use Carbon\Carbon;
 
 class HomeSeeder extends Seeder
 {
@@ -16,29 +15,29 @@ class HomeSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('home') ->insert([
+        DB::table('home')->insert([
             [
                 'title' => 'Christmas Sale',
-                'status' => "Active",
+                'status' => 'Active',
                 'featured_image' => 'ChristmasSaleFinal.png',
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
             ],
             [
                 'title' => 'Featured Image One',
-                'status' => "Active",
+                'status' => 'Active',
                 'featured_image' => 'Shopping.jpg',
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
             ], [
                 'title' => 'Featured Image Two',
-                'status' => "Active",
+                'status' => 'Active',
                 'featured_image' => 'discount.jpg',
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
             ], [
                 'title' => 'Featured Image One',
-                'status' => "Active",
+                'status' => 'Active',
                 'featured_image' => 'mega_sale.jpg',
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),

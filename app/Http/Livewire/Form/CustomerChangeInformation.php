@@ -2,24 +2,30 @@
 
 namespace App\Http\Livewire\Form;
 
-use Livewire\Component;
-use App\Models\Customer;
 use Alert;
+use App\Models\Customer;
+use Livewire\Component;
+
 class CustomerChangeInformation extends Component
 {
     public $name;
+
     public $phone;
+
     public $gender;
+
     public $birthday;
+
     public $customer_id;
 
     protected $listeners = [
         'ForceClose',
         'refreshChild' => '$refresh',
-        'getModelId'
+        'getModelId',
     ];
 
-    public function getModelId($modelId){
+    public function getModelId($modelId)
+    {
         $this->customer_id = $modelId;
         $customerinfo = Customer::findorfail($this->customer_id);
         $this->name = $customerinfo->name;
@@ -28,7 +34,8 @@ class CustomerChangeInformation extends Component
         $this->birthday = $customerinfo->birthday;
     }
 
-    protected function rules(){
+    protected function rules()
+    {
         return [
             'name' => 'required|max:50',
             'phone' => 'required|phone:PH',
@@ -36,8 +43,10 @@ class CustomerChangeInformation extends Component
             'birthday' => 'required|date',
         ];
     }
-    public function update($fields){
-        $this->validateOnly($fields,[
+
+    public function update($fields)
+    {
+        $this->validateOnly($fields, [
             'name' => 'required|max:50',
             'phone' => 'required|phone:PH',
             'gender' => 'required',
@@ -45,38 +54,40 @@ class CustomerChangeInformation extends Component
         ]);
     }
 
-    public function cleanVars(){
+    public function cleanVars()
+    {
         $this->name = null;
         $this->phone = null;
         $this->gender = null;
         $this->birthday = null;
     }
 
-    public function UpdateProfileInformation(){
+    public function UpdateProfileInformation()
+    {
         $this->validate();
-        $updatecustomerinfo= Customer::findorfail($this->customer_id);
+        $updatecustomerinfo = Customer::findorfail($this->customer_id);
         $updatecustomerinfo->name = $this->name;
         $updatecustomerinfo->phone_number = $this->phone;
         $updatecustomerinfo->gender = $this->gender;
         $updatecustomerinfo->birthday = $this->birthday;
         $updatecustomerinfo->update();
-        Alert::success('Success','Profile Information was updated successfully' );
+        Alert::success('Success', 'Profile Information was updated successfully');
+
         return redirect()->route('customer.profile');
         $this->emit('CloseModal');
-
     }
 
-    public function CloseModal(){
+    public function CloseModal()
+    {
         $this->cleanVars();
         $this->resetErrorBag();
         $this->dispatchBrowserEvent('CloseInformationModal');
-
     }
 
-    public function ForceClose(){
+    public function ForceClose()
+    {
         $this->emit('CloseModal');
     }
-
 
     public function render()
     {

@@ -2,10 +2,11 @@
 
 namespace App\Http\Livewire\Modal;
 
-use Livewire\Component;
-use Illuminate\Support\Facades\Gate;
 use App\Models\User;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Storage;
+use Livewire\Component;
+
 class ForceDeleteUser extends Component
 {
     public $modelId;
@@ -16,31 +17,36 @@ class ForceDeleteUser extends Component
         'refreshChild' => '$refresh',
     ];
 
-    public function forceCloseModal(){
+    public function forceCloseModal()
+    {
         $this->cleanVars();
         $this->resetErrorBag();
     }
 
-    private function cleanVars(){
+    private function cleanVars()
+    {
         $this->modelId = null;
     }
 
-    public function getModelDeleteModalId($modelId){
+    public function getModelDeleteModalId($modelId)
+    {
         $this->modelId = $modelId;
     }
 
-    public function closeModal(){
+    public function closeModal()
+    {
         $this->cleanVars();
         $this->dispatchBrowserEvent('CloseDeleteModal');
     }
 
-    public function delete(){
-        abort_if(Gate::denies('user_forcedelete'),403);
+    public function delete()
+    {
+        abort_if(Gate::denies('user_forcedelete'), 403);
         $user = User::onlyTrashed()->find($this->modelId);
 
         Storage::delete('public/employee_profile_picture/'.$user->photo);
         $user->forcedelete();
-        $this->dispatchBrowserEvent('SuccessAlert',[
+        $this->dispatchBrowserEvent('SuccessAlert', [
             'name' => $user->name.' was successfully deleted!',
             'title' => 'Record Deleted',
         ]);

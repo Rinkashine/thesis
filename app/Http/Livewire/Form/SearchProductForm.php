@@ -2,25 +2,29 @@
 
 namespace App\Http\Livewire\Form;
 
-use Livewire\Component;
 use App\Models\Product;
+use Livewire\Component;
 
 class SearchProductForm extends Component
 {
     public $query;
+
     public $products = [];
 
-
-    public function mount(){
+    public function mount()
+    {
         $this->query = '';
         $this->products = [];
     }
 
-    public function SearchProduct(){
-        return redirect()->route('product',['search'=> $this->query]);
+    public function SearchProduct()
+    {
+        return redirect()->route('product', ['search' => $this->query]);
     }
-    public function updatedQuery(){
-        $this->products = Product::where('name','like','%'.$this->query.'%')->orderby('name','asc')->take(10)
+
+    public function updatedQuery()
+    {
+        $this->products = Product::where('name', 'like', '%'.$this->query.'%')->orderby('name', 'asc')->take(10)
         ->get();
     }
 

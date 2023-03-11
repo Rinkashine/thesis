@@ -1,20 +1,22 @@
 <?php
 
 namespace App\Exports;
-use Spatie\Permission\Models\Role;
-use Maatwebsite\Excel\Concerns\WithHeadings;
-use Maatwebsite\Excel\Concerns\ShouldAutoSize;
-use Maatwebsite\Excel\Concerns\FromCollection;
 
-class RoleExport implements FromCollection,WithHeadings,ShouldAutoSize
+use Maatwebsite\Excel\Concerns\FromCollection;
+use Maatwebsite\Excel\Concerns\ShouldAutoSize;
+use Maatwebsite\Excel\Concerns\WithHeadings;
+use Spatie\Permission\Models\Role;
+
+class RoleExport implements FromCollection, WithHeadings, ShouldAutoSize
 {
     /**
-    * @return \Illuminate\Support\Collection
-    */
+     * @return \Illuminate\Support\Collection
+     */
     public function collection()
     {
         return Role::all();
     }
+
     public function headings(): array
     {
         return [

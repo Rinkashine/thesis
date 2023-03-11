@@ -2,10 +2,10 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use Carbon\Carbon;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
-use Carbon\Carbon;
+
 class CustomerShippingAddressSeeder extends Seeder
 {
     /**
@@ -18,69 +18,69 @@ class CustomerShippingAddressSeeder extends Seeder
         DB::table('customer_shipping_address')->insert([
             [
                 'customers_id' => 1,
-                'name' => "Mark Joseph Manalo",
-                'phone_number' => "09369332354",
+                'name' => 'Mark Joseph Manalo',
+                'phone_number' => '09369332354',
                 'notes' => 'Yellow Gate',
-                'house' => "283 Ramos Compound Baesa Quezon City",
-                'province' => "Second District(NCR)",
-                'city' => "Quezon City",
-                'barangay' => "Baesa",
+                'house' => '283 Ramos Compound Baesa Quezon City',
+                'province' => 'Second District(NCR)',
+                'city' => 'Quezon City',
+                'barangay' => 'Baesa',
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
-                'default_address' => 1
+                'default_address' => 1,
             ],
             [
                 'customers_id' => 1,
-                'name' => "Rossana Manalo",
-                'phone_number' => "09452692274",
+                'name' => 'Rossana Manalo',
+                'phone_number' => '09452692274',
                 'notes' => 'Yellow Gate',
-                'house' => "283 Ramos Compound Baesa Quezon City",
-                'province' => "Second District(NCR)",
-                'city' => "Quezon City",
-                'barangay' => "Baesa",
+                'house' => '283 Ramos Compound Baesa Quezon City',
+                'province' => 'Second District(NCR)',
+                'city' => 'Quezon City',
+                'barangay' => 'Baesa',
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
-                'default_address' => 0
+                'default_address' => 0,
             ],
             [
                 'customers_id' => 1,
-                'name' => "Jovy Manalo",
-                'phone_number' => "09158535547",
+                'name' => 'Jovy Manalo',
+                'phone_number' => '09158535547',
                 'notes' => 'Yellow Gate',
-                'house' => "283 Ramos Compound Baesa Quezon City",
-                'province' => "Second District(NCR)",
-                'city' => "Quezon City",
-                'barangay' => "Baesa",
+                'house' => '283 Ramos Compound Baesa Quezon City',
+                'province' => 'Second District(NCR)',
+                'city' => 'Quezon City',
+                'barangay' => 'Baesa',
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
-                'default_address' => 0
+                'default_address' => 0,
             ],
             [
                 'customers_id' => 1,
-                'name' => "Gene Vincent Soriano",
-                'phone_number' => "09611212652",
+                'name' => 'Gene Vincent Soriano',
+                'phone_number' => '09611212652',
                 'notes' => 'Walter Mart',
-                'house' => "122 - 10 Bayan St, SFDM Q.C",
-                'province' => "Second District(NCR)",
-                'city' => "Quezon City",
-                'barangay' => "Baesa",
+                'house' => '122 - 10 Bayan St, SFDM Q.C',
+                'province' => 'Second District(NCR)',
+                'city' => 'Quezon City',
+                'barangay' => 'Baesa',
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
-                'default_address' => 0
+                'default_address' => 0,
             ],
             [
                 'customers_id' => 1,
-                'name' => "Aaron Delos Angeles",
-                'phone_number' => "09494816995",
+                'name' => 'Aaron Delos Angeles',
+                'phone_number' => '09494816995',
                 'notes' => 'Walter Mart',
-                'house' => "19# Antonia St. Centerville Quezon City",
-                'province' => "Second District(NCR)",
-                'city' => "Quezon City",
-                'barangay' => "Baesa",
+                'house' => '19# Antonia St. Centerville Quezon City',
+                'province' => 'Second District(NCR)',
+                'city' => 'Quezon City',
+                'barangay' => 'Baesa',
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
-                'default_address' => 0
-            ]
+                'default_address' => 0,
+            ],
         ]);
     }
 }

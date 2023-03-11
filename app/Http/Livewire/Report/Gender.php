@@ -2,20 +2,20 @@
 
 namespace App\Http\Livewire\Report;
 
-use Livewire\Component;
 use App\Models\Customer;
 use Illuminate\Support\Facades\DB;
-
+use Livewire\Component;
 
 class Gender extends Component
 {
-
     public $gender;
 
     public $genderlabel = [];
+
     public $genderdataset = [];
 
-    public function cleanvars(){
+    public function cleanvars()
+    {
         $this->genderlabel = [];
         $this->genderdataset = [];
     }
@@ -30,11 +30,10 @@ class Gender extends Component
         ])->groupBy('gender')
         ->get();
 
-        foreach($this->gender as $data){
+        foreach ($this->gender as $data) {
             array_push($this->genderlabel, $data->gender);
             array_push($this->genderdataset, $data->total);
         }
-
 
         return view('livewire.report.gender');
     }

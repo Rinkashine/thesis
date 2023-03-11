@@ -2,29 +2,52 @@
 
 namespace App\Http\Livewire\Form;
 
-use Livewire\Component;
-use App\Models\Product;
-use App\Models\Category;
 use App\Models\Brand;
-use App\Models\Supplier;
-use Livewire\WithFileUploads;
+use App\Models\Category;
+use App\Models\Product;
 use App\Models\ProductImage;
+use App\Models\Supplier;
+use Livewire\Component;
+use Livewire\WithFileUploads;
+
 class ProductAddForm extends Component
 {
     use WithFileUploads;
 
-    public $name,$category,$brand,$description,$sprice,$cprice,$sku,$weight;
-    public $stock = 0, $w_stock = 0;
+    public $name;
+
+    public $category;
+
+    public $brand;
+
+    public $description;
+
+    public $sprice;
+
+    public $cprice;
+
+    public $sku;
+
+    public $weight;
+
+    public $stock = 0;
+
+    public $w_stock = 0;
+
     public $status;
+
     public $margin;
+
     public $profit;
+
     public $images = [];
 
     protected $listeners = [
         'refreshChild' => '$refresh',
     ];
 
-    public function cleanVars(){
+    public function cleanVars()
+    {
         $this->name = null;
         $this->category = null;
         $this->brand = null;
@@ -39,34 +62,35 @@ class ProductAddForm extends Component
 
     public function render()
     {
-        if($this->sprice == null){
+        if ($this->sprice == null) {
             $this->sprice = 0;
         }
-        if($this->cprice == null){
+        if ($this->cprice == null) {
             $this->cprice = 0;
         }
         $this->profit = $this->sprice - $this->cprice;
 
-        if($this->sprice != null){
-
-            $this->margin = ($this->profit/$this->sprice) * 100;
+        if ($this->sprice != null) {
+            $this->margin = ($this->profit / $this->sprice) * 100;
         }
         $categories = Category::orderBy('name')->get();
         $brands = Brand::orderBy('name')->get();
         $suppliers = Supplier::orderBy('name')->get();
-        return view('livewire.form.product-add-form',[
+
+        return view('livewire.form.product-add-form', [
             'categories' => $categories,
             'brands' => $brands,
-            'suppliers' => $suppliers
+            'suppliers' => $suppliers,
         ]);
     }
 
-    public function updated($fields){
-        $this->validateOnly($fields,[
+    public function updated($fields)
+    {
+        $this->validateOnly($fields, [
             'name' => 'required',
             'category' => 'required',
             'brand' => 'required',
-            'stock' =>  'integer|min:0',
+            'stock' => 'integer|min:0',
             'cprice' => 'required|numeric|min:0',
             'sprice' => 'numeric|min:0',
             'weight' => 'required|numeric|min:0',
@@ -76,12 +100,14 @@ class ProductAddForm extends Component
             'images.*' => 'image',
         ]);
     }
-    protected function rules(){
+
+    protected function rules()
+    {
         return [
             'name' => 'required',
             'category' => 'required',
             'brand' => 'required',
-            'stock' =>  'integer|min:0',
+            'stock' => 'integer|min:0',
             'cprice' => 'required|numeric|min:0',
             'sprice' => 'numeric|min:0',
             'weight' => 'required|numeric|min:0',
@@ -92,7 +118,8 @@ class ProductAddForm extends Component
         ];
     }
 
-    public function StoreProductData(){
+    public function StoreProductData()
+    {
         $this->validate();
         $product = Product::create([
             'name' => $this->name,
@@ -107,8 +134,8 @@ class ProductAddForm extends Component
             'stock_warning' => $this->w_stock,
             'description' => $this->description,
         ]);
-        if($product){
-            foreach($this->images as $image){
+        if ($product) {
+            foreach ($this->images as $image) {
                 $image->store('public/product_photos');
                 ProductImage::create([
                     'product_id' => $product->id,
@@ -116,12 +143,14 @@ class ProductAddForm extends Component
                 ]);
             }
         }
-        return redirect()->route('product.edit',$product)->with('success', $this->name .' was successfully inserted');
+
+        return redirect()->route('product.edit', $product)->with('success', $this->name.' was successfully inserted');
 
         $this->cleanVars();
     }
-    public function Cancel(){
+
+    public function Cancel()
+    {
         return redirect()->route('product.index');
     }
-
 }

@@ -2,14 +2,17 @@
 
 namespace App\Http\Livewire\Form;
 
-use Livewire\Component;
+use App\Models\Brand;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Validation\Rule;
-use App\Models\Brand;
+use Livewire\Component;
+
 class BrandEditForm extends Component
 {
     public $name;
+
     public $modelId;
+
     public $oldname;
 
     protected $listeners = [
@@ -22,45 +25,51 @@ class BrandEditForm extends Component
         'name' => 'brand name',
     ];
 
-    protected function rules(){
+    protected function rules()
+    {
         return [
-            'name'=> ['required', Rule::unique('brand')->ignore($this->modelId)],
+            'name' => ['required', Rule::unique('brand')->ignore($this->modelId)],
         ];
     }
 
-    public function updated($fields){
-        $this->validateOnly($fields,[
+    public function updated($fields)
+    {
+        $this->validateOnly($fields, [
             'name' => 'required|unique:brand,name,'.$this->modelId.'',
-        ]) ;
+        ]);
     }
 
-    public function forceCloseEditModal(){
+    public function forceCloseEditModal()
+    {
         $this->cleanVars();
         $this->resetErrorBag();
     }
 
-    public function getModelId($modelId){
+    public function getModelId($modelId)
+    {
         $this->modelId = $modelId;
         $brand = Brand::findorFail($this->modelId);
         $this->name = $brand->name;
     }
 
-    public function closeEditModal(){
+    public function closeEditModal()
+    {
         $this->cleanVars();
         $this->resetErrorBag();
         $this->dispatchBrowserEvent('closeEditModal');
     }
 
-    public function UpdateBrandData(){
+    public function UpdateBrandData()
+    {
         $model = Brand::find($this->modelId);
-        if($this->modelId){
-            abort_if(Gate::denies('brand_edit'),403);
+        if ($this->modelId) {
+            abort_if(Gate::denies('brand_edit'), 403);
             $this->validate();
             $this->oldname = $model->name;
             $model->name = $this->name;
             $model->update();
 
-            $this->dispatchBrowserEvent('SuccessAlert',[
+            $this->dispatchBrowserEvent('SuccessAlert', [
                 'name' => $this->oldname.' was sucessfully changed to '.$this->name,
                 'title' => 'Record Successfully Edit',
             ]);
@@ -71,7 +80,8 @@ class BrandEditForm extends Component
         $this->resetErrorBag();
     }
 
-    private function cleanVars(){
+    private function cleanVars()
+    {
         $this->modelId = null;
         $this->name = null;
         $this->oldname = null;

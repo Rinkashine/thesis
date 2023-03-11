@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
-use App\Models\Product;
+
 class UpdateProductRequest extends FormRequest
 {
     /**
@@ -25,7 +25,7 @@ class UpdateProductRequest extends FormRequest
     public function rules()
     {
         return [
-            'name'=> ['required', Rule::unique('product')->ignore($this->product)],
+            'name' => ['required', Rule::unique('product')->ignore($this->product)],
             'category' => 'required',
             'brand' => 'required',
             'stock' => 'required',
@@ -35,7 +35,9 @@ class UpdateProductRequest extends FormRequest
             'description' => 'required',
         ];
     }
-    public function messages(){
+
+    public function messages()
+    {
         return [
             'name.required' => 'The product name field is required.',
         ];

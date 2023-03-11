@@ -7,6 +7,7 @@ use Illuminate\View\Component;
 class EditModal extends Component
 {
     public $message;
+
     /**
      * Create a new component instance.
      *

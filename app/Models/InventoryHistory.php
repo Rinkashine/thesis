@@ -8,8 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class InventoryHistory extends Model
 {
     use HasFactory;
+
     protected $table = 'inventory_history';
+
     protected $fillable = [
-       'product_id','activity','adjusted_by','operation_value','latest_value'
-   ];
+        'product_id', 'activity', 'adjusted_by', 'operation_value', 'latest_value',
+    ];
 }

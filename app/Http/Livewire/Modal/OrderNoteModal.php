@@ -2,13 +2,13 @@
 
 namespace App\Http\Livewire\Modal;
 
-use Livewire\Component;
 use App\Models\CustomerOrder;
-use Alert;
+use Livewire\Component;
 
 class OrderNoteModal extends Component
 {
     public $model_id;
+
     public $notes;
 
     protected $listeners = [
@@ -16,43 +16,55 @@ class OrderNoteModal extends Component
         'forceCloseModal',
     ];
 
-    protected function rules(){
+    protected function rules()
+    {
         return [
-            'notes' => 'required|max:255'
+            'notes' => 'required|max:255',
         ];
     }
-    public function updated($fields){
-        $this->validateOnly($fields,[
+
+    public function updated($fields)
+    {
+        $this->validateOnly($fields, [
             'notes' => 'required|max:255',
         ]);
     }
-    public function getOrderIdModal($modelId){
+
+    public function getOrderIdModal($modelId)
+    {
         $this->model_id = $modelId;
         $model = CustomerOrder::findorfail($this->model_id);
         $this->notes = $model->order_notes;
     }
 
-    public function closeModal(){
+    public function closeModal()
+    {
         $this->cleanVars();
         $this->dispatchBrowserEvent('closeOrderNotesModal');
     }
-    public function forceCloseModal(){
+
+    public function forceCloseModal()
+    {
         $this->cleanVars();
         $this->resetErrorBag();
     }
-    public function cleanVars(){
+
+    public function cleanVars()
+    {
         $this->model_id = null;
         $this->notes = null;
     }
 
-    public function StoreNoteData(){
+    public function StoreNoteData()
+    {
         $this->validate();
         $model = CustomerOrder::findorfail($this->model_id);
         $model->order_notes = $this->notes;
         $model->update();
-        return redirect()->route('orders.show',$this->model_id);
 
+        return redirect()->route('orders.show', $this->model_id);
     }
+
     public function render()
     {
         return view('livewire.modal.order-note-modal');

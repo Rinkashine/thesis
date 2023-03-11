@@ -11,18 +11,23 @@ class OrderNotesForm extends Component
     protected $listeners = [
         'refreshParent' => '$refresh',
     ];
-    public function mount($order){
+
+    public function mount($order)
+    {
         $this->order_id = $order->id;
     }
-    public function selectItem($itemId,$action){
+
+    public function selectItem($itemId, $action)
+    {
         $this->selectedItem = $itemId;
 
-        if($action == 'StoreOrderNotes'){
-            $this->emit('getOrderIdModal',$this->selectedItem);
+        if ($action == 'StoreOrderNotes') {
+            $this->emit('getOrderIdModal', $this->selectedItem);
             $this->dispatchBrowserEvent('openOrderNotesModal');
         }
         $this->action = $action;
     }
+
     public function render()
     {
         return view('livewire.form.order-notes-form');

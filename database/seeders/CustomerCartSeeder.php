@@ -2,10 +2,10 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
-use Illuminate\Database\Seeder;
 use Carbon\Carbon;
+use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
+
 class CustomerCartSeeder extends Seeder
 {
     /**
@@ -15,7 +15,7 @@ class CustomerCartSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('customer_cart') ->insert([
+        DB::table('customer_cart')->insert([
             [
                 'customers_id' => 1,
                 'product_id' => 1,
@@ -39,7 +39,7 @@ class CustomerCartSeeder extends Seeder
                 'check' => 0,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
-            ]
+            ],
         ]);
     }
 }

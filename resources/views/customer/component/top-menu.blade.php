@@ -83,7 +83,7 @@
                         <a href="{{ Route('order.index') }}" class="dropdown-item hover:bg-white/5"> <i data-lucide="edit" class="w-4 h-4 mr-2"></i> My Orders </a>
                     </li>
                     <li>
-                        <a href="{{ Route('returns.index') }}" class="dropdown-item hover:bg-white/5"> <i data-lucide="lock" class="w-4 h-4 mr-2"></i> My Returns </a>
+                        <a href="{{ Route('wishlist.index') }}" class="dropdown-item hover:bg-white/5"> <i data-lucide="lock" class="w-4 h-4 mr-2"></i> My Wishlist </a>
                     </li>
                     <li>
                         <a href="{{ Route('reviews.index') }}" class="dropdown-item hover:bg-white/5"> <i data-lucide="help-circle" class="w-4 h-4 mr-2"></i> My Reviews </a>

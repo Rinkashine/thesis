@@ -1,19 +1,20 @@
 <?php
 
 namespace App\Exports;
-use App\Models\Product;
-use Maatwebsite\Excel\Concerns\FromCollection;
-use Maatwebsite\Excel\Concerns\WithHeadings;
+
 use Maatwebsite\Excel\Concerns\ShouldAutoSize;
-class UserExport implements FromCollectionm,WithHeadings,ShouldAutoSize
+use Maatwebsite\Excel\Concerns\WithHeadings;
+
+class UserExport implements FromCollectionm, WithHeadings, ShouldAutoSize
 {
     /**
-    * @return \Illuminate\Support\Collection
-    */
+     * @return \Illuminate\Support\Collection
+     */
     public function collection()
     {
         return User::all();
     }
+
     public function headings(): array
     {
         return [

@@ -2,36 +2,46 @@
 
 namespace App\Http\Livewire\Modal;
 
-use Livewire\Component;
 use App\Models\User;
+use Livewire\Component;
+
 class RestrictUserAccount extends Component
 {
     public $modelId;
+
     protected $listeners = [
         'getRestrictModalId',
         'refreshChild' => '$refresh',
         'forceCloseModal',
     ];
 
-    public function forceCloseModal(){
+    public function forceCloseModal()
+    {
         $this->cleanVars();
         $this->resetErrorBag();
     }
-    private function cleanVars(){
+
+    private function cleanVars()
+    {
         $this->modelId = null;
     }
-    public function getRestrictModalId($modelId){
+
+    public function getRestrictModalId($modelId)
+    {
         $this->modelId = $modelId;
     }
-    public function closeModal(){
+
+    public function closeModal()
+    {
         $this->cleanVars();
         $this->dispatchBrowserEvent('CloseDeleteModal');
     }
 
-    public function restrict(){
+    public function restrict()
+    {
         $user = User::find($this->modelId);
         $user->delete();
-        $this->dispatchBrowserEvent('SuccessAlert',[
+        $this->dispatchBrowserEvent('SuccessAlert', [
             'name' => $user->name.' was successfully restricted!',
             'title' => 'Customer Account was  Restricted',
         ]);

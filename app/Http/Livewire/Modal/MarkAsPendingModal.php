@@ -2,48 +2,55 @@
 
 namespace App\Http\Livewire\Modal;
 
-use Livewire\Component;
 use App\Models\PurchaseOrder;
 use App\Models\PurchaseOrderTimeline;
-use Alert;
+use Livewire\Component;
+
 class MarkAsPendingModal extends Component
 {
     public $model_id;
 
     protected $listeners = [
         'forceCloseModal',
-        'getInventoryTransferId'
+        'getInventoryTransferId',
     ];
 
-    public function getInventoryTransferId($modelId){
+    public function getInventoryTransferId($modelId)
+    {
         $this->model_id = $modelId;
     }
 
-    public function closeModal(){
+    public function closeModal()
+    {
         $this->cleanVars();
         $this->dispatchBrowserEvent('CloseMarkAsPendingModal');
     }
 
-    public function forceCloseModal(){
+    public function forceCloseModal()
+    {
         $this->cleanVars();
         $this->resetErrorBag();
     }
-    public function cleanVars(){
+
+    public function cleanVars()
+    {
         $this->model_id = null;
     }
-    public function approve(){
+
+    public function approve()
+    {
         $model = PurchaseOrder::findorfail($this->model_id);
-        $model->status = "Pending";
+        $model->status = 'Pending';
         $model->update();
 
         PurchaseOrderTimeline::create([
             'purchase_order_id' => $this->model_id,
-            'title' => "Mark As Pending"
+            'title' => 'Mark As Pending',
         ]);
 
-        return redirect()->route('transfer.edit',$this->model_id);
-
+        return redirect()->route('transfer.edit', $this->model_id);
     }
+
     public function render()
     {
         return view('livewire.modal.mark-as-pending-modal');

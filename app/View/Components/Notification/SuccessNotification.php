@@ -7,13 +7,15 @@ use Illuminate\View\Component;
 class SuccessNotification extends Component
 {
     public $title;
+
     public $message;
+
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct($title,$message)
+    public function __construct($title, $message)
     {
         $this->title = $title;
         $this->message = $message;

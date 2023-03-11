@@ -2,9 +2,9 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Storage;
+
 class FolderSeeder extends Seeder
 {
     /**
@@ -14,20 +14,16 @@ class FolderSeeder extends Seeder
      */
     public function run()
     {
-        if(!Storage::disk('public')->exists('product_photos'))
-        {
+        if (! Storage::disk('public')->exists('product_photos')) {
             Storage::disk('public')->makeDirectory('product_photos', 0775, true);
         }
-        if(!Storage::disk('public')->exists('banner'))
-        {
+        if (! Storage::disk('public')->exists('banner')) {
             Storage::disk('public')->makeDirectory('banner', 0775, true);
         }
-        if(!Storage::disk('public')->exists('customer_profile_picture'))
-        {
+        if (! Storage::disk('public')->exists('customer_profile_picture')) {
             Storage::disk('public')->makeDirectory('customer_profile_picture', 0775, true);
         }
-        if(!Storage::disk('public')->exists('employee_profile_picture'))
-        {
+        if (! Storage::disk('public')->exists('employee_profile_picture')) {
             Storage::disk('public')->makeDirectory('employee_profile_picture', 0775, true);
         }
     }

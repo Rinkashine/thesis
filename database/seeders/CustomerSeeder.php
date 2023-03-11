@@ -2,12 +2,10 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Customer;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Str;
-use Carbon\Carbon;
-use App\Models\Customer;
+
 class CustomerSeeder extends Seeder
 {
     /**
@@ -17,7 +15,7 @@ class CustomerSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('customers') ->insert([
+        DB::table('customers')->insert([
             [//1
                 'name' => 'Mark Joseph Manalo',
                 'email' => 'markjosephmanalo1110@gmail.com',
@@ -25,7 +23,7 @@ class CustomerSeeder extends Seeder
                 'phone_number' => '09452692274',
                 'password' => bcrypt('Onepiece25!'),
                 'gender' => 'Male',
-                'birthday'=>'2001-06-08',
+                'birthday' => '2001-06-08',
                 'created_at' => '2021-1-1 00:00:00',
                 'updated_at' => '2021-1-1 00:00:00',
             ],
@@ -36,7 +34,7 @@ class CustomerSeeder extends Seeder
                 'phone_number' => '09452692274',
                 'password' => bcrypt('Onepiece25!'),
                 'gender' => 'Male',
-                'birthday'=>'2001-06-08',
+                'birthday' => '2001-06-08',
                 'created_at' => '2021-1-1 00:00:00',
                 'updated_at' => '2021-1-1 00:00:00',
             ],
@@ -47,7 +45,7 @@ class CustomerSeeder extends Seeder
                 'phone_number' => '09452692274',
                 'password' => bcrypt('Onepiece25!'),
                 'gender' => 'Male',
-                'birthday'=>'2001-06-08',
+                'birthday' => '2001-06-08',
                 'created_at' => '2021-1-1 00:00:00',
                 'updated_at' => '2021-1-1 00:00:00',
             ],
@@ -58,7 +56,7 @@ class CustomerSeeder extends Seeder
                 'phone_number' => '09452692274',
                 'password' => bcrypt('Onepiece25!'),
                 'gender' => 'Male',
-                'birthday'=>'2001-06-08',
+                'birthday' => '2001-06-08',
                 'created_at' => '2021-1-1 00:00:00',
                 'updated_at' => '2021-1-1 00:00:00',
             ],
@@ -69,7 +67,7 @@ class CustomerSeeder extends Seeder
                 'phone_number' => '09452692274',
                 'password' => bcrypt('Onepiece25!'),
                 'gender' => 'Male',
-                'birthday'=>'2001-06-08',
+                'birthday' => '2001-06-08',
                 'created_at' => '2021-1-1 00:00:00',
                 'updated_at' => '2021-1-1 00:00:00',
             ],
@@ -80,7 +78,7 @@ class CustomerSeeder extends Seeder
                 'phone_number' => '09452692274',
                 'password' => bcrypt('Onepiece25!'),
                 'gender' => 'Male',
-                'birthday'=>'2001-06-08',
+                'birthday' => '2001-06-08',
                 'created_at' => '2021-1-1 00:00:00',
                 'updated_at' => '2021-1-1 00:00:00',
             ],
@@ -91,7 +89,7 @@ class CustomerSeeder extends Seeder
                 'phone_number' => '09452692274',
                 'password' => bcrypt('Onepiece25!'),
                 'gender' => 'Male',
-                'birthday'=>'2001-06-08',
+                'birthday' => '2001-06-08',
                 'created_at' => '2021-1-1 00:00:00',
                 'updated_at' => '2021-1-1 00:00:00',
             ],
@@ -102,7 +100,7 @@ class CustomerSeeder extends Seeder
                 'phone_number' => '09452692274',
                 'password' => bcrypt('Onepiece25!'),
                 'gender' => 'Male',
-                'birthday'=>'2001-06-08',
+                'birthday' => '2001-06-08',
                 'created_at' => '2021-1-1 00:00:00',
                 'updated_at' => '2021-1-1 00:00:00',
             ],
@@ -113,7 +111,7 @@ class CustomerSeeder extends Seeder
                 'phone_number' => '09452692274',
                 'password' => bcrypt('Onepiece25!'),
                 'gender' => 'Female',
-                'birthday'=>'2001-06-08',
+                'birthday' => '2001-06-08',
                 'created_at' => '2021-1-1 00:00:00',
                 'updated_at' => '2021-1-1 00:00:00',
             ],
@@ -124,7 +122,7 @@ class CustomerSeeder extends Seeder
                 'phone_number' => '09452692274',
                 'password' => bcrypt('Onepiece25!'),
                 'gender' => 'Male',
-                'birthday'=>'2001-06-08',
+                'birthday' => '2001-06-08',
                 'created_at' => '2021-1-1 00:00:00',
                 'updated_at' => '2021-1-1 00:00:00',
             ],
@@ -135,7 +133,7 @@ class CustomerSeeder extends Seeder
                 'phone_number' => '09452692274',
                 'password' => bcrypt('Onepiece25!'),
                 'gender' => 'Female',
-                'birthday'=>'2001-06-08',
+                'birthday' => '2001-06-08',
                 'created_at' => '2021-1-1 00:00:00',
                 'updated_at' => '2021-1-1 00:00:00',
             ],
@@ -146,7 +144,7 @@ class CustomerSeeder extends Seeder
                 'phone_number' => '09452692274',
                 'password' => bcrypt('Onepiece25!'),
                 'gender' => 'Male',
-                'birthday'=>'2001-06-08',
+                'birthday' => '2001-06-08',
                 'created_at' => '2021-1-1 00:00:00',
                 'updated_at' => '2021-1-1 00:00:00',
             ],
@@ -157,7 +155,7 @@ class CustomerSeeder extends Seeder
                 'phone_number' => '09452692274',
                 'password' => bcrypt('Onepiece25!'),
                 'gender' => 'Male',
-                'birthday'=>'2001-06-08',
+                'birthday' => '2001-06-08',
                 'created_at' => '2021-1-1 00:00:00',
                 'updated_at' => '2021-1-1 00:00:00',
             ],
@@ -168,7 +166,7 @@ class CustomerSeeder extends Seeder
                 'phone_number' => '09452692274',
                 'password' => bcrypt('Onepiece25!'),
                 'gender' => 'Female',
-                'birthday'=>'2001-06-08',
+                'birthday' => '2001-06-08',
                 'created_at' => '2021-1-1 00:00:00',
                 'updated_at' => '2021-1-1 00:00:00',
             ],
@@ -179,7 +177,7 @@ class CustomerSeeder extends Seeder
                 'phone_number' => '09452692274',
                 'password' => bcrypt('Onepiece25!'),
                 'gender' => 'Female',
-                'birthday'=>'2001-06-08',
+                'birthday' => '2001-06-08',
                 'created_at' => '2021-1-1 00:00:00',
                 'updated_at' => '2021-1-1 00:00:00',
             ],
@@ -190,7 +188,7 @@ class CustomerSeeder extends Seeder
                 'phone_number' => '09452692274',
                 'password' => bcrypt('Onepiece25!'),
                 'gender' => 'Female',
-                'birthday'=>'2001-06-08',
+                'birthday' => '2001-06-08',
                 'created_at' => '2021-1-1 00:00:00',
                 'updated_at' => '2021-1-1 00:00:00',
             ],
@@ -201,7 +199,7 @@ class CustomerSeeder extends Seeder
                 'phone_number' => '09452692274',
                 'password' => bcrypt('Onepiece25!'),
                 'gender' => 'Female',
-                'birthday'=>'2001-06-08',
+                'birthday' => '2001-06-08',
                 'created_at' => '2021-1-1 00:00:00',
                 'updated_at' => '2021-1-1 00:00:00',
             ],
@@ -212,7 +210,7 @@ class CustomerSeeder extends Seeder
                 'phone_number' => '09452692274',
                 'password' => bcrypt('Onepiece25!'),
                 'gender' => 'Male',
-                'birthday'=>'2001-06-08',
+                'birthday' => '2001-06-08',
                 'created_at' => '2021-1-1 00:00:00',
                 'updated_at' => '2021-1-1 00:00:00',
             ],
@@ -223,7 +221,7 @@ class CustomerSeeder extends Seeder
                 'phone_number' => '09452692274',
                 'password' => bcrypt('Onepiece25!'),
                 'gender' => 'Male',
-                'birthday'=>'2001-06-08',
+                'birthday' => '2001-06-08',
                 'created_at' => '2021-1-1 00:00:00',
                 'updated_at' => '2021-1-1 00:00:00',
             ],
@@ -234,7 +232,7 @@ class CustomerSeeder extends Seeder
                 'phone_number' => '09452692274',
                 'password' => bcrypt('Onepiece25!'),
                 'gender' => 'Male',
-                'birthday'=>'2001-06-08',
+                'birthday' => '2001-06-08',
                 'created_at' => '2021-1-1 00:00:00',
                 'updated_at' => '2021-1-1 00:00:00',
             ],
@@ -245,7 +243,7 @@ class CustomerSeeder extends Seeder
                 'phone_number' => '09452692274',
                 'password' => bcrypt('Onepiece25!'),
                 'gender' => 'Male',
-                'birthday'=>'2001-06-08',
+                'birthday' => '2001-06-08',
                 'created_at' => '2021-1-1 00:00:00',
                 'updated_at' => '2021-1-1 00:00:00',
             ],

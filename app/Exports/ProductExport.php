@@ -7,14 +7,15 @@ use Maatwebsite\Excel\Concerns\FromCollection;
 use Maatwebsite\Excel\Concerns\ShouldAutoSize;
 use Maatwebsite\Excel\Concerns\WithHeadings;
 use Maatwebsite\Excel\Concerns\WithMapping;
-class ProductExport implements FromCollection, ShouldAutoSize,WithHeadings,WithMapping
+
+class ProductExport implements FromCollection, ShouldAutoSize, WithHeadings, WithMapping
 {
     /**
-    * @return \Illuminate\Support\Collection
-    */
+     * @return \Illuminate\Support\Collection
+     */
     public function collection()
     {
-        return Product::with('category','brand')->get();
+        return Product::with('category', 'brand')->get();
     }
 
     public function map($product): array
@@ -31,7 +32,6 @@ class ProductExport implements FromCollection, ShouldAutoSize,WithHeadings,WithM
             $product->description,
         ];
     }
-
 
     public function headings(): array
     {

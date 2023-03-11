@@ -2,30 +2,55 @@
 
 namespace App\Http\Livewire\Form;
 
-use Livewire\Component;
-use App\Models\Product;
-use App\Models\Category;
 use App\Models\Brand;
-use App\Models\Supplier;
-use Livewire\WithFileUploads;
+use App\Models\Category;
+use App\Models\Product;
 use App\Models\ProductImage;
+use App\Models\Supplier;
 use Illuminate\Validation\Rule;
+use Livewire\Component;
+use Livewire\WithFileUploads;
+
 class ProductEditForm extends Component
 {
     use WithFileUploads;
 
-
     public $action;
+
     public $selectedItem;
 
     public $oldname;
+
     public $iteration = 1;
-    public $name,$category,$brand,$description,$sprice,$cprice,$sku,$weight;
-    public $stock,$w_stock;
+
+    public $name;
+
+    public $category;
+
+    public $brand;
+
+    public $description;
+
+    public $sprice;
+
+    public $cprice;
+
+    public $sku;
+
+    public $weight;
+
+    public $stock;
+
+    public $w_stock;
+
     public $status;
+
     public $margin;
+
     public $profit;
+
     public $images = [];
+
     public $product;
 
     protected $listeners = [
@@ -33,18 +58,20 @@ class ProductEditForm extends Component
         'refreshParent' => '$refresh',
     ];
 
-    public function selectItem($itemId,$action){
+    public function selectItem($itemId, $action)
+    {
         $this->selectedItem = $itemId;
 
-        if($action == 'delete'){
-            $this->emit('getModelDeleteModalId',$this->selectedItem);
+        if ($action == 'delete') {
+            $this->emit('getModelDeleteModalId', $this->selectedItem);
             $this->dispatchBrowserEvent('openDeleteModal');
         }
-            $this->action = $action;
+        $this->action = $action;
     }
 
-    public function mount($product){
-        if($product){
+    public function mount($product)
+    {
+        if ($product) {
             $this->product = $product;
             $this->name = $this->product->name;
             $this->category = $this->product->category->id;
@@ -60,20 +87,21 @@ class ProductEditForm extends Component
         }
     }
 
-    public function StoreNewImages(){
+    public function StoreNewImages()
+    {
         $validatedData = $this->validate([
             'images.*' => 'required|image',
         ]);
 
-        foreach($this->images as $image){
+        foreach ($this->images as $image) {
             $image->store('public/product_photos');
             ProductImage::create([
                 'product_id' => $this->product->id,
                 'images' => $image->hashName(),
             ]);
         }
-        if($this->images != []){
-            $this->dispatchBrowserEvent('SuccessAlert',[
+        if ($this->images != []) {
+            $this->dispatchBrowserEvent('SuccessAlert', [
                 'name' => 'Image was sucessfully added for '.$this->name,
                 'title' => 'Successfully Added New Image',
             ]);
@@ -84,11 +112,13 @@ class ProductEditForm extends Component
         $this->iteration++;
     }
 
-    public function Cancel(){
+    public function Cancel()
+    {
         return redirect()->route('product.index');
     }
 
-    public function UpdateProductData(){
+    public function UpdateProductData()
+    {
         $this->validate();
         $product = Product::find($this->product->id);
         $this->oldname = $product->name;
@@ -105,8 +135,8 @@ class ProductEditForm extends Component
         $product->weight = $this->weight;
 
         $update = $product->update();
-        if($update){
-            $this->dispatchBrowserEvent('SuccessAlert',[
+        if ($update) {
+            $this->dispatchBrowserEvent('SuccessAlert', [
                 'name' => 'Product was succesfully edited',
                 'title' => 'Record Successfully Edit',
             ]);
@@ -115,7 +145,8 @@ class ProductEditForm extends Component
         $this->dispatchBrowserEvent('Scrollup');
     }
 
-    public function cleanVars(){
+    public function cleanVars()
+    {
         $this->name = null;
         $this->category = null;
         $this->brand = null;
@@ -129,34 +160,37 @@ class ProductEditForm extends Component
         $this->images = [];
     }
 
-    public function updated($fields){
-        $this->validateOnly($fields,[
+    public function updated($fields)
+    {
+        $this->validateOnly($fields, [
             'name' => 'required',
             'category' => 'required',
             'brand' => 'required',
-            'stock' =>  'integer|min:0',
+            'stock' => 'integer|min:0',
             'cprice' => 'required|numeric|min:0',
             'sprice' => 'numeric|min:0',
             'w_stock' => 'numeric|min:0',
             'weight' => 'required|numeric|min:1',
             'description' => 'required',
-            'sku' => ['required',Rule::unique('product','SKU')->ignore($this->product->id)],
+            'sku' => ['required', Rule::unique('product', 'SKU')->ignore($this->product->id)],
             'status' => 'required',
             'images.*' => 'image',
         ]);
     }
-    protected function rules(){
+
+    protected function rules()
+    {
         return  [
             'name' => 'required',
             'category' => 'required',
             'brand' => 'required',
-            'stock' =>  'integer|min:0',
+            'stock' => 'integer|min:0',
             'cprice' => 'required|numeric|min:0',
             'sprice' => 'numeric|min:0',
             'w_stock' => 'numeric|min:0',
             'weight' => 'required|numeric|min:1',
             'description' => 'required',
-            'sku' => ['required',Rule::unique('product','SKU')->ignore($this->product->id)],
+            'sku' => ['required', Rule::unique('product', 'SKU')->ignore($this->product->id)],
             'status' => 'required',
             'images.*' => 'image',
 
@@ -165,29 +199,28 @@ class ProductEditForm extends Component
 
     public function render()
     {
-        if($this->sprice == null){
+        if ($this->sprice == null) {
             $this->sprice = 0;
         }
-        if($this->cprice == null){
+        if ($this->cprice == null) {
             $this->cprice = 0;
         }
 
         $this->profit = $this->sprice - $this->cprice;
 
-        if($this->sprice != null){
-            $this->margin = ($this->profit/$this->sprice) * 100;
+        if ($this->sprice != null) {
+            $this->margin = ($this->profit / $this->sprice) * 100;
         }
         $categories = Category::orderBy('name')->get();
         $brands = Brand::orderBy('name')->get();
         $suppliers = Supplier::orderBy('name')->get();
         $product_images = $this->product->images;
 
-        return view('livewire.form.product-edit-form',[
+        return view('livewire.form.product-edit-form', [
             'categories' => $categories,
             'brands' => $brands,
             'suppliers' => $suppliers,
             'product_images' => $product_images,
         ]);
     }
-
 }

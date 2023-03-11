@@ -168,8 +168,6 @@ return [
         RealRashid\SweetAlert\SweetAlertServiceProvider::class,
         Anhskohbo\NoCaptcha\NoCaptchaServiceProvider::class,
 
-
-
         /*
          * Package Service Providers...
          */
@@ -184,7 +182,6 @@ return [
         App\Providers\RouteServiceProvider::class,
         App\Providers\ViewServiceProvider::class,
         Spatie\Permission\PermissionServiceProvider::class,
-
 
     ],
 

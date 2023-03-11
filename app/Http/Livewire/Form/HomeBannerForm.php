@@ -2,58 +2,69 @@
 
 namespace App\Http\Livewire\Form;
 
-use Livewire\Component;
 use App\Models\Home;
-use Livewire\WithFileUploads;
 use Illuminate\Support\Facades\Gate;
+use Livewire\Component;
+use Livewire\WithFileUploads;
 
 class HomeBannerForm extends Component
 {
     use WithFileUploads;
 
-    public $title,$status,$picture;
+    public $title;
+
+    public $status;
+
+    public $picture;
 
     protected $listeners = [
         'refreshChild' => '$refresh',
         'forceCloseModal',
     ];
 
-    protected function rules(){
+    protected function rules()
+    {
         return [
             'title' => 'required|max:40',
             'status' => 'required|max:100',
             'picture' => 'required|image',
         ];
     }
-    public function updated($fields){
-        $this->validateOnly($fields,[
+
+    public function updated($fields)
+    {
+        $this->validateOnly($fields, [
             'title' => 'required|max:40',
             'status' => 'required|max:100',
             'picture' => 'required|image',
         ]);
     }
 
-    private function cleanVars(){
+    private function cleanVars()
+    {
         $this->title = null;
         $this->status = null;
         $this->picture = null;
     }
 
-    public function forceCloseModal(){
+    public function forceCloseModal()
+    {
         $this->cleanVars();
         $this->resetErrorBag();
     }
 
-    public function closeModal(){
+    public function closeModal()
+    {
         $this->cleanVars();
         $this->resetErrorBag();
         $this->dispatchBrowserEvent('CloseModal');
     }
 
-    public function StoreBannerData(){
-        abort_if(Gate::denies('post_create'),403);
+    public function StoreBannerData()
+    {
+        abort_if(Gate::denies('post_create'), 403);
         $this->validate();
-        if(!empty($this->picture)){
+        if (! empty($this->picture)) {
             $this->picture->store('public/banner');
         }
         $data = [
@@ -62,7 +73,7 @@ class HomeBannerForm extends Component
             'featured_image' => $this->picture->hashName(),
         ];
         Home::create($data);
-        $this->dispatchBrowserEvent('SuccessAlert',[
+        $this->dispatchBrowserEvent('SuccessAlert', [
             'name' => $this->title.' was successfully saved!',
             'title' => 'Record Saved',
         ]);
@@ -72,8 +83,6 @@ class HomeBannerForm extends Component
         $this->emit('refreshParent');
         $this->resetErrorBag();
     }
-
-
 
     public function render()
     {

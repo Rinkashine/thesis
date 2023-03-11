@@ -2,10 +2,11 @@
 
 namespace App\Http\Livewire\Modal;
 
-use Livewire\Component;
 use App\Models\Category;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Storage;
+use Livewire\Component;
+
 class DeleteCategory extends Component
 {
     public $modelId;
@@ -15,7 +16,9 @@ class DeleteCategory extends Component
         'refreshChild' => '$refresh',
         'forceCloseModal',
     ];
-    public function forceCloseModal(){
+
+    public function forceCloseModal()
+    {
         $this->cleanVars();
         $this->resetErrorBag();
     }
@@ -24,31 +27,37 @@ class DeleteCategory extends Component
     {
         return view('livewire.modal.delete-category');
     }
-    private function cleanVars(){
-        $this->modelId = null;
 
+    private function cleanVars()
+    {
+        $this->modelId = null;
     }
-    public function getModelDeleteModalId($modelId){
+
+    public function getModelDeleteModalId($modelId)
+    {
         $this->modelId = $modelId;
     }
-    public function closeModal(){
+
+    public function closeModal()
+    {
         $this->cleanVars();
         $this->dispatchBrowserEvent('CloseDeleteModal');
     }
 
-    public function delete(){
-        abort_if(Gate::denies('category_delete'),403);
+    public function delete()
+    {
+        abort_if(Gate::denies('category_delete'), 403);
         $category = Category::find($this->modelId);
 
-        if($category->categoryTransactions()->count()){
-            $this->dispatchBrowserEvent('InvalidAlert',[
+        if ($category->categoryTransactions()->count()) {
+            $this->dispatchBrowserEvent('InvalidAlert', [
                 'name' => $category->name.' has a product records!',
                 'title' => 'Delete Failed!',
             ]);
-        }else{
+        } else {
             Storage::delete('public/category/'.$category->photo);
             $category->delete();
-            $this->dispatchBrowserEvent('SuccessAlert',[
+            $this->dispatchBrowserEvent('SuccessAlert', [
                 'name' => $category->name.' was successfully deleted!',
                 'title' => 'Record Deleted',
             ]);

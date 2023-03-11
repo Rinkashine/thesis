@@ -2,9 +2,9 @@
 
 namespace App\Http\Livewire\Modal;
 
+use App\Models\User;
 use Livewire\Component;
 use Spatie\Permission\Models\Role;
-use App\Models\User;
 
 class DeleteRole extends Component
 {
@@ -15,41 +15,48 @@ class DeleteRole extends Component
         'refreshChild' => '$refresh',
         'forceCloseModal',
     ];
-    public function forceCloseModal(){
+
+    public function forceCloseModal()
+    {
         $this->cleanVars();
         $this->resetErrorBag();
     }
 
-    private function cleanVars(){
+    private function cleanVars()
+    {
         $this->modelId = null;
-
     }
-    public function getModelDeleteModalId($modelId){
+
+    public function getModelDeleteModalId($modelId)
+    {
         $this->modelId = $modelId;
     }
-    public function closeModal(){
+
+    public function closeModal()
+    {
         $this->cleanVars();
         $this->dispatchBrowserEvent('CloseDeleteModal');
     }
 
-    public function delete(){
+    public function delete()
+    {
         $role = Role::find($this->modelId);
         $users = User::all();
         $count = 0;
-        foreach($users as $user){
-           $result =  $user->hasExactRoles($role->name);
-            if($result){
+        foreach ($users as $user) {
+            $result = $user->hasExactRoles($role->name);
+            if ($result) {
                 $count++;
             }
         }
-        if($count == 0){
+        if ($count == 0) {
             $role->delete();
-            $this->dispatchBrowserEvent('SuccessAlert',[
+            $this->dispatchBrowserEvent('SuccessAlert', [
                 'name' => $role->name.' was successfully deleted!',
                 'title' => 'Record Deleted',
             ]);
-        }else{
-            $this->dispatchBrowserEvent('InvalidAlert',[
+        } else {
+            $this->dispatchBrowserEvent('InvalidAlert', [
                 'name' => $role->name.' has a user records!',
                 'title' => 'Delete Failed!',
             ]);
@@ -59,6 +66,7 @@ class DeleteRole extends Component
         $this->cleanVars();
         $this->dispatchBrowserEvent('CloseDeleteModal');
     }
+
     public function render()
     {
         return view('livewire.modal.delete-role');

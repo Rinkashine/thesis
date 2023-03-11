@@ -2,22 +2,38 @@
 
 namespace App\Http\Livewire\Form;
 
-use Livewire\Component;
-use Illuminate\Support\Str;
-
 use App\Models\User;
-use Livewire\WithFileUploads;
-use Carbon\Carbon;
-use Spatie\Permission\Models\Role;
-use Laravolt\Avatar\Facade as Avatar;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
+use Laravolt\Avatar\Facade as Avatar;
+use Livewire\Component;
+use Livewire\WithFileUploads;
+use Spatie\Permission\Models\Role;
 
 class UserCreateForm extends Component
 {
     use WithFileUploads;
-    public $name,$email,$role,$password,$gender,$age,$address,$picture,$phone;
 
-    protected function rules(){
+    public $name;
+
+    public $email;
+
+    public $role;
+
+    public $password;
+
+    public $gender;
+
+    public $age;
+
+    public $address;
+
+    public $picture;
+
+    public $phone;
+
+    protected function rules()
+    {
         return [
             'name' => 'required|max:40',
             'address' => 'required|max:100',
@@ -26,12 +42,13 @@ class UserCreateForm extends Component
             'phone' => 'required|phone:PH',
             'age' => 'required|numeric',
             'role' => 'required',
-            'password' => 'required'
+            'password' => 'required',
         ];
     }
 
-    public function updated($fields){
-        $this->validateOnly($fields,[
+    public function updated($fields)
+    {
+        $this->validateOnly($fields, [
             'name' => 'required|max:40',
             'address' => 'required|max:100',
             'email' => 'required|email',
@@ -39,11 +56,12 @@ class UserCreateForm extends Component
             'phone' => 'required|phone:PH',
             'age' => 'required',
             'role' => 'required',
-            'password' => 'required'
+            'password' => 'required',
         ]);
     }
 
-    public function StoreUserData(){
+    public function StoreUserData()
+    {
         $this->validate();
         $imagename = $this->email.Str::random(10);
 
@@ -61,22 +79,22 @@ class UserCreateForm extends Component
 
         $user = User::create($data);
 
-        if(!Storage::disk('public')->exists('employee_profile_picture'))
-        {
+        if (! Storage::disk('public')->exists('employee_profile_picture')) {
             Storage::disk('public')->makeDirectory('employee_profile_picture', 0775, true);
         }
 
         $avatar = Avatar::create($this->name)->save(storage_path('app/public/employee_profile_picture/'.$imagename.'.png'));
         $user->assignRole($this->role);
-        return redirect()->route('user.index')->with('success', $this->name .' was successfully inserted');
+
+        return redirect()->route('user.index')->with('success', $this->name.' was successfully inserted');
     }
 
     public function render()
     {
         $roles = Role::whereNotIn('name', ['Super Admin'])->get();
 
-        return view('livewire.form.user-create-form',[
-            'roles' => $roles
+        return view('livewire.form.user-create-form', [
+            'roles' => $roles,
         ]);
     }
 }

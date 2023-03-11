@@ -8,10 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class CancellationReason extends Model
 {
     use HasFactory;
+
     protected $table = 'cancellation_reason';
+
     protected $fillable = [
         'name',
     ];
-
-
 }

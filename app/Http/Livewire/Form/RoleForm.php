@@ -2,13 +2,16 @@
 
 namespace App\Http\Livewire\Form;
 
+use Illuminate\Validation\Rule;
 use Livewire\Component;
 use Spatie\Permission\Models\Role;
-use Illuminate\Validation\Rule;
+
 class RoleForm extends Component
 {
     public $name;
+
     public $modelId;
+
     public $oldname;
 
     protected $listeners = [
@@ -17,49 +20,56 @@ class RoleForm extends Component
         'forceCloseModal',
     ];
 
-    protected function rules(){
+    protected function rules()
+    {
         return [
-            'name'=> ['required', Rule::unique('roles')->ignore($this->modelId)],
+            'name' => ['required', Rule::unique('roles')->ignore($this->modelId)],
         ];
     }
 
-    public function forceCloseModal(){
+    public function forceCloseModal()
+    {
         $this->cleanVars();
         $this->resetErrorBag();
     }
 
-    public function getModelId($modelId){
+    public function getModelId($modelId)
+    {
         $this->modelId = $modelId;
         $roles = Role::findorFail($this->modelId);
         $this->name = $roles->name;
     }
 
-    public function updated($fields){
-        $this->validateOnly($fields,[
+    public function updated($fields)
+    {
+        $this->validateOnly($fields, [
             'name' => 'required|unique:roles,name,'.$this->modelId.'',
         ]);
     }
-    public function closeModal(){
+
+    public function closeModal()
+    {
         $this->cleanVars();
         $this->resetErrorBag();
         $this->dispatchBrowserEvent('CloseModal');
     }
 
-    public function StoreRoleData(){
+    public function StoreRoleData()
+    {
         $model = Role::find($this->modelId);
-        if($this->modelId){
+        if ($this->modelId) {
             $this->validate();
             $this->oldname = $model->name;
             $model->name = $this->name;
             $model->update();
 
-            $this->dispatchBrowserEvent('SuccessAlert',[
+            $this->dispatchBrowserEvent('SuccessAlert', [
                 'name' => $this->oldname.' was sucessfully changed to '.$this->name,
                 'title' => 'Record Successfully Edit',
             ]);
-        }else{
+        } else {
             Role::create($this->validate());
-            $this->dispatchBrowserEvent('SuccessAlert',[
+            $this->dispatchBrowserEvent('SuccessAlert', [
                 'name' => $this->name.' was successfully saved!',
                 'title' => 'Record Saved',
             ]);
@@ -70,11 +80,13 @@ class RoleForm extends Component
         $this->resetErrorBag();
     }
 
-    private function cleanVars(){
+    private function cleanVars()
+    {
         $this->modelId = null;
         $this->name = null;
         $this->oldname = null;
     }
+
     public function render()
     {
         return view('livewire.form.role-form');

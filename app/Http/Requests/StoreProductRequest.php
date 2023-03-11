@@ -24,7 +24,7 @@ class StoreProductRequest extends FormRequest
     public function rules()
     {
         return [
-            'name'=>'required|unique:product,name',
+            'name' => 'required|unique:product,name',
             'category' => 'required',
             'brand' => 'required',
             'stock' => 'required|integer|min:0',
@@ -38,10 +38,11 @@ class StoreProductRequest extends FormRequest
             //'images' => 'required',
             'images.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
 
-
         ];
     }
-    public function messages(){
+
+    public function messages()
+    {
         return [
             'name.required' => 'The product name field is required.',
             'cprice.required' => 'The cost price field is required.',

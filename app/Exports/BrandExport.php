@@ -4,15 +4,15 @@ namespace App\Exports;
 
 use App\Models\Brand;
 use Maatwebsite\Excel\Concerns\FromCollection;
-use Maatwebsite\Excel\Concerns\WithHeadings;
 use Maatwebsite\Excel\Concerns\ShouldAutoSize;
+use Maatwebsite\Excel\Concerns\WithHeadings;
 use Maatwebsite\Excel\Concerns\WithMapping;
-use PhpOffice\PhpSpreadsheet\Shared\Date;
-class BrandExport implements FromCollection,WithHeadings,ShouldAutoSize,WithMapping
+
+class BrandExport implements FromCollection, WithHeadings, ShouldAutoSize, WithMapping
 {
     /**
-    * @return \Illuminate\Support\Collection
-    */
+     * @return \Illuminate\Support\Collection
+     */
     public function collection()
     {
         return Brand::all();
@@ -31,5 +31,4 @@ class BrandExport implements FromCollection,WithHeadings,ShouldAutoSize,WithMapp
             'Brand Name',
         ];
     }
-
 }

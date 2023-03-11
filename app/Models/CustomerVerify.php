@@ -10,12 +10,14 @@ class CustomerVerify extends Model
     use HasFactory;
 
     protected $table = 'verify_customers';
+
     protected $fillable = [
         'customers_id',
         'token',
     ];
 
-    public function customers(){
+    public function customers()
+    {
         return $this->belongsTo(Customer::class);
     }
 }

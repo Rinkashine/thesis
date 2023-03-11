@@ -2,15 +2,21 @@
 
 namespace App\Http\Livewire\Modal;
 
-use Livewire\Component;
 use App\Models\Supplier;
+use Livewire\Component;
+
 class ShowSupplier extends Component
 {
     public $modelId;
+
     public $name;
+
     public $contact_name;
+
     public $contact_number;
+
     public $email;
+
     public $address;
 
     protected $listeners = [
@@ -19,19 +25,20 @@ class ShowSupplier extends Component
         'forceCloseModal',
     ];
 
-
-
-    public function closeModal(){
+    public function closeModal()
+    {
         $this->cleanVars();
         $this->resetErrorBag();
         $this->dispatchBrowserEvent('CloseShowModal');
     }
 
-    public function forceCloseModal(){
+    public function forceCloseModal()
+    {
         $this->cleanVars();
     }
 
-    public function getSupplierModalId($modelId){
+    public function getSupplierModalId($modelId)
+    {
         $this->modelId = $modelId;
         $supplier = Supplier::onlyTrashed()->findorFail($this->modelId);
         $this->name = $supplier->name;
@@ -41,7 +48,8 @@ class ShowSupplier extends Component
         $this->address = $supplier->address;
     }
 
-    private function cleanVars(){
+    private function cleanVars()
+    {
         $this->modelId = null;
         $this->name = null;
         $this->contact_name = null;

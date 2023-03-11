@@ -2,11 +2,9 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
-use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Str;
 use App\Models\User;
+use Illuminate\Database\Seeder;
+
 class AdminAccountSeeder extends Seeder
 {
     /**
@@ -23,7 +21,7 @@ class AdminAccountSeeder extends Seeder
             'address' => '283 Ramos Compound Baesa Quezon City',
             'password' => 'Onepiece25!',
             'gender' => 'male',
-            'age'=>'20'
+            'age' => '20',
         ]);
         $user->assignRole('Super Admin');
         User::create([
@@ -33,9 +31,7 @@ class AdminAccountSeeder extends Seeder
             'address' => '283 Ramos Compound Baesa Quezon City',
             'password' => 'Onepiece25!',
             'gender' => 'male',
-            'age'=>'20'
+            'age' => '20',
         ])->assignRole('manager');
-
-
     }
 }

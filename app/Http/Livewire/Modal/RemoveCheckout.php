@@ -2,8 +2,8 @@
 
 namespace App\Http\Livewire\Modal;
 
-use Livewire\Component;
 use App\Models\CustomerCart;
+use Livewire\Component;
 
 class RemoveCheckout extends Component
 {
@@ -15,24 +15,30 @@ class RemoveCheckout extends Component
         'refreshChild' => '$refresh',
     ];
 
-    public function forceCloseModal(){
+    public function forceCloseModal()
+    {
         $this->cleanVars();
         $this->resetErrorBag();
     }
 
-    private function cleanVars(){
+    private function cleanVars()
+    {
         $this->modelId = null;
     }
 
-    public function getModelDeleteModalId($modelId){
+    public function getModelDeleteModalId($modelId)
+    {
         $this->modelId = $modelId;
     }
 
-    public function closeModal(){
+    public function closeModal()
+    {
         $this->cleanVars();
         $this->dispatchBrowserEvent('CloseDeleteModal');
     }
-    public function delete(){
+
+    public function delete()
+    {
         $product = CustomerCart::find($this->modelId);
 
         $product->check = 0;
@@ -41,6 +47,7 @@ class RemoveCheckout extends Component
         $this->cleanVars();
         $this->dispatchBrowserEvent('CloseDeleteModal');
     }
+
     public function render()
     {
         return view('livewire.modal.remove-checkout');

@@ -24,14 +24,14 @@ class StoreLoginRequest extends FormRequest
     public function rules()
     {
         return [
-            'email' =>'required|email|exists:customers,email',
+            'email' => 'required|email|exists:customers,email',
         ];
     }
 
-    public function messages(){
+    public function messages()
+    {
         return [
             'email.exists' => 'Your account and/or password is incorrect, please try again',
         ];
     }
-
 }

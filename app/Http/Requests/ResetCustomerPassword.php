@@ -4,6 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rules\Password;
+
 class ResetCustomerPassword extends FormRequest
 {
     /**
@@ -24,8 +25,8 @@ class ResetCustomerPassword extends FormRequest
     public function rules()
     {
         return [
-            'email'=>'required|email|exists:customers,email',
-            'password'=>['required', Password::defaults() ,'confirmed'],
+            'email' => 'required|email|exists:customers,email',
+            'password' => ['required', Password::defaults(), 'confirmed'],
         ];
     }
 }

@@ -17,10 +17,10 @@ return [
         'guard' => 'web',
         'passwords' => 'users',
     ],
-    'customer'=>[
-        'driver'=>'eloquent',
-        'model'=>App\Models\Customer::class,
-     ],
+    'customer' => [
+        'driver' => 'eloquent',
+        'model' => App\Models\Customer::class,
+    ],
 
     /*
     |--------------------------------------------------------------------------
@@ -44,18 +44,18 @@ return [
             'driver' => 'session',
             'provider' => 'users',
         ],
-        'admin'=>[
-            'driver'=>'session',
-            'provider'=>'admins',
-         ],
-         'api' => [
+        'admin' => [
+            'driver' => 'session',
+            'provider' => 'admins',
+        ],
+        'api' => [
             'driver' => 'token',
             'provider' => 'users',
             'hash' => false,
         ],
-        'customer'=>[
-           'driver'=>'session',
-           'provider'=>'customer',
+        'customer' => [
+            'driver' => 'session',
+            'provider' => 'customer',
         ],
     ],
 
@@ -86,10 +86,10 @@ return [
         //     'driver' => 'database',
         //     'table' => 'users',
         // ],
-        'customer'=>[
-            'driver'=>'eloquent',
-            'model'=>App\Models\Customer::class,
-         ],
+        'customer' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Customer::class,
+        ],
     ],
 
     /*
@@ -114,15 +114,15 @@ return [
             'expire' => 60,
             'throttle' => 60,
         ],
-        'customer'=>[
-            'driver'=>'eloquent',
-            'model'=>App\Models\Customer::class,
+        'customer' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Customer::class,
 
-              /* NEW*/
+            /* NEW*/
             'table' => 'password_resets',
             'expire' => 60,
             'throttle' => 60,
-             /*----*/
+            /*----*/
 
         ],
 

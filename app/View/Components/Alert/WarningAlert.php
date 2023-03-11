@@ -7,6 +7,7 @@ use Illuminate\View\Component;
 class WarningAlert extends Component
 {
     public $message;
+
     /**
      * Create a new component instance.
      *

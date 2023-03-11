@@ -2,28 +2,50 @@
 
 namespace App\Http\Livewire\Modal;
 
-use Livewire\Component;
 use App\Models\Product;
+use Livewire\Component;
+
 class ShowProduct extends Component
 {
     public $modelId;
-    public $name,$category,$brand,$stock,$sku,$cprice,$sprice,$weight,$description;
+
+    public $name;
+
+    public $category;
+
+    public $brand;
+
+    public $stock;
+
+    public $sku;
+
+    public $cprice;
+
+    public $sprice;
+
+    public $weight;
+
+    public $description;
 
     protected $listeners = [
         'getProductModalId',
         'forceCloseModal',
     ];
 
-    public function closeModal(){
+    public function closeModal()
+    {
         $this->cleanVars();
         $this->resetErrorBag();
         $this->dispatchBrowserEvent('CloseShowModal');
     }
-    public function forceCloseModal(){
+
+    public function forceCloseModal()
+    {
         $this->cleanVars();
     }
 
-    public function getProductModalId($modelId){
+    public function getProductModalId($modelId)
+    {
         $this->modelId = $modelId;
         $product = Product::onlyTrashed()->findorFail($this->modelId);
         $this->name = $product->name;
@@ -35,15 +57,13 @@ class ShowProduct extends Component
         $this->sku = $product->SKU;
         $this->description = $product->description;
         $this->weight = $product->weight;
-
-
     }
-    private function cleanVars(){
+
+    private function cleanVars()
+    {
         $this->modelId = null;
         $this->name = null;
-
     }
-
 
     public function render()
     {

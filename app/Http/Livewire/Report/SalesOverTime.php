@@ -2,11 +2,10 @@
 
 namespace App\Http\Livewire\Report;
 
-use Livewire\Component;
-use Analytics;
-use Spatie\Analytics\Period;
-use Illuminate\Support\Facades\DB;
 use App\Models\CustomerOrder;
+use Illuminate\Support\Facades\DB;
+use Livewire\Component;
+
 class SalesOverTime extends Component
 {
     public function render()
@@ -18,24 +17,24 @@ class SalesOverTime extends Component
             DB::raw(value: 'MONTH(customer_order.created_at) as month'),
             DB::raw(value: 'SUM(customer_order_item.quantity*customer_order_item.price) as total'),
         ])
-        ->where('customer_order.status','Completed')
-        ->groupBy('month_name', 'year','month')
-        ->orderBy('year','asc')
-        ->orderBy('month','asc')
+        ->where('customer_order.status', 'Completed')
+        ->groupBy('month_name', 'year', 'month')
+        ->orderBy('year', 'asc')
+        ->orderBy('month', 'asc')
         ->get();
 
         $saleschartlabel = [];
         $saleschartdataset = [];
 
-        foreach($monthlysales as $sales){
-           array_push($saleschartlabel, $sales->year.'-'.$sales->month_name);
-           array_push($saleschartdataset,$sales->total);
+        foreach ($monthlysales as $sales) {
+            array_push($saleschartlabel, $sales->year.'-'.$sales->month_name);
+            array_push($saleschartdataset, $sales->total);
         }
 
-        return view('livewire.report.sales-over-time',[
+        return view('livewire.report.sales-over-time', [
             'monthlysales' => $monthlysales,
             'saleschartlabel' => $saleschartlabel,
-            'saleschartdataset' => $saleschartdataset
+            'saleschartdataset' => $saleschartdataset,
         ]);
     }
 }

@@ -1,20 +1,26 @@
 <?php
 
 namespace App\Http\Livewire\Form;
-use App\Models\Product;
+
 use App\Models\InventoryHistory;
-use Illuminate\Validation\Rule;
+use App\Models\Product;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 
 class InventoryAdjustForm extends Component
 {
     public $inventoryAdjust;
+
     public $modelId;
+
     public $productname;
+
     public $total;
+
     public $reason;
+
     public $original;
+
     protected $listeners = [
         'getAdjustModalId',
         'refreshChild' => '$refresh',
@@ -26,47 +32,49 @@ class InventoryAdjustForm extends Component
         return view('livewire.form.inventory-adjust-form');
     }
 
-
-    public function forceCloseModal(){
+    public function forceCloseModal()
+    {
         $this->cleanVars();
         $this->resetErrorBag();
     }
 
-    public function getAdjustModalId($modelId){
+    public function getAdjustModalId($modelId)
+    {
         $this->modelId = $modelId;
         $product = Product::findorFail($this->modelId);
         $this->inventoryedit = $product->stock;
         $this->productname = $product->name;
         $this->original = $product->stock;
-
     }
 
-    public function updated($fields){
-        $this->validateOnly($fields,[
+    public function updated($fields)
+    {
+        $this->validateOnly($fields, [
             'inventoryAdjust' => 'required|numeric',
-            'reason' => 'required'
+            'reason' => 'required',
         ]);
     }
 
-    protected function rules(){
+    protected function rules()
+    {
         return [
             'inventoryAdjust' => 'required|numeric',
-            'reason' => 'required'
+            'reason' => 'required',
         ];
     }
 
-
-    public function AdjustInventoryData(){
+    public function AdjustInventoryData()
+    {
         $product = Product::findorFail($this->modelId);
         $this->validate();
-        if($this->inventoryAdjust != 0){
+        if ($this->inventoryAdjust != 0) {
             $total = $product->stock + $this->inventoryAdjust;
             $product->stock = $total;
             $product->update();
 
-            if($this->inventoryAdjust >= 1){
-                $value = "+".$this->inventoryAdjust;
-            }else{
+            if ($this->inventoryAdjust >= 1) {
+                $value = '+'.$this->inventoryAdjust;
+            } else {
                 $value = $this->inventoryAdjust;
             }
 
@@ -78,15 +86,14 @@ class InventoryAdjustForm extends Component
                 'activity' => $this->reason,
                 'adjusted_by' => Auth::guard('web')->user()->name,
                 'operation_value' => $operationvalue,
-                'latest_value' => $latest_value ,
+                'latest_value' => $latest_value,
             ]);
 
-            $this->dispatchBrowserEvent('SuccessAlert',[
+            $this->dispatchBrowserEvent('SuccessAlert', [
                 'name' => $this->productname.' was successfully saved!',
                 'title' => 'Product Inventory Adjusted',
             ]);
         }
-
 
         $this->cleanVars();
         $this->dispatchBrowserEvent('CloseModal');
@@ -94,14 +101,16 @@ class InventoryAdjustForm extends Component
         $this->resetErrorBag();
     }
 
-    private function cleanVars(){
+    private function cleanVars()
+    {
         $this->modelId = null;
         $this->inventoryAdjust = null;
         $this->productname = null;
         $this->total = null;
     }
 
-    public function closeModal(){
+    public function closeModal()
+    {
         $this->cleanVars();
         $this->resetErrorBag();
         $this->dispatchBrowserEvent('CloseModal');

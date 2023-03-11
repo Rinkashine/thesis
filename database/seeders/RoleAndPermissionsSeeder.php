@@ -2,10 +2,9 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
+use Spatie\Permission\Models\Role;
 
 class RoleAndPermissionsSeeder extends Seeder
 {
@@ -75,12 +74,12 @@ class RoleAndPermissionsSeeder extends Seeder
             'inventory_transfer_access',
             'inventory_transfer_delete',
             'inventory_transfer_create',
-            'discount_access'
+            'discount_access',
 
         ];
-        foreach($permissions as $permission){
+        foreach ($permissions as $permission) {
             Permission::create([
-                'name' => $permission
+                'name' => $permission,
             ]);
         }
 
@@ -88,7 +87,6 @@ class RoleAndPermissionsSeeder extends Seeder
         //Super Admin
         $admin = Role::create(['name' => 'Super Admin']);
         $admin->givePermissionTo(Permission::all());
-
 
         $manager = Role::create(['name' => 'Manager']);
 
@@ -104,12 +102,11 @@ class RoleAndPermissionsSeeder extends Seeder
             'user_management_access',
         ];
 
-        foreach($managerpermissions as $permission){
+        foreach ($managerpermissions as $permission) {
             $manager->givePermissionTo($permission);
         }
 
         $inventory = Role::create(['name' => 'Inventory']);
         $inventory->givePermissionTo(Permission::all());
-
     }
 }

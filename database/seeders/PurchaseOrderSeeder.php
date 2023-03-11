@@ -2,11 +2,10 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use Carbon\Carbon;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Str;
-use Carbon\Carbon;
+
 class PurchaseOrderSeeder extends Seeder
 {
     /**
@@ -16,8 +15,8 @@ class PurchaseOrderSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('purchase_order') ->insert([
-         /*
+        DB::table('purchase_order')->insert([
+            /*
             [
                 'suppliers_id' => 3,
                 'status' => "Draft",

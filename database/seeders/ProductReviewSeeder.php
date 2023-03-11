@@ -2,11 +2,10 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use Carbon\Carbon;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
-use Carbon\Carbon;
-use App\Models\Review;
+
 class ProductReviewSeeder extends Seeder
 {
     /**
@@ -16,7 +15,7 @@ class ProductReviewSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('product_review') ->insert([
+        DB::table('product_review')->insert([
             [ //2-Ply Dental Bib - BEGIN
                 'customer_id' => '1',
                 'customer_order_item_id' => '3',
@@ -205,7 +204,7 @@ class ProductReviewSeeder extends Seeder
                 'rate' => '5',
                 'created_at' => '2022-11-27 00:00:00',
                 'updated_at' => '2022-11-27 00:00:00',
-            ],//2-Ply Dental Bib - END
+            ], //2-Ply Dental Bib - END
             [ //Applicator Tips - BEGIN
                 'customer_id' => '1',
                 'customer_order_item_id' => '62',
@@ -385,7 +384,7 @@ class ProductReviewSeeder extends Seeder
                 'rate' => '5',
                 'created_at' => '2022-11-27 00:00:00',
                 'updated_at' => '2022-11-27 00:00:00',
-            ],//Applicator Tips - END
+            ], //Applicator Tips - END
             [//Dental Castone - BEGIN
                 'customer_id' => '3',
                 'customer_order_item_id' => '82',
@@ -556,7 +555,7 @@ class ProductReviewSeeder extends Seeder
                 'rate' => '5',
                 'created_at' => '2022-11-27 00:00:00',
                 'updated_at' => '2022-11-27 00:00:00',
-            ],//Dental Castone - END
+            ], //Dental Castone - END
             [//Armstrong Diestone - BEGIN
                 'customer_id' => '3',
                 'customer_order_item_id' => '101',
@@ -727,7 +726,7 @@ class ProductReviewSeeder extends Seeder
                 'rate' => '4',
                 'created_at' => '2022-11-27 00:00:00',
                 'updated_at' => '2022-11-27 00:00:00',
-            ],//Armstrong Diestone - END
+            ], //Armstrong Diestone - END
             [//Articaine - BEGIN
                 'customer_id' => '3',
                 'customer_order_item_id' => '120',
@@ -898,7 +897,7 @@ class ProductReviewSeeder extends Seeder
                 'rate' => '5',
                 'created_at' => '2022-11-27 00:00:00',
                 'updated_at' => '2022-11-27 00:00:00',
-            ],//Articaine - END
+            ], //Articaine - END
             [//Articulating Paper - BEGIN
                 'customer_id' => '3',
                 'customer_order_item_id' => '139',
@@ -1069,8 +1068,7 @@ class ProductReviewSeeder extends Seeder
                 'rate' => '4',
                 'created_at' => '2022-11-27 00:00:00',
                 'updated_at' => '2022-11-27 00:00:00',
-            ],//Articulating Paper - END
-
+            ], //Articulating Paper - END
 
         ]);
     }

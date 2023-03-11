@@ -3,14 +3,15 @@
 namespace App\Mail;
 
 use Illuminate\Bus\Queueable;
-use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
 class CustomerResetPassword extends Mailable
 {
     use Queueable, SerializesModels;
+
     public $details;
+
     /**
      * Create a new message instance.
      *
@@ -18,7 +19,7 @@ class CustomerResetPassword extends Mailable
      */
     public function __construct($details)
     {
-        $this->details =  $details;
+        $this->details = $details;
     }
 
     /**
@@ -28,12 +29,12 @@ class CustomerResetPassword extends Mailable
      */
     public function build()
     {
-        return $this->subject("Go Dental Reset Password")
+        return $this->subject('Go Dental Reset Password')
         ->markdown('customer.mail.forgot-pass')
-        ->from('godentalnoreply@gmail.com', "Go Dental")
+        ->from('godentalnoreply@gmail.com', 'Go Dental')
         ->with([
             'email' => $this->details['email'],
-            'action_link' => $this->details['action_link']
+            'action_link' => $this->details['action_link'],
         ]);
     }
 }

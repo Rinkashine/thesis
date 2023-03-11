@@ -8,7 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class CustomerOrder extends Model
 {
     use HasFactory;
+
     protected $table = 'customer_order';
+
     protected $fillable = [
         'customers_id',
         'shippingfee',
@@ -25,25 +27,27 @@ class CustomerOrder extends Model
         'city',
         'barangay',
         'cancellation_reason_id',
-        'cancellation_details'
+        'cancellation_details',
     ];
 
-    public static function search($search){
+    public static function search($search)
+    {
         return empty($search) ? static::query() :
-        static::query()->where('id','like','%'.$search.'%');
+        static::query()->where('id', 'like', '%'.$search.'%');
     }
-    public function customers(){
+
+    public function customers()
+    {
         return $this->belongsTo(Customer::class);
     }
-    public function cancellation_reason(){
+
+    public function cancellation_reason()
+    {
         return $this->belongsTo(CancellationReason::class);
     }
 
-    public function orderTransactions(){
-        return $this->hasMany(CustomerOrderItems::class, 'customer_order_id','id');
+    public function orderTransactions()
+    {
+        return $this->hasMany(CustomerOrderItems::class, 'customer_order_id', 'id');
     }
-
-
-
 }
-?>

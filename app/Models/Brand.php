@@ -8,17 +8,21 @@ use Illuminate\Database\Eloquent\Model;
 class Brand extends Model
 {
     use HasFactory;
+
     protected $table = 'brand';
+
     protected $fillable = [
-        'name','photo'
+        'name', 'photo',
     ];
+
     public function brandTransactions()
     {
-        return $this->hasMany(Product::class, 'brand_id','id');
+        return $this->hasMany(Product::class, 'brand_id', 'id');
     }
 
-    public static function search($search){
+    public static function search($search)
+    {
         return empty($search) ? static::query() :
-        static::query()->where('name','like','%'.$search.'%');
+        static::query()->where('name', 'like', '%'.$search.'%');
     }
 }

@@ -2,8 +2,9 @@
 
 namespace App\Http\Livewire\Modal;
 
-use Livewire\Component;
 use App\Models\Supplier;
+use Livewire\Component;
+
 class ArchiveSupplier extends Component
 {
     public $modelId;
@@ -14,27 +15,33 @@ class ArchiveSupplier extends Component
         'forceCloseModal',
     ];
 
-    public function forceCloseModal(){
+    public function forceCloseModal()
+    {
         $this->cleanVars();
         $this->resetErrorBag();
     }
 
-    public function getModelArchiveID($modelId){
+    public function getModelArchiveID($modelId)
+    {
         $this->modelId = $modelId;
     }
-    public function closeModal(){
+
+    public function closeModal()
+    {
         $this->cleanVars();
         $this->dispatchBrowserEvent('CloseDeleteModal');
     }
 
-    private function cleanVars(){
+    private function cleanVars()
+    {
         $this->modelId = null;
     }
 
-    public function delete(){
+    public function delete()
+    {
         $supplier = Supplier::find($this->modelId);
         $supplier->delete();
-        $this->dispatchBrowserEvent('SuccessAlert',[
+        $this->dispatchBrowserEvent('SuccessAlert', [
             'name' => $supplier->name.' was successfully archived!',
             'title' => 'Record Archived',
         ]);

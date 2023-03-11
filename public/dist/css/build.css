@@ -1137,12 +1137,6 @@ select {
 .w-3\/4 {
   width: 75%;
 }
-.w-2 {
-  width: 0.5rem;
-}
-.w-2\/4 {
-  width: 50%;
-}
 .max-w-xs {
   max-width: 20rem;
 }
@@ -2323,16 +2317,16 @@ select {
     margin-top: 1.25rem;
   }
 
+  .lg\:ml-4 {
+    margin-left: 1rem;
+  }
+
   .lg\:mt-3 {
     margin-top: 0.75rem;
   }
 
   .lg\:ml-2 {
     margin-left: 0.5rem;
-  }
-
-  .lg\:ml-4 {
-    margin-left: 1rem;
   }
 
   .lg\:mb-0 {

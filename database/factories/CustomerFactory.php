@@ -1,10 +1,9 @@
 <?php
 
 namespace Database\Factories;
-use App\Models\Customer;
+
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
-
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Customer>
@@ -24,9 +23,9 @@ class CustomerFactory extends Factory
             'email_verified_at' => now(),
             'phone_number' => $this->faker->numerify('09#########'),
             'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
-            'gender' => ['Male','Female'][rand(0,1)],
+            'gender' => ['Male', 'Female'][rand(0, 1)],
             'birthday' => $this->faker->date(),
-            'remember_token' => Str::random(10)
+            'remember_token' => Str::random(10),
         ];
     }
 }

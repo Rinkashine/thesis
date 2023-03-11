@@ -2,12 +2,14 @@
 
 namespace App\Http\Livewire\Modal;
 
-use Livewire\Component;
 use App\Models\Supplier;
 use Illuminate\Support\Facades\Gate;
+use Livewire\Component;
+
 class RestoreSupplier extends Component
 {
     public $modelId;
+
     public function render()
     {
         return view('livewire.modal.restore-supplier');
@@ -18,25 +20,35 @@ class RestoreSupplier extends Component
         'forceCloseModal',
         'refreshChild' => '$refresh',
     ];
-    public function forceCloseModal(){
+
+    public function forceCloseModal()
+    {
         $this->cleanVars();
         $this->resetErrorBag();
     }
-    private function cleanVars(){
+
+    private function cleanVars()
+    {
         $this->modelId = null;
     }
-    public function getModelRestoreId($modelId){
+
+    public function getModelRestoreId($modelId)
+    {
         $this->modelId = $modelId;
     }
-    public function closeModal(){
+
+    public function closeModal()
+    {
         $this->cleanVars();
         $this->dispatchBrowserEvent('closeRestoreModal');
     }
-    public function restore(){
-        abort_if(Gate::denies('supplier_restore'),403);
+
+    public function restore()
+    {
+        abort_if(Gate::denies('supplier_restore'), 403);
         $supplier = Supplier::onlyTrashed()->find($this->modelId);
         $supplier->restore();
-        $this->dispatchBrowserEvent('SuccessAlert',[
+        $this->dispatchBrowserEvent('SuccessAlert', [
             'name' => $supplier->name.' was successfully restored!',
             'title' => 'Record Restore',
         ]);
@@ -45,7 +57,4 @@ class RestoreSupplier extends Component
         $this->cleanVars();
         $this->dispatchBrowserEvent('closeRestoreModal');
     }
-
-
-
 }

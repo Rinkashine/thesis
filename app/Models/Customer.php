@@ -3,21 +3,20 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+
 class Customer extends Authenticatable
 {
     use HasFactory, Notifiable, SoftDeletes,HasApiTokens;
+
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
-
     protected $fillable = [
         'name',
         'email',
@@ -26,26 +25,27 @@ class Customer extends Authenticatable
         'birthday',
         'photo',
         'gender',
-        'email_verified'
+        'email_verified',
     ];
 
     public function customershippingaddress()
     {
-        return $this->hasMany(CustomerShippingAddress::class, 'customer_id','id');
+        return $this->hasMany(CustomerShippingAddress::class, 'customer_id', 'id');
     }
 
     public function customerscart()
     {
-        return $this->hasMany(CustomerCart::class, 'customer_id','id');
+        return $this->hasMany(CustomerCart::class, 'customer_id', 'id');
     }
 
-
-    public static function search($search){
+    public static function search($search)
+    {
         return empty($search) ? static::query() :
-        static::query()->where('name','like','%'.$search.'%')
-        ->orWhere('email','like','%'.$search.'%')
-        ->orWhere('phone_number','like','%'.$search.'%');
-      }
+        static::query()->where('name', 'like', '%'.$search.'%')
+        ->orWhere('email', 'like', '%'.$search.'%')
+        ->orWhere('phone_number', 'like', '%'.$search.'%');
+    }
+
     /**
      * The attributes that should be hidden for arrays.
      *
@@ -75,5 +75,4 @@ class Customer extends Authenticatable
      *
      * @var array
      */
-
 }

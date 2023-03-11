@@ -3,7 +3,6 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Validation\Rule;
 
 class UpdateProductImageRequest extends FormRequest
 {
@@ -26,7 +25,7 @@ class UpdateProductImageRequest extends FormRequest
     {
         return [
             'images' => 'required',
-            'images.*' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048'
+            'images.*' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ];
     }
 }

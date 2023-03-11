@@ -8,9 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class CustomerOrderItems extends Model
 {
     use HasFactory;
+
     public $timestamps = false;
 
     protected $table = 'customer_order_item';
+
     protected $fillable = [
         'customer_order_id',
         'product_id',
@@ -18,15 +20,14 @@ class CustomerOrderItems extends Model
         'price',
         'quantity',
     ];
-    public function customer_orders(){
+
+    public function customer_orders()
+    {
         return $this->belongsTo(CustomerOrder::class);
     }
 
-    public function reviewTransactions(){
-        return $this->hasMany(Review::class,'customer_order_item_id' ,'id',);
+    public function reviewTransactions()
+    {
+        return $this->hasMany(Review::class, 'customer_order_item_id', 'id');
     }
-
-
-
-
 }

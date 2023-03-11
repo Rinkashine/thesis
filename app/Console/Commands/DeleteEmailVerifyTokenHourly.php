@@ -2,9 +2,10 @@
 
 namespace App\Console\Commands;
 
+use Carbon\Carbon;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\DB;
-use Carbon\Carbon;
+
 class DeleteEmailVerifyTokenHourly extends Command
 {
     /**
@@ -29,6 +30,5 @@ class DeleteEmailVerifyTokenHourly extends Command
     public function handle()
     {
         DB::table('verify_customers')->where('created_at', '<=', Carbon::now()->subDay())->delete();
-
     }
 }

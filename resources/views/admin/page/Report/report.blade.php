@@ -92,6 +92,27 @@
                                 <td class="whitespace-nowrap text-center"><a href="{{ Route('report.OrderCategory') }}">View Details</a></td>
                             </tr>
 
+                            <tr>
+                                <td class="whitespace-nowrap cursor-pointer hover:underline">Cancelled Orders</td>
+                                <td class="whitespace-nowrap text-center">System</td>
+                                <td class="whitespace-nowrap text-center"><a href="{{ Route('report.CancelledOrders') }}">View Details</a></td>
+                            </tr>
+                            <tr>
+                                <td class="whitespace-nowrap cursor-pointer hover:underline">Cancellation Over Time</td>
+                                <td class="whitespace-nowrap text-center">System</td>
+                                <td class="whitespace-nowrap text-center"><a href="{{ Route('report.CancellationOverTime') }}">View Details</a></td>
+                            </tr>
+                            <tr>
+                                <td class="whitespace-nowrap cursor-pointer hover:underline">Rejected Orders</td>
+                                <td class="whitespace-nowrap text-center">System</td>
+                                <td class="whitespace-nowrap text-center"><a href="{{ Route('report.RejectedOrders') }}">View Details</a></td>
+                            </tr>
+
+                            <tr>
+                                <td class="whitespace-nowrap cursor-pointer hover:underline">Customer Per Month</td>
+                                <td class="whitespace-nowrap text-center">System</td>
+                                <td class="whitespace-nowrap text-center"><a href="{{ Route('report.customerPerMonth') }}">View Details</a></td>
+                            </tr>
 
 
                         </tbody>

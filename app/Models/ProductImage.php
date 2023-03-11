@@ -6,14 +6,15 @@ use Illuminate\Database\Eloquent\Model;
 
 class ProductImage extends Model
 {
-
     protected $table = 'product_images';
-     protected $fillable = [
+
+    protected $fillable = [
         'product_id',
         'images',
     ];
-    public function Product_Image_Transaction(){
-        return $this-> belongsTo(Product::class);
-     }
- 
+
+    public function Product_Image_Transaction()
+    {
+        return $this->belongsTo(Product::class);
+    }
 }

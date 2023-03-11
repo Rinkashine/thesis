@@ -2,9 +2,10 @@
 
 namespace App\Http\Livewire\Modal;
 
-use Livewire\Component;
 use App\Models\User;
 use Illuminate\Support\Facades\Gate;
+use Livewire\Component;
+
 class RestoreUser extends Component
 {
     public $modelId;
@@ -15,26 +16,34 @@ class RestoreUser extends Component
         'refreshChild' => '$refresh',
     ];
 
-    public function forceCloseModal(){
+    public function forceCloseModal()
+    {
         $this->cleanVars();
         $this->resetErrorBag();
     }
-    private function cleanVars(){
+
+    private function cleanVars()
+    {
         $this->modelId = null;
     }
-    public function closeModal(){
+
+    public function closeModal()
+    {
         $this->cleanVars();
         $this->dispatchBrowserEvent('closeRestoreModal');
     }
-    public function getModelRestoreId($modelId){
+
+    public function getModelRestoreId($modelId)
+    {
         $this->modelId = $modelId;
     }
 
-    public function restore(){
-        abort_if(Gate::denies('user_restore'),403);
+    public function restore()
+    {
+        abort_if(Gate::denies('user_restore'), 403);
         $user = User::onlyTrashed()->find($this->modelId);
         $user->restore();
-        $this->dispatchBrowserEvent('SuccessAlert',[
+        $this->dispatchBrowserEvent('SuccessAlert', [
             'name' => $user->name.' was successfully restored!',
             'title' => 'Record Restore',
         ]);
@@ -43,7 +52,6 @@ class RestoreUser extends Component
         $this->cleanVars();
         $this->dispatchBrowserEvent('closeRestoreModal');
     }
-
 
     public function render()
     {

@@ -2,19 +2,22 @@
 
 namespace App\Jobs;
 
+use App\Mail\CustomerResetPassword;
 use Illuminate\Bus\Queueable;
-use Illuminate\Contracts\Queue\ShouldBeUnique;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Support\Facades\Mail;
-use App\Mail\CustomerResetPassword;
+
 class CustomerResetPasswordJob implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
+
     protected $details;
+
     public $tries = 3;
+
     /**
      * Create a new job instance.
      *

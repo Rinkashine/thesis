@@ -2,26 +2,29 @@
 
 namespace App\Http\Livewire\Form;
 
-use Livewire\Component;
-use App\Models\PurchaseOrderItems;
-use App\Models\PurchaseOrder;
-use App\Models\PurchaseOrderTimeline;
-
-use App\Models\Product;
-use App\Models\InventoryHistory;
-use Illuminate\Support\Facades\Auth;
 use Alert;
+use App\Models\InventoryHistory;
+use App\Models\Product;
+use App\Models\PurchaseOrder;
+use App\Models\PurchaseOrderItems;
+use App\Models\PurchaseOrderTimeline;
+use Illuminate\Support\Facades\Auth;
+use Livewire\Component;
+
 class ReceiveTransferForm extends Component
 {
     public $transferproducts;
+
     public $receive = [];
-    public function mount($orderinfo){
-        $this->transferproducts = PurchaseOrderItems::where('purchase_order_id',$orderinfo->id)->get();
+
+    public function mount($orderinfo)
+    {
+        $this->transferproducts = PurchaseOrderItems::where('purchase_order_id', $orderinfo->id)->get();
     }
-    public function StoreReceiveInventoryData(){
 
-        foreach($this->transferproducts as $Tprod){
-
+    public function StoreReceiveInventoryData()
+    {
+        foreach ($this->transferproducts as $Tprod) {
             $product = Product::findorFail($Tprod->product->id);
             $PreviousStock = $product->stock;
             $order_items_quantity = $this->receive[$Tprod->id];
@@ -46,16 +49,16 @@ class ReceiveTransferForm extends Component
                 'latest_value' => $product->stock,
             ]);
 
-        PurchaseOrderTimeline::create([
-            'purchase_order_id' => $Tprod->purchase_order_id,
-            'title' => "Received the Items"
-        ]);
-
-
+            PurchaseOrderTimeline::create([
+                'purchase_order_id' => $Tprod->purchase_order_id,
+                'title' => 'Received the Items',
+            ]);
         }
         Alert::success('Success Title', 'Success Message');
+
         return redirect()->route('transfer.index');
     }
+
     public function render()
     {
         return view('livewire.form.receive-transfer-form');

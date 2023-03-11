@@ -4,6 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
+
 class StoreBrandRequest extends FormRequest
 {
     /**
@@ -24,8 +25,7 @@ class StoreBrandRequest extends FormRequest
     public function rules()
     {
         return [
-            'name'=> ['required', Rule::unique('brand')->ignore($this->brand)],
-
+            'name' => ['required', Rule::unique('brand')->ignore($this->brand)],
 
         ];
     }

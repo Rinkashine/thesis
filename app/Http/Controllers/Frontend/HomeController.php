@@ -2,23 +2,21 @@
 
 namespace App\Http\Controllers\Frontend;
 
-use App\Models\Home;
-use App\Models\Brand;
-use App\Models\Product;
-use App\Models\Category;
-use Illuminate\Http\Request;
-use App\Models\CustomerOrder;
-use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
+use App\Models\Brand;
+use App\Models\Category;
+use App\Models\Home;
+use App\Models\Product;
+use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
 {
-    public function index(){
-        $banners = Home::where('status','=','Active')->get();
+    public function index()
+    {
+        $banners = Home::where('status', '=', 'Active')->get();
         $categories = Category::get();
         $brands = Brand::get();
         $products = Product::where('status', 1)->with('images')->get()->shuffle()->take(10);
-
 
         $top_selling = Product::join('customer_order_item', 'product.id', '=', 'customer_order_item.id')
         ->select(
@@ -31,7 +29,7 @@ class HomeController extends Controller
                 DB::raw('(SELECT brand.name FROM brand WHERE product.brand_id = brand.id) as brand_name'),
             ])
             ->groupBy('product.id', 'product.name', 'product.sprice', 'product.brand_id')
-            ->orderBy('sales','desc')
+            ->orderBy('sales', 'desc')
             ->get()
             ->take(10);
 
@@ -46,17 +44,17 @@ class HomeController extends Controller
                 DB::raw('(SELECT brand.name FROM brand WHERE product.brand_id = brand.id) as brand_name'),
             ])
             ->groupBy('product.id', 'product.name', 'product.sprice', 'product.brand_id')
-            ->orderBy('quantity','desc')
+            ->orderBy('quantity', 'desc')
             ->get()
             ->take(10);
 
-        return view('customer.page.main.home',[
-        'banners' => $banners,
-        'categories' => $categories,
-        'brands' => $brands,
-        'products' => $products,
-        'top_selling' => $top_selling,
-        'top_trending' => $top_trending
+        return view('customer.page.main.home', [
+            'banners' => $banners,
+            'categories' => $categories,
+            'brands' => $brands,
+            'products' => $products,
+            'top_selling' => $top_selling,
+            'top_trending' => $top_trending,
 
         ]);
     }

@@ -2,16 +2,18 @@
 
 namespace App\Http\Livewire\Modal;
 
-use Livewire\Component;
+use Alert;
 use App\Models\CustomerOrder;
 use App\Models\CustomerOrderItems;
+use App\Models\InventoryHistory;
 use App\Models\Product;
 use Illuminate\Support\Facades\Auth;
-use App\Models\InventoryHistory;
-use Alert;
+use Livewire\Component;
+
 class OrderRejectForm extends Component
 {
     public $modelId;
+
     public $remarks;
 
     protected $listeners = [
@@ -20,49 +22,56 @@ class OrderRejectForm extends Component
         'forceCloseModal',
     ];
 
-    protected function rules(){
+    protected function rules()
+    {
         return [
-            'remarks'=> 'required',
+            'remarks' => 'required',
         ];
     }
-    public function updated($fields){
-        $this->validateOnly($fields,[
+
+    public function updated($fields)
+    {
+        $this->validateOnly($fields, [
             'remarks' => 'required',
         ]);
     }
 
-
     protected $validationAttributes = [
-        'remarks' => 'Cancellation Reason'
+        'remarks' => 'Cancellation Reason',
     ];
 
-    public function getModelRejectId($modelId){
+    public function getModelRejectId($modelId)
+    {
         $this->modelId = $modelId;
     }
 
-    private function cleanVars(){
+    private function cleanVars()
+    {
         $this->modelId = null;
         $this->remarks = null;
     }
 
-    public function closeModal(){
+    public function closeModal()
+    {
         $this->cleanVars();
         $this->dispatchBrowserEvent('closeRejectModal');
     }
 
-    public function forceCloseModal(){
+    public function forceCloseModal()
+    {
         $this->cleanVars();
         $this->resetErrorBag();
     }
 
-    public function StoreRejectData(){
+    public function StoreRejectData()
+    {
         $this->validate();
         $rejectorder = CustomerOrder::findorfail($this->modelId);
-        $orderedproducts = CustomerOrderItems::where('customer_order_id',$rejectorder->id)->get();
-        foreach($orderedproducts as $orderedproduct){
-            $products = Product::where('name',$orderedproduct->product_name)->get();
+        $orderedproducts = CustomerOrderItems::where('customer_order_id', $rejectorder->id)->get();
+        foreach ($orderedproducts as $orderedproduct) {
+            $products = Product::where('name', $orderedproduct->product_name)->get();
 
-            foreach($products as $product){
+            foreach ($products as $product) {
                 $product->stock = $product->stock + $orderedproduct->quantity;
                 $product->update();
                 $operationvalue = '(+'.$orderedproduct->quantity.')';
@@ -70,7 +79,7 @@ class OrderRejectForm extends Component
 
                 InventoryHistory::create([
                     'product_id' => $product->id,
-                    'activity' => "Rejected Customer Order with Order ID of ".$rejectorder->id,
+                    'activity' => 'Rejected Customer Order with Order ID of '.$rejectorder->id,
                     'adjusted_by' => Auth::guard('web')->user()->name,
                     'operation_value' => $operationvalue,
                     'latest_value' => $latestvalue,
@@ -79,12 +88,11 @@ class OrderRejectForm extends Component
         }
 
         $rejectorder->rejected_reason = $this->remarks;
-        $rejectorder->status = "Rejected";
+        $rejectorder->status = 'Rejected';
         $rejectorder->update();
-        Alert::success('Order Rejected Success','' );
-        return redirect()->route('orders.show',$this->modelId);
+        Alert::success('Order Rejected Success', '');
 
-
+        return redirect()->route('orders.show', $this->modelId);
     }
 
     public function render()

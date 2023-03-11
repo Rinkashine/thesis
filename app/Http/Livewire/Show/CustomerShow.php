@@ -2,24 +2,41 @@
 
 namespace App\Http\Livewire\Show;
 
-use Livewire\Component;
-use App\Models\Customer;
 use App\Models\CustomerOrder;
-use Illuminate\Support\Facades\Gate;
+use Livewire\Component;
 use Livewire\WithPagination;
+
 class CustomerShow extends Component
 {
     use WithPagination;
+
     public $sorting;
+
     public $perPage = 10;
+
     public $search = null;
+
     protected $queryString = ['search' => ['except' => '']];
+
     protected $paginationTheme = 'bootstrap';
 
-    public $customer_id,$name,$email,$phone,$gender,$birthday,$photo;
+    public $customer_id;
 
-    public function mount($customer){
-        if($customer){
+    public $name;
+
+    public $email;
+
+    public $phone;
+
+    public $gender;
+
+    public $birthday;
+
+    public $photo;
+
+    public function mount($customer)
+    {
+        if ($customer) {
             $this->customer_id = $customer->id;
             $this->name = $customer->name;
             $this->email = $customer->email;
@@ -29,13 +46,15 @@ class CustomerShow extends Component
             $this->photo = $customer->photo;
         }
     }
+
     public function render()
     {
-        $listoforders = CustomerOrder::where('customers_id',$this->customer_id)
-        ->where('id','like','%'.$this->search.'%')
+        $listoforders = CustomerOrder::where('customers_id', $this->customer_id)
+        ->where('id', 'like', '%'.$this->search.'%')
         ->orderby('created_at', 'desc')
         ->paginate($this->perPage);
-        return view('livewire.show.customer-show',[
+
+        return view('livewire.show.customer-show', [
             'listoforders' => $listoforders,
         ]);
     }

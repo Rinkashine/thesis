@@ -3,12 +3,13 @@
 namespace App\Http\Livewire\Modal;
 
 use Livewire\Component;
-use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
+use Spatie\Permission\Models\Role;
 
 class RemovePermission extends Component
 {
     public $role;
+
     public $permission;
 
     protected $listeners = [
@@ -17,37 +18,39 @@ class RemovePermission extends Component
         'forceCloseModal',
     ];
 
-    public function getRevokeModelId($roleid,$permissionid){
+    public function getRevokeModelId($roleid, $permissionid)
+    {
         $this->role = Role::find($roleid);
         $this->permission = Permission::find($permissionid);
-
     }
 
-
-    private function cleanVars(){
+    private function cleanVars()
+    {
         $this->modelId = null;
     }
 
-    public function forceCloseModal(){
+    public function forceCloseModal()
+    {
         $this->cleanVars();
         $this->resetErrorBag();
     }
 
-    public function closeModal(){
+    public function closeModal()
+    {
         $this->cleanVars();
         $this->dispatchBrowserEvent('CloseRevokeModal');
     }
 
-
-    public function revoke(){
-        if($this->role->hasPermissionTo($this->permission)){
+    public function revoke()
+    {
+        if ($this->role->hasPermissionTo($this->permission)) {
             $this->role->revokePermissionTo($this->permission);
-            $this->dispatchBrowserEvent('SuccessAlert',[
+            $this->dispatchBrowserEvent('SuccessAlert', [
                 'name' => 'Permission was successfully revoked',
                 'title' => 'Success Action',
             ]);
-        }else{
-            $this->dispatchBrowserEvent('InvalidAlert',[
+        } else {
+            $this->dispatchBrowserEvent('InvalidAlert', [
                 'name' => 'Permission does not exists',
                 'title' => 'Invalid Action',
             ]);
@@ -57,7 +60,6 @@ class RemovePermission extends Component
         $this->emit('refreshParent');
         $this->resetErrorBag();
     }
-
 
     public function render()
     {

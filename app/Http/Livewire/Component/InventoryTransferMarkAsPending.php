@@ -8,19 +8,21 @@ class InventoryTransferMarkAsPending extends Component
 {
     public $transfer_id;
 
-    public function mount($info){
+    public function mount($info)
+    {
         $this->transfer_id = $info->id;
     }
 
-    public function selectItem($itemId,$action){
+    public function selectItem($itemId, $action)
+    {
         $this->selectedItem = $itemId;
 
-      if($action == 'MarkAsPending'){
-          $this->emit('getInventoryTransferId',$this->selectedItem);
-          $this->dispatchBrowserEvent('OpenMarkAsPendingModal');
-      }
-      $this->action = $action;
-  }
+        if ($action == 'MarkAsPending') {
+            $this->emit('getInventoryTransferId', $this->selectedItem);
+            $this->dispatchBrowserEvent('OpenMarkAsPendingModal');
+        }
+        $this->action = $action;
+    }
 
     public function render()
     {

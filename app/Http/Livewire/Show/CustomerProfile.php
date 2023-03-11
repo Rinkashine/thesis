@@ -6,19 +6,20 @@ use Livewire\Component;
 
 class CustomerProfile extends Component
 {
-
     protected $listeners = [
-        'refreshParent' => '$refresh'
+        'refreshParent' => '$refresh',
     ];
 
     public $action;
+
     public $selectedItem;
 
-    public function selectItem($itemId,$action){
+    public function selectItem($itemId, $action)
+    {
         $this->selectedItem = $itemId;
 
-        if($action == 'edit'){
-            $this->emit('getModelId',$this->selectedItem);
+        if ($action == 'edit') {
+            $this->emit('getModelId', $this->selectedItem);
             $this->dispatchBrowserEvent('openEditInformationModal');
         }
 

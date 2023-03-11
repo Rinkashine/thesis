@@ -1,17 +1,18 @@
 <?php
 
 namespace App\Http\Livewire\Form;
-use App\Models\Product;
+
 use App\Models\InventoryHistory;
-use Illuminate\Validation\Rule;
+use App\Models\Product;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
-
 
 class InventoryEditForm extends Component
 {
     public $inventoryedit;
+
     public $modelId;
+
     public $productname;
 
     protected $listeners = [
@@ -20,14 +21,16 @@ class InventoryEditForm extends Component
         'forceCloseModal',
     ];
 
-    protected function rules(){
+    protected function rules()
+    {
         return [
-            'inventoryedit' => 'required|numeric|min:0'
+            'inventoryedit' => 'required|numeric|min:0',
         ];
     }
 
-    public function updated($fields){
-        $this->validateOnly($fields,[
+    public function updated($fields)
+    {
+        $this->validateOnly($fields, [
             'inventoryedit' => 'required|numeric|min:0',
         ]);
     }
@@ -35,32 +38,35 @@ class InventoryEditForm extends Component
     protected $messages = [
         'inventoryedit.min' => 'Product Stock Cannot Be A Negative Value',
         'inventoryedit.required' => 'Product Stock Cannot Be Empty',
-        'inventoryedit.numeric' => 'Product Stock Must Be A Number'
+        'inventoryedit.numeric' => 'Product Stock Must Be A Number',
     ];
 
-    public function forceCloseModal(){
+    public function forceCloseModal()
+    {
         $this->cleanVars();
         $this->resetErrorBag();
     }
 
-    public function getEditModalId($modelId){
+    public function getEditModalId($modelId)
+    {
         $this->modelId = $modelId;
         $product = Product::findorFail($this->modelId);
         $this->inventoryedit = $product->stock;
         $this->productname = $product->name;
     }
 
-    public function EditInventoryData(){
+    public function EditInventoryData()
+    {
         $product = Product::findorFail($this->modelId);
         $old = $product->stock;
         $this->validate();
         $product->stock = $this->inventoryedit;
         $product->update();
         $total = $this->inventoryedit - $old;
-        if($total != 0){
-            if($total >= 1){
-                $value = "+".$total;
-            }else{
+        if ($total != 0) {
+            if ($total >= 1) {
+                $value = '+'.$total;
+            } else {
                 $value = $total;
             }
             $operationvalue = '('.$value.')';
@@ -73,7 +79,7 @@ class InventoryEditForm extends Component
                 'operation_value' => $operationvalue,
                 'latest_value' => $latestvalue,
             ]);
-            $this->dispatchBrowserEvent('SuccessAlert',[
+            $this->dispatchBrowserEvent('SuccessAlert', [
                 'name' => $this->productname.' stock was successfully edited!',
                 'title' => 'Product Inventory Edited',
             ]);
@@ -84,13 +90,15 @@ class InventoryEditForm extends Component
         $this->resetErrorBag();
     }
 
-    private function cleanVars(){
+    private function cleanVars()
+    {
         $this->modelId = null;
         $this->inventoryedit = null;
         $this->productname = null;
     }
 
-    public function closeModal(){
+    public function closeModal()
+    {
         $this->cleanVars();
         $this->resetErrorBag();
         $this->dispatchBrowserEvent('CloseModal');

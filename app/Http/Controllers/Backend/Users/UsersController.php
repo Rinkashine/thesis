@@ -3,24 +3,29 @@
 namespace App\Http\Controllers\Backend\Users;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Gate;
+
 class UsersController extends Controller
 {
     //Show Users Page
-    public function index(){
-        abort_if(Gate::denies('user_management_access'),403);
+    public function index()
+    {
+        abort_if(Gate::denies('user_management_access'), 403);
         $users = User::get();
-        return view('admin.page.Users.user',[
-            'users' => $users
+
+        return view('admin.page.Users.user', [
+            'users' => $users,
         ]);
     }
-    public function create(){
+
+    public function create()
+    {
         return view('admin.page.Users.usersadd');
     }
 
-    public function UserArchiveIndex(){
+    public function UserArchiveIndex()
+    {
         return view('admin.page.Users.userarchive');
     }
 }
