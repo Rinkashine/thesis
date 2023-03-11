@@ -103,6 +103,11 @@
                                 <td class="whitespace-nowrap text-center"><a href="{{ Route('report.CancellationOverTime') }}">View Details</a></td>
                             </tr>
                             <tr>
+                                <td class="whitespace-nowrap cursor-pointer hover:underline">Cancellation Reasons</td>
+                                <td class="whitespace-nowrap text-center">System</td>
+                                <td class="whitespace-nowrap text-center"><a href="{{ Route('report.CancellationReasons') }}">View Details</a></td>
+                            </tr>
+                            <tr>
                                 <td class="whitespace-nowrap cursor-pointer hover:underline">Rejected Orders</td>
                                 <td class="whitespace-nowrap text-center">System</td>
                                 <td class="whitespace-nowrap text-center"><a href="{{ Route('report.RejectedOrders') }}">View Details</a></td>

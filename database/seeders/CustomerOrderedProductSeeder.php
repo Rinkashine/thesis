@@ -2,9 +2,12 @@
 
 namespace Database\Seeders;
 
+use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Str;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
-
+use App\Models\OrderedProduct;
 class CustomerOrderedProductSeeder extends Seeder
 {
     /**
@@ -14,7 +17,8 @@ class CustomerOrderedProductSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('customer_order_item')->insert([
+
+        DB::table('customer_order_item') ->insert([
 
             [ //1 Dental Bib/Randoms - Begin
                 'customer_order_id' => 104153205,
@@ -201,7 +205,7 @@ class CustomerOrderedProductSeeder extends Seeder
             ],
             [ //27
                 'customer_order_id' => 104153223,
-                'product_id' => 7,
+                'product_id' =>7,
                 'product_name' => '2-Ply Dental Bib',
                 'price' => 200.00,
                 'quantity' => 1,
@@ -210,7 +214,7 @@ class CustomerOrderedProductSeeder extends Seeder
                 'customer_order_id' => 104153224,
                 'product_id' => 6,
                 'product_name' => 'KN-95 Mask',
-                'price' => 80.00,
+                'price' =>80.00,
                 'quantity' => 15,
             ],
             [ //29
@@ -313,7 +317,7 @@ class CustomerOrderedProductSeeder extends Seeder
             ],
             [ //43
                 'customer_order_id' => 104153235,
-                'product_id' => 7,
+                'product_id' =>7 ,
                 'product_name' => '2-Ply Dental Bib',
                 'price' => 200.00,
                 'quantity' => 8,
@@ -411,7 +415,7 @@ class CustomerOrderedProductSeeder extends Seeder
             ],
             [ //57
                 'customer_order_id' => 104153248, //pending
-                'product_id' => 33,
+                'product_id' => 32,
                 'product_name' => 'Pumice Powder Mint',
                 'price' => 100.00,
                 'quantity' => 6,
@@ -425,14 +429,14 @@ class CustomerOrderedProductSeeder extends Seeder
             ],
             [ //59
                 'customer_order_id' => 104153250,
-                'product_id' => 7,
+                'product_id' =>7 ,
                 'product_name' => '2-Ply Dental Bib',
                 'price' => 200.00,
                 'quantity' => 3,
             ],
             [ //60
                 'customer_order_id' => 104153251,
-                'product_id' => 7,
+                'product_id' =>7 ,
                 'product_name' => '2-Ply Dental Bib',
                 'price' => 200.00,
                 'quantity' => 1,
@@ -583,7 +587,7 @@ class CustomerOrderedProductSeeder extends Seeder
                 'product_name' => 'Applicator Tips',
                 'price' => 100.00,
                 'quantity' => 1,
-            ], //Applicator Tips - EEEEEEEEEEEEEEEEEEEEEEEENNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNDDDDDDDDDDDDDDDDDDD
+            ],//Applicator Tips - EEEEEEEEEEEEEEEEEEEEEEEENNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNDDDDDDDDDDDDDDDDDDD
             [//82 Armstrong Castone - Begin
                 'customer_order_id' => 104153212,
                 'product_id' => 13,
@@ -716,7 +720,7 @@ class CustomerOrderedProductSeeder extends Seeder
                 'product_name' => 'Armstrong Castone',
                 'price' => 120.00,
                 'quantity' => 1,
-            ], //Armstrong Castone - End
+            ],//Armstrong Castone - End
             [//101 Armstrong Diestone - Begin
                 'customer_order_id' => 104153212,
                 'product_id' => 12,
@@ -849,7 +853,7 @@ class CustomerOrderedProductSeeder extends Seeder
                 'product_name' => 'Armstrong Diestone',
                 'price' => 60.00,
                 'quantity' => 1,
-            ], //Armstrong Diestone - End
+            ],//Armstrong Diestone - End
             [//120 Articaine - Begin
                 'customer_order_id' => 104153212,
                 'product_id' => 90,
@@ -943,7 +947,7 @@ class CustomerOrderedProductSeeder extends Seeder
             ],
             [
                 'customer_order_id' => 104153237,
-                'product_id' => 90,
+                'product_id'=> 90,
                 'product_name' => 'Articaine',
                 'price' => 1800.00,
                 'quantity' => 1,
@@ -982,7 +986,7 @@ class CustomerOrderedProductSeeder extends Seeder
                 'product_name' => 'Articaine',
                 'price' => 1800.00,
                 'quantity' => 1,
-            ], //Articaine - End
+            ],//Articaine - End
             [//139 Articulating Paper - Begin
                 'customer_order_id' => 104153212,
                 'product_id' => 49,
@@ -1115,8 +1119,101 @@ class CustomerOrderedProductSeeder extends Seeder
                 'product_name' => 'Articulating Paper',
                 'price' => 350.00,
                 'quantity' => 1,
-            ], //Articulating Paper - End
+            ],//Articulating Paper - End
+            [//Cancelled/Rejected Products - Begin
+                'customer_order_id' => 104153253,
+                'product_id' => 7,
+                'product_name' => '2-Ply Dental Bib',
+                'price' => 200.00,
+                'quantity' => 2,
+            ],
+            [
+                'customer_order_id' => 104153253,
+                'product_id' => 39,
+                'product_name' => 'Applicator Tips',
+                'price' => 100.00,
+                'quantity' => 1,
+            ],
+            [
+                'customer_order_id' => 104153254,
+                'product_id' => 108,
+                'product_name' => 'Micro Motor',
+                'price' => 5000.00,
+                'quantity' => 1,
+            ],
+            [
+                'customer_order_id' => 104153255,
+                'product_id' => 12,
+                'product_name' => 'Armstrong Diestone',
+                'price' => 60.00,
+                'quantity' => 1,
+            ],
+            [
+                'customer_order_id' => 104153256,
+                'product_id' => 13,
+                'product_name' => 'Armstrong Castone',
+                'price' => 120.00,
+                'quantity' => 1,
+            ],
+            [
+                'customer_order_id' => 104153257,
+                'product_id' => 13,
+                'product_name' => 'Armstrong Castone',
+                'price' => 120.00,
+                'quantity' => 3,
+            ],
+            [
+                'customer_order_id' => 104153258,
+                'product_id' => 90,
+                'product_name' => 'Articaine',
+                'price' => 1800.00,
+                'quantity' => 1,
+            ],
+            [
+                'customer_order_id' => 104153259,
+                'product_id' => 90,
+                'product_name' => 'Articaine',
+                'price' => 1800.00,
+                'quantity' => 25,
+            ],
+            [
+                'customer_order_id' => 104153260,
+                'product_id' => 90,
+                'product_name' => 'Articaine',
+                'price' => 1800.00,
+                'quantity' => 8,
+            ],
+            [
+                'customer_order_id' => 104153261,
+                'product_id' => 39,
+                'product_name' => 'Applicator Tips',
+                'price' => 100.00,
+                'quantity' => 1,
+            ],
+            [
+                'customer_order_id' => 104153262,
+                'product_id' => 39,
+                'product_name' => 'Applicator Tips',
+                'price' => 100.00,
+                'quantity' => 1,
+            ],
+            [
+                'customer_order_id' => 104153263,
+                'product_id' => 39,
+                'product_name' => 'Applicator Tips',
+                'price' => 100.00,
+                'quantity' => 1,
+            ],
+            [
+                'customer_order_id' => 104153264,
+                'product_id' => 39,
+                'product_name' => 'Applicator Tips',
+                'price' => 100.00,
+                'quantity' => 1,
+            ],//Cancelled/Rejected Products - End
 
-        ]);
+
+        ])
+        ;
     }
 }

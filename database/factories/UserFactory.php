@@ -25,6 +25,7 @@ class UserFactory extends Factory
             'gender' => ['male', 'female'][rand(0, 1)],
             'active' => 1,
             'remember_token' => Str::random(10),
+
         ];
     }
 

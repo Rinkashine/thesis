@@ -36,6 +36,7 @@ class ProductController extends Controller
         ]);
     }
 
+
     //Show Edit Product Page
     public function edit(Product $product)
     {
@@ -74,6 +75,12 @@ class ProductController extends Controller
         ]);
     }
 
+    public function FeaturedProductIndex(){
+        abort_if(Gate::denies('product_edit'),403);
+
+        return view('admin.page.product.productfeatured');
+    }
+
     //Export Product to Excel
     public function exportproductexcel()
     {
@@ -106,7 +113,5 @@ class ProductController extends Controller
         return Excel::download(new ProductExport, 'products.pdf');
     }
 
-    public function FeaturedProductIndex(){
-        abort_if(Gate::denies('product_edit'),403);
-    }
+
 }
