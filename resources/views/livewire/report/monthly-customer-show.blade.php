@@ -9,7 +9,7 @@
                 @else
                     {{-- Showing {{$users->firstItem()}} to {{$users->lastItem()}} of {{$users->total()}} entries --}}
                 @endif
-            </div> 
+            </div>
         </div>
         <!-- BEGIN: Users Layout -->
         @forelse($users as $user)
@@ -19,13 +19,13 @@
                     <div class="w-full flex flex-col lg:flex-row items-center">
                         <div class="w-16 h-16 image-fit">
                             @if(!empty($user->photo))
-                                <img src="{{ url('storage/employee_profile_picture/'.$user->photo) }}" data-action="zoom" alt="Missing Image">
+                                <img src="{{ url('storage/customer_profile_picture/'.$user->photo) }}" data-action="zoom" alt="Missing Image">
                             @else
                                 <img alt="Missing Image" class="rounded-full" data-action="zoom" src="{{asset('dist/images/undraw_pic.svg')}}">
                             @endif
                         </div>
                         <div class="lg:ml-4 text-center lg:text-left mt-3 lg:mt-0">
-                            <a href="" class="font-medium">{{ $user->name }}</a>
+                            <a href="{{ Route('customer.show',$user->id) }}" class="font-medium">{{ $user->name }}</a>
                             <div class="text-slate-500 text-xs mt-0.5">
                                 Account Created: {{$user->created_at->toDayDateTimeString()}}
                             </div>
@@ -53,13 +53,13 @@
         <div class="intro-y col-span-12 flex flex-wrap sm:flex-row sm:flex-nowrap items-center">
             <nav class="w-full sm:w-auto sm:mr-auto">
                 {!! $users->onEachSide(1)->links() !!}
-            </nav> 
+            </nav>
             <select wire:model="perPage" class="w-20 form-select box mt-3 sm:mt-0">
                 <option>9</option>
                 <option>18</option>
                 <option>27</option>
                 <option>36</option>
-            </select> 
+            </select>
         <!-- END: Pagination -->
     </div>
 </div>

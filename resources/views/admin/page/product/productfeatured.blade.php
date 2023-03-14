@@ -1,10 +1,9 @@
 @extends('admin.layout.admin')
 @section('content')
-@section('title', 'Featured Products')
+@section('title', 'Featured Product')
 <!-- Begin: Header -->
-<h2 class="intro-y text-lg font-medium mt-10">List Featured Products</h2>
 <!-- End: Header -->
-
+<livewire:table.featured-product-table/>
 @endsection
 @push('scripts')
 <script>

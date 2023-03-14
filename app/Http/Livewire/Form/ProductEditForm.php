@@ -37,7 +37,7 @@ class ProductEditForm extends Component
 
     public $sku;
 
-    public $weight;
+    public $weight,$weight_measurement;
 
     public $stock;
 
@@ -52,6 +52,8 @@ class ProductEditForm extends Component
     public $images = [];
 
     public $product;
+
+    public $featured;
 
     protected $listeners = [
         'refreshChild' => '$refresh',
@@ -84,6 +86,8 @@ class ProductEditForm extends Component
             $this->w_stock = $this->product->stock_warning;
             $this->sku = $this->product->SKU;
             $this->weight = $this->product->weight;
+            $this->weight_measurement = $this->product->weight_measurement;
+            $this->featured = $this->product->featured;
         }
     }
 
@@ -133,6 +137,9 @@ class ProductEditForm extends Component
         $product->status = $this->status;
         $product->SKU = $this->sku;
         $product->weight = $this->weight;
+        $product->weight_measurement = $this->weight_measurement;
+        $product->featured = $this->featured;
+
 
         $update = $product->update();
         if ($update) {
@@ -170,10 +177,12 @@ class ProductEditForm extends Component
             'cprice' => 'required|numeric|min:0',
             'sprice' => 'numeric|min:0',
             'w_stock' => 'numeric|min:0',
-            'weight' => 'required|numeric|min:1',
+            'weight' => 'required|numeric|min:0',
+            'weight_measurement' => 'required',
             'description' => 'required',
             'sku' => ['required', Rule::unique('product', 'SKU')->ignore($this->product->id)],
             'status' => 'required',
+            'featured' => 'required',
             'images.*' => 'image',
         ]);
     }
@@ -192,6 +201,7 @@ class ProductEditForm extends Component
             'description' => 'required',
             'sku' => ['required', Rule::unique('product', 'SKU')->ignore($this->product->id)],
             'status' => 'required',
+            'featured' => 'required',
             'images.*' => 'image',
 
         ];

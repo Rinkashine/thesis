@@ -23,6 +23,7 @@ class Product extends Model
         'cprice',
         'sprice',
         'weight',
+        'weight_measurement',
         'status',
         'description',
     ];

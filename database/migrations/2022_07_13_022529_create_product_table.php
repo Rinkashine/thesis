@@ -25,9 +25,10 @@ return new class extends Migration
             $table->decimal('cprice', 8, 2)->nullable();
             $table->decimal('sprice', 8, 2);
             $table->decimal('weight', 8, 2);
+            $table->string('weight_measurement');
             $table->string('status');
+            $table->string('featured')->default(0);
             $table->longText('description');
-
             $table->timestamps();
             $table->softDeletes();
         });

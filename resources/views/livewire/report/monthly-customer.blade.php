@@ -24,7 +24,7 @@
                         <tr>
                             <td class="whitespace-nowrap text-center">Year</td>
                             <td class="whitespace-nowrap text-center">Month</td>
-                            <td class="whitespace-nowrap text-center">Sales</td>
+                            <td class="whitespace-nowrap text-center">Created Accounts</td>
                             <td class="whitespace-nowrap text-center"></td>
                         </tr>
                     </thead>

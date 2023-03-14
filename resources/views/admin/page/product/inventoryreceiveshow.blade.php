@@ -148,6 +148,12 @@
                         <div class="font-medium text-base">
                             Remarks
                         </div>
+                        <div>
+                            <a onclick="EditRemarks('{{$orderinfo->id}}')" class="flex items-center ml-auto text-primary">
+                                <i class="fa-solid fa-pen-to-square mr-1"></i> Edit
+                            </a>
+                            <livewire:modal.edit-puchase-order-remarks/>
+                        </div>
                     </div>
                     <div class="mt-5">
                         <div class="form-inline items-start flex-col xl:flex-row mt-5 pt-5 first:mt-0 first:pt-0">
@@ -177,12 +183,16 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($purchase_order_timeline as $item)
+                            @forelse ($purchase_order_timeline as $item)
                                 <tr>
                                     <td class="whitespace-nowrap truncate">{{ $item->title }}</td>
                                     <td class="whitespace-nowrap text-center">{{ $item->created_at->DiffForHumans() }}</td>
                                 </tr>
-                            @endforeach
+                            @empty
+                                <tr>
+                                    <td class="whitespace-nowrap" colspan="2">No Data Found</td>
+                                </tr>
+                            @endforelse
                         </tbody>
                     </table>
 
@@ -192,5 +202,23 @@
         <!-- End: Purchase Order Timeline -->
     </div>
 </div>
+@push('scripts')
+<script>
+
+    const EditRemarks = (orderId,)=>{
+        livewire.emit("EditRemarks", orderId);
+    }
+    const editItemModal = tailwind.Modal.getInstance(document.querySelector("#edit-item-modal"));
+    window.addEventListener('ShowEditModal',event => {
+        editItemModal.show();
+    });
+    window.addEventListener('CloseEditModal',event => {
+        editItemModal.hide();
+    });
+
+
+</script>
+
+@endpush
 @endsection
 

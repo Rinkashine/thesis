@@ -30,6 +30,8 @@ class ProductAddForm extends Component
 
     public $weight;
 
+    public $weight_measurement = 'g';
+
     public $stock = 0;
 
     public $w_stock = 0;
@@ -56,6 +58,7 @@ class ProductAddForm extends Component
         $this->cprice = null;
         $this->sku = null;
         $this->weight = null;
+        $this->$weight_measurement = null;
         $this->stock = null;
         $this->w_stock = null;
     }
@@ -94,6 +97,7 @@ class ProductAddForm extends Component
             'cprice' => 'required|numeric|min:0',
             'sprice' => 'numeric|min:0',
             'weight' => 'required|numeric|min:0',
+            'weight_measurement' => 'required',
             'description' => 'required',
             'sku' => 'required|unique:product,SKU',
             'status' => 'required',
@@ -111,6 +115,7 @@ class ProductAddForm extends Component
             'cprice' => 'required|numeric|min:0',
             'sprice' => 'numeric|min:0',
             'weight' => 'required|numeric|min:0',
+            'weight_measurement' => 'required',
             'description' => 'required',
             'sku' => 'required|unique:product,SKU',
             'status' => 'required',
@@ -130,6 +135,7 @@ class ProductAddForm extends Component
             'cprice' => $this->cprice,
             'sprice' => $this->sprice,
             'weight' => $this->weight,
+            'weight_measurement' => $this->weight_measurement,
             'status' => $this->status,
             'stock_warning' => $this->w_stock,
             'description' => $this->description,

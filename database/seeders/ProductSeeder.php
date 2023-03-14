@@ -28,13 +28,16 @@ class ProductSeeder extends Seeder
                 'cprice' => 450,
                 'sprice' => 490,
                 'weight' => 50,
+                'weight_measurement' => 'g',
                 'status' => 1,
+                'featured' => 1,
                 'description' => "<p>The Glomed Disposable Non Sterile Gloves is powder-free and non-sterile latex and is both ambidextrous and suitable for single use.</p><br>
                                   <p>Manufactured in Malaysia.</p><br>
                                   <p>100 Pcs per box</p>",
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
-            ],[
+            ],
+            [
                 'name' => 'Microsuper Gloves',
                 'category_id' => 1,
                 'brand_id' => 2,
@@ -44,7 +47,9 @@ class ProductSeeder extends Seeder
                 'cprice' => 220,
                 'sprice' => 250,
                 'weight' => 50,
+                'weight_measurement' => 'g',
                 'status' => 1,
+                'featured' => 1,
                 'description' => "<p>Microsuper Glove is a disposable device non sterile gloves.</p><br>
                                   <p>Intended for medical purposes that are worn on the examiner’s hand to prevent contamination between the patient and examiner.</p><br>
                                   <p>100 Pcs per box</p>",
@@ -60,7 +65,9 @@ class ProductSeeder extends Seeder
                 'cprice' => 350,
                 'sprice' => 400,
                 'weight' => 50,
+                'weight_measurement' => 'g',
                 'status' => 1,
+                'featured' => 1,
                 'description' => "<p>HCD Gloves is a latex examination gloves, Powder Free, Single use, Non Sterile Ambidextrous.</p><br>
                                   <p>Ideal for medical, dental, wellness, hospitality, restaurant, food processing and many more.</p><br>
                                   <p>Manufactured in Malaysia</p><br>
@@ -77,7 +84,9 @@ class ProductSeeder extends Seeder
                 'cprice' => 600,
                 'sprice' => 750,
                 'weight' => 20,
+                'weight_measurement' => 'g',
                 'status' => 1,
+                'featured' => 1,
                 'description' => "<p>Defenders Masks are the standard for surgical and procedure masks.</p><br>
                                   <p>They are a cost-effective solution for general use, particularly in low-fluid cases.</p><br>
                                   <p>These are disposable, single use, and non-sterile.</p><br>
@@ -95,7 +104,9 @@ class ProductSeeder extends Seeder
                 'cprice' => 85,
                 'sprice' => 150,
                 'weight' => 20,
+                'weight_measurement' => 'g',
                 'status' => 1,
+                'featured' => 1,
                 'description' => "<p>It covers the user's nose and mouth and provides a physical barrier to fluids and particulate materials.</p><br>
                                   <p>50 Pcs, 3 Ply disposable face mask or a surgical mask.</p>",
                 'created_at' => Carbon::now(),
@@ -110,7 +121,9 @@ class ProductSeeder extends Seeder
                 'cprice' => 40,
                 'sprice' => 80,
                 'weight' => 20,
+                'weight_measurement' => 'g',
                 'status' => 1,
+                'featured' => 1,
                 'description' => "<p>It covers the user's nose and mouth and provides a physical barrier to fluids and particulate materials.</p><br>
                                   <p>10 Pcs, 4 Ply disposable face mask for public use.</p> ",
                 'created_at' => Carbon::now(),
@@ -125,7 +138,9 @@ class ProductSeeder extends Seeder
                 'cprice' => 100,
                 'sprice' => 200,
                 'weight' => 30,
+                'weight_measurement' => 'g',
                 'status' => 1,
+                'featured' => 1,
                 'description' => "<p>The bib is made of soft, absorbent tissue and waterproof poly-Backing.</p><br>
                                   <p>Barrerier design is to protect patients' Clothing from saliva.</p><br>
                                   <p>50 Pcs per pack</p>",
@@ -141,7 +156,9 @@ class ProductSeeder extends Seeder
                 'cprice' => 120,
                 'sprice' => 200,
                 'weight' => 30,
+                'weight_measurement' => 'g',
                 'status' => 1,
+                'featured' => 1,
                 'description' => "<p>World Work saliva ejectors are characterised by their high flexibility and total lack of bottlenecks, guaranteeing a high filtration capacity.</p><br>
                                   <p>Safe and simple shaping and easy adaptation to any kind of mouth, with the full assurance that its shape will be maintained.</p><br>
                                   <p>100 Pcs per pack.</p>",
@@ -157,7 +174,9 @@ class ProductSeeder extends Seeder
                 'cprice' => 100,
                 'sprice' => 200,
                 'weight' => 30,
+                'weight_measurement' => 'g',
                 'status' => 1,
+                'featured' => 1,
                 'description' => "<p>The great flexibility and the absence of folds ensure an excellent aspiration.</p><br>
                                   <p>The round nozzle respects the sensitive gums and avoids the aspiration of the flesh.</p><br>
                                   <p>100 Pcs per pack.</p>",
@@ -173,7 +192,9 @@ class ProductSeeder extends Seeder
                 'cprice' => 140,
                 'sprice' => 250,
                 'weight' => 30,
+                'weight_measurement' => 'g',
                 'status' => 1,
+                'featured' => 1,
                 'description' => "<p>Flexi Silva Ejectors are easy to bend in any position.</p><br>
                                   <p>These ejectors are made for the finer work.</p><br>
                                   <p>The Flexible Saliva Ejectors can not be sterilized.</p><br>
@@ -190,7 +211,9 @@ class ProductSeeder extends Seeder
                 'cprice' => 12,
                 'sprice' => 20,
                 'weight' => 30,
+                'weight_measurement' => 'g',
                 'status' => 1,
+                'featured' => 1,
                 'description' => "<p>Simple design with smooth edges gives comfort and safety for your patients.</p><br>
                                   <p>Sold per piece</p>",
                 'created_at' => Carbon::now(),
@@ -205,7 +228,9 @@ class ProductSeeder extends Seeder
                 'cprice' => 35,
                 'sprice' => 60,
                 'weight' => 30,
+                'weight_measurement' => 'g',
                 'status' => 1,
+                'featured' => 1,
                 'description' => "<p>Armstrong Die stone is used to fabricate high-strength and abrasion-resistant dies used in fabricating fixed restorations</p><br>
                                   <p>Sold per pack</p>",
                 'created_at' => Carbon::now(),
@@ -220,7 +245,9 @@ class ProductSeeder extends Seeder
                 'cprice' => 80,
                 'sprice' => 120,
                 'weight' => 30,
+                'weight_measurement' => 'g',
                 'status' => 1,
+                'featured' => 1,
                 'description' => "<p>Armstrong cast stone is used for casting shoe, tire impressions, to make crowns, fixed bridges and dentures.</p><br>
                                   <p>Sold per pack</p>",
                 'created_at' => Carbon::now(),
@@ -235,7 +262,9 @@ class ProductSeeder extends Seeder
                 'cprice' => 90,
                 'sprice' => 120,
                 'weight' => 30,
+                'weight_measurement' => 'g',
                 'status' => 1,
+                'featured' => 1,
                 'description' => "<p>Plaster of paris, quick-setting gypsum plaster consisting of a fine white powder (calcium sulfate hemihydrate), which hardens when moistened and allowed to dry.</p><br>
                                   <p>Sold per pack</p>",
                 'created_at' => Carbon::now(),
@@ -250,7 +279,9 @@ class ProductSeeder extends Seeder
                 'cprice' => 55,
                 'sprice' => 85,
                 'weight' => 30,
+                'weight_measurement' => 'g',
                 'status' => 1,
+                'featured' => 1,
                 'description' => "<p>It indicated for use in general soft tissue approximation and/or ligation, including use in cardiovascular, ophthalmic, and neurological procedures.</p><br>
                                   <p>Sold per piece</p>",
                 'created_at' => Carbon::now(),
@@ -265,7 +296,9 @@ class ProductSeeder extends Seeder
                 'cprice' => 200,
                 'sprice' => 300,
                 'weight' => 30,
+                'weight_measurement' => 'g',
                 'status' => 1,
+                'featured' => 1,
                 'description' => "<p>Tri-bevel point for easy tissue penetration without coring</p><br>
                                   <p>Round cutting edge protecting the gum</p><br>
                                   <p>Silicone coating substantially reduces pain and tissue trauma</p><br>
@@ -283,7 +316,9 @@ class ProductSeeder extends Seeder
                 'cprice' => 220,
                 'sprice' => 350,
                 'weight' => 30,
+                'weight_measurement' => 'g',
                 'status' => 1,
+                'featured' => 1,
                 'description' => "<p>Misawa Dental injection needles needles manufactured with our superior ultra-ﬁne diameter processing technology are not only thin and sharp, but are of appropriate length and hardness to ensure precision in the work of the dentist.</p><br>
                                   <p>100 Pcs per box.</p>",
                 'created_at' => Carbon::now(),
@@ -298,7 +333,9 @@ class ProductSeeder extends Seeder
                 'cprice' => 200,
                 'sprice' => 300,
                 'weight' => 30,
+                'weight_measurement' => 'g',
                 'status' => 1,
+                'featured' => 1,
                 'description' => "<p>Silicone coating substantially reduces pain and tissue trauma.</p><br>
                                   <p>High tech steel tube, safe, non-toxic, pyrogenic free</p><br>
                                   <p>Tri-Bevel point for easy tissue penetration without coring</p><br>
@@ -316,7 +353,9 @@ class ProductSeeder extends Seeder
                 'cprice' => 180,
                 'sprice' => 350,
                 'weight' => 30,
+                'weight_measurement' => 'g',
                 'status' => 1,
+                'featured' => 1,
                 'description' => "<p>Intended for holding the body tissues together after a surgery or treatment caused by injury or wound.</p><br>
                                   <p>12 Pcs per box.</p>",
                 'created_at' => Carbon::now(),
@@ -331,7 +370,9 @@ class ProductSeeder extends Seeder
                 'cprice' => 180,
                 'sprice' => 350,
                 'weight' => 30,
+                'weight_measurement' => 'g',
                 'status' => 1,
+                'featured' => 1,
                 'description' => "<p>Intended for general soft tissue approximation and/or ligation, including use in cardiovascular, ophthalmic, and neurological procedures.</p><br>
                                   <p>12 Pcs per box.</p>",
                 'created_at' => Carbon::now(),
@@ -346,7 +387,9 @@ class ProductSeeder extends Seeder
                 'cprice' => 125,
                 'sprice' => 200,
                 'weight' => 30,
+                'weight_measurement' => 'g',
                 'status' => 1,
+                'featured' => 1,
                 'description' => "<p>Uniformly hand-jig rolled.Carefully graduated sizes and tapersSterile and highly absorbent.</p><br>
                                   <p>Firm yet flexible for easy application.</p><br>
                                   <p>Color coded tips for easy identification of sizes.</p><br>
@@ -365,7 +408,9 @@ class ProductSeeder extends Seeder
                 'cprice' => 125,
                 'sprice' => 200,
                 'weight' => 30,
+                'weight_measurement' => 'g',
                 'status' => 1,
+                'featured' => 1,
                 'description' => "<p>Uniformly hand-jig rolled.Carefully graduated sizes and tapersSterile and highly absorbent.</p><br>
                                   <p>Firm yet flexible for easy application.</p><br>
                                   <p>Color coded tips for easy identification of sizes.</p><br>
@@ -384,7 +429,9 @@ class ProductSeeder extends Seeder
                 'cprice' => 285,
                 'sprice' => 350,
                 'weight' => 30,
+                'weight_measurement' => 'g',
                 'status' => 1,
+                'featured' => 0,
                 'description' => "<p>Blade Grinded With A Square Section Then Twisted In Order To Obtain Cutting Power And Flexibility.</p><br>
                                   <p>Helix Angle Higher Than On Reamer.</p>
                                   <p>Sold per pack</p>",
@@ -400,7 +447,9 @@ class ProductSeeder extends Seeder
                 'cprice' => 1500,
                 'sprice' => 1650,
                 'weight' => 30,
+                'weight_measurement' => 'g',
                 'status' => 1,
+                'featured' => 0,
                 'description' => "<p>Oil-Based Calcium Hydroxide Paste with Iodoform</p><br>
                                   <p>Root canal filling material for the infected root canal. Contains Calcium Hydroxide and Iodoform mainly, having good radipacity and antibacterial characteristics.</p><br>
                                   <p>Very stable without any solidification or separation and highly flowable paste premixed in a convenient syringe. Also has excellent accessibility to the apex and biocompatibility to the periapical tissue.</p><br>
@@ -417,7 +466,9 @@ class ProductSeeder extends Seeder
                 'cprice' => 1500,
                 'sprice' => 1650,
                 'weight' => 30,
+                'weight_measurement' => 'g',
                 'status' => 1,
+                'featured' => 0,
                 'description' => "<p>Water-Based Calcium Hydroxide Paste with Barium Sulfate</p><br>
                                   <p>Root canal filling material for the infected root canal. Contains Calcium Hydroxide and Barium Sulfate mainly, having radiopacity and antibacterial characteristics</p><br>
                                   <p>Stable without any solidification or separation and a highly-flowable premixed paste in a convenient syringe. Also has excellent accessibility to the apex of biocompatibility to the periapical tissue</p><br>
@@ -434,7 +485,9 @@ class ProductSeeder extends Seeder
                 'cprice' => 4000,
                 'sprice' => 4150,
                 'weight' => 30.4,
+                'weight_measurement' => 'g',
                 'status' => 1,
+                'featured' => 0,
                 'description' => "<p>Convenient premixed ready to use injectable bioceramic paste developed for the permanent obturation of root canals.</p><br>
                                   <p>Calcium silicate composition, which requires the presence of moisture to set and harden.</p><br>
                                   <p>Does not shrink during setting and demonstrates excellent physical properties.</p><br>
@@ -451,7 +504,9 @@ class ProductSeeder extends Seeder
                 'cprice' => 1400,
                 'sprice' => 1550,
                 'weight' => 30.4,
+                'weight_measurement' => 'g',
                 'status' => 1,
+                'featured' => 0,
                 'description' => "<p>Well prep containing ethylenediamine Tetraacetic acid (EDTA) As a chelating agent allows efficient cleaning and easier preparation of the root canal.</p><br>
                                   <p>Sold per item</p>",
                 'created_at' => Carbon::now(),
@@ -466,7 +521,9 @@ class ProductSeeder extends Seeder
                 'cprice' => 400,
                 'sprice' => 450.00,
                 'weight' => 30,
+                'weight_measurement' => 'g',
                 'status' => 1,
+                'featured' => 0,
                 'description' => "<p>Intended for polishing and brightening of both the dental surface and composites, temporary cements</p><br>
                                   <p>Sold per set</p>",
                 'created_at' => Carbon::now(),
@@ -481,7 +538,9 @@ class ProductSeeder extends Seeder
                 'cprice' => 520,
                 'sprice' => 550,
                 'weight' => 30,
+                'weight_measurement' => 'g',
                 'status' => 1,
+                'featured' => 0,
                 'description' => "<p>Intended for polishing along the gingival margin and interproximal areas, working on tooth contour and accessing harder to reach areas.</p><br>
                                   <p>Sold per pack</p>",
                 'created_at' => Carbon::now(),
@@ -496,7 +555,9 @@ class ProductSeeder extends Seeder
                 'cprice' => 55,
                 'sprice' => 100,
                 'weight' => 30,
+                'weight_measurement' => 'g',
                 'status' => 1,
+                'featured' => 0,
                 'description' => "<p>Intended for polishing patients' teeth during standard prophy appointments.</p><br>
                                   <p>Sold per pack</p>",
                 'created_at' => Carbon::now(),
@@ -511,7 +572,9 @@ class ProductSeeder extends Seeder
                 'cprice' => 90,
                 'sprice' => 110,
                 'weight' => 30,
+                'weight_measurement' => 'g',
                 'status' => 1,
+                'featured' => 0,
                 'description' => "<p>Intended for preventing tooth decay, slow it down, or stop it from getting worse.</p><br>
                                   <p>Sold per pack</p>",
                 'created_at' => Carbon::now(),
@@ -526,7 +589,9 @@ class ProductSeeder extends Seeder
                 'cprice' => 80,
                 'sprice' => 100,
                 'weight' => 30,
+                'weight_measurement' => 'g',
                 'status' => 1,
+                'featured' => 0,
                 'description' => "<p>Intended for assisting dental technicians obtain a smooth surface.</p><br>
                                   <p>Sold per pack</p>",
                 'created_at' => Carbon::now(),
@@ -541,7 +606,9 @@ class ProductSeeder extends Seeder
                 'cprice' => 80,
                 'sprice' => 100,
                 'weight' => 30,
+                'weight_measurement' => 'g',
                 'status' => 1,
+                'featured' => 0,
                 'description' => "<p>Intended for assisting dental technicians obtain a smooth surface.</p><br>
                                   <p>Sold per pack</p>",
                 'created_at' => Carbon::now(),
@@ -556,7 +623,9 @@ class ProductSeeder extends Seeder
                 'cprice' => 80,
                 'sprice' => 100,
                 'weight' => 30,
+                'weight_measurement' => 'g',
                 'status' => 1,
+                'featured' => 0,
                 'description' => "<p>Intended for deep cleaning of any stains on the teeth.</p><br>
                                   <p>Sold per bottle</p>",
                 'created_at' => Carbon::now(),
@@ -571,7 +640,9 @@ class ProductSeeder extends Seeder
                 'cprice' => 780,
                 'sprice' => 850,
                 'weight' => 30,
+                'weight_measurement' => 'g',
                 'status' => 1,
+                'featured' => 0,
                 'description' => "<p>C-Bond is a bonding for the total-etch-technique with anexcellent adhesion to dentin and enamel.</p><br>
                                   <p>The material shows a good flowable consistency and is easy to use.</p><br>
                                   <p>C-Bond also adheres on glass-ionomer linings.</p><br>
@@ -589,7 +660,9 @@ class ProductSeeder extends Seeder
                 'cprice' => 310,
                 'sprice' => 350,
                 'weight' => 30,
+                'weight_measurement' => 'g',
                 'status' => 1,
+                'featured' => 0,
                 'description' => "<p>Unibond is very hydrophilic and effectively penetrates the network of collagen fibers to ensure perfect spreading thereby avoiding post-operative sensitivity.</p><br>
                                   <p>Sold per item</p>",
                 'created_at' => Carbon::now(),
@@ -604,7 +677,9 @@ class ProductSeeder extends Seeder
                 'cprice' => 2150,
                 'sprice' => 2300,
                 'weight' => 30,
+                'weight_measurement' => 'g',
                 'status' => 1,
+                'featured' => 0,
                 'description' => "<p>U-Bond is a one-component self-etching light-cured adhesive designed to bond</p><br>
                                   <p>Bonding of direct restoration of the composite to the tooth structure</p><br>
                                   <p>Sold per item</p>",
@@ -620,7 +695,9 @@ class ProductSeeder extends Seeder
                 'cprice' => 1100,
                 'sprice' => 1250,
                 'weight' => 30,
+                'weight_measurement' => 'g',
                 'status' => 1,
+                'featured' => 0,
                 'description' => "<p>BC Plus is a single compound bonding agent designed to bond all classes of direct composite restorations to dentin, enamel as well as procedures involving cast metals, composite, treated porcelain and set amalgam.</p><br>
                                   <p>It is light activated adhesive based on ethanol formulation and also allows for indirect restoration procedures, due to its minimal and uniform film thickness.</p><br>
                                   <p>Sold per item</p>",
@@ -636,7 +713,9 @@ class ProductSeeder extends Seeder
                 'cprice' => 75,
                 'sprice' => 100.00,
                 'weight' => 30,
+                'weight_measurement' => 'g',
                 'status' => 1,
+                'featured' => 0,
                 'description' => "<p>Disposable Dental Micro Applicator Tips are more precise than a brush.</p><br>
                                   <p>Intended for cavity lining, etching, bonding, sealants hemostatic solutions and conditioners.</p><br>
                                   <p>Bendable ribbed handle for easy application of etchants, bonding agents, and resins.</p><br>
@@ -653,7 +732,9 @@ class ProductSeeder extends Seeder
                 'cprice' => 175,
                 'sprice' => 200.00,
                 'weight' => 30.4,
+                'weight_measurement' => 'g',
                 'status' => 1,
+                'featured' => 0,
                 'description' => "<p>Breathable, dustproof, stops dust and microorganisms.</p><br>
                                   <p>Disposable, maintenance-free, convenient, practical, safe and hygienic.</p><br>
                                   <p>Strong quality elastic band to ensure a good and comfortable fit.</p><br>
@@ -670,7 +751,9 @@ class ProductSeeder extends Seeder
                 'cprice' => 360,
                 'sprice' => 450.00,
                 'weight' => 30,
+                'weight_measurement' => 'g',
                 'status' => 1,
+                'featured' => 0,
                 'description' => "<p>Single use, disposable Mouth Mirror Head</p><br>
                                   <p>Sold per set</p>",
                 'created_at' => Carbon::now(),
@@ -685,7 +768,9 @@ class ProductSeeder extends Seeder
                 'cprice' => 40,
                 'sprice' => 200,
                 'weight' => 30,
+                'weight_measurement' => 'g',
                 'status' => 1,
+                'featured' => 0,
                 'description' => "<p>Made from 100% pure white cotton to fit easily to the contours of the mouth and maintain their shape even when wet.</p><br>
                                   <p>Will not adhere to mucous membranes and contains no chemical additives, starch, cellulose or rayon fibers, making them ideal for sensitive patients. Latex free, lint free and highly absorbent.</p><br>
                                   <p>40 Pcs per box</p>",
@@ -701,7 +786,9 @@ class ProductSeeder extends Seeder
                 'cprice' => 40,
                 'sprice' => 100,
                 'weight' => 30,
+                'weight_measurement' => 'g',
                 'status' => 1,
+                'featured' => 0,
                 'description' => "<p>Non-woven gauze sponges are twice as absorbent as cotton gauze sponges with the same number of plies.</p><br>
                                   <p>Soft, soothing and lint free for patient comfort.</p><br>
                                   <p>Sold per box</p>",
@@ -717,7 +804,9 @@ class ProductSeeder extends Seeder
                 'cprice' => 40,
                 'sprice' => 120,
                 'weight' => 30,
+                'weight_measurement' => 'g',
                 'status' => 1,
+                'featured' => 0,
                 'description' => "<p>High-quality construction for superior safety and dependability. Highly absorbent, extra-soft cotton tips ensure patient comfort.</p><br>
                                   <p>Latex free, recyclable and biodegradable.</p><br>
                                   <p>Sold per box</p>",
@@ -733,7 +822,9 @@ class ProductSeeder extends Seeder
                 'cprice' => 680,
                 'sprice' => 750,
                 'weight' => 30,
+                'weight_measurement' => 'g',
                 'status' => 1,
+                'featured' => 0,
                 'description' => "<p>Used to isolate a tooth or teeth from the oral environment and to prevent migration of fluids or foreign objects into or out of the operative field.</p><br>
                                   <p>Provides a dry, visible and clean operative field</p><br>
                                   <p>Made from Natural Rubber Latex</p><br>
@@ -750,7 +841,9 @@ class ProductSeeder extends Seeder
                 'cprice' => 75,
                 'sprice' => 90,
                 'weight' => 30,
+                'weight_measurement' => 'g',
                 'status' => 1,
+                'featured' => 0,
                 'description' => "<p>Stainless steel matrice material with good hardness and elasticity.</p><br>
                                   <p>Restoration of missing teeth shape.</p><br>
                                   <p>Work with interdental wedge.</p><br>
@@ -768,7 +861,9 @@ class ProductSeeder extends Seeder
                 'cprice' => 110,
                 'sprice' => 150,
                 'weight' => 30,
+                'weight_measurement' => 'g',
                 'status' => 1,
+                'featured' => 0,
                 'description' => "<p>Foot cover resist the water, dirt, and mud, one size fits most.</p><br>
                                   <p>100 Pcs per pack</p>",
                 'created_at' => Carbon::now(),
@@ -783,7 +878,9 @@ class ProductSeeder extends Seeder
                 'cprice' => 30,
                 'sprice' => 55.00,
                 'weight' => 30,
+                'weight_measurement' => 'g',
                 'status' => 1,
+                'featured' => 0,
                 'description' => "<p>Intended for class III and IV restorations in which the proximal wall of an anterior tooth is missing.</p><br>
                                   <p>Gives a bright finish to the filling when used as a restoration polisher for composites and light cured dental bonds.</p><br>
                                   <p>Sold per set</p><br>",
@@ -799,7 +896,9 @@ class ProductSeeder extends Seeder
                 'cprice' => 40,
                 'sprice' => 350,
                 'weight' => 30,
+                'weight_measurement' => 'g',
                 'status' => 1,
+                'featured' => 0,
                 'description' => "<p>Intended for identifying contact points between the maxillary and mandibular teeth during all forms of natural tooth occlusal adjustments and dental prosthesis insertions.</p><br>
                                   <p>Sold per box</p>",
                 'created_at' => Carbon::now(),
@@ -814,7 +913,9 @@ class ProductSeeder extends Seeder
                 'cprice' => 40,
                 'sprice' => 350,
                 'weight' => 30,
+                'weight_measurement' => 'g',
                 'status' => 1,
+                'featured' => 0,
                 'description' => "<p>Easy-to-use system allows you to create smooth proximal surfaces.</p><br>
                                   <p>Strips are gapped at their centers for easy interproximal insertion.</p><br>
                                   <p>Precision-coated with an aluminum-oxide grit to produce a smooth restoration surface that helps prevent interproximal plaque buildup</p><br>
@@ -831,7 +932,9 @@ class ProductSeeder extends Seeder
                 'cprice' => 50,
                 'sprice' => 95.00,
                 'weight' => 30,
+                'weight_measurement' => 'g',
                 'status' => 1,
+                'featured' => 0,
                 'description' => "<p>Stainless steel polishing strips used to polish and finish a wide range of dental materials, used to finish filling and crown borders</p><br>
                                   <p>Sold per piece</p>",
                 'created_at' => Carbon::now(),
@@ -846,7 +949,9 @@ class ProductSeeder extends Seeder
                 'cprice' => 40,
                 'sprice' => 85,
                 'weight' => 30,
+                'weight_measurement' => 'g',
                 'status' => 1,
+                'featured' => 0,
                 'description' => "<p>Stainless steel polishing strips used to polish and finish a wide range of dental materials, used to finish filling and crown borders</p><br>
                                   <p>Sold per piece</p>",
                 'created_at' => Carbon::now(),
@@ -861,7 +966,9 @@ class ProductSeeder extends Seeder
                 'cprice' => 65,
                 'sprice' => 100,
                 'weight' => 30,
+                'weight_measurement' => 'g',
                 'status' => 1,
+                'featured' => 0,
                 'description' => "<p>The dental record, also referred to as the patient's chart, is the official office document that records all of the treatment done and all patient-related communications that occur in the dental office.</p><br>
                                   <p>100 Pcs per pack</p>",
                 'created_at' => Carbon::now(),
@@ -876,7 +983,9 @@ class ProductSeeder extends Seeder
                 'cprice' => 225,
                 'sprice' => 350,
                 'weight' => 30,
+                'weight_measurement' => 'g',
                 'status' => 1,
+                'featured' => 0,
                 'description' => "<p>A reabsorbable lyophilized, highly-porous, porcine, collagen, hemostatic, and healing sponge (gelatin).</p><br>
                                   <p>Absorbs 40-50 folds its own weight.</p><br>
                                   <p>Makes possible great visualization.</p><br>
@@ -893,7 +1002,9 @@ class ProductSeeder extends Seeder
                 'cprice' => 55,
                 'sprice' => 90,
                 'weight' => 30,
+                'weight_measurement' => 'g',
                 'status' => 1,
+                'featured' => 0,
                 'description' => "<p>Intended for separating medium and protective coating for the prevention of water and saliva contamination to exposed surfaces of glass ionomer cements during the first 24 hours after placement.</p><br>
                                   <p>Sold per item</p>",
                 'created_at' => Carbon::now(),
@@ -908,7 +1019,9 @@ class ProductSeeder extends Seeder
                 'cprice' => 1800,
                 'sprice' => 1950,
                 'weight' => 30,
+                'weight_measurement' => 'g',
                 'status' => 1,
+                'featured' => 0,
                 'description' => "<p>Highly effective multi-enzyme detergent and disinfectant solution</p><br>
                                   <p>Intended for removing organic and biological soils deposits from all types of medical and dental instruments</p><br>
                                   <p>Sold per item</p>",
@@ -924,7 +1037,9 @@ class ProductSeeder extends Seeder
                 'cprice' => 1800,
                 'sprice' => 1950,
                 'weight' => 30,
+                'weight_measurement' => 'g',
                 'status' => 1,
+                'featured' => 0,
                 'description' => "<p>Highly effective decontaminant for the cleaning, disinfecting and deodorizing of dental aspirating units and spittoon bowls.</p><br>
                                   <p>Intended for removing biofilm of all types of suction systems units by lightly one-step running.</p><br>
                                   <p>Sold per item</p>",
@@ -940,7 +1055,9 @@ class ProductSeeder extends Seeder
                 'cprice' => 4000,
                 'sprice' => 4500,
                 'weight' => 30,
+                'weight_measurement' => 'g',
                 'status' => 1,
+                'featured' => 0,
                 'description' => "<p>Designed for the final cementation of crown and bridge restorations. It has been refined to provide enhanced physical properties.</p><br>
                                   <p>Chemically bonds to tooth structure and metal which provides excellent strength and marginal integrity for long term restorations.</p><br>
                                   <p>Well suited for securing metal inlays, onlays, posts and orthodontic brackets.</p><br>
@@ -957,7 +1074,9 @@ class ProductSeeder extends Seeder
                 'cprice' => 4000,
                 'sprice' => 4500,
                 'weight' => 30,
+                'weight_measurement' => 'g',
                 'status' => 1,
+                'featured' => 0,
                 'description' => "<p>Self-cured, glass ionomer restorative featuring high resistance to water which can be finished in just 15 minutes.</p><br>
                                   <p>Its high surface hardness provides a durable restoration.</p><br>
                                   <p>Sold per box</p>",
@@ -973,7 +1092,9 @@ class ProductSeeder extends Seeder
                 'cprice' => 4000,
                 'sprice' => 4500,
                 'weight' => 30,
+                'weight_measurement' => 'g',
                 'status' => 1,
+                'featured' => 0,
                 'description' => "<p>It is easy-to-use, handle and place fluoride releasing alternative to expensive compomers and composites and in many cases, amalgam.</p><br>
                                   <p>Cures extremely hard and is very wear resistant.</p><br>
                                   <p>Has a tooth-like coefficient of thermal expansion and releases significant levels of rechargeable fluoride.</p><br>
@@ -990,7 +1111,9 @@ class ProductSeeder extends Seeder
                 'cprice' => 2650,
                 'sprice' => 2800,
                 'weight' => 30,
+                'weight_measurement' => 'g',
                 'status' => 1,
+                'featured' => 0,
                 'description' => "<p>Designed for intermediate restorations intended to remain in place for up to one year.</p><br>
                                   <p>The eugenol content in the polymer-reinforced zinc oxide-eugenol composition gives the material sedative like qualities on hypersensitive tooth pulp and is a good thermal insulator as well.</p><br>
                                   <p>Sold per box</p>",
@@ -1006,7 +1129,9 @@ class ProductSeeder extends Seeder
                 'cprice' => 475,
                 'sprice' => 550,
                 'weight' => 30,
+                'weight_measurement' => 'g',
                 'status' => 1,
+                'featured' => 0,
                 'description' => "<p>Multi-Purpose Temporary Cement</p><br>
                                   <p>Sets harder-over 4000 PSI</p><br>
                                   <p>Sold per item</p>",
@@ -1022,7 +1147,9 @@ class ProductSeeder extends Seeder
                 'cprice' => 220,
                 'sprice' => 350,
                 'weight' => 30,
+                'weight_measurement' => 'g',
                 'status' => 1,
+                'featured' => 0,
                 'description' => "<p>Multi-Purpose Temporary Cement</p><br>
                                   <p>Zinc Oxide Eugenol</p><br>
                                   <p>Sold per item</p>",
@@ -1038,7 +1165,9 @@ class ProductSeeder extends Seeder
                 'cprice' => 310,
                 'sprice' => 380,
                 'weight' => 30,
+                'weight_measurement' => 'g',
                 'status' => 1,
+                'featured' => 0,
                 'description' => "<p>Intended as temporary filling material and luting cement, including orthodontic bracket attachment.</p><br>
                                   <p>Sold per item</p>>",
                 'created_at' => Carbon::now(),
@@ -1053,7 +1182,9 @@ class ProductSeeder extends Seeder
                 'cprice' => 3500,
                 'sprice' => 3650,
                 'weight' => 30,
+                'weight_measurement' => 'g',
                 'status' => 1,
+                'featured' => 0,
                 'description' => "<p>Dual-cured self-adhesive resin cement that requires no pretreatment.</p><br>
                                   <p>Easy to remove the excess cement and has higher bond strength & radiopaque.</p><br>
                                   <p>Sold per item</p>",
@@ -1069,7 +1200,9 @@ class ProductSeeder extends Seeder
                 'cprice' => 3100,
                 'sprice' => 3250,
                 'weight' => 30,
+                'weight_measurement' => 'g',
                 'status' => 1,
+                'featured' => 0,
                 'description' => "<p>Dual setting (light and chemical) composite luting cement for luting fiber glass or metal endo posts, crowns or bridges.</p><br>
                                   <p>Sold per item</p>",
                 'created_at' => Carbon::now(),
@@ -1084,7 +1217,9 @@ class ProductSeeder extends Seeder
                 'cprice' => 2900,
                 'sprice' => 3100,
                 'weight' => 30,
+                'weight_measurement' => 'g',
                 'status' => 1,
+                'featured' => 0,
                 'description' => "<p>Light-cured orthodontic adhesive for attaching the orthodontic bracket.</p><br>
                                   <p>Designed to attach ceramic & metal bracket to a tooth, and its characteristic of color change after light-cure provides easy removal of remaining resin around the tooth.</p><br>
                                   <p>Sold per item</p>",
@@ -1100,7 +1235,9 @@ class ProductSeeder extends Seeder
                 'cprice' => 520,
                 'sprice' => 680,
                 'weight' => 30,
+                'weight_measurement' => 'g',
                 'status' => 1,
+                'featured' => 0,
                 'description' => "<p>Universal light-cured micro hybrid composite resin for use in both Posterior and Anterior restorations.</p><br>
                                   <p>Sold per item</p>",
                 'created_at' => Carbon::now(),
@@ -1115,7 +1252,9 @@ class ProductSeeder extends Seeder
                 'cprice' => 520,
                 'sprice' => 680,
                 'weight' => 30,
+                'weight_measurement' => 'g',
                 'status' => 1,
+                'featured' => 0,
                 'description' => "<p>Light-cured radiopaque flowable composite resin with low shrinkage & good mechanical properties.</p><br>
                                   <p>Sold per item</p>",
                 'created_at' => Carbon::now(),
@@ -1130,7 +1269,9 @@ class ProductSeeder extends Seeder
                 'cprice' => 60,
                 'sprice' => 150,
                 'weight' => 30,
+                'weight_measurement' => 'g',
                 'status' => 1,
+                'featured' => 0,
                 'description' => "<p>A Semi-gel type designed for easy etching work.</p><br>
                                   <p>Fast effect and easy removal.</p><br>
                                   <p>Leave no residues on the surface of etched tooth like silica thickened etchants.</p><br>
@@ -1147,7 +1288,9 @@ class ProductSeeder extends Seeder
                 'cprice' => 4600,
                 'sprice' => 4800,
                 'weight' => 30,
+                'weight_measurement' => 'g',
                 'status' => 1,
+                'featured' => 0,
                 'description' => "<p>Universal light-cured hybrid composite resin for use in both posterior and anterior restorations.</p><br>
                                   <p>Designed for minimising polymerization shrinkage by inorganic fillers loading therefore it has excellent marginal sealing and surface texture.</p><br>
                                   <p>Sold per pack</p>",
@@ -1163,7 +1306,9 @@ class ProductSeeder extends Seeder
                 'cprice' => 5400,
                 'sprice' => 5600,
                 'weight' => 30,
+                'weight_measurement' => 'g',
                 'status' => 1,
+                'featured' => 0,
                 'description' => "<p>Universal light-cured micro hybrid composite resin for use in both posterior and anterior restorations.</p><br>
                                   <p>Designed for minimising polymerization shrinkage by inorganic fillers loading therefore it has excellent marginal sealing and surface texture.</p><br>
                                   <p>Sold per pack</p>",
@@ -1179,7 +1324,9 @@ class ProductSeeder extends Seeder
                 'cprice' => 1100,
                 'sprice' => 1350,
                 'weight' => 30,
+                'weight_measurement' => 'g',
                 'status' => 1,
+                'featured' => 0,
                 'description' => "<p>Denfil is a universal light-cured micro hybrid composite resin for use in both Posterior and Anterior restorations.</p><br>
                                   <p>Sold per pack</p>",
                 'created_at' => Carbon::now(),
@@ -1194,7 +1341,9 @@ class ProductSeeder extends Seeder
                 'cprice' => 2200,
                 'sprice' => 2300,
                 'weight' => 30,
+                'weight_measurement' => 'g',
                 'status' => 1,
+                'featured' => 0,
                 'description' => "<p>Easier to produce exceptionally natural-looking restorations using only one shade. For multi-shade techniques, you’ll be amazed at how well it blends naturally with your patients’ shades.</p><br>
                                   <p>Nanofiller technology allows for greater polish retention for highly esthetic anterior work. Filtek Supreme Ultra is even strong enough to withstand the rigors of chewing in posterior restorations.</p><br>
                                   <p>Sold per item</p>",
@@ -1210,7 +1359,9 @@ class ProductSeeder extends Seeder
                 'cprice' => 2200,
                 'sprice' => 2300,
                 'weight' => 30,
+                'weight_measurement' => 'g',
                 'status' => 1,
+                'featured' => 0,
                 'description' => "<p>Flowable Restorative is available in a new ergonomic syringe.</p><br>
                                   <p>Designed for improved comfort and injection molding, we’re calling our new product.</p><br>
                                   <p>Sold per item</p>",
@@ -1226,7 +1377,9 @@ class ProductSeeder extends Seeder
                 'cprice' => 400,
                 'sprice' => 550,
                 'weight' => 30,
+                'weight_measurement' => 'g',
                 'status' => 1,
+                'featured' => 0,
                 'description' => "<p>Universal light curing Micro-hybrid composite for restorations in the anterior- and posterior tooth area.</p><br>
                                   <p>Made in Germany</p><br>
                                   <p>Sold per box</p>",
@@ -1242,7 +1395,9 @@ class ProductSeeder extends Seeder
                 'cprice' => 400,
                 'sprice' => 550,
                 'weight' => 30,
+                'weight_measurement' => 'g',
                 'status' => 1,
+                'featured' => 0,
                 'description' => "<p>Flowable light curing Microhybrid Composite which is X-ray opaque.</p><br>
                                   <p>Has a natural fluorescence and is used in the filling therapy for micro preparations and tooth neck defects</p><br>
                                   <p>Made in Germany</p><br>
@@ -1259,7 +1414,9 @@ class ProductSeeder extends Seeder
                 'cprice' => 510,
                 'sprice' => 600,
                 'weight' => 30,
+                'weight_measurement' => 'g',
                 'status' => 1,
+                'featured' => 0,
                 'description' => "<p>Universal light curing Microhybrid Composite for restorations in the anterior and posterior tooth area.</p><br>
                                   <p>The fillers contain fine dental glass particles and highly dispersible silicone oxides, which are specifically treated and cover the surface with a hydrophobic layer.</p><br>
                                   <p>Sold per box</p>",
@@ -1275,7 +1432,9 @@ class ProductSeeder extends Seeder
                 'cprice' => 510,
                 'sprice' => 600,
                 'weight' => 30,
+                'weight_measurement' => 'g',
                 'status' => 1,
+                'featured' => 0,
                 'description' => "<p>Flowable, light-curing, radiopaque microhybrid composite.</p><br>
                                   <p>Has natural fluorescence and is used in filling therapy for micropreparations and tooth neck defects, expanded fissure sealing, fixing and repairing composite and ceramic restorations and for laying the first tooth filling layer in composite restorations.</p><br>
                                   <p>Sold per box</p>",
@@ -1291,7 +1450,9 @@ class ProductSeeder extends Seeder
                 'cprice' => 650,
                 'sprice' => 770,
                 'weight' => 30,
+                'weight_measurement' => 'g',
                 'status' => 1,
+                'featured' => 0,
                 'description' => "<p>Light Cured Cavity Liner and based.</p><br>
                                   <p>Usable with both amalgam and composite restorations.</p><br>
                                   <p>Sold per box</p>",
@@ -1307,7 +1468,9 @@ class ProductSeeder extends Seeder
                 'cprice' => 380,
                 'sprice' => 420,
                 'weight' => 30,
+                'weight_measurement' => 'g',
                 'status' => 1,
+                'featured' => 0,
                 'description' => "<p>Use to seal dentinal cavity tubules to reduce sensitivity due to microleakage.</p><br>
                                   <p>To prevent discolouration of the tooth from the metal ions. </p><br>
                                   <p>Sold per bottle</p>",
@@ -1323,7 +1486,9 @@ class ProductSeeder extends Seeder
                 'cprice' => 675,
                 'sprice' => 780,
                 'weight' => 30,
+                'weight_measurement' => 'g',
                 'status' => 1,
+                'featured' => 0,
                 'description' => "<p>Longer durability, Better aspect of sealant</p><br>
                                   <p>High permeation, low viscosity</p><br>
                                   <p>Versatility, convenience, hygienic application in use</p><br>
@@ -1340,7 +1505,9 @@ class ProductSeeder extends Seeder
                 'cprice' => 145,
                 'sprice' => 200,
                 'weight' => 30,
+                'weight_measurement' => 'g',
                 'status' => 1,
+                'featured' => 0,
                 'description' => "<p>Virtually painless, atraumatic, and perfectly sharp to give patient maximum comfort.</p><br>
                                   <p>The cannula is coated with silicon through a special treatment.</p><br>
                                   <p>Individually packaged, Sterilized</p><br>
@@ -1358,7 +1525,9 @@ class ProductSeeder extends Seeder
                 'cprice' => 275,
                 'sprice' => 350,
                 'weight' => 30,
+                'weight_measurement' => 'g',
                 'status' => 1,
+                'featured' => 0,
                 'description' => "<p>Topical anesthetic gel used primarily to minimize needle stick sensation</p><br>
                                   <p>Available in three flavors: Strawberry, Cherry, and Mint</p><br>
                                   <p>Sold per item</p><br>",
@@ -1374,7 +1543,9 @@ class ProductSeeder extends Seeder
                 'cprice' => 1050,
                 'sprice' => 1200,
                 'weight' => 30,
+                'weight_measurement' => 'g',
                 'status' => 1,
+                'featured' => 0,
                 'description' => "<p>Ideal for procedures that require the hemostatic property of epinephrine</p><br>
                                   <p>Sold per box</p>",
                 'created_at' => Carbon::now(),
@@ -1389,7 +1560,9 @@ class ProductSeeder extends Seeder
                 'cprice' => 280,
                 'sprice' => 350,
                 'weight' => 30,
+                'weight_measurement' => 'g',
                 'status' => 1,
+                'featured' => 0,
                 'description' => "<p>Topical analgesia of oral mucosa before anesthetic injection.</p><br>
                                   <p>Amide-based topical anesthetic designed to improve patient’s comfort during dental procedure.</p><br>
                                   <p>Sold per bottle</p>",
@@ -1405,7 +1578,9 @@ class ProductSeeder extends Seeder
                 'cprice' => 1700,
                 'sprice' => 1800,
                 'weight' => 30,
+                'weight_measurement' => 'g',
                 'status' => 1,
+                'featured' => 0,
                 'description' => "<p>Intended for producing a temporary loss of sensation in the area where it is applied.</p><br>
                                   <p>Sold per pack</p>",
                 'created_at' => Carbon::now(),
@@ -1420,7 +1595,9 @@ class ProductSeeder extends Seeder
                 'cprice' => 1720,
                 'sprice' => 1900,
                 'weight' => 30,
+                'weight_measurement' => 'g',
                 'status' => 1,
+                'featured' => 0,
                 'description' => "<p>Suitable for adults and children</p><br>
                                   <p>Only sulphite as a stabilizer</p><br>
                                   <p>Appropriate for adults and children</p><br>
@@ -1437,7 +1614,9 @@ class ProductSeeder extends Seeder
                 'cprice' => 800,
                 'sprice' => 900,
                 'weight' => 30,
+                'weight_measurement' => 'g',
                 'status' => 1,
+                'featured' => 0,
                 'description' => "<p>Indicated to produce local anesthesia when applied through infiltration or nerve block.</p><br>
                                   <p>Has a rapid, deep, and extended anesthetic action.</p><br>
                                   <p>Sold per box</p>",
@@ -1453,7 +1632,9 @@ class ProductSeeder extends Seeder
                 'cprice' => 1500,
                 'sprice' => 1800,
                 'weight' => 30,
+                'weight_measurement' => 'g',
                 'status' => 1,
+                'featured' => 0,
                 'description' => "<p>Injectable anesthetic solutions used in dental treatments</p><br>
                                   <p>Intended to produce local anesthesia when administered through infiltration or nerve block.</p><br>
                                   <p>Sold per box</p>",
@@ -1469,7 +1650,9 @@ class ProductSeeder extends Seeder
                 'cprice' => 950,
                 'sprice' => 1100,
                 'weight' => 30,
+                'weight_measurement' => 'g',
                 'status' => 1,
+                'featured' => 0,
                 'description' => "<p>Sterile product by aseptic filling</p><br>
                                   <p>Pre-cut bilster to avoid cross contamination</p><br>
                                   <p>Sold per box</p>",
@@ -1485,7 +1668,9 @@ class ProductSeeder extends Seeder
                 'cprice' => 1500,
                 'sprice' => 1650,
                 'weight' => 30,
+                'weight_measurement' => 'g',
                 'status' => 1,
+                'featured' => 0,
                 'description' => "<p>Indicated for interventions that require immediate anesthetic effect</p><br>
                                   <p>Ideal for procedures that require the hemostatic property of epinephrine</p><br>
                                   <p>Sold per box</p>",
@@ -1501,7 +1686,9 @@ class ProductSeeder extends Seeder
                 'cprice' => 1500,
                 'sprice' => 1650,
                 'weight' => 30,
+                'weight_measurement' => 'g',
                 'status' => 1,
+                'featured' => 0,
                 'description' => "<p>Mepivaciane</p><br>
                                   <p>50 Pcs per box</p><br>
                                   <p></p><br>
@@ -1518,7 +1705,9 @@ class ProductSeeder extends Seeder
                 'cprice' => 1100,
                 'sprice' => 1200,
                 'weight' => 30,
+                'weight_measurement' => 'g',
                 'status' => 1,
+                'featured' => 0,
                 'description' => "<p>GC Tooth Mousse is a delicious tasting crème that contains calcium and phosphate; the major minerals teeth are made from.</p><br>
                                   <p>Sold per item</p>",
                 'created_at' => Carbon::now(),
@@ -1533,7 +1722,9 @@ class ProductSeeder extends Seeder
                 'cprice' => 250,
                 'sprice' => 450,
                 'weight' => 30.4,
+                'weight_measurement' => 'g',
                 'status' => 1,
+                'featured' => 0,
                 'description' => "<p>High Quality PE Material</p><br>
                                   <p>No Smell</p><br>
                                   <p>Water immersion disifection</p><br>
@@ -1550,7 +1741,9 @@ class ProductSeeder extends Seeder
                 'cprice' => 150,
                 'sprice' => 350,
                 'weight' => 30,
+                'weight_measurement' => 'g',
                 'status' => 1,
+                'featured' => 0,
                 'description' => "<p>High Quality PE Material</p><br>
                                   <p>No Smell</p><br>
                                   <p>Water immersion disifection</p><br>
@@ -1567,7 +1760,9 @@ class ProductSeeder extends Seeder
                 'cprice' => 70,
                 'sprice' => 120,
                 'weight' => 30,
+                'weight_measurement' => 'g',
                 'status' => 1,
+                'featured' => 0,
                 'description' => "<p>Hygietol Instruments Enzymatic</p><br>
                                   <p>Non-corrosive disinfectant for dental and medical instruments</p><br>
                                   <p>Eliminates harmful microorganisms</p><br>
@@ -1584,7 +1779,9 @@ class ProductSeeder extends Seeder
                 'cprice' => 65,
                 'sprice' => 100,
                 'weight' => 30,
+                'weight_measurement' => 'g',
                 'status' => 1,
+                'featured' => 0,
                 'description' => "<p>Mirror Defogger is made to prevent image distortion and mirror fogging when using high-speed handpieces.</p><br>
                                   <p>Sold per bottle</p>",
                 'created_at' => Carbon::now(),
@@ -1599,7 +1796,9 @@ class ProductSeeder extends Seeder
                 'cprice' => 50,
                 'sprice' => 100,
                 'weight' => 30,
+                'weight_measurement' => 'g',
                 'status' => 1,
+                'featured' => 0,
                 'description' => "<p>Primarily use to activate the pink and clear dental acrylic powder</p><br>
                                   <p>Use together with self cure powder</p><br>
                                   <p>Sold per bottle</p>",
@@ -1615,7 +1814,9 @@ class ProductSeeder extends Seeder
                 'cprice' => 60,
                 'sprice' => 120,
                 'weight' => 30,
+                'weight_measurement' => 'g',
                 'status' => 1,
+                'featured' => 0,
                 'description' => "<p>Strong, durable , life like shade, long term color stability , cadmium free.</p><br>
                                   <p>Use together with self cure liquid</p><br>
                                   <p>Sold per item</p>",
@@ -1631,7 +1832,9 @@ class ProductSeeder extends Seeder
                 'cprice' => 200,
                 'sprice' => 250,
                 'weight' => 30,
+                'weight_measurement' => 'g',
                 'status' => 1,
+                'featured' => 0,
                 'description' => "<p>By eliminating excessive flow, Jeltrate impression materials allow your patients a level of comfort that cannot be found in other alginate impression materials.</p><br>
                                   <p>Consistent mix for very smooth models </p><br>
                                   <p>High tear strength for easy removal from undercuts without tearing</p><br>
@@ -1649,7 +1852,9 @@ class ProductSeeder extends Seeder
                 'cprice' => 200,
                 'sprice' => 250,
                 'weight' => 30,
+                'weight_measurement' => 'g',
                 'status' => 1,
+                'featured' => 0,
                 'description' => "<p>It also improves impression stone-surface-impression to stone reaction elimination.</p><br>
                                   <p>It is made from the finest food grade raw materials.</p><br>
                                   <p>Silicon rubber-like characteristics and it reduces body flow for maximum patient comfort.</p><br>
@@ -1666,7 +1871,9 @@ class ProductSeeder extends Seeder
                 'cprice' => 200,
                 'sprice' => 250,
                 'weight' => 30,
+                'weight_measurement' => 'g',
                 'status' => 1,
+                'featured' => 0,
                 'description' => "<p>Makintal high precision alginate creates impressions with high dimensional accuracy free from air bubbles and voids making it possible to create visibly better primary stone or virtual models</p><br>
                                   <p>Sold per pack</p>",
                 'created_at' => Carbon::now(),
@@ -1681,7 +1888,9 @@ class ProductSeeder extends Seeder
                 'cprice' => 300,
                 'sprice' => 350,
                 'weight' => 30,
+                'weight_measurement' => 'g',
                 'status' => 1,
+                'featured' => 0,
                 'description' => "<p>Hydrogum 5 is the Zhermack solution for satisfying the needs of the most demanding practitioners.</p><br>
                                   <p>Its high precision in detail reproduction, which is similar to that of a silicone, helps to obtain accurate impressions.</p><br>
                                   <p>Its high dimensional stability guarantees impression accuracy for up to 120 hours.</p><br>
@@ -1698,7 +1907,9 @@ class ProductSeeder extends Seeder
                 'cprice' => 300,
                 'sprice' => 350,
                 'weight' => 30,
+                'weight_measurement' => 'g',
                 'status' => 1,
+                'featured' => 0,
                 'description' => "<p>Hydrogum is a elastic and versatile alginate satisfies the many demands of daily clinical practice, whilst guaranteeing satisfactory results.</p><br>
                                   <p>Its high precision in detail reproduction, which is similar to that of a silicone, helps to obtain accurate impressions.</p><br>
                                   <p>Its high dimensional stability guarantees impression accuracy for up to 120 hours.</p><br>
@@ -1715,7 +1926,9 @@ class ProductSeeder extends Seeder
                 'cprice' => 300,
                 'sprice' => 350,
                 'weight' => 30,
+                'weight_measurement' => 'g',
                 'status' => 1,
+                'featured' => 0,
                 'description' => "<p>The chromatic variation provides the practitioner with a visual guide when processing the material for impression taking.</p><br>
                                   <p>Sold per pack</p>",
                 'created_at' => Carbon::now(),
@@ -1730,7 +1943,9 @@ class ProductSeeder extends Seeder
                 'cprice' => 800,
                 'sprice' => 1200,
                 'weight' => 30,
+                'weight_measurement' => 'g',
                 'status' => 1,
+                'featured' => 0,
                 'description' => "<p>Independent power supply with integrated generator</p><br>
                                   <p>Fatigue-free working thanks to optimal ergonomics</p><br>
                                   <p>Durable and robust due to high-quality stainless steel and scratch-resistant coating</p><br>
@@ -1748,7 +1963,9 @@ class ProductSeeder extends Seeder
                 'cprice' => 4200,
                 'sprice' => 5000,
                 'weight' => 30,
+                'weight_measurement' => 'g',
                 'status' => 1,
+                'featured' => 0,
                 'description' => "<p>Rotate Speed: 0-35,000RPM</p><br>
                                   <p>Input Voltage: AC110V-240V 50/60Hz</p><br>
                                   <p>Output: DC0-32V,0.5A</p><br>
@@ -1765,7 +1982,9 @@ class ProductSeeder extends Seeder
                 'cprice' => 110000,
                 'sprice' => 125000,
                 'weight' => 30,
+                'weight_measurement' => 'g',
                 'status' => 1,
+                'featured' => 0,
                 'description' => "<p>24V DC motor for chair (double armrest)</p><br>
                                   <p>Auto spittoon flushing & cup filler control system</p><br>
                                   <p>3 programs inter-lock control system (integrated circuit board)</p><br>
@@ -1797,7 +2016,9 @@ class ProductSeeder extends Seeder
                 'cprice' => 150,
                 'sprice' => 200,
                 'weight' => 30,
+                'weight_measurement' => 'g',
                 'status' => 1,
+                'featured' => 0,
                 'description' => "<p>Dental Orthodontics Brackets Braces</p><br>
                                   <p>Size/Guage: .18, .22</p><br>
                                   <p>Sold per pack</p>",
@@ -1813,7 +2034,9 @@ class ProductSeeder extends Seeder
                 'cprice' => 180,
                 'sprice' => 230,
                 'weight' => 30,
+                'weight_measurement' => 'g',
                 'status' => 1,
+                'featured' => 0,
                 'description' => "<p>Dental Orthodontics Mini Brackets Braces</p><br>
                                   <p>Size/Guage: .18, .22</p><br>
                                   <p>Sold per pack</p>",
@@ -1829,7 +2052,9 @@ class ProductSeeder extends Seeder
                 'cprice' => 180,
                 'sprice' => 230,
                 'weight' => 30,
+                'weight_measurement' => 'g',
                 'status' => 1,
+                'featured' => 0,
                 'description' => "<p>Dental Orthodontic Mini Roth Bracket</p><br>
                                   <p>Size/Guage: .18, .22</p><br>
                                   <p>Sold per pack</p>",
@@ -1845,7 +2070,9 @@ class ProductSeeder extends Seeder
                 'cprice' => 180,
                 'sprice' => 230,
                 'weight' => 30,
+                'weight_measurement' => 'g',
                 'status' => 1,
+                'featured' => 0,
                 'description' => "<p>Dental Orthodontic Standard MBT Bracket</p><br>
                                   <p>Size/Guage: .18, .22</p><br>
                                   <p>Sold per pack</p>",
@@ -1861,7 +2088,9 @@ class ProductSeeder extends Seeder
                 'cprice' => 180,
                 'sprice' => 230,
                 'weight' => 30,
+                'weight_measurement' => 'g',
                 'status' => 1,
+                'featured' => 0,
                 'description' => "<p>Dental Orthodontic Standard Roth Bracket</p><br>
                                   <p>Size/Guage: .18, .22</p><br>
                                   <p>Sold per pack</p>",
@@ -1877,7 +2106,9 @@ class ProductSeeder extends Seeder
                 'cprice' => 80,
                 'sprice' => 120,
                 'weight' => 30,
+                'weight_measurement' => 'g',
                 'status' => 1,
+                'featured' => 0,
                 'description' => "<p>Dental Orthodontic Convertible Buccal Tubes</p><br>
                                   <p>Size/Guage: .18, .22</p><br>
                                   <p>Sold per pack</p>",
@@ -1893,7 +2124,9 @@ class ProductSeeder extends Seeder
                 'cprice' => 70,
                 'sprice' => 90,
                 'weight' => 30,
+                'weight_measurement' => 'g',
                 'status' => 1,
+                'featured' => 0,
                 'description' => "<p>Dental Orthodontic Second Molar Buccal Tubes</p><br>
                                   <p>Size/Guage: .18, .22</p><br>
                                   <p>Sold per pack</p>",
@@ -1909,7 +2142,9 @@ class ProductSeeder extends Seeder
                 'cprice' => 60,
                 'sprice' => 90,
                 'weight' => 30,
+                'weight_measurement' => 'g',
                 'status' => 1,
+                'featured' => 0,
                 'description' => "<p>Dental Orthodontic Standard Buccal Tubes</p><br>
                                   <p>Size/Guage: .18, .22</p><br>
                                   <p>Sold per pack</p>",
@@ -1925,7 +2160,9 @@ class ProductSeeder extends Seeder
                 'cprice' => 600,
                 'sprice' => 1100,
                 'weight' => 30,
+                'weight_measurement' => 'g',
                 'status' => 1,
+                'featured' => 0,
                 'description' => "<p>Dental Orthodontic Co Axial Wire</p><br>
                                   <p>Size/Guage: Standard</p><br>
                                   <p>Sold per spool</p>",
@@ -1941,7 +2178,9 @@ class ProductSeeder extends Seeder
                 'cprice' => 60,
                 'sprice' => 100,
                 'weight' => 30.4,
+                'weight_measurement' => 'g',
                 'status' => 1,
+                'featured' => 0,
                 'description' => "<p>Dental Orthodontic Upper & Lower Coated Ovoid</p><br>
                                   <p>Size/Guage: 12, 14, 16, 18, 20</p><br>
                                   <p>Sold per pack</p>",
@@ -1957,7 +2196,9 @@ class ProductSeeder extends Seeder
                 'cprice' => 90,
                 'sprice' => 150,
                 'weight' => 30,
+                'weight_measurement' => 'g',
                 'status' => 1,
+                'featured' => 0,
                 'description' => "<p>Dental Orthodontic Upper & Lower Coated Square</p><br>
                                   <p>Size/Guage: 1616, 1622, 1722, 1725, 1822, 1825</p><br>
                                   <p>Sold per pack</p>",
@@ -1973,7 +2214,9 @@ class ProductSeeder extends Seeder
                 'cprice' => 60,
                 'sprice' => 100,
                 'weight' => 30,
+                'weight_measurement' => 'g',
                 'status' => 1,
+                'featured' => 0,
                 'description' => "<p>Dental Orthodontic Upper & Lower Ovoid</p><br>
                                   <p>Size/Guage: 12, 14, 16, 18, 20</p><br>
                                   <p>Sold per pack</p>",
@@ -1989,7 +2232,9 @@ class ProductSeeder extends Seeder
                 'cprice' => 90,
                 'sprice' => 150,
                 'weight' => 30,
+                'weight_measurement' => 'g',
                 'status' => 1,
+                'featured' => 0,
                 'description' => "<p>Dental Orthodontic Upper & Lower Square</p><br>
                                   <p>Size/Guage: 1616, 1622, 1722, 1725, 1822, 1825</p><br>
                                   <p>Sold per pack</p>",
@@ -2005,7 +2250,9 @@ class ProductSeeder extends Seeder
                 'cprice' => 500,
                 'sprice' => 900,
                 'weight' => 30,
+                'weight_measurement' => 'g',
                 'status' => 1,
+                'featured' => 0,
                 'description' => "<p>Dental Orthodontic Open Coil Spring</p><br>
                                   <p>Size/Guage: 0.10, 0.12</p><br>
                                   <p>Sold per spool</p>",
@@ -2021,7 +2268,9 @@ class ProductSeeder extends Seeder
                 'cprice' => 150,
                 'sprice' => 200.00,
                 'weight' => 30,
+                'weight_measurement' => 'g',
                 'status' => 1,
+                'featured' => 0,
                 'description' => "<p>Dental Orthodontic Reverse Curve Wire Ovoid</p><br>
                                   <p>Size/Guage: 12, 14, 16, 18, 20, 1616, 1622</p><br>
                                   <p>Sold per pack</p>",
@@ -2037,7 +2286,9 @@ class ProductSeeder extends Seeder
                 'cprice' => 60,
                 'sprice' => 100.00,
                 'weight' => 30.4,
+                'weight_measurement' => 'g',
                 'status' => 1,
+                'featured' => 0,
                 'description' => "<p>Dental Orthodontic Upper & Lower Ovoid</p><br>
                                   <p>Stainless Steel</p><br>
                                   <p>Size/Guage: 12, 14, 16, 18, 20</p><br>
@@ -2054,7 +2305,9 @@ class ProductSeeder extends Seeder
                 'cprice' => 90,
                 'sprice' => 150.00,
                 'weight' => 30,
+                'weight_measurement' => 'g',
                 'status' => 1,
+                'featured' => 0,
                 'description' => "<p>Dental Orthodontic Upper & Lower Square</p><br>
                                   <p>Stainless Steel</p><br>
                                   <p>Size/Guage: 1616, 1622, 1722, 1725, 1822, 1825</p><br>
@@ -2071,7 +2324,9 @@ class ProductSeeder extends Seeder
                 'cprice' => 60,
                 'sprice' => 100,
                 'weight' => 30,
+                'weight_measurement' => 'g',
                 'status' => 1,
+                'featured' => 0,
                 'description' => "<p>Dental Orthodontic Upper & Lower Ovoid</p><br>
                                   <p>Size/Guage: 12, 14, 16, 18, 20</p><br>
                                   <p>Sold per pack</p>",
@@ -2087,7 +2342,9 @@ class ProductSeeder extends Seeder
                 'cprice' => 150,
                 'sprice' => 200,
                 'weight' => 30,
+                'weight_measurement' => 'g',
                 'status' => 1,
+                'featured' => 0,
                 'description' => "<p>Dental Orthodontic Reverse Curve Wire Ovoid</p><br>
                                   <p>Size/Guage: 12, 14, 16, 18, 20, 1616, 1622</p><br>
                                   <p>Sold per pack</p>",
@@ -2103,7 +2360,9 @@ class ProductSeeder extends Seeder
                 'cprice' => 500,
                 'sprice' => 750,
                 'weight' => 30,
+                'weight_measurement' => 'g',
                 'status' => 1,
+                'featured' => 0,
                 'description' => "<p>Made of stainless steel material, safe and envrionmental protection</p><br>
                                   <p>Inserted structure, easy to use</p><br>
                                   <p>Fixed on the archwires</p><br>
@@ -2120,7 +2379,9 @@ class ProductSeeder extends Seeder
                 'cprice' => 500,
                 'sprice' => 800,
                 'weight' => 30,
+                'weight_measurement' => 'g',
                 'status' => 1,
+                'featured' => 0,
                 'description' => "<p>Intended for application of elastics, crossbite correction, bonding impacted canine, extrusion of teeth, habit breaking, anchorage augmentation, and lingual bonded retainer.</p><br>
                                   <p>Sold per pack</p>",
                 'created_at' => Carbon::now(),
@@ -2135,7 +2396,9 @@ class ProductSeeder extends Seeder
                 'cprice' => 800,
                 'sprice' => 1200,
                 'weight' => 30,
+                'weight_measurement' => 'g',
                 'status' => 1,
+                'featured' => 0,
                 'description' => "<p>High quality stainless steel material</p><br>
                                   <p>Direct bonding, Suitable thickness and hardness, easy to use</p><br>
                                   <p>Sold per pack</p>",
@@ -2151,7 +2414,9 @@ class ProductSeeder extends Seeder
                 'cprice' => 80,
                 'sprice' => 120.00,
                 'weight' => 30,
+                'weight_measurement' => 'g',
                 'status' => 1,
+                'featured' => 0,
                 'description' => "<p>Superior Color Stability, Fade resistant</p><br>
                                   <p>High elasticity and excellent rebound</p><br>
                                   <p>Gentle and continuous force and good memory</p><br>
@@ -2169,7 +2434,9 @@ class ProductSeeder extends Seeder
                 'cprice' => 125,
                 'sprice' => 200,
                 'weight' => 30,
+                'weight_measurement' => 'g',
                 'status' => 1,
+                'featured' => 0,
                 'description' => "<p>Colorful Super Elastic Dental Orthodontic Ligature Tie</p><br>
                                   <p>High strength and elasticity</p><br>
                                   <p>Gentle and continuous force</p><br>
@@ -2186,7 +2453,9 @@ class ProductSeeder extends Seeder
                 'cprice' => 200,
                 'sprice' => 250.00,
                 'weight' => 30,
+                'weight_measurement' => 'g',
                 'status' => 1,
+                'featured' => 0,
                 'description' => "<p>Product details of 500PCS 6.5OZ/5.0OZ/3.5OZ Rubber Band Braces Elastics Rings</p><br>
                                   <p>Sold per pack</p>",
                 'created_at' => Carbon::now(),
@@ -2201,7 +2470,9 @@ class ProductSeeder extends Seeder
                 'cprice' => 510,
                 'sprice' => 550,
                 'weight' => 30,
+                'weight_measurement' => 'g',
                 'status' => 1,
+                'featured' => 0,
                 'description' => "<p>Rotation Wedges fit beneath archwire to administrater rotation forces where desired. Available in Silver and Clear.</p><br>
                                   <p>Preformed tabs quickly snap over bracket tie wings for rotating individual teeth.</p><br>
                                   <p>The unique wedge shape design provides complete contact with the tooth surface, allowing more force to be transmitted to the tooth.</p><br>
@@ -2218,7 +2489,9 @@ class ProductSeeder extends Seeder
                 'cprice' => 25,
                 'sprice' => 40.00,
                 'weight' => 30,
+                'weight_measurement' => 'g',
                 'status' => 1,
+                'featured' => 0,
                 'description' => "<p>High strength and elasticity. Long-lasting. Gentle and continuous force. Good memory. Non-latex.</p><br>
                                   <p>Separators are injection molded from optimum material; they tend to maintain their elasticity & color over time and do not require to be frequently changed.</p><br>
                                   <p>Sold per string</p>",
@@ -2234,7 +2507,9 @@ class ProductSeeder extends Seeder
                 'cprice' => 20,
                 'sprice' => 35,
                 'weight' => 30,
+                'weight_measurement' => 'g',
                 'status' => 1,
+                'featured' => 0,
                 'description' => "<p>A must have for Braces. Patient Relief Wax Sticks help soothe and prevent irritation to the gums caused by Braces and other Dental appliances. Made with medical-grade paraffin-based wax. Prevent and Protect orthodontic wire from piercing the oral lining.</p><br>
                                   <p>Sold per piece</p>",
                 'created_at' => Carbon::now(),
@@ -2249,7 +2524,9 @@ class ProductSeeder extends Seeder
                 'cprice' => 24,
                 'sprice' => 30,
                 'weight' => 30,
+                'weight_measurement' => 'g',
                 'status' => 1,
+                'featured' => 0,
                 'description' => "<p>Strong tension and good flexibility.</p><br>
                                   <p>Smooth dental flosser to clean teeth effectively.</p><br>
                                   <p>Double head Orthodontic Toothbrush and Interdental Brush.</p><br>
@@ -2267,7 +2544,9 @@ class ProductSeeder extends Seeder
                 'cprice' => 475,
                 'sprice' => 580,
                 'weight' => 30,
+                'weight_measurement' => 'g',
                 'status' => 1,
+                'featured' => 0,
                 'description' => "<p>Intended for holding the impression material as it sets, and supports the set impression until after casting.</p><br>
                                   <p>Made of Stainless Steel</p><br>
                                   <p>Sold per set</p>",
@@ -2283,7 +2562,9 @@ class ProductSeeder extends Seeder
                 'cprice' => 110,
                 'sprice' => 150,
                 'weight' => 30,
+                'weight_measurement' => 'g',
                 'status' => 1,
+                'featured' => 0,
                 'description' => "<p>Intended for holding the impression material as it sets, and supports the set impression until after casting.</p><br>
                                   <p>Made of Rubber</p><br>
                                   <p>Sold per set</p>",
@@ -2299,7 +2580,9 @@ class ProductSeeder extends Seeder
                 'cprice' => 70,
                 'sprice' => 90.00,
                 'weight' => 30,
+                'weight_measurement' => 'g',
                 'status' => 1,
+                'featured' => 0,
                 'description' => "<p>Easy to place Cheek Retractor useful for oral surgery, orthodontic bonding and restorative work.</p><br>
                                   <p>The one-piece design provides comfortable access and is easily placed in just seconds.</p><br>
                                   <p>Sold per piece</p>",

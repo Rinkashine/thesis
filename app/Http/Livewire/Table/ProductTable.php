@@ -91,6 +91,7 @@ class ProductTable extends Component
         ]);
     }
 
+
     public function selectItem($itemId, $action)
     {
         $this->selectedItem = $itemId;

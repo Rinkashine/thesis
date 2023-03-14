@@ -51,11 +51,7 @@
                                 <td class="whitespace-nowrap text-center">Sales</td>
                                 <td class="whitespace-nowrap text-center"><a href="{{ Route('report.Return') }}">View Details</a></td>
                             </tr>
-                            <tr>
-                                <td class="whitespace-nowrap cursor-pointer hover:underline">Cancellation</td>
-                                <td class="whitespace-nowrap text-center">Sales</td>
-                                <td class="whitespace-nowrap text-center"><a href="{{ Route('report.Cancellation') }}">View Details</a></td>
-                            </tr>
+
                             <tr>
                                 <td class="whitespace-nowrap cursor-pointer hover:underline">Sales over time</td>
                                 <td class="whitespace-nowrap text-center">Sales</td>
@@ -72,22 +68,22 @@
                                 <td class="whitespace-nowrap text-center"><a href="{{ Route('report.CustomersTotalSpent') }}">View Details</a></td>
                             </tr>
                             <tr>
-                                <td class="whitespace-nowrap cursor-pointer hover:underline">Sales by Brand</td>
+                                <td class="whitespace-nowrap cursor-pointer hover:underline">Number of Sales by Product Brand</td>
                                 <td class="whitespace-nowrap text-center">Sales</td>
                                 <td class="whitespace-nowrap text-center"><a href="{{ Route('report.SalesBrand') }}">View Details</a></td>
                             </tr>
                             <tr>
-                                <td class="whitespace-nowrap cursor-pointer hover:underline">Sales by Category</td>
+                                <td class="whitespace-nowrap cursor-pointer hover:underline">Number of Sales by Product Category</td>
                                 <td class="whitespace-nowrap text-center">Sales</td>
                                 <td class="whitespace-nowrap text-center"><a href="{{ Route('report.SalesCategory') }}">View Details</a></td>
                             </tr>
                             <tr>
-                                <td class="whitespace-nowrap cursor-pointer hover:underline">Quantity of Orders by Brand</td>
+                                <td class="whitespace-nowrap cursor-pointer hover:underline">Number of Orders by Product Brand</td>
                                 <td class="whitespace-nowrap text-center">Sales</td>
                                 <td class="whitespace-nowrap text-center"><a href="{{ Route('report.OrderBrand') }}">View Details</a></td>
                             </tr>
                             <tr>
-                                <td class="whitespace-nowrap cursor-pointer hover:underline">Quantity of Orders by Category</td>
+                                <td class="whitespace-nowrap cursor-pointer hover:underline">Number of Orders by Product Category</td>
                                 <td class="whitespace-nowrap text-center">Sales</td>
                                 <td class="whitespace-nowrap text-center"><a href="{{ Route('report.OrderCategory') }}">View Details</a></td>
                             </tr>

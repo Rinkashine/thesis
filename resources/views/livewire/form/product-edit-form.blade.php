@@ -235,6 +235,26 @@
                                 <div class="form-label xl:w-64 xl:!mr-10">
                                     <div class="text-left">
                                         <div class="flex items-center">
+                                            <div class="font-medium">Featured Status</div>
+                                            <div class="ml-2 px-2 py-0.5 bg-slate-200 text-slate-600 dark:bg-darkmode-300 dark:text-slate-400 text-xs rounded-md">Required</div>
+
+                                        </div>
+                                        <div class="leading-relaxed text-slate-500 text-xs mt-3"> If the featured is active, your product will be displayed in the homepage. </div>
+                                    </div>
+                                </div>
+                                <div class="w-full mt-3 xl:mt-0 flex-1">
+                                    <select wire:model="featured"  class="form-select w-full @error('status') border-danger @enderror"  >
+                                        <option value="">Select</option>
+                                        <option value="1">Active</option>
+                                        <option value="0">Inactive</option>
+                                    </select>
+                                    <div class="text-danger mt-2">@error('featured'){{$message}}@enderror</div>
+                                </div>
+                            </div>
+                            <div class="form-inline items-start flex-col xl:flex-row mt-5 pt-5 first:mt-0 first:pt-0">
+                                <div class="form-label xl:w-64 xl:!mr-10">
+                                    <div class="text-left">
+                                        <div class="flex items-center">
                                             <div class="font-medium">Product Stock</div>
                                         </div>
                                     </div>
@@ -276,15 +296,31 @@
                                 <div class="form-label xl:w-64 xl:!mr-10">
                                     <div class="text-left">
                                         <div class="flex items-center">
-                                            <div class="font-medium">Weight</div>
+                                            <div class="font-medium">Shipping Weight</div>
                                             <div class="ml-2 px-2 py-0.5 bg-slate-200 text-slate-600 dark:bg-darkmode-300 dark:text-slate-400 text-xs rounded-md">Required</div>
                                         </div>
                                         <div class="leading-relaxed text-slate-500 text-xs mt-3">Enter the weight by weighing the product after it is packaged.</div>
                                     </div>
                                 </div>
                                 <div class="w-full mt-3 xl:mt-0 flex-1">
-                                    <input id="weight" type="number"  wire:model="weight" class="form-control @error('weight') border-danger @enderror" placeholder="Input Weight">
+                                    <div class="flex justify-between">
+                                        <div class="flex-auto w-full">
+                                            <input id="weight" type="number"  wire:model="weight" class="form-control  @error('weight') border-danger @enderror" placeholder="Input Weight">
+
+                                        </div>
+                                        <div class="flex-auto w-32">
+                                            <select class="form-control" wire:model="weight_measurement">
+                                                <option value="lb">lb</option>
+                                                <option value="g">g</option>
+                                                <option value="kg">kg</option>
+                                                <option value="oz">oz</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
                                     <div class="text-danger mt-2">@error('weight'){{$message}}@enderror</div>
+                                    <div class="text-danger mt-2">@error('weight_measurement'){{$message}}@enderror</div>
+
                                 </div>
                             </div>
                         </div>

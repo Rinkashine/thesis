@@ -236,8 +236,22 @@
                                     </div>
                                 </div>
                                 <div class="w-full mt-3 xl:mt-0 flex-1">
-                                    <input id="weight" type="number" wire:model="weight" class="form-control @error('weight') border-danger @enderror" placeholder="Input Weight" onkeypress="return event.charCode >= 48" >
+                                    <div class="flex justify-between">
+                                        <div class="flex-auto w-full">
+                                            <input id="weight" type="number" wire:model="weight" class="form-control @error('weight') border-danger @enderror" placeholder="Input Weight" onkeypress="return event.charCode >= 48" >
+                                        </div>
+                                        <div class="flex-auto w-32">
+                                            <select class="form-control" wire:model="weight_measurement">
+                                                <option value="lb">lb</option>
+                                                <option value="g">g</option>
+                                                <option value="kg">kg</option>
+                                                <option value="oz">oz</option>
+                                            </select>
+                                        </div>
+                                    </div>
                                     <div class="text-danger mt-2">@error('weight'){{$message}}@enderror</div>
+                                    <div class="text-danger mt-2">@error('weight_measurement'){{$message}}@enderror</div>
+
                                 </div>
                             </div>
                         </div>

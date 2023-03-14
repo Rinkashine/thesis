@@ -79,72 +79,69 @@
         </div>
     </div>
     </div>
-    {{-- <div class=" box p-5 mt-5 w-full">
+     <div class=" box p-5 mt-5 w-full">
         <div class="border border-slate-200/60 dark:border-darkmode-400 rounded-md p-5">
             <div class="flex justify-between items-center border-b border-slate-200/60 dark:border-darkmode-400 pb-5">
                 <div class="font-medium text-base">
-                    Quantity Orders Chart
+                    Cancelled Reasons Chart
                 </div>
             </div>
             <div class="flex justify-center">
-                <div class="w-full" >
-                    <canvas id="SalesOrderChart"  ></canvas>
+                <div class="w-1/2" >
+                    <canvas id="ReasonForCancellationChart"  ></canvas>
                 </div>
             </div>
         </div>
-    </div> --}}
+    </div>
 
-     {{-- @push('scripts')
+  @push('scripts')
          <script>
             //Begin: User Type Chart+
-            var label =  {{ Js::from($brandlabel) }};
+            var label =  {{ Js::from($cancelled_reason_label) }};
+            var reasondataset =  {{ Js::from($cancelled_reason_dataset) }};
 
-            var salesorderdataset =  {{ Js::from($brandordersdataset) }};
-            const ordertypedata = {
-            labels: label,
-            datasets: [{
-                label: 'Orders',
-                data: salesorderdataset,
-                backgroundColor: [
-                    'rgba(255, 99, 132)',
-                    'rgba(255, 159, 64)',
-                    'rgba(255, 205, 86)',
-                    'rgba(75, 192, 192)',
-                    'rgba(54, 162, 235)',
-                    'rgba(153, 102, 255)',
-                    'rgba(201, 203, 207)'
-                ],
-                hoverOffset: 4
-            }]
-            };
-            const ordertypeconfig = {
-                type: 'bar',
-                data: ordertypedata,
-                options: {
-                    scales: {
-                    y: {
-                        beginAtZero: true
-                        }
-                    }
-                },
+            const data = {
+                labels: label,
+                datasets: [{
+                    label: 'Dataset',
+                    data: reasondataset,
+                    backgroundColor: [
+                        'rgb(30,95,78)',
+                        'rgb(250,209,44)',
+                        'rgba(255, 99, 132)',
+                        'rgba(255, 159, 64)',
+                        'rgba(255, 205, 86)',
+                        'rgba(75, 192, 192)',
+                        'rgba(54, 162, 235)',
+                        'rgba(153, 102, 255)',
+                        'rgba(201, 203, 207)'
+                    ],
+                    hoverOffset: 4
+                }]
             };
 
-            const SalesOrderChart = new Chart(
-                document.getElementById('SalesOrderChart'),
-                ordertypeconfig
+            const config = {
+                type: 'pie',
+                data: data,
+            };
+
+
+            const CancelledChart = new Chart(
+                document.getElementById('ReasonForCancellationChart'),
+                config
             );
 
             window.addEventListener('render-chart',event => {
-                SalesOrderChart.config.data.labels = event.detail.label;
+                CancelledChart.config.data.labels = event.detail.label;
 
-                SalesOrderChart.config.data.datasets[0].data = event.detail.orderdataset;
+                CancelledChart.config.data.datasets[0].data = event.detail.reasons;
 
-                SalesOrderChart.update();
-                });
+                CancelledChart.update();
+            });
 
             //End: User Type Chart
 
          </script>
-     @endpush --}}
+     @endpush
 </div>
 

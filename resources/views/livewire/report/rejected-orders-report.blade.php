@@ -48,7 +48,7 @@
                         <tbody>
                             @foreach ($customers as $customer )
                                 <tr>
-                                    <td class="whitespace-nowrap ">{{$customer->name}}</td>
+                                    <td class="whitespace-nowrap "><a href="{{ Route('customer.show',$customer->id) }}">{{$customer->name}}</a></td>
                                     <td class="whitespace-nowrap text-center">{{$customer->email}}</td>
                                     <td class="whitespace-nowrap text-center">{{$customer->total}}</td>
                                 </tr>

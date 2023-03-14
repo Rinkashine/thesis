@@ -24,13 +24,13 @@
         <div class="p-5">
             <canvas id="test" height="80px"></canvas>
         </div>
-    </div>
+    </div>--}}
     <div class="intro-y box mt-5 ">
         <div class="flex items-center p-5 border-b border-slate-200/60 dark:border-darkmode-400">
             <h2 class="font-medium text-base mr-auto">
                 Data
             </h2>
-        </div> --}}
+        </div>
         <div class="p-5">
             <div class="overflow-x-auto">
                 <table class="table table-bordered">
@@ -106,7 +106,5 @@
     </script>
 
     @endpush --}}
-
-
 
 </div>

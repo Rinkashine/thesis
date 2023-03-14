@@ -16,7 +16,7 @@ class HomeController extends Controller
         $banners = Home::where('status', '=', 'Active')->get();
         $categories = Category::get();
         $brands = Brand::get();
-        $products = Product::where('status', 1)->with('images')->get()->shuffle()->take(10);
+        $products = Product::where('featured', 1)->with('images')->get();
 
         $top_selling = Product::join('customer_order_item', 'product.id', '=', 'customer_order_item.id')
         ->select(

@@ -11,7 +11,7 @@
             </div>
         @endcan
     </div>
-
+    <div class="box mt-5 intro-y">
         <div class="p-5">
             <div class="overflow-x-auto">
                 <table class="table table-bordered">
@@ -20,13 +20,12 @@
                             <td class="whitespace-nowrap text-center">Order ID</td>
                             <td class="whitespace-nowrap text-center">Customer Name</td>
                             <td class="whitespace-nowrap text-center">Cancellation Reason</td>
-                            {{-- <td class="whitespace-nowrap text-center">Action</td> --}}
                         </tr>
                     </thead>
                     <tbody>
                         @foreach ($cancellations as $cancellation)
                         <tr>
-                            <td class="wwhitespace-nowrap text-center">{{ $cancellation->id }}</td>
+                            <td class="wwhitespace-nowrap text-center"> <a href="{{ Route('orders.show',$cancellation->id) }}">{{ $cancellation->id }}</a></td>
                             <td class="whitespace-nowrap text-center">{{ $cancellation->customer_name }}</td>
                             <td class="whitespace-nowrap text-center">{{ $cancellation->reason_name }}</td>
                         </tr>
@@ -37,6 +36,7 @@
             </div>
         </div>
     </div>
+</div>
     {{-- @push('scripts')
     <script>
 
