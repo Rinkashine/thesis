@@ -58,7 +58,7 @@
                             <div class="flex items-center mt-5">
                                 <div class="ml-4">
                                     <h3 class="font-medium text-base">Weight:</h3>
-                                    <div class="text-slate-500 text-base mt-0.5">{{ $product->weight }} grams</div>
+                                    <div class="text-slate-500 text-base mt-0.5">{{ $product->weight }}{    { $product->weight_measurement }}</div>
                                 </div>
                             </div>
 

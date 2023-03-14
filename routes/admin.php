@@ -98,6 +98,15 @@ Route::group(['prefix' => 'admin'], function () {
         Route::get('/report/MostVisitedPage/excel/{startdate}/{enddate}', [ReportController::class, 'exportMostVisitedPageExcel'])->name('exportMostVisitedPageExcel');
         //Export Files for Gender
         Route::get('/report/gender/excel', [ReportController::class, 'exportGenderExcel'])->name('exportGenderExcel');
+        //Export
+        Route::get('/report/productbycustomer/excel/',[ReportController::class,'exportProductByCustomerExcel'])->name('report.exportProductByCustomerExcel');
+        Route::get('/report/VerifiedAccount/excel/',[ReportController::class,'exportVerifiedAccountsExcel'])->name('report.exportVerifiedAccountsExcel');
+        Route::get('/report/NonVerifiedAccount/excel/',[ReportController::class,'exportNonVerifiedAccountsExcel'])->name('report.exportNonVerifiedAccountsExcel');
+        Route::get('/report/OrdersByProduct/excel/',[ReportController::class,'exportOrdersByProductExcel'])->name('report.exportOrdersByProductExcel');
+        Route::get('/report/OrdersByCustomer/customerbyproduct/excel/',[ReportController::class,'exportOrdersByCustomer'])->name('report.exportOrdersByCustomer');
+        Route::get('/report/customerbyproduct/excel/{name}',[ReportController::class,'exportCustomerByProductExcel'])->name('report.exportCustomerByProductExcel');
+
+
 
         Route::middleware(['PreventBackHistory'])->group(function () {
             Route::get('/logout', [LogoutController::class, 'store'])->name('logout');
@@ -165,6 +174,21 @@ Route::group(['prefix' => 'admin'], function () {
             Route::get('/report/gender', [ReportController::class, 'GenderIndex'])->name('report.Gender');
 
             Route::get('/report/browser', [ReportController::class, 'BrowserIndex'])->name('report.browser');
+
+            Route::get('/report/accountverification',[ReportController::class,'AccountVerification'])->name('report.AccountVerification');
+            Route::get('/report/VerifiedAccount',[ReportController::class,'VerifiedAccount'])->name('report.VerifiedAccount');
+            Route::get('/report/NonVerifiedAccount',[ReportController::class,'NonVerifiedAccount'])->name('report.NonVerifiedAccount');
+
+            Route::get('/report/TopBuyerPerProduct',[ReportController::class,'TopBuyerPerProduct'])->name('report.TopBuyerPerProduct');
+
+            Route::get('/report/OrdersByProduct',[ReportController::class,'OrdersByProduct'])->name('report.OrdersByProduct');
+            Route::get('/report/OrdersByProduct/ProductByCustomer/{name}',[ReportController::class,'ProductByCustomer'])->name('report.ProductByCustomer');
+
+            Route::get('/report/OrdersByCustomer',[ReportController::class,'OrdersByCustomer'])->name('report.OrdersByCustomer');
+            Route::get('/report/OrdersByCustomer/CustomerByProduct/{name}',[ReportController::class,'CustomerByProduct'])->name('report.CustomerByProduct');
+
+
+
             Route::resource('report', ReportController::class);
 
             Route::get('/customer/archive', [CustomerController::class, 'CustomerArchiveIndex'])->name('CustomerArchiveIndex');

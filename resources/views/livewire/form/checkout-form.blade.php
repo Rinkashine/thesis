@@ -34,16 +34,16 @@
         <div class="grid grid-cols-12 gap-6">
             <div class="col-span-12 lg:col-span-8 2xl:col-span-9">
                 <!-- BEGIN: Shipping Information -->
-                <div class="intro-y box mt-5">
+                <div class="mt-5 intro-y box">
                     <div class="flex items-center p-5 border-b border-slate-200/60 dark:border-darkmode-400">
                         <div class="flex justify-between w-full">
                             <div>
-                                <h2 class="font-medium text-base mr-auto">
+                                <h2 class="mr-auto text-base font-medium">
                                     Shipping Address
                                 </h2>
                             </div>
                             <div>
-                                <button type="button" class="underline text-blue-400 cursor-pointer"  wire:click="selectItem({{ $updateAddress }},'editaddress')">Edit</button>
+                                <button type="button" class="text-blue-400 underline cursor-pointer"  wire:click="selectItem({{ $updateAddress }},'editaddress')">Edit</button>
                             </div>
                         </div>
                     </div>
@@ -60,9 +60,9 @@
                 </div>
                 <!-- END: Shipping Information -->
                 <!-- BEGIN: ORDERS -->
-                <div class="intro-y box mt-5">
+                <div class="mt-5 intro-y box">
                     <div class="flex items-center p-5 border-b border-slate-200/60 dark:border-darkmode-400">
-                        <h2 class="font-medium text-base mr-auto">
+                        <h2 class="mr-auto text-base font-medium">
                             Product Ordered
                         </h2>
                     </div>
@@ -72,38 +72,38 @@
                                 <thead class="table-dark">
                                     <tr>
                                         <th class="whitespace-nowrap">Product Name</th>
-                                        <th class="whitespace-nowrap text-center">Unit Price</th>
-                                        <th class="whitespace-nowrap text-center">Total Price</th>
-                                        <th class="whitespace-nowrap text-center">Quantity</th>
-                                        <th class="whitespace-nowrap text-center">Action</th>
+                                        <th class="text-center whitespace-nowrap">Unit Price</th>
+                                        <th class="text-center whitespace-nowrap">Total Price</th>
+                                        <th class="text-center whitespace-nowrap">Quantity</th>
+                                        <th class="text-center whitespace-nowrap">Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     @foreach ($orders as $order)
                                         <tr>
                                             <td class="whitespace-nowrap">{{ $order->product->name }}</td>
-                                            <td class="whitespace-nowrap text-center">₱{{ number_format($order->product->sprice) }}</td>
-                                            <td class="whitespace-nowrap text-center">₱{{ number_format($order->product->sprice * $order->quantity) }}</td>
-                                            <td class="whitespace-nowrap text-center">{{ $order->quantity }}</td>
-                                            <td class="whitespace-nowrap flex justify-center items-center" >
+                                            <td class="text-center whitespace-nowrap">₱{{ number_format($order->product->sprice) }}</td>
+                                            <td class="text-center whitespace-nowrap">₱{{ number_format($order->product->sprice * $order->quantity) }}</td>
+                                            <td class="text-center whitespace-nowrap">{{ $order->quantity }}</td>
+                                            <td class="flex items-center justify-center whitespace-nowrap" >
                                                 @if(count($orders)  == 1)
                                                     <!-- BEGIN: Modal Toggle -->
                                                         <a href="javascript:;" data-tw-toggle="modal" data-tw-target="#warning-modal-preview" class="text-danger">
-                                                            <i class="fa-regular fa-trash-can w-4 h-4 mr-1" ></i> Remove
+                                                            <i class="w-4 h-4 mr-1 fa-regular fa-trash-can" ></i> Remove
                                                         </a>
                                                     <!-- END: Modal Toggle -->
                                                     <!-- BEGIN: Modal Content -->
                                                         <div id="warning-modal-preview" class="modal" tabindex="-1" aria-hidden="true">
                                                             <div class="modal-dialog">
                                                                 <div class="modal-content">
-                                                                    <div class="modal-body p-0">
+                                                                    <div class="p-0 modal-body">
                                                                         <div class="p-5 text-center">
-                                                                            <i class="fa-regular fa-circle-xmark fa-5x text-warning mx-auto mt-3"></i>
-                                                                            <div class="text-3xl mt-5">Oops...</div>
-                                                                            <div class="text-slate-500 mt-2">Something went wrong!</div>
+                                                                            <i class="mx-auto mt-3 fa-regular fa-circle-xmark fa-5x text-warning"></i>
+                                                                            <div class="mt-5 text-3xl">Oops...</div>
+                                                                            <div class="mt-2 text-slate-500">Something went wrong!</div>
                                                                         </div>
                                                                         <div class="px-5 pb-8 text-center">
-                                                                            <button type="button" data-tw-dismiss="modal" class="btn w-24 btn-primary">Ok</button>
+                                                                            <button type="button" data-tw-dismiss="modal" class="w-24 btn btn-primary">Ok</button>
                                                                         </div>
                                                                         <div class="p-5 text-center border-t border-slate-200/60 dark:border-darkmode-400">
                                                                             <div class="text-primary">Your cart cannot be empty!</div>
@@ -115,7 +115,7 @@
                                                     <!-- END: Modal Content -->
                                                 @else
                                                     <button wire:click="selectItem({{ $order->id }},'remove')" class="flex items-center text-center text-danger" type="button">
-                                                        <i class="fa-regular fa-trash-can w-4 h-4 mr-1" ></i> Remove
+                                                        <i class="w-4 h-4 mr-1 fa-regular fa-trash-can" ></i> Remove
                                                     </button>
                                                 @endif
                                             </td>
@@ -128,23 +128,14 @@
                 </div>
                 <!-- END: ORDERS -->
             </div>
-            <div class="col-span-12 lg:col-span-4 2xl:col-span-3 flex lg:block flex-col-reverse">
-                <div class="intro-y box mt-5">
-                    <div class="relative flex items-center p-5">
-                        <div class="ml-4 mr-auto">
-                            <div class="font-medium text-base">Select Payment Method</div>
-                        </div>
-                    </div>
-                    <div class="p-5 border-t border-slate-200/60">
-                        <button type="submit" class="btn btn-primary w-full h-12 mb-2">Place Order (Cash on Delivery)</button>
-                        <div wire:ignore class="mt-2 w-full">
-                            <div id="paypal-button-container"></div>
-                        </div>
+            <div class="flex flex-col-reverse col-span-12 lg:col-span-4 2xl:col-span-3 lg:block">
+                <div class="mt-5 intro-y box">
 
 
-                    </div>
+
+
                     <div class="p-5 border-t border-slate-200/60">
-                        <h1 class="font-medium leading-none mt-1">Order Summary</h1>
+                        <h1 class="mt-1 font-medium leading-none">Order Summary</h1>
                         <div class="flex justify-between mt-3">
                             <div>
                                 <h1>Subtotal (items)</h1>
@@ -164,7 +155,7 @@
                         <div class="border-t border-slate-200/60 dark:border-darkmode-400">
                             <div class="flex justify-between mt-3 ">
                                 <div>
-                                    <h1 class="font-medium leading-none mt-1 mb-2">Total</h1>
+                                    <h1 class="mt-1 mb-2 font-medium leading-none">Total</h1>
                                 </div>
                                 <div>
                                     <h1>₱{{ number_format($total) }}</h1>
@@ -173,6 +164,33 @@
                         </div>
 
                     </div>
+
+                    <div class="p-5 border-t border-slate-200/60">
+                        <div class="relative flex items-center">
+                            <div class="ml-4 mr-auto">
+                                <div class="text-base font-medium">Select Payment Method</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="p-5 border-t border-slate-200/60">
+                        <button type="submit" class="w-full h-12 mb-2 btn btn-primary">Place Order (Cash on Delivery)</button>
+                            <div wire:ignore class="w-full mt-2">
+                                <div id="paypal-button-container"></div>
+                            </div>
+                        <div>
+                            By proceeding to checkout, I acknowledge that I have read and consented to Go Dental
+                            <a href="{{ Route('terms') }}" class="hover:text-primary">
+                                Terms of Use
+                            </a>
+                            and
+                            <a href="{{ Route('privacy') }}" class="hover:text-primary">
+                                Privacy Policy.
+                            </a>
+                        </div>
+
+                    </div>
+
                 </div>
             </div>
         </div>

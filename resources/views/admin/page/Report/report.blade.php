@@ -115,6 +115,25 @@
                                 <td class="whitespace-nowrap text-center"><a href="{{ Route('report.customerPerMonth') }}">View Details</a></td>
                             </tr>
 
+                            <tr>
+                                <td class="whitespace-nowrap cursor-pointer hover:underline">Account Verification</td>
+                                <td class="whitespace-nowrap text-center">System</td>
+                                <td class="whitespace-nowrap text-center"><a href="{{ Route('report.AccountVerification') }}">View Details</a></td>
+                            </tr>
+                            <tr>
+                                <td class="whitespace-nowrap cursor-pointer hover:underline">Quantity of Orders by Product</td>
+                                <td class="whitespace-nowrap text-center">System</td>
+                                <td class="whitespace-nowrap text-center"><a href="{{ Route('report.OrdersByProduct') }}">View Details</a></td>
+                            </tr>
+                            <tr>
+                                <td class="whitespace-nowrap cursor-pointer hover:underline">Quantity of Orders by Customer</td>
+                                <td class="whitespace-nowrap text-center">System</td>
+                                <td class="whitespace-nowrap text-center"><a href="{{ Route('report.OrdersByCustomer') }}">View Details</a></td>
+                            </tr>
+
+
+
+
 
                         </tbody>
                     </table>

@@ -30,7 +30,7 @@ class CustomerVerifyMail extends Mailable
     public function build()
     {
         return $this->subject($this->details['subject'])
-        ->from('godentalsph@gmail.com', 'Go Dental')
+        ->from('godentalph@gmail.com', 'Go Dental')
         ->markdown('customer.mail.verify-email')
         ->with([
             'name' => $this->details['name'],

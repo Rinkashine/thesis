@@ -68,8 +68,8 @@ class PurchaseOrderSeeder extends Seeder
                 'shipping_date' => '2023-03-30',
                 'tracking' => null,
                 'remarks' => null,
-                'created_at' => '2023-02-25 00:00:00',
-                'updated_at' => '2023-02-25 00:00:00',
+                'created_at' => '2023-03-10 00:00:00',
+                'updated_at' => '2023-03-10 00:00:00',
             ],
             [
                 'suppliers_id' => 6,
@@ -77,8 +77,9 @@ class PurchaseOrderSeeder extends Seeder
                 'shipping_date' => '2023-03-30',
                 'tracking' => null,
                 'remarks' => null,
-                'created_at' => '2023-02-25 12:00:00',
-                'updated_at' => '2023-02-25 12:00:00',
+                'created_at' => '2023-03-09 00:00:00',
+                'updated_at' => '2023-03-09 00:00:00',
+
             ],
             [
                 'suppliers_id' => 7,
@@ -86,8 +87,9 @@ class PurchaseOrderSeeder extends Seeder
                 'shipping_date' => '2023-04-05',
                 'tracking' => null,
                 'remarks' => null,
-                'created_at' => '2023-03-04 00:00:00',
-                'updated_at' => '2023-03-04 00:00:00',
+                'created_at' => '2023-03-08 00:00:00',
+                'updated_at' => '2023-03-08 00:00:00',
+
             ],
             [
                 'suppliers_id' => 8,
@@ -95,8 +97,9 @@ class PurchaseOrderSeeder extends Seeder
                 'shipping_date' => '2023-04-05',
                 'tracking' => null,
                 'remarks' => null,
-                'created_at' => '2023-03-04 12:00:00',
-                'updated_at' => '2023-03-04 12:00:00',
+                'created_at' => '2023-03-07 00:00:00',
+                'updated_at' => '2023-03-07 00:00:00',
+
             ],//Draft - End
             [//Pending - Begin
                 'suppliers_id' => 1,
@@ -122,8 +125,9 @@ class PurchaseOrderSeeder extends Seeder
                 'shipping_date' => '2023-04-13',
                 'tracking' => null,
                 'remarks' => null,
-                'created_at' => '2023-03-07 00:00:00',
-                'updated_at' => '2023-03-07 00:00:00',
+                'created_at' => '2023-03-04 12:00:00',
+                'updated_at' => '2023-03-04 12:00:00',
+
             ],
             [
                 'suppliers_id' => 7,
@@ -131,8 +135,9 @@ class PurchaseOrderSeeder extends Seeder
                 'shipping_date' => '2023-04-14',
                 'tracking' => null,
                 'remarks' => null,
-                'created_at' => '2023-03-08 00:00:00',
-                'updated_at' => '2023-03-08 00:00:00',
+                'created_at' => '2023-03-04 00:00:00',
+                'updated_at' => '2023-03-04 00:00:00',
+
             ],
             [
                 'suppliers_id' => 9,
@@ -140,8 +145,9 @@ class PurchaseOrderSeeder extends Seeder
                 'shipping_date' => '2023-04-15',
                 'tracking' => null,
                 'remarks' => null,
-                'created_at' => '2023-03-09 00:00:00',
-                'updated_at' => '2023-03-09 00:00:00',
+                'created_at' => '2023-02-25 12:00:00',
+                'updated_at' => '2023-02-25 12:00:00',
+
             ],
             [
                 'suppliers_id' => 11,
@@ -149,8 +155,8 @@ class PurchaseOrderSeeder extends Seeder
                 'shipping_date' => '2023-04-16',
                 'tracking' => null,
                 'remarks' => null,
-                'created_at' => '2023-03-10 00:00:00',
-                'updated_at' => '2023-03-10 00:00:00',
+                'created_at' => '2023-02-25 00:00:00',
+                'updated_at' => '2023-02-25 00:00:00',
             ],//Pending - End
 
         ]);

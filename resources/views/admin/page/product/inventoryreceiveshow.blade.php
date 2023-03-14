@@ -167,38 +167,38 @@
         </div>
         <!-- End: Shipment and Additional Details -->
         <!-- Begin: Purchase Order Timeline -->
-        <div class="intro-y box p-5 mt-5">
-            <div class="border border-slate-200/60 dark:border-darkmode-400 rounded-md p-5">
-                <div class="flex justify-between items-center border-b border-slate-200/60 dark:border-darkmode-400 pb-5">
-                    <div class="font-medium text-base">
-                        Timeline
-                    </div>
-                </div>
-                <div class="mt-5 overflow-x-auto" >
-                    <table class="table table-bordered">
-                        <thead class="table-dark">
-                            <tr>
-                                <th class="whitespace-nowrap">Title</th>
-                                <th class="whitespace-nowrap text-center">Time</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @forelse ($purchase_order_timeline as $item)
-                                <tr>
-                                    <td class="whitespace-nowrap truncate">{{ $item->title }}</td>
-                                    <td class="whitespace-nowrap text-center">{{ $item->created_at->DiffForHumans() }}</td>
-                                </tr>
-                            @empty
-                                <tr>
-                                    <td class="whitespace-nowrap" colspan="2">No Data Found</td>
-                                </tr>
-                            @endforelse
-                        </tbody>
-                    </table>
+        <div class="p-5 mt-5 intro-y box">
 
+            <div class="">
+                <div class="p-4 mt-4">
+                    <h1 class="mb-6 ml-5 text-base font-medium">Timeline</h1>
+                    <div class="flex items-center justify-between pb-5 mb-5 border-b border-slate-200/60 dark:border-darkmode-400"></div>
+                  <div class="container">
+                    <div class="flex flex-col grid-cols-12 md:grid text-gray-50">
+
+                        @foreach ($purchase_order_timeline as $item)
+                        <div class="flex md:contents">
+                            <div class="relative col-start-2 col-end-4 mr-10 md:mx-auto">
+                              <div class="flex items-center justify-center w-6 h-full">
+                                <div class="w-1 h-full pointer-events-none bg-success"></div>
+                              </div>
+                              <div class="absolute w-6 h-6 -mt-3 text-center rounded-full shadow bg-success top-1/2">
+                                <i class="mt-1 text-white fas fa-check-circle"></i>
+                              </div>
+                            </div>
+                            <div class="w-full col-start-4 col-end-12 p-4 my-4 mr-auto shadow-md bg-success rounded-xl">
+                              <h3 class="mb-1 text-lg font-semibold">{{ $item->title }}</h3>
+                              <p class="leading-tight text-justify">
+                                {{ $item->created_at->DiffForHumans() }}
+                              </p>
+                            </div>
+                        </div>
+                        @endforeach
+                    </div>
+                  </div>
                 </div>
             </div>
-        </div>
+</div>
         <!-- End: Purchase Order Timeline -->
     </div>
 </div>

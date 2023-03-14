@@ -6,22 +6,18 @@
 </header>
 <section>
     <div class="flex justify-center">
-        <div class="intro-y box py-10 sm:py-20 mt-5">
+        <div class="py-10 mt-5 intro-y box sm:py-20">
             <div class="px-2 mt-5">
-                <div class="font-medium text-center text-lg">Privacy Policy</div>
-                <div class="text-slate-500 text-center mt-2">Go Dental Privacy Policy</div>
+                <div class="text-lg font-medium text-center">Privacy Policy</div>
+                <div class="mt-2 text-center text-slate-500">Go Dental Privacy Policy</div>
             </div>
-            <div class="px-5 sm:px-20 mt-10 pt-10 border-t border-slate-200/60 dark:border-darkmode-400">
+            <div class="px-5 pt-10 mt-10 border-t sm:px-20 border-slate-200/60 dark:border-darkmode-400">
 
             Go Dental understands that our users care about their personal data and how it is collected, used, shared and cared for. We are committed to handling your personal data in accordance with the applicable laws when you use any of the features, functions, mini-apps or mobile games available on our Platform or Services, interact with us via an external service, application or through our customer service agents, or access our Services or our Platform through your computer, mobile device, or any other device with Internet connectivity.
             <br><br>
-            <p>
-            <small>PLEASE READ THIS PRIVACY NOTICE CAREFULLY. BY CLICKING OR CHECKING “SIGN UP”, “I AGREE TO Go Dental’s PRIVACY NOTICE”, “I AGREE AND CONSENT TO THE COLLECTION, USE, DISCLOSURE, STORAGE, TRANSFER AND/OR PROCESSING OF MY PERSONAL DATA FOR THE PURPOSE STATED IN, AND UNDER THE TERMS OF, Go Dental’s PRIVACY NOTICE” OR SIMILAR STATEMENTS AVAILABLE AT THE Go Dental REGISTRATION PAGE OR IN THE COURSE OF PROVIDING YOU WITH THE SERVICES OR ACCESS TO THE PLATFORM, YOU ACKNOWLEDGE THAT YOU HAVE READ AND UNDERSTOOD THE TERMS OF THIS PRIVACY NOTICE AND THAT YOU HAVE AGREED AND CONSENTED TO THE COLLECTION, USE, DISCLOSURE, STORAGE, TRANSFER
-            AND/OR PROCESSING OF YOUR PERSONAL DATA AS DESCRIBED AND UNDER THE TERMS HEREIN. </small>
-</p>
-<br>
 
-                <div class="font-medium text-base mt-1 mb-1">1. Introduction</div>
+
+                <div class="mt-1 mb-1 text-base font-medium">1. Introduction</div>
                <p>
                 Where applicable, this Privacy Notice should be read in conjunction with the Country-Specific Riders for your jurisdiction as set out. In the course of you using Go Dental’s applications and websites (both web and mobile versions), as well as products, information, functions and other services operated by Go Dental, we will be collecting, using, disclosing, storing and/or processing data, including your personal data. In this Privacy Notice, Platform shall refer to all relevant applications and websites (both web and mobile versions), and Services shall refer to all products, information, functions and services provided by Go Dental from time to time at the Platform(s).
 
@@ -36,7 +32,7 @@
                 All of these terms apply to Go Dental's users, whether or not the users have created an account as buyers, unless otherwise stated specifically to apply only to buyers.
                     </p>
                     <br>
-                <div class="font-medium text-base mt-1 mb-1">2. When will Go Dental Collect Personal Data</div>
+                <div class="mt-1 mb-1 text-base font-medium">2. When will Go Dental Collect Personal Data</div>
 
                 During the course of your use of the Platform and our provision of the Services, we may receive personal data from you in the
                 following situations:
@@ -62,7 +58,7 @@
                 <br>
 
 
-                <div class="font-medium text-base mt-1 mb-1">3. What Personal Data will Go Dental Collect</div>
+                <div class="mt-1 mb-1 text-base font-medium">3. What Personal Data will Go Dental Collect</div>
 
                  <p> We collect the personal data described below in accordance with applicable local laws and, if required, upon obtaining your consent.
                 Personal data means any information about an individual, whether recorded in a material form or not and whether true or not, who can be identified from that data (whether directly or indirectly), or from that data and other data to which we have or are likely to have access.
@@ -92,7 +88,7 @@
                            <br>
 
 
-                <div class="font-medium text-base mt-1 mb-1">4. Customer with Go Dental Accounts</div>
+                <div class="mt-1 mb-1 text-base font-medium">4. Customer with Go Dental Accounts</div>
 
                 <p>
                 We will only be able to collect certain categories of personal data if you voluntarily provide the personal data to us or as otherwise provided for under this Privacy Notice. If you choose not to provide your personal data to us or subsequently withdraw your consent to our use of your personal data, we may not be able to provide you with certain features or functionality on the Services or access to the Platform.
@@ -102,7 +98,7 @@
                     </p>
                     <br>
 
-                <div class="font-medium text-base mt-1 mb-1">5. Collection of Other Data</div>
+                <div class="mt-1 mb-1 text-base font-medium">5. Collection of Other Data</div>
                 <p>
                 We or our authorised service providers may use cookies, web beacons, and other similar technologies in connection with your use of the Services or access of the Platform.
                 When you visit the Platform through your computer, mobile device, or any other device with Internet connectivity, our company servers will automatically record data that your browser sends whenever you visit a website, such as the technical data and usage data.
@@ -113,7 +109,7 @@
                 <br>
 
 
-                <div class="font-medium text-base mt-1 mb-1">6. Cookies</div>
+                <div class="mt-1 mb-1 text-base font-medium">6. Cookies</div>
                 <p>
                 Cookies are small text files (typically made up of letters and numbers) placed in the memory of your browser or device when you visit a website or view a message.
                 They allow us to recognise a particular device or browser.
@@ -124,7 +120,7 @@
                 </p>
                 <br>
 
-                <div class="font-medium text-base mt-1 mb-1">7. How do we use the information you provide us?</div>
+                <div class="mt-1 mb-1 text-base font-medium">7. How do we use the information you provide us?</div>
                 <p>
                 You may request information about your personal data which we have collected, or enquire about the ways in which your personal data may have been used, disclosed, stored or processed by us via the personal account information setting on our Platform or by contacting us using the contact details.
                 You may also request correction of any error or omission in your personal data which we have collected in the same way. In order to facilitate processing of your request, it may be necessary for us to request further information relating to your request.
@@ -134,7 +130,7 @@
                 </p>
                 <br>
 
-                <div class="font-medium text-base mt-1 mb-1">8. How does Go Dental protect and retain customer information</div>
+                <div class="mt-1 mb-1 text-base font-medium">8. How does Go Dental protect and retain customer information</div>
                 <p>
                 We will only retain your personal data for as long as we are either required or permitted to by law or as relevant for the purposes for which it was collected.
                 We will cease to retain your personal data by securely disposing of the same, or remove the means by which the data can be associated with you through anonymisation, as soon as it is reasonable to assume that such retention no longer serves the purposes for which the personal data was collected, and is no longer necessary for any legal or business purpose.
@@ -142,7 +138,7 @@
                 </p>
                 <br>
 
-                <div class="font-medium text-base mt-1 mb-1">9. Does Go Dental Disclose the information it collects form its visitors to outside parties?</div>
+                <div class="mt-1 mb-1 text-base font-medium">9. Does Go Dental Disclose the information it collects form its visitors to outside parties?</div>
 
                 We use and disclose personal data for the purposes described below in accordance with applicable local laws and, if required, upon obtaining your consent.
                 Depending on your relationship with us (for example, whether you are a buyer, a visitor to our websites, or a user of our mobile applications), the personal data which we collect from you or via third parties may be used for certain purposes, as follows:  <br>
@@ -162,7 +158,7 @@
                 </p>
                 <br>
 
-            <div class="font-medium text-base mt-1 mb-1">10. Information Collected by Third Parties</div>
+            <div class="mt-1 mb-1 text-base font-medium">10. Information Collected by Third Parties</div>
 
                 <p>
                 We may share your personal data with our third party service providers or affiliates (e.g. payment service providers) in order for them to offer their services to you in conjunction with your use of the Platform or our Services. Your acceptance and use of the third party service provider’s or our affiliate’s services shall be subject to terms and conditions as may be agreed between you and the third party service provider or our affiliate. Upon your acceptance of the third party service provider’s or our affiliate’s service offering, the collection, use, disclosure, storage, transfer and processing of your data (including your personal data and any data disclosed by us to such third party service provider or affiliate) shall be subject to the applicable privacy notice of the third
@@ -172,7 +168,7 @@
                 </p>
                 <br>
 
-                <div class="font-medium text-base mt-1 mb-1">11. Disclaimer regarding security and third party sites</div>
+                <div class="mt-1 mb-1 text-base font-medium">11. Disclaimer regarding security and third party sites</div>
 
                 <p>
                 To safeguard your personal data from unauthorised access, collection, use, disclosure, processing, copying, modification, disposal, loss, misuse, modification or similar risks during the course of your use of our Platform and/or Services, we have introduced appropriate administrative, physical and technical measures such as:
@@ -193,13 +189,13 @@
                 </p>
                 <br>
 
-                <div class="font-medium text-base mt-1 mb-1">12. Will Go Dental Transfer your information overseas?</div>
+                <div class="mt-1 mb-1 text-base font-medium">12. Will Go Dental Transfer your information overseas?</div>
                 <p>
                 We may transfer or permit the transfer of your personal data outside of your jurisdiction for any of the purposes set out in this Privacy Notice. However, we will not transfer or permit any of your personal data to be transferred outside of such jurisdiction unless the transfer is in compliance with applicable laws, including, for example, to inform and obtain your consent on the countries to which your personal data may be transferred to and the applicable standards on data protection under the laws of such countries.
 
                 </p>
                 <br>
-                <div class="font-medium text-base mt-1 mb-1">13. How can you withdraw consent, Request Access to or collect information you have provided us?</div>
+                <div class="mt-1 mb-1 text-base font-medium">13. How can you withdraw consent, Request Access to or collect information you have provided us?</div>
 
                 You may communicate the withdrawal of your consent to the continued use, disclosure, storing and/or processing of your personal data by contacting us using the contact details below, subject to the conditions and/or limitations imposed by applicable laws or regulations.
                 Please note that if you communicate your withdrawal of your consent to our use, disclosure, storing or processing of your personal data for the purposes and in the manner as stated above or exercise your other rights as available under applicable local laws, we may not be in a position to continue to provide the Services to you or perform any contract we have with you, and we will not be liable in the event that we do not continue to provide the Services to, or perform our contract with you.

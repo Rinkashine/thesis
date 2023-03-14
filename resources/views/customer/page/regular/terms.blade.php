@@ -3,12 +3,12 @@
 @section('title', 'Terms')
 <section>
     <div class="flex justify-center">
-        <div class="intro-y box py-10 sm:py-20 mt-5 	">
+        <div class="py-10 mt-5 intro-y box sm:py-20 ">
             <div class="px-2 mt-5">
-                <div class="font-medium text-center text-lg">Terms of Use</div>
-                <div class="text-slate-500 text-center mt-2">Go Dental Terms and Conditions. </div>
+                <div class="text-lg font-medium text-center">Terms of Use</div>
+                <div class="mt-2 text-center text-slate-500">Go Dental Terms and Conditions. </div>
             </div>
-            <div class="px-5 sm:px-20 mt-10 pt-10 border-t border-slate-200/60 dark:border-darkmode-400">
+            <div class="px-5 pt-10 mt-10 border-t sm:px-20 border-slate-200/60 dark:border-darkmode-400">
             <p>
             Welcome to the Go Dental platform. Please read these terms and conditions carefully. The following Terms of Use govern your use and access of the Platform (defined below) and the use of the Services.
             By accessing the Platform and/or using the Services, you agree to be bound by these Terms of Use. If you do not agree to these Terms of Use, do not access and/or use this Platform or the Services.
@@ -20,7 +20,7 @@
                </p>
                <br>
 
-                <div class="font-medium text-base mt-1 mb-1">1. Definition & Interpretation</div>
+                <div class="mt-1 mb-1 text-base font-medium">1. Definition & Interpretation</div>
                 <p>
                 Unless otherwise defined, the definitions and provisions in respect of interpretation will apply to these Terms of Use.
                 </p>
@@ -50,14 +50,13 @@
 <li> “Terms of Use” means the recitals, and any Schedules to these terms and conditions. </li>
 <li> “Trademarks” means the trademarks, service marks, trade names and logos used and displayed on the Platform, including the Go Dental trademark, which is property of Roman Dental Supplies Trading. </li>
 <li> “Username” refers to the unique login identification name or code which identifies a customer who has an account with Go Dental. </li>
-<li> “Voucher” means a voucher for credit which may be used by a customer, subject to other terms and conditions, towards the payment of purchases on the Platform. </li>
 <li>“you” and “your” refer to the individuals over the age of 18 or otherwise under the supervision of a parent or legal guardian.</li>
 <li>Interpretation: Any reference in these Terms of Use to any provision of a statute shall be construed as a reference to that provision as amended, re-enacted, or extended at the relevant time. In the Agreement, whenever the words “include”, “includes” or “including” are used, they will be deemed to be followed by the words “without limitation”. Unless expressly indicated otherwise, all references to a number of days mean calendar days, and the words “month” or “monthly” as well as all references to a number of months means calendar months. Are inserted for convenience only and shall not affect the interpretation of these Terms of Use. In the event of a conflict or inconsistency between any two or more provisions under these Terms of Use, whether such provisions are contained in the same or different documents, such conflict or inconsistency shall be resolved in favor of Go Dental and the provision which is more favorable to Go Dental shall prevail. </li>
 
 
                 <br>
 
-                <div class="font-medium text-base mt-1 mb-1">2. General use of Services and/or access of Platform</div>
+                <div class="mt-1 mb-1 text-base font-medium">2. General use of Services and/or access of Platform</div>
                 <p>
                     <li>
                 Guidelines to the use of Platform and/or Services: You agree to comply with any and all the guidelines, notices, operating rules and policies and instructions pertaining to the use of the Services and/or access to the Platform, as well as any amendments to the aforementioned, issued by us, from time to time. We reserve the right to revise these guidelines, notices, operating rules and policies and instructions at any time and you are deemed to be aware of and bound by any changes to the foregoing upon their publication on the Platform.
@@ -89,7 +88,7 @@
 
                 <br>
 
-                <div class="font-medium text-base mt-1 mb-1">3. Use of Services</div>
+                <div class="mt-1 mb-1 text-base font-medium">3. Use of Services</div>
 
                 <li>Application of this Clause: In addition to all other terms and conditions of these Terms of Use, the provisions in this Clause are the additional specific terms and conditions governing your use of the Services.
                 Restrictions: Use of the Services is limited to authorized Customers that are of legal age and who have the legal capacity to enter into and form contracts under any applicable law. Customers who have breached or are in breach of the terms and conditions contained herein and Customers who have been permanently or temporarily suspended from use of any of the Services may not use the Services even if they satisfy the requirements of this Clause.
@@ -104,7 +103,7 @@
                 </li>
                 <br>
 
-                <div class="font-medium text-base mt-1 mb-1">4. Customer with Go Dental Accounts</div>
+                <div class="mt-1 mb-1 text-base font-medium">4. Customer with Go Dental Accounts</div>
 
                 <li>Username/Password: Certain Services that may be made available on the Platform may require creation of an account with us or for you to provide Personal Data. If you request to create an account with us, a Username and Password may either be: (i) determined and issued to you by us; or (ii) provided by you and accepted by us in our sole and absolute discretion in connection with the use of the Services and/or access to the relevant Platform.
                 We may at any time in our sole and absolute discretion, request that you update your Personal Data or forthwith invalidate the Username and/or Password without giving any reason or prior notice and shall not be liable or responsible for any Losses suffered by or caused by you or arising out of or in connection with or by reason of such request or invalidation.
@@ -119,14 +118,14 @@
                 You further agree and acknowledge that you shall be bound by and agree to fully indemnify us against any and all Losses attributable to any use of any Services and/or or access to the Platform referable to your Username and Password.</li>
                     <br>
 
-                <div class="font-medium text-base mt-1 mb-1">5. Intellectual property</div>
+                <div class="mt-1 mb-1 text-base font-medium">5. Intellectual property</div>
 
                <li>Ownership: The Intellectual Property in and to the Platform and the Materials are owned, licensed to or controlled by us, our licensors or our service providers. We reserve the right to enforce its Intellectual Property to the fullest extent of the law.</li>
                <li>Restricted use: No part or parts of the Platform, or any Materials may be reproduced, reverse engineered, decompiled, disassembled, separated, altered, distributed, republished, displayed, broadcast, hyperlinked, mirrored, framed, transferred or transmitted in any manner or by any means or stored in an information retrieval system or installed on any servers, system or equipment without our prior written permission or that of the relevant copyright owners. Permission will only be granted to you to download, print or use the Materials for personal and non-commercial uses, provided that you do not modify the Materials and that we or the relevant copyright owners retain all copyright and other proprietary notices contained in the Materials.</li>
                 <li>Trademarks: The Trademarks are registered and unregistered trademarks of us or third parties. Nothing on the Platform and in these Terms of Use shall be construed as granting, by implication, estoppel, or otherwise, any license or right to use (including as a meta tag or as a “hot” link to any other website) any Trademarks displayed on the Services, without our written permission or any other applicable trademark owner.</li>
                 <br>
 
-                <div class="font-medium text-base mt-1 mb-1">6. Our Limitation of responsibility and liability</div>
+                <div class="mt-1 mb-1 text-base font-medium">6. Our Limitation of responsibility and liability</div>
 
                 <li>No representations or warranties: The Services, the Platform and the Materials are provided on an “as is” and “as available” basis. All data and/or information contained in the Platform, the Services or the Materials are provided for informational purposes only. No representations or warranties of any kind, implied, express or statutory, including the warranties of non-infringement of third party rights, title, merchantability, satisfactory quality or fitness for a particular purpose, are given in conjunction with the Platform, the Services or the Materials. Without prejudice to the generality of the foregoing, we do not warrant:</li>
                 <p>(a) the accuracy, timeliness, adequacy, commercial value or completeness of all data and/or information contained in the Platform, the Services or the Materials;</p>
@@ -143,13 +142,13 @@
                 <li>At your own risk: Any risk of misunderstanding, error, damage, expense or Losses resulting from the use of the Platform is entirely at your own risk and we shall not be liable therefor.</li>
                 <br>
 
-                <div class="font-medium text-base mt-1 mb-1">7. Hyperlinks and alerts</div>
+                <div class="mt-1 mb-1 text-base font-medium">7. Hyperlinks and alerts</div>
 
                 <li>Hyperlinks: For your convenience, we may include hyperlinks to other websites or content on the Internet that are owned or operated by third parties. Such linked websites or content are not under our control, and we are not liable for any errors, omissions, delays, defamation, libel, slander, falsehood, obscenity, pornography, profanity, inaccuracy or any other objectionable material contained in the contents, or the consequences of accessing, any linked website. Any hyperlinks to any other websites or content are not an endorsement or verification of such websites or content and you agree that your access to or use of such linked websites or content is entirely at your own risk. </li>
                 <li>Promotions: We may attach banners, java applets and/or such other materials to the Platform for the purposes of promoting our or our Third-Party Vendors’ products and/or services. For the avoidance of doubt, you shall not be entitled to receive any payment, fee and/or commission in respect of any such promotional materials.</li>
                     <br>
 
-                <div class="font-medium text-base mt-1 mb-1">8. Your submission and information</div>
+                <div class="mt-1 mb-1 text-base font-medium">8. Your submission and information</div>
 
                 <li>Submissions by you: You grant us a non-exclusive license to use the materials or information that you submit to the Platform and/or provide to us, including but not limited to, questions, reviews, comments, and suggestions (collectively, “Submissions”). When you post comments or reviews to the Platform, you also grant us the right to use the name that you submit or your Username in connection with such review, comment, or other content. You shall not use a false e-mail address, pretend to be someone other than yourself or otherwise mislead us or third parties as to the origin of any Submissions. We may, but shall not be obligated to, publish, remove, or edit your Submissions. </li>
                 <li>Consent to receive e-mails: You give your full, free, and unequivocal consent and authority to the collection, processing and use by us of any information provided by you (including Personal Data) for the purposes of sending informational and promotional e-mails and any and all communications, notices, updates and other information to you. Your agreement to the provisions shall constitute your consent for the purpose of the provisions of any spam control laws (whether in Philippines or elsewhere). You may subsequently opt out of receiving promotional e-mails by clicking on the appropriate hyperlink in any promotional e-mail. </li>
@@ -157,13 +156,13 @@
                 <li>Privacy Policy: You acknowledge that you have read and agree to the Privacy Policy and consent to our collection, use and disclosure of your Personal Data for the purposes as set out in the Privacy Policy.</li>
                     <br>
 
-                <div class="font-medium text-base mt-1 mb-1">9. Termination</div>
+                <div class="mt-1 mb-1 text-base font-medium">9. Termination</div>
 
                 <li>Termination by us: In our sole and absolute discretion, we may with immediate effect terminate your use of the Platform and/or Services and/or disable your Username and Password. We may bar access to the Platform and/or Services (or any part thereof) for any reason whatsoever, including a breach of any of these Terms of Use or where if we believe that you have violated or acted inconsistently with any terms or conditions set out herein, or if in our opinion or the opinion of any regulatory authority, it is not suitable to continue providing the services relating to the Platform.</li>
                 <li>Termination by you: You may terminate these Terms of Use by giving seven days’ notice in writing to us.</li>
                     <br>
 
-                <div class="font-medium text-base mt-1 mb-1">10. Notices</div>
+                <div class="mt-1 mb-1 text-base font-medium">10. Notices</div>
 
                 <li>Notices from us: All notices or other communications given to you if:</li>
 
@@ -174,7 +173,7 @@
                 <li>Other modes: We may from time to time designate other acceptable modes of giving notices (including but not limited to e-mail or other forms of electronic communication) and the time or event by which such notice shall be deemed given. </li>
                 <br>
 
-                <div class="font-medium text-base mt-1 mb-1">11. General</div>
+                <div class="mt-1 mb-1 text-base font-medium">11. General</div>
 
                 <li>Cumulative rights and remedies: Unless otherwise provided under these Terms of Use, the provisions of these Terms of Use and our rights and remedies under these Terms of Use are cumulative and are without prejudice and in addition to any rights or remedies we may have in law or in equity, and no exercise by us of any one right or remedy under these Terms of Use, or at law or in equity, shall (save to the extent, if any, provided expressly in these Terms of Use or at law or in equity) operate so as to hinder or prevent our exercise of any other such right or remedy as at law or in equity. </li>
                 <li>No waiver: Our failure to enforce these Terms of Use shall not constitute a waiver of these terms, and such failure shall not affect the right later to enforce these Terms of Use. We would still be entitled to use our rights and remedies in any other situation where you breach these Terms of Use.</li>
@@ -192,13 +191,6 @@
                 <li>Sub-contracting and delegation: We reserve the right to delegate or sub-contract the performance of any of our functions in connection with the Platform and/or Services and reserve the right to use any service providers, subcontractors and/or agents on such terms as we deem appropriate. </li>
                 <li>Assignment: You may not assign your rights under these Terms of Use without our prior written consent. We may assign our rights under these Terms of Use to any third party. </li>
                 <li>Force Majeure: We shall not be liable for non-performance, error, interruption, or delay in the performance of its obligations under these Terms of Use (or any part thereof) or for any inaccuracy, unreliability or unsuitability of the Platform's and/or Services’ contents if this is due, in whole or in part, directly or indirectly to an event or failure which is beyond our reasonable control. </li>
-
-                <br>
-
-                <div class="font-medium text-base mt-1 mb-1">12. Voucher Terms & Condition</div>
-
-                The following terms and conditions (T&Cs) apply to your use and redemption of promotional vouchers or voucher codes, where such vouchers are offered for no consideration (according to voucher Terms & Conditions)
-
 
 
             </div>

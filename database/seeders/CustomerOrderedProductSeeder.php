@@ -1211,6 +1211,34 @@ class CustomerOrderedProductSeeder extends Seeder
                 'price' => 100.00,
                 'quantity' => 1,
             ],//Cancelled/Rejected Products - End
+            [
+                'customer_order_id' => 104153265,
+                'product_id' => 38,
+                'product_name' => 'BC-Plus Bond',
+                'price' => 1250.00,
+                'quantity' => 1,
+            ],
+            [
+                'customer_order_id' => 104153266,
+                'product_id' => 35,
+                'product_name' => 'C-Bond',
+                'price' => 850.00,
+                'quantity' => 1,
+            ],
+            [
+                'customer_order_id' => 104153267,
+                'product_id' => 35,
+                'product_name' => 'C-Bond',
+                'price' => 850.00,
+                'quantity' => 1,
+            ],
+            [
+                'customer_order_id' => 104153268,
+                'product_id' => 80,
+                'product_name' => 'Cavity Liner',
+                'price' => 770.00,
+                'quantity' => 1,
+            ],
 
 
         ])
