@@ -84,7 +84,7 @@
                         <tbody>
                             @foreach ($listoforders as $order)
                                 <tr>
-                                    <td class="whitespace-nowrap">{{ $order->id }}</td>
+                                    <td class="whitespace-nowrap"><a href=""></a> {{ $order->id }}</td>
                                     <td class="whitespace-nowrap text-center">
                                         ₱
                                         @php
