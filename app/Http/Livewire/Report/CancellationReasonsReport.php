@@ -50,7 +50,7 @@ class CancellationReasonsReport extends Component
         ->leftjoin('customer_order',function($join){
             $join->on('cancellation_reason.id', '=', 'customer_order.cancellation_reason_id')
             ->where('customer_order.created_at', '>=', $this->from)
-            ->where('customer_order.created_at', '<=', $this->to.' 23:59:59');
+            ->where('customer_order.created_at', '<=', $this->to);
         })
         ->where('cancellation_reason.name','like','%'.$this->search.'%')
         ->groupBy('name','cancellation_reason.id')
@@ -65,7 +65,7 @@ class CancellationReasonsReport extends Component
         ->leftjoin('customer_order',function($join){
             $join->on('cancellation_reason.id', '=', 'customer_order.cancellation_reason_id')
             ->where('customer_order.created_at', '>=', $this->from)
-            ->where('customer_order.created_at', '<=', $this->to.' 23:59:59');
+            ->where('customer_order.created_at', '<=', $this->to);
         })
         ->where('cancellation_reason.name','like','%'.$this->search.'%')
         ->groupBy('name','cancellation_reason.id')
@@ -80,6 +80,8 @@ class CancellationReasonsReport extends Component
             'label' => $this->cancelled_reason_label,
             'reasons' => $this->cancelled_reason_dataset,
         ]);
+
+        dd($cancellations);
         // ->get();
         return view('livewire.report.cancellation-reasons-report',[
             'cancellations' => $cancellations

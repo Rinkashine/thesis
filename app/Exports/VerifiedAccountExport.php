@@ -17,7 +17,7 @@ class VerifiedAccountExport implements FromCollection, ShouldAutoSize,WithHeadin
     */
     public function collection()
     {
-        return Customer::select('name', 'email')->where('email_verified_at','!=','')->orderBy('name')->get();
+        return Customer::select('name', 'email')->where('email_verified_at','!=',null)->orderBy('name')->get();
     }
     public function map($customer): array
     {

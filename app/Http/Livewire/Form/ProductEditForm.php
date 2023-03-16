@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Livewire\Form;
+use Illuminate\Support\Facades\Storage;
 
 use App\Models\Brand;
 use App\Models\Category;
@@ -96,6 +97,10 @@ class ProductEditForm extends Component
         $validatedData = $this->validate([
             'images.*' => 'required|image',
         ]);
+
+        if (! Storage::disk('public')->exists('product_photos')) {
+            Storage::disk('public')->makeDirectory('product_photos', 0775, true);
+        }
 
         foreach ($this->images as $image) {
             $image->store('public/product_photos');

@@ -135,6 +135,38 @@ class ReportController extends Controller
         abort_if(Gate::denies('report_access'),403);
         return view('admin.page.Report.reportsalesbrand');
     }
+
+    public function customerPerMonth(){
+        abort_if(Gate::denies('report_access'),403);
+        return view('admin.page.Report.reportmonthlycustomer');
+    }
+    public function showCustomerPerMonth(Request $request){
+
+        $month = date('m', strtotime($request->month));
+        $x = 30;
+        if($month == '01' || $month == '03' || $month == '05' || $month == '07' || $month == '08' ||  $month == '10' ||  $month == '12'){
+            $x = 31;
+        }elseif($month == '02' && ($request->year%4) == '0'){
+            $x = 28;
+        }elseif($month == '02' && ($request->year%4) != '0'){
+            $x = 29;
+        }
+        $year = $request->year;
+        $from = $year .'-'.$month.'-'.'01';
+        $to = $year.'-'.$month.'-'.$x.' 23-59-59';
+        //$to = Carbon::createFromDate($year, $month, 31);
+
+        //$dt = Carbon::createFromDate(2015, 01);
+        return view('admin.page.Report.reportshowmonthlycustomer', [
+            'from' => $from,
+            'to' => $to,
+            'month' => $month,
+            'year' => $year,
+            // 'month' => $request->month,
+        ]);
+    }
+
+
     //Show No of Brand Orders Page
     public function BrandOrderIndex(){
         abort_if(Gate::denies('report_access'),403);

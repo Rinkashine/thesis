@@ -62,6 +62,11 @@ class HomeBannerForm extends Component
 
     public function StoreBannerData()
     {
+
+        if (! Storage::disk('public')->exists('banner')) {
+            Storage::disk('public')->makeDirectory('banner', 0775, true);
+        }
+
         abort_if(Gate::denies('post_create'), 403);
         $this->validate();
         if (! empty($this->picture)) {

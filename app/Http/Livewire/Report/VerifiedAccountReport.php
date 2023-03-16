@@ -11,7 +11,7 @@ class VerifiedAccountReport extends Component
     public $sorting = 'customer_name_asc';
     public $column_name;
     public $order_name;
-    
+
     public $search = null;
     protected $queryString = ['search' => ['except' => '']];
 
@@ -31,7 +31,7 @@ class VerifiedAccountReport extends Component
             $this->order_name = "asc";
         }
 
-        $verified = Customer::select('name', 'email')->where('email_verified_at','!=','')
+        $verified = Customer::select('name', 'email')->where('email_verified_at','!=',null)
         ->where('customers.name','like','%'.$this->search.'%')
         ->orderBy($this->column_name, $this->order_name)
         ->paginate($this->perPage);

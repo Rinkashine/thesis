@@ -1,14 +1,5 @@
 <div>
-    <div class="intro-y flex items-center mt-8">
-        <h2 class="text-lg font-medium mr-auto">
-            <a href="{{ url()->previous() }}" class="mr-2 btn">←</a> {{ $product->name }}
-            @if($product->status == 1)
-                <span class="ml-2 px-2 py-0.5 bg-slate-100 text-success btn btn-success text-xs rounded-md">Active</span>
-            @else
-                <span class="ml-2 p-5 py-0.5 mb-5 bg-slate-100 text-danger btn btn-danger text-xs rounded-md">Inactive</span>
-            @endif
-        </h2>
-    </div>
+
 
     <form wire:submit.prevent="UpdateProductData">
         <div class="grid grid-cols-12 gap-x-6 mt-5 pb-20">

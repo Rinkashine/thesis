@@ -49,7 +49,7 @@ class OrdersByProduct extends Component
             $join->on('customer_order_item.customer_order_id', '=', 'customer_order.id');
         })
         ->where('product.name','like','%'.$this->search.'%')
-        ->groupBy('produ    ct.name','product.id' )
+        ->groupBy('product.name','product.id' )
         ->orderBy($this->column_name, $this->order_name)
         ->paginate($this->perPage);
         return view('livewire.report.orders-by-product',[

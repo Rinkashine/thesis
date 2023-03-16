@@ -17,7 +17,7 @@
                     </div>
                     <div class="sm:flex items-center sm:mr-4 mt-2 xl:mt-0">
                         <label class="w-12 flex-none xl:w-auto xl:flex-initial mr-2">From:</label>
-                        <input " class="form-control sm:w-40 2xl:w-full mt-2 sm:mt-0" wire:model="from" id="from" name ="from"  type="datetime-local" max="{{ $to }}" />
+                        <input class="form-control sm:w-40 2xl:w-full mt-2 sm:mt-0" wire:model="from" id="from" name ="from"  type="datetime-local" max="{{ $to }}" />
                     </div>
                     <div class="sm:flex items-center sm:mr-4 mt-2 xl:mt-0">
                         <label class="w-12 flex-none xl:w-auto xl:flex-initial mr-2">To:</label>
@@ -78,7 +78,7 @@
             </div>
         </div>
     </div>
-    </div>
+
      <div class=" box p-5 mt-5 w-full">
         <div class="border border-slate-200/60 dark:border-darkmode-400 rounded-md p-5">
             <div class="flex justify-between items-center border-b border-slate-200/60 dark:border-darkmode-400 pb-5">
@@ -94,7 +94,7 @@
         </div>
     </div>
 
-  @push('scripts')
+    @push('scripts')
          <script>
             //Begin: User Type Chart+
             var label =  {{ Js::from($cancelled_reason_label) }};
@@ -142,6 +142,6 @@
             //End: User Type Chart
 
          </script>
-     @endpush
+    @endpush
 </div>
 

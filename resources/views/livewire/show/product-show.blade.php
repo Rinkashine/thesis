@@ -58,13 +58,13 @@
                             <div class="flex items-center mt-5">
                                 <div class="ml-4">
                                     <h3 class="font-medium text-base">Weight:</h3>
-                                    <div class="text-slate-500 text-base mt-0.5">{{ $product->weight }}{    { $product->weight_measurement }}</div>
+                                    <div class="text-slate-500 text-base mt-0.5">{{ $product->weight }}{{ $product->weight_measurement }}</div>
                                 </div>
                             </div>
 
                         </div>
-                    </div>
-                    <!-- END: Product Details -->
+                        </div>
+                        <!-- END: Product Details -->
                     <!-- BEGIN: Product Image -->
                     <div class="intro-y box col-span-12 lg:col-span-6">
                         <div class="flex items-center px-5 py-5 sm:py-3 border-b border-slate-200/60 dark:border-darkmode-400">

@@ -97,6 +97,11 @@ Route::group(['prefix' => 'admin'], function () {
         //Export Files for Most Viewed Product
         Route::get('/report/MostVisitedPage/excel/{startdate}/{enddate}', [ReportController::class, 'exportMostVisitedPageExcel'])->name('exportMostVisitedPageExcel');
         //Export Files for Gender
+
+        Route::get('/report/CustomersTotalSpent/excel/{sorting}/{startdate}/{enddate}',[ReportController::class,'exportCustomerTotalSpent'])->name('exportCustomerTotalSpent');
+
+
+
         Route::get('/report/gender/excel', [ReportController::class, 'exportGenderExcel'])->name('exportGenderExcel');
         //Export
         Route::get('/report/productbycustomer/excel/',[ReportController::class,'exportProductByCustomerExcel'])->name('report.exportProductByCustomerExcel');
