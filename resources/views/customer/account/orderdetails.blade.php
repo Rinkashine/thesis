@@ -139,14 +139,14 @@
                 Rejected Order Reason: {{ $orderdetails->rejected_reason }}
             </div>
         @endif
-        @livewire('component.cancel-order',['orderdetails' => $orderdetails])
-        <livewire:modal.cancel-order-modal/>
+        @livewire('customer.order.cancel-order',['orderdetails' => $orderdetails])
+        <livewire:customer.order.cancel-order-modal/>
 
 
 
 
         <!-- Begin: Product Review Modal -->
-        <livewire:form.product-review-form :orderDetails="$orderdetails" >
+        <livewire:customer.review.product-review-form :orderDetails="$orderdetails" >
         <!-- End: Product Review Modal -->
 
     </div>

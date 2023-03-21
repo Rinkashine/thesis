@@ -16,10 +16,10 @@
 </div>
 <!-- End: Header -->
 <!-- Begin: Supplier Table -->
-<livewire:table.supplier-table/>
+<livewire:admin.supplier.supplier-table/>
 <!-- End: Supplier Table -->
 <!-- Begin Supplier Archive Modal -->
-<livewire:modal.archive-supplier/>
+<livewire:admin.supplier.archive-supplier/>
 <!-- End: Supplier Archive Modal -->
 <!-- Begin: Success Notification-->
 <div id="success-notification-content" class="toastify-content hidden flex non-sticky-notification-content">

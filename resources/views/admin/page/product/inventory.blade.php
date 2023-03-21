@@ -3,13 +3,13 @@
 @section('title', 'Inventory')
 <h2 class="intro-y text-lg font-medium mt-10">Inventory</h2>
 <!-- Begin: Product Inventory Table -->
-<livewire:table.product-inventory-table/>
+<livewire:admin.inventory.product-inventory-table/>
 <!-- End: Product Inventory Table -->
 <!-- Begin: Inventory Adjust Modal -->
-<livewire:form.inventory-adjust-form/>
+<livewire:admin.inventory.inventory-adjust-form/>
 <!-- End: Inventory Adjust Modal -->
 <!-- Begin: Inventory Edit Modal -->
-<livewire:form.inventory-edit-form/>
+<livewire:admin.inventory.inventory-edit-form/>
 <!-- End: Inventory Edit Modal -->
 
 <!-- Begin: Success Notification -->

@@ -4,20 +4,22 @@
 <!-- Begin: Header -->
 <h2 class="intro-y text-lg font-medium mt-10">Brand</h2>
 <!-- End: Header -->
+
+
 <!-- Begin: Brand Table -->
-<livewire:table.brand-table/>
+<livewire:admin.brand.brand-table/>
 <!-- End: Brand Table -->
 <!-- Begin: Delete Brand Modal -->
-<livewire:modal.delete-brand/>
+<livewire:admin.brand.delete-brand/>
 <!-- End: Delete Brand Modal -->
 <!-- Begin: Brand Form Modal -->
-<livewire:form.brand-form/>
+<livewire:admin.brand.brand-form/>
 <!-- End: Brand Form Modal -->
 <!-- Begin: Brand Edit Form Modal -->
-<livewire:form.brand-edit-form/>
+<livewire:admin.brand.brand-edit-form/>
 <!-- End: Brand Edit Form Modal -->
 <!-- Begin: Change Photo Form Modal -->
-<livewire:form.brand-change-photo-form/>
+<livewire:admin.brand.brand-change-photo-form/>
 <!-- End: Change Photo Form Modal -->
 
 
@@ -39,6 +41,7 @@
      </div>
 </div>
 <!-- End: Invalid Notification -->
+
 @endsection
 @push('scripts')
 <script>

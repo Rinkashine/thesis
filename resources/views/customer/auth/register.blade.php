@@ -13,7 +13,7 @@
     </div>
 </div>
 <!-- BEGIN: Registration Layout -->
-<livewire:form.customer-register/>
+<livewire:customer.auth.customer-register/>
 <!-- END: Registration Layout -->
 <!--End: Customer Register Body -->
 @endsection

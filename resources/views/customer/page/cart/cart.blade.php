@@ -1,10 +1,17 @@
 @extends('customer.layout.base')
 @section('content')
 @section('title', 'Cart')
+    <!-- Begin: Customer Cart Table -->
+    <livewire:customer.cart.cart-table/>
+    <!-- End Customer Cart Table -->
 
-    <livewire:table.cart-table/>
-    <livewire:modal.remove-product-cart/>
-    <livewire:form.adjust-product-cart/>
+    <!-- Begin: Remove Product Cart Modal -->
+    <livewire:customer.cart.remove-product-cart/>
+    <!-- End: Remove Product Cart Modal -->
+
+    <!-- Begin: Adjust Product Quantity in Cart Modal -->
+    <livewire:customer.cart.adjust-product-cart/>
+    <!-- End: Adjust Product Quantity in Cart Modal -->
 
 @endsection
 @push('scripts')

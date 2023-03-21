@@ -2,10 +2,16 @@
 @section('content')
 @section('title', 'Role')
 <h2 class="intro-y text-lg font-medium mt-10">Role</h2>
+<!-- Begin: Roles Table -->
+<livewire:admin.role-and-permission.roles-table/>
+<!-- End: Roles Table -->
+<!-- Begin: Role Form -->
+<livewire:admin.role-and-permission.role-form/>
+<!-- End: Role Form -->
+<!-- Begin: Delete Form Modal -->
+<livewire:admin.role-and-permission.delete-role/>
+<!-- End: Delete Form Modal -->
 
-<livewire:table.roles-table/>
-<livewire:form.role-form/>
-<livewire:modal.delete-role/>
 
 <div id="success-notification-content" class="toastify-content hidden flex non-sticky-notification-content">
     <i class="fa-regular fa-circle-check fa-3x text-success mx-auto"></i>

@@ -3,14 +3,14 @@
 @section('title', 'Order')
 <div class="intro-y flex flex-col sm:flex-row items-center mt-8">
     <h2 class="text-lg font-medium mr-auto">
-        <a href="{{ Route('orders.index') }}" class="mr-2 btn">←</a> Transaction Details
+        <a href="{{ url()->previous() }}" class="mr-2 btn">←</a> Transaction Details
     </h2>
 </div>
 <!-- BEGIN: Transaction Details -->
 <div class="intro-y grid grid-cols-12 gap-5 mt-5">
     <div class="col-span-12 lg:col-span-4 2xl:col-span-3">
-        @livewire('form.change-order-status',['order' => $orderdetails])
-        <livewire:modal.change-order-status-modal/>
+        @livewire('admin.transaction.change-order-status',['order' => $orderdetails])
+        <livewire:admin.transaction.change-order-status-modal/>
         <div class="box p-5 rounded-md mt-5">
             <div class="flex items-center border-b border-slate-200/60 dark:border-darkmode-400 pb-5 mb-5">
                 <div class="font-medium text-base truncate">Buyer Details</div>
@@ -84,8 +84,8 @@
             <div class="flex items-center border-b border-slate-200/60 dark:border-darkmode-400 pb-5 mb-5">
                 <div class="font-medium text-base truncate">Order Details</div>
                 @if($orderdetails->order_notes  == null)
-                    @livewire('form.order-notes-form',['order' => $orderdetails])
-                    <livewire:modal.order-note-modal/>
+                    @livewire('admin.transaction.order-notes-form',['order' => $orderdetails])
+                    <livewire:admin.transaction.order-note-modal/>
                 @endif
             </div>
             <div class="overflow-auto lg:overflow-visible -mt-3">
@@ -163,10 +163,10 @@
         <!-- End: Cancellation -->
 
         @if($orderdetails->status == "Pending for Approval")
-            @livewire('form.order-approval',['order' => $orderdetails])
+            @livewire('admin.transaction.order-approval',['order' => $orderdetails])
         @endif
-        <livewire:modal.order-approved-form/>
-        <livewire:modal.order-reject-form/>
+        <livewire:admin.transaction.order-approved-form/>
+        <livewire:admin.transaction.order-reject-form/>
     </div>
 </div>
 

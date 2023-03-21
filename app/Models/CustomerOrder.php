@@ -38,7 +38,7 @@ class CustomerOrder extends Model
 
     public function customers()
     {
-        return $this->belongsTo(Customer::class);
+        return $this->belongsTo(Customer::class)->withTrashed();
     }
 
     public function cancellation_reason()

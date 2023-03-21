@@ -14,7 +14,6 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         $this->call(CancellationReasonSeeder::class);
-        //$this->call(FolderSeeder::class);
         $this->call(RoleAndPermissionsSeeder::class);
         $this->call(CategorySeeder::class);
         $this->call(BrandSeeder::class);
@@ -24,7 +23,7 @@ class DatabaseSeeder extends Seeder
         $this->call(SupplierSeeder::class);
         $this->call(HomeSeeder::class);
         $this->call(ProductSeeder::class);
-        //$this->call(ProductImageSeeder::class);
+        $this->call(ProductImageSeeder::class);
         $this->call(CustomerCartSeeder::class);
         $this->call(CustomerOrdersSeeder::class);
         $this->call(CustomerOrderedProductSeeder::class);

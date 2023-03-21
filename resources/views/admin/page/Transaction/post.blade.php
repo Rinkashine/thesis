@@ -1,13 +1,23 @@
 @extends('admin.layout.admin')
 @section('content')
 @section('title', 'Home Banner')
+
 <h2 class="intro-y text-lg font-medium mt-10">
     Home Banner
 </h2>
-<livewire:form.home-banner-form/>
-<livewire:form.home-banner-edit-form/>
-<livewire:table.home-banner-table/>
-<livewire:modal.delete-banner/>
+
+<!-- Begin: Banner Form -->
+<livewire:admin.banner.home-banner-form/>
+<!-- End: Banner Form -->
+<!-- Begin: Home Banner Edit Form -->
+<livewire:admin.banner.home-banner-edit-form/>
+<!-- End: Home Banner Edit Form -->
+<!-- Begin: Home Banner Table -->
+<livewire:admin.banner.home-banner-table/>
+<!-- End: Home Banner Table -->
+<!-- Begin: Delete Banner -->
+<livewire:admin.banner.delete-banner/>
+<!-- End: Delete Banner -->
 
 <div id="success-notification-content" class="toastify-content hidden flex non-sticky-notification-content">
     <i class="fa-regular fa-circle-check fa-3x text-success mx-auto"></i>

@@ -5,10 +5,18 @@
     <a href="{{ Route('user.index') }}" class="mr-2 btn">←</a> List of Deactivated Users
 </h2>
 
-<livewire:table.user-archive-table/>
+<!-- Begin: Users Archive Modal -->
+<livewire:admin.user.user-archive-table/>
+<!-- End: Users Archive Modal -->
 
-<livewire:modal.force-delete-user/>
-<livewire:modal.restore-user/>
+<!-- Begin: Force Delete User Account -->
+<livewire:admin.user.force-delete-user/>
+<!-- End: Force Delete User Account -->
+
+<!-- Begin: Restore User Account Modal -->
+<livewire:admin.user.restore-user/>
+<!-- End: Restore User Account Modal -->
+
 
 <div id="success-notification-content" class="toastify-content hidden flex non-sticky-notification-content">
     <i class="fa-regular fa-circle-check fa-3x text-success mx-auto"></i>

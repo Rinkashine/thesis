@@ -12,10 +12,10 @@
         </h2>
     </div>
 <!-- Begin Product Edit Form -->
-@livewire('form.product-edit-form',['product' => $product])
+@livewire('admin.product.product-edit-form',['product' => $product])
 <!-- End: Product Edit Form -->
 <!-- Begin: Delete Product Image Modal -->
-<livewire:modal.delete-product-image/>
+<livewire:admin.product.delete-product-image/>
 <!-- End: Delete Product Image Moda -->
 <!-- Begin: Success Session Notifaction -->
 @if(session('success'))

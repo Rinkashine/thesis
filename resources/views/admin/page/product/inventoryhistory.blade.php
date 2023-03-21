@@ -2,6 +2,6 @@
 @section('content')
 @section('title', 'Inventory History')
 
-@livewire('table.product-inventory-history',['product' => $product])
+@livewire('admin.inventory.product-inventory-history',['product' => $product])
 
 @endsection

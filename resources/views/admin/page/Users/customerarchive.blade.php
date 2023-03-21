@@ -9,9 +9,9 @@
     </div>
 </div>
 
-<livewire:table.customer-archive-table/>
-<livewire:modal.force-delete-customer/>
-<livewire:modal.restore-customer/>
+<livewire:admin.customer.customer-archive-table/>
+<livewire:admin.customer.force-delete-customer/>
+<livewire:admin.customer.restore-customer/>
 
 <div id="success-notification-content" class="toastify-content hidden flex non-sticky-notification-content">
     <i class="fa-regular fa-circle-check fa-3x text-success mx-auto"></i>

@@ -8,9 +8,7 @@
          </h2>
     </div>
 </div>
-@livewire('show.customer-show',['customer' => $customer])
+<!-- Begin Customer Show -->
+@livewire('admin.customer.customer-show',['customer' => $customer])
+<!-- End: Customer Show -->
 @endsection
-
-@push('scripts')
-
-@endpush

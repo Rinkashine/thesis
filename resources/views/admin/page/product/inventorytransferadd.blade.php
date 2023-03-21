@@ -11,7 +11,7 @@
 </div>
 <!-- End: Header -->
 <!-- Begin: Inventory Transfer Form -->
-<livewire:form.inventory-transfer-form/>
+<livewire:admin.transfer.inventory-transfer-form/>
 <!-- End: Inventory Transfer Form -->
 @endsection
 @push('scripts')

@@ -1,12 +1,17 @@
 @extends('admin.layout.admin')
 @section('content')
 @section('title', 'Edit Role')
+<!-- Begin: Roles and Permission Table -->
+@livewire('admin.role-and-permission.role-permission-table',['role' => $role])
+<!-- End: Roles and Permission Table -->
+<!-- Begin: Set Permissions Form -->
+@livewire('admin.role-and-permission.permission-form',['role' => $role->id])
+<!-- End: Set Permissions Form -->
+<!-- Begin: Revoke Permissions Form -->
+<livewire:admin.role-and-permission.remove-permission/>
+<!-- End: Revoke Permissions Form -->
 
-@livewire('form.permission-form',['role' => $role->id])
 
-@livewire('table.role-permission-table',['role' => $role])
-
-<livewire:modal.remove-permission/>
 
 <div id="success-notification-content" class="toastify-content hidden flex non-sticky-notification-content">
     <i class="fa-regular fa-circle-check fa-3x text-success mx-auto"></i>

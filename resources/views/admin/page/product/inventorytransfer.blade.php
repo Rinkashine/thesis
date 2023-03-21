@@ -4,7 +4,7 @@
 
 
 <!-- Begin: Inventory Transfer  -->
-<livewire:table.inventory-transfer-table/>
+<livewire:admin.transfer.inventory-transfer-table/>
 <!-- End: Inventory Transfer  -->
 
 @endsection

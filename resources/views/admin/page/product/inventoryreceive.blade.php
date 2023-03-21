@@ -8,7 +8,7 @@
     </h2>
 <div>
 
-    @livewire('form.receive-transfer-form',['orderinfo' => $orderinfo])
+    @livewire('admin.transfer.receive-transfer-form',['orderinfo' => $orderinfo])
 
 @endsection
 

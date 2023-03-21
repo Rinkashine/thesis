@@ -18,11 +18,9 @@ use App\Http\Controllers\Backend\Product\ProductController;
 use App\Http\Controllers\Backend\Product\SupplierController;
 //Import Admin Transaction Stuff
 use App\Http\Controllers\Backend\Reports\ReportController;
-use App\Http\Controllers\Backend\Transaction\ChatController;
 use App\Http\Controllers\Backend\Transaction\OrderController;
 use App\Http\Controllers\Backend\Transaction\PostController;
 use App\Http\Controllers\Backend\Users\CustomerController;
-use App\Http\Controllers\Backend\Users\PermissionController;
 use App\Http\Controllers\Backend\Users\RoleController;
 use App\Http\Controllers\Backend\Users\UsersController;
 
@@ -133,7 +131,6 @@ Route::group(['prefix' => 'admin'], function () {
             Route::resource('product', ProductController::class);
 
             Route::resource('orders', OrderController::class)->only('index', 'show');
-            Route::resource('chat', ChatController::class)->only('index');
             Route::resource('post', PostController::class)->only('index');
             Route::get('/supplier/archive', [SupplierController::class, 'SupplierArchiveIndex'])->name('SupplierArchiveIndex');
             Route::resource('supplier', SupplierController::class);
@@ -204,7 +201,6 @@ Route::group(['prefix' => 'admin'], function () {
             Route::post('role/{role}/permissions', [RoleController::class, 'givePermission'])->name('roles.permissions');
             Route::delete('role/{role}/permissions/{permission}', [RoleController::class, 'revokePermission'])->name('roles.permissions.revoke');
             Route::resource('role', RoleController::class);
-            Route::resource('permission', PermissionController::class)->only('index');
         });
     });
 });

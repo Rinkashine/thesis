@@ -23,7 +23,7 @@ class OrderController extends Controller
         abort_if(Gate::denies('order_access'), 403);
 
         $orderdetails = CustomerOrder::findorfail($id);
-        $customerinfo = Customer::findorfail($orderdetails->customers_id);
+        $customerinfo = Customer::withTrashed()->findorfail($orderdetails->customers_id);
         $products = CustomerOrderItems::where('customer_order_id', $orderdetails->id)->get();
 
         return view('admin.page.Transaction.ordershow', [

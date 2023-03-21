@@ -6,17 +6,18 @@
     <a href="{{ url()->previous() }}" class="mr-2 btn">←</a> List of Archive Products
 </h2>
 <!-- End: Header -->
+
 <!-- Begin: Product Archive Table -->
-<livewire:table.product-archive-table/>
+<livewire:admin.product.product-archive-table/>
 <!-- End: Product Archive Table -->
 <!-- Begin: Delete Product Modal-->
-<livewire:modal.force-delete-product/>
+<livewire:admin.product.force-delete-product/>
 <!-- End: Delete Product Modal -->
 <!-- Begin: Restore Product Modal -->
-<livewire:modal.restore-product/>
+<livewire:admin.product.restore-product/>
 <!-- End: Restore Product Modal -->
 <!-- Begin: Show Product Modal -->
-<livewire:modal.show-product/>
+<livewire:admin.product.show-product/>
 <!-- End: Show Product Modal -->
 
 <!-- Begin: Success Notification -->

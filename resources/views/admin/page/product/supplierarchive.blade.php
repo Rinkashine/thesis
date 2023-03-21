@@ -7,16 +7,16 @@
 </h2>
 <!-- End: Header -->
 <!-- Begin: Supplier Archive Table -->
-<livewire:table.suppler-archive-table/>
+<livewire:admin.supplier.supplier-archive-table/>
 <!-- End: Supplier Archive Table -->
 <!-- Begin: Delete Supplier Modal -->
-<livewire:modal.force-delete-supplier/>
+<livewire:admin.supplier.force-delete-supplier/>
 <!-- End: Delete Supplier Modal -->
 <!-- Begin: Supplier Restore Modal -->
-<livewire:modal.restore-supplier/>
+<livewire:admin.supplier.restore-supplier/>
 <!-- End: Supplier Restore Modal -->
 <!-- Begin: Supplier Show Modal -->
-<livewire:modal.show-supplier/>
+<livewire:admin.supplier.show-supplier/>
 <!-- End: Supplier Show Modal -->
 <!-- Begin Success Notification -->
 <div id="success-notification-content" class="toastify-content hidden flex non-sticky-notification-content">

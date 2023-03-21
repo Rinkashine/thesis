@@ -36,13 +36,13 @@
                 @endif
                 <div class="flex flex-col-reverse xl:flex-row flex-col">
                     <!-- Begin: Show Customer Profile -->
-                    <livewire:show.customer-profile/>
+                    <livewire:customer.auth.customer-profile/>
                     <!-- End: Show Customer Profile -->
                     <!-- Begin: Customer Change Profile Form -->
-                    <livewire:form.customer-change-profile-form/>
+                    <livewire:customer.auth.customer-change-profile-form/>
                     <!-- End: Customer Change Profile Form -->
                     <!-- Begin: Customer Change Information-->
-                    <livewire:form.customer-change-information/>
+                    <livewire:customer.auth.customer-change-information/>
                     <!-- End: Customer Change Information -->
                     <div class="w-52 mx-auto xl:mr-0 xl:ml-6">
                         <div class="border-2 border-dashed shadow-sm border-slate-200/60 dark:border-darkmode-400 rounded-md p-5">
@@ -72,7 +72,7 @@
                 </h2>
             </div>
             <div class="p-5">
-                <livewire:table.customer-recent-orders-table/>
+                <livewire:customer.auth.customer-recent-orders-table/>
             </div>
         </div>
             <!-- END: RECENT ORDERS -->

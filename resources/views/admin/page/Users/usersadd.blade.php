@@ -11,9 +11,9 @@
                 Add New Users
             </h2>
         </div>
-
-        <livewire:form.user-create-form/>
-
+        <!-- Begin: Users Form -->
+        <livewire:admin.user.user-create-form/>
+        <!-- End: Uses Form -->
     </div>
 </div>
 @endsection

@@ -6,20 +6,22 @@
 <!-- End: Header -->
 
 <!-- Begin: Category Table -->
-<livewire:table.category-table/>
+<livewire:admin.category.category-table/>
 <!-- End: Category Table -->
 <!-- Begin: Delete Category Modal -->
-<livewire:modal.delete-category/>
+<livewire:admin.category.delete-category/>
 <!-- End: Delete Category Modal -->
 <!-- Begin: Category Form Modal -->
-<livewire:form.category-form/>
+<livewire:admin.category.category-form/>
 <!-- End: Category Form Modal -->
 <!-- Begin: Category Edit Form Modal -->
-<livewire:form.category-edit-form/>
+<livewire:admin.category.category-edit-form/>
 <!-- End: Category Edit Form Modal -->
 <!-- Begin: Change Photo Form Modal -->
-<livewire:form.category-change-photo-form/>
+<livewire:admin.category.category-change-photo-form/>
 <!-- End: Change Photo Form Modal -->
+
+
 <!--Begin: Success Notification -->
 <div id="success-notification-content" class="toastify-content hidden flex non-sticky-notification-content">
     <i class="fa-regular fa-circle-check fa-3x text-success mx-auto"></i>

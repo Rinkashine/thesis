@@ -15,12 +15,15 @@
     @endcan
 </div>
 <!-- End: Header -->
+
 <!-- Begin: Product Table-->
-<livewire:table.product-table/>
+<livewire:admin.product.product-table/>
 <!-- End: Product Table -->
+
 <!-- Begin: Delete Product Modal -->
-<livewire:modal.delete-product/>
+<livewire:admin.product.delete-product/>
 <!-- End: Delete Product Modal-->
+
 <!-- Begin: Success Session Notification -->
 @if(session('success'))
 <div id="edit-success-notification-content" class="toastify-content hidden flex non-sticky-notification-content">
@@ -30,6 +33,7 @@
         <div class="text-slate-500 mt-1">{{session('success')}}</div>
     </div>
 </div>
+
 <script>
 Toastify({
     node: $("#edit-success-notification-content") .clone() .removeClass("hidden")[0],

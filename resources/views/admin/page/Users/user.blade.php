@@ -4,9 +4,12 @@
 <h2 class="intro-y text-lg font-medium mt-10">
     List of Users
 </h2>
-
-<livewire:table.user-table/>
-<livewire:modal.restrict-user-account/>
+<!-- Begin: Users Table -->
+<livewire:admin.user.user-table/>
+<!-- End: Users Table -->
+<!-- Begin: Restrict User Account Modal -->
+<livewire:admin.user.restrict-user-account/>
+<!-- End: Restric User Account Modal -->
 
 @if(session('success'))
 <div id="success-notification-content" class="toastify-content hidden flex non-sticky-notification-content">

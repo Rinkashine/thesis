@@ -1,5 +1,7 @@
 @extends('admin.layout.admin')
 @section('content')
 @section('title', 'Order')
-<livewire:table.order-table/>
+<!-- Begin: List of Orders Table -->
+<livewire:admin.transaction.order-table/>
+<!-- End: List of Orders Table -->
 @endsection

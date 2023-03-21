@@ -13,9 +13,14 @@
     </div>
     @endcan
 </div>
+<!-- Begin: Customer Table -->
+<livewire:admin.customer.customer-table/>
+<!-- End: Customer Table -->
+<!--Begin: Restrict Customer Account -->
+<livewire:admin.customer.restrict-customer-account/>
 
-<livewire:table.customer-table/>
-<livewire:modal.restrict-customer-account/>
+<!-- End: Restrict Customer Account -->
+
 
 
 <div id="success-notification-content" class="toastify-content hidden flex non-sticky-notification-content">

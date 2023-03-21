@@ -7,7 +7,7 @@
         <div class="px-1 mt-0">
             <div class="font-medium text-center text-2xl">Contact Us</div>
         </div>
-            <livewire:form.contact-form/>
+            <livewire:customer.contactform.contact-form/>
         </div>
     </div>
 </div>

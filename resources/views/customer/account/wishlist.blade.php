@@ -22,15 +22,12 @@
                     </h2>
                 </div>
                 <div class="p-5">
-                    <!-- Dummy -->
-
-                    <!-- Dummy -->
-                    <livewire:table.product-wishlist/>
-
+                    <!-- Begin: Customer Wishlist Products Table -->
+                    <livewire:customer.wishlist.product-wishlist/>
+                    <!-- End: Customer Wishlist Product Table -->
                 </div>
             </div>
             <!-- END: Display Information -->
         </div>
     </div>
-    <!-- End: Reviews Body -->
 @endsection

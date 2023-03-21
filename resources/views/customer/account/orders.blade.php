@@ -24,7 +24,7 @@
             </div>
             <div class="p-5">
                 <!-- Begin: Customer Orders Table-->
-                <livewire:table.customer-orders-table/>
+                <livewire:customer.order.customer-orders-table/>
                 <!-- End: Customer Orders Table-->
             </div>
         </div>

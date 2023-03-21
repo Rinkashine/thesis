@@ -33,16 +33,16 @@
                 <a onclick="deletePurchaseOrder('{{$orderinfos->id}}')" href="javascript:;" class="btn btn-danger">
                     Delete
                 </a>
-                <livewire:modal.delete-purchase-order/>
-                @livewire('component.inventory-transfer-mark-as-pending',['info' => $orderinfos])
-                <livewire:modal.mark-as-pending-modal/>
+                <livewire:admin.transfer.delete-purchase-order/>
+                @livewire('admin.transfer.inventory-transfer-mark-as-pending',['info' => $orderinfos])
+                <livewire:admin.transfer.mark-as-pending-modal/>
             </div>
         @endif
     </div>
 </div>
 <!-- End: Header -->
 <!-- Begin: Inventory Transfer Edit Form -->
-@livewire('form.inventory-transfer-edit-form',['orderinfos' => $orderinfos])
+@livewire('admin.transfer.inventory-transfer-edit-form',['orderinfos' => $orderinfos])
 <!-- End: Inventory Transfer Edit Form -->
 @endsection
 

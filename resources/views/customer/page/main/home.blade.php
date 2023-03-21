@@ -23,7 +23,7 @@
                 @foreach ($banners as $banner)
                     <div class="px-2 h-72">
                         <div class="object-cover h-full overflow-hidden rounded-md"  >
-                            <img class="object-fill h-full w-96 " data-action="zoom" src="{{ url('storage/banner/'.$banner->featured_image) }}" alt="" />
+                            <img class="object-fill h-full w-96 " data-action="zoom" src="{{ url('storage/banner/'.$banner->featured_image) }}" alt="Missing Banner Image" onerror="this.onerror=null;this.src='{{ asset('dist/images/ImageNotFound.png') }}'" />
                         </div>
                     </div>
                 @endforeach
@@ -49,7 +49,7 @@
                             <a href="{{ Route('productshow', $product) }}">
                                 <div class="h-48 2xl:h-48">
                                     @foreach ($product->images->take(1) as $model)
-                                        <img alt="" class="object-scale-down w-full h-48 rounded-md" src="{{ url('storage/product_photos/'.$model->images) }}">
+                                        <img alt="Product Image Not Found" class="object-scale-down w-full h-48 rounded-md" src="{{ url('storage/product_photos/'.$model->images) }}" onerror="this.onerror=null;this.src='{{ asset('dist/images/ImageNotFound.png') }}'">
                                     @endforeach
                                 </div>
                                 <div class="my-3 ">
@@ -84,12 +84,7 @@
                         <div class="relative p-3 rounded-md box zoom-in p-5">
                             <a href="{{ Route('product',['filterbycategory' => $category]) }}">
                                 <div class="h-48 2xl:h-48">
-
-                                    @if(!empty($category->photo))
-                                        <img alt="Missing Category Image" class="object-scale-down w-full h-48 rounded-md" src="{{ url('storage/category/'.$category->photo) }}">
-                                    @else
-                                        <img alt="Missing Category Image" class="object-scale-down w-full h-48 rounded-md" src="{{asset('dist/images/undraw_pic.svg')}}">
-                                    @endif
+                                    <img alt="Missing Category Image" class="object-scale-down w-full h-48 rounded-md" src="{{ url('storage/category/'.$category->photo) }}" onerror="this.onerror=null;this.src='{{ asset('dist/images/ImageNotFound.png') }}'">
                                 </div>
                                 <div class="block mt-3 font-medium text-center truncate">{{$category->name }} </div>
                             </a>
@@ -114,17 +109,12 @@
                         <div class="relative p-3 rounded-md box zoom-in p-5">
                             <a href="{{ Route('product',['filterbybrand' => $brand]) }}">
                                 <div class="h-48 2xl:h-48">
-                                    @if(!empty($brand->photo))
-                                        <img alt="Missing Brand Image" class="object-scale-down w-full h-48 rounded-md" src="{{ url('storage/brand/'.$brand->photo) }}">
-                                    @else
-                                        <img alt="Missing Brand Image" class="object-scale-down w-full h-48 rounded-md" src="{{asset('dist/images/undraw_pic.svg')}}">
-                                    @endif
+                                    <img alt="Missing Brand Image" class="object-scale-down w-full h-48 rounded-md" src="{{ url('storage/brand/'.$brand->photo) }}" onerror="this.onerror=null;this.src='{{ asset('dist/images/ImageNotFound.png') }}'">
                                 </div>
                                 <div class="block mt-3 font-medium text-center truncate">{{$brand->name }} </div>
                             </a>
                         </div>
                     @endforeach
-
                 </div>
             </div>
         </div>
@@ -146,7 +136,7 @@
                             <a href=" {{ Route('productshow', $product) }}">
                                 <div class="h-48 2xl:h-48">
                                     @foreach ($product->images->take(1) as $model)
-                                        <img alt="" class="object-scale-down w-full h-48 rounded-md" src="{{ url('storage/product_photos/'.$model->images) }}">
+                                        <img alt="Product Image Not Found" class="object-scale-down w-full h-48 rounded-md" src="{{ url('storage/product_photos/'.$model->images) }}" onerror="this.onerror=null;this.src='{{ asset('dist/images/ImageNotFound.png') }}'">
                                     @endforeach
                                 </div>
                                 <div class="my-3 ">
@@ -182,7 +172,7 @@
                             <a href=" {{ Route('productshow', $product) }}">
                                 <div class="h-48 2xl:h-48">
                                     @foreach ($product->images->take(1) as $model)
-                                        <img alt="" class="object-scale-down w-full h-48 rounded-md" src="{{ url('storage/product_photos/'.$model->images) }}">
+                                        <img alt="Product Image Not Found" class="object-scale-down w-full h-48 rounded-md" src="{{ url('storage/product_photos/'.$model->images) }}" onerror="this.onerror=null;this.src='{{ asset('dist/images/ImageNotFound.png') }}'">
                                     @endforeach
                                 </div>
                                 <div class="my-3 ">

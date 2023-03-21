@@ -4,9 +4,8 @@
 @endsection
 
 @section('content')
-@livewire('show.product-show',['product' => $product])
+<!-- Begin: Product Information Show -->
+@livewire('customer.productcatalog.product-show',['product' => $product])
+<!-- End: Product Information Show -->
 @endsection
-@push('scripts')
-
-@endpush
 

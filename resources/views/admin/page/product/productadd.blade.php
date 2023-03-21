@@ -6,7 +6,9 @@
         <a href="{{ url()->previous() }}" class="mr-2 btn">←</a> Add Product
     </h2>
 </div>
-<livewire:form.product-add-form/>
+<!-- Begin: Add Product Form -->
+<livewire:admin.product.product-add-form/>
+<!-- End: Add Product Form -->
 @endsection
 @push('scripts')
 <script>

@@ -3,7 +3,7 @@
 @section('title', 'Product Catalog')
 
 <!-- Begin: Show Product -->
-<livewire:table.product-catalog-table/>
+<livewire:customer.productcatalog.product-catalog-table/>
 <!-- End: Show Product -->
 
 @endsection

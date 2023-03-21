@@ -23,13 +23,13 @@
             </div>
             <div class="p-5">
                 <!-- Begin: Customer Address Table -->
-                <livewire:table.customer-address-table/>
+                <livewire:customer.address.customer-address-table/>
                 <!-- End: Customer Address Table -->
                 <!-- Begin: Delete Customer Address Modal -->
-                <livewire:modal.delete-customer-address/>
+                <livewire:customer.address.delete-customer-address/>
                 <!-- End: Delete Customer Address Modal -->
                 <!-- Begin; Set Default Address Modal -->
-                <livewire:modal.set-default-address/>
+                <livewire:customer.address.set-default-address/>
                 <!-- End: Set Default Address Modal -->
             </div>
         </div>

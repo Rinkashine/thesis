@@ -14,7 +14,6 @@ var filesToCache = [
     '/images/icons/icon-512x512.png',
     '/dist/images/error-illustration.svg'
 ];
-console.log('Hello from service-worker.js');
 // Cache on install
 self.addEventListener("install", event => {
     this.skipWaiting();

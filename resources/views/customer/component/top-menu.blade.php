@@ -44,7 +44,7 @@
 
        <!-- BEGIN: Search -->
         <div class="intro-x relative mr-3 sm:mr-6">
-            <livewire:form.search-product-form/>
+            <livewire:customer.productcatalog.search-product-form/>
         </div>
         <!-- END: Search -->
 
