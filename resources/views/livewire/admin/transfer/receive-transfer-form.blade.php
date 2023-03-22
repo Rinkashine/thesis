@@ -14,14 +14,19 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($transferproducts as $transfer)
+                                @foreach ($transferproducts as $key=>$transfer)
                                     <tr>
-                                        <td class="whitespace-nowrap">{{ $transfer->product->name }}</td>
-                                        <td class="whitespace-nowrap text-center">{{ $transfer->product->SKU }}</td>
+                                        <td class="whitespace-nowrap">{{ $transfer['name'] }}</td>
+                                        <td class="whitespace-nowrap text-center">{{ $transfer['SKU'] }}</td>
                                         <td class="whitespace-nowrap">
-                                            <input type="number" wire:model="receive.{{ $transfer->id }}" min="0" max="{{ $transfer->quantity }}"  placeholder="Order Quantity" class="form-control">
+                                            <input type="number" wire:model="transferproducts.{{ $key }}.receive" min="0" max="{{ $transfer['quantity'] }}"  placeholder="Quantity" class="form-control">
+                                            @error('transferproducts.'.$key.'.receive')
+                                                <div class="text-danger mt-2">
+                                                    {{ $message }}
+                                                </div>
+                                            @enderror
                                         </td>
-                                        <td class="whitespace-nowrap text-center">{{ $transfer->quantity }} pcs</td>
+                                        <td class="whitespace-nowrap text-center">{{ $transfer['quantity'] }} pcs</td>
                                     </tr>
                                 @endforeach
                             </tbody>

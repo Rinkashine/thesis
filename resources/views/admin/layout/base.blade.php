@@ -18,10 +18,7 @@
     </head>
     <body class="login">
 
-        <!-- Dark Mode Switcher -->
-        @include('admin.component.dark-mode-switcher')
-        <!-- Color Switcher -->
-        @include('admin.component.main-color-switcher')
+
         <!-- Begin Content -->
         @yield('content')
         <!-- End Content -->

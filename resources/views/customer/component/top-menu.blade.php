@@ -2,7 +2,7 @@
     <div class="h-full flex items-center">
         <!-- BEGIN: Logo -->
         <div href="" class="-intro-x hidden md:flex w-auto">
-            <img alt="Go Dental Logo" class="w-8" src="{{asset('icons/log.png')}}">
+            <img alt="Go Dental Logo" class="w-12" src="{{asset('dist/images/MainLogo.png')}}" data-action="zoom">
         </div>
 
         <!-- END: Logo -->

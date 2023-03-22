@@ -42,23 +42,26 @@ class InventoryTransferForm extends Component
 
     public $toggleinfo = false;
 
-    public function Prod($value, $id, $index)
-    {
-        $this->selectedProducts[$index]['t_quantity'] = $value;
-    }
+
 
     public function rules()
     {
         return [
             'origin' => 'required',
             'shipping' => 'required',
-            'selectedProducts.*.t_quantity' => 'required|numeric|min:1',
+            'selectedProducts.*.quantity' => 'required|numeric|min:1',
+            'selectedProducts.*.price' => 'required|numeric|min:0',
+            'selectedProducts.*.discount' => 'required|numeric|min:0|max:100',
+
         ];
     }
 
     protected $validationAttributes = [
         'origin' => 'Supplier',
         'shipping' => 'Estimated Arrival',
+        'selectedProducts.*.quantity' => 'quantity',
+        'selectedProducts.*.price' => 'price',
+        'selectedProducts.*.discount' => 'discount'
     ];
 
     public function updated($fields)
@@ -66,7 +69,9 @@ class InventoryTransferForm extends Component
         $this->validateOnly($fields, [
             'origin' => 'required',
             'shipping' => 'required',
-            'selectedProducts.*.t_quantity' => 'required|numeric|min:1',
+            'selectedProducts.*.quantity' => 'required|numeric|min:1',
+            'selectedProducts.*.price' => 'required|numeric|min:0',
+            'selectedProducts.*.discount' => 'required|numeric|min:0|max:100',
         ]);
     }
 
@@ -128,11 +133,13 @@ class InventoryTransferForm extends Component
                 'remarks' => $this->remarks,
             ]);
 
-            foreach ($this->selectedProducts as $value) {
+            foreach ($this->selectedProducts as $product) {
                 PurchaseOrderItems::create([
                     'purchase_order_id' => $purchaseorder->id,
-                    'product_id' => $value['id'],
-                    'quantity' => $value['t_quantity'],
+                    'product_id' => $product['id'],
+                    'quantity' => $product['quantity'],
+                    'price' => $product['price'],
+                    'discount' => $product['discount'],
                 ]);
             }
             PurchaseOrderTimeline::create([

@@ -128,31 +128,94 @@
                                                 <th class="whitespace-nowrap">Product Name</th>
                                                 <th class="whitespace-nowrap text-center">SKU</th>
                                                 <th class="whitespace-nowrap text-center">Quantity</th>
+                                                <th class="whitespace-nowrap text-center">Price Per Item</th>
+                                                <th class="whitespace-nowrap text-center">Discount</th>
+                                                <th class="whitespace-nowrap text-center">Total Cost</th>
+                                                <th class="whitespace-nowrap text-center">Discounted Total Cost</th>
+
                                                 @if($status != "Pending")
                                                     <th class="whitespace-nowrap text-center">Action </th>
                                                 @endif
                                             </tr>
                                         </thead>
                                         <tbody>
+                                            @php
+                                                $overallcost = 0;
+                                            @endphp
                                             @foreach ($selectedProducts as $key=>$selectedproduct)
                                                 <tr>
                                                     <td class="whitespace-nowrap">{{ $selectedproduct['name'] }}</td>
                                                     <td class="whitespace-nowrap text-center">{{ $selectedproduct['SKU'] }}</td>
                                                     <td class="whitespace-nowrap text-center">
                                                         @if($status == "Pending")
-                                                            <span class="flex justify-center">{{ $selectedproduct['quantity'] }}</span>
+                                                            <span class="flex justify-center">{{ $selectedproduct['quantity'] }} pcs</span>
                                                         @else
                                                             <input type="number" wire:model='selectedProducts.{{ $key }}.quantity' placeholder="Order Quantity" min="1" class="form-control" onkeypress="return event.charCode >= 48">
+                                                            @error('selectedProducts.'.$key.'.quantity')
+                                                                <div class="text-danger mt-2">
+                                                                    {{ $message }}
+                                                                </div>
+                                                            @enderror
                                                         @endif
-
                                                     </td>
-                                                    @if($status != "Pending")
+                                                    <td class="whitespace-nowrap text-center">
+                                                        @if($status == "Pending")
+                                                            <span class="flex justify-center">₱{{ $selectedproduct['price'] }}</span>
+                                                        @else
+                                                            <input type="number" wire:model='selectedProducts.{{ $key }}.price' placeholder="Order Quantity"  class="form-control" onkeypress="return event.charCode >= 48">
+                                                            @error('selectedProducts.'.$key.'.price')
+                                                                <div class="text-danger mt-2">
+                                                                    {{ $message }}
+                                                                </div>
+                                                            @enderror
+                                                        @endif
+                                                    </td>
+                                                    <td class="whitespace-nowrap text-center">
+                                                        @if($status == "Pending")
+                                                            <span class="flex justify-center">{{ $selectedproduct['discount'] }}%</span>
+                                                        @else
+                                                            <input type="number" wire:model='selectedProducts.{{ $key }}.discount' placeholder="Order Quantity"  class="form-control" >
+                                                            @error('selectedProducts.'.$key.'.discount')
+                                                                <div class="text-danger mt-2">
+                                                                    {{ $message }}
+                                                                </div>
+                                                            @enderror
+                                                        @endif
+                                                    </td>
+                                                    <td class="whitespace-nowrap text-center">
+                                                        @php
+                                                            if($selectedproduct['quantity'] == null || $selectedproduct['price'] == null){
+                                                                $totalcost = 0;
+                                                            }else{
+                                                                $totalcost = $selectedproduct['quantity'] * $selectedproduct['price'];
+                                                            }
+                                                        @endphp
+                                                        ₱{{ number_format($totalcost,2) }}
+                                                    </td>
+                                                    <td class="whitespace-nowrap text-center">
+                                                        @php
+                                                            if($selectedproduct['discount'] == null){
+                                                                $discountprice = $totalcost;
+                                                            }else{
+                                                                $discountprice = $totalcost - (($selectedproduct['discount'] /100) * $totalcost);
+                                                            }
+                                                            $overallcost += $discountprice;
+
+                                                        @endphp
+                                                        ₱{{ number_format($discountprice,2) }}
+                                                    </td>
+                                                   @if($status != "Pending")
                                                         <td class="whitespace-nowrap text-center">
-                                                            <button type="button" wire:click="DeleteTd({{ json_encode($selectedproduct)}}, {{ $key }})">Delete</button>
+                                                            <button type="button" wire:click="DeleteTd({{ json_encode($selectedproduct)}}, {{ $key }})" class="text-danger"><i class="fa-solid fa-trash mr-1"></i>Delete</button>
                                                         </td>
                                                     @endif
                                                 </tr>
                                             @endforeach
+                                                <tr>
+                                                    <td colspan="8" class="whitespace-nowrap text-right">
+                                                        Overall Cost: ₱{{ number_format($overallcost,2) }}
+                                                    </td>
+                                                </tr>
                                         </tbody>
                                     </table>
                                 </div>
@@ -247,23 +310,7 @@
                                 </div>
                                 @endforeach
 
-                                @if ($item->title != 'Marked as Pending')
-                                <div class="flex md:contents">
-                                    <div class="relative col-start-2 col-end-4 mr-10 md:mx-auto">
-                                      <div class="flex items-center justify-center w-6 h-full">
-                                        <div class="w-1 h-full bg-gray-300 pointer-events-none"></div>
-                                      </div>
-                                      <div class="absolute w-6 h-6 -mt-3 text-center bg-gray-300 rounded-full shadow top-1/2">
-                                        <i class="mt-1 text-gray-400 fas fa-exclamation-circle"></i>
-                                      </div>
-                                    </div>
-                                    <div class="w-full col-start-4 col-end-12 p-4 my-4 mr-auto bg-gray-300 shadow-md rounded-xl">
-                                      <h3 class="mb-1 text-lg font-semibold text-gray-400">Marked as Pending</h3>
-                                      <p class="leading-tight text-justify">
-                                      </p>
-                                    </div>
-                                </div>
-                                @endif
+
 
                                 <div class="flex md:contents">
                                     <div class="relative col-start-2 col-end-4 mr-10 md:mx-auto">

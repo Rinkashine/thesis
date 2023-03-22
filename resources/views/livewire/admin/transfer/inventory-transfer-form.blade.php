@@ -128,6 +128,9 @@
                                             <th class="whitespace-nowrap">Product Name</th>
                                             <th class="whitespace-nowrap">SKU</th>
                                             <th class="whitespace-nowrap">Quantity</th>
+                                            <th class="whitespace-nowrap">Price per Item</th>
+                                            <th class="whitespace-nowrap">Discount</th>
+
                                             <th class="whitespace-nowrap">Action </th>
                                         </tr>
                                     </thead>
@@ -137,9 +140,30 @@
                                                 <td>{{ $selectedproduct['name'] }}</td>
                                                 <td> {{ $selectedproduct['SKU'] }}</td>
                                                 <td>
-                                                    <input type="number" min="1" oninput="onInput(this,{{ $selectedproduct['id'] }}, {{ $key }})" placeholder="Order Quantity" class="form-control" onkeypress="return event.charCode >= 48">
+                                                    <input type="number" wire:model="selectedProducts.{{ $key }}.quantity" placeholder="Order Quantity" class="form-control" onkeypress="return event.charCode >= 48">
+                                                    @error('selectedProducts.'.$key.'.quantity')
+                                                        <div class="text-danger mt-2">
+                                                            {{ $message }}
+                                                        </div>
+                                                    @enderror
                                                 </td>
-                                                <td> <button type="button" wire:click="DeleteTd({{ json_encode($selectedproduct)}})">Delete</button> </td>
+                                                <td>
+                                                    <input type="number" min="1" wire:model="selectedProducts.{{ $key }}.price"  placeholder="Price" class="form-control" onkeypress="return event.charCode >= 48">
+                                                    @error('selectedProducts.'.$key.'.price')
+                                                        <div class="text-danger mt-2">
+                                                            {{ $message }}
+                                                        </div>
+                                                    @enderror
+                                                </td>
+                                                <td>
+                                                    @error('selectedProducts.'.$key.'.discount')
+                                                        <div class="text-danger mt-2">
+                                                            {{ $message }}
+                                                        </div>
+                                                    @enderror
+                                                    <input type="number" min="0" wire:model="selectedProducts.{{ $key }}.discount"  placeholder="0-100" class="form-control" onkeypress="return event.charCode >= 48">
+                                                </td>
+                                                <td class="whitespace-nowrap text-center"> <button type="button" wire:click="DeleteTd({{ json_encode($selectedproduct)}})" class="text-danger"> <i class="fa-solid fa-trash mr-1"></i>  Delete</button> </td>
                                             </tr>
                                         @endforeach
                                     </tbody>

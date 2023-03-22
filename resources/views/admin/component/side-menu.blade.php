@@ -1,8 +1,8 @@
 <nav class="side-nav">
-    <a href="" class="intro-x flex items-center pl-5 pt-4 mt-3">
-        <img alt="Go Dental" class="w-6" src="{{asset('icons/log.png')}}">
+    <div class="intro-x flex items-center pl-5 pt-4 mt-3">
+        <img alt="Go Dental" class="w-10" src="{{asset('dist/images/MainLogo.png')}}" data-action="zoom">
         <span class="hidden xl:block text-white text-lg ml-3"> Go Dental </span>
-    </a>
+    </div>
     <div class="side-nav__devider my-6"></div>
     <ul>
         <!--Dashboard-->

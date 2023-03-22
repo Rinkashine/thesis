@@ -232,8 +232,8 @@
 
                                 <div class="my-2 border-t border-slate-200/60 dark:border-darkmode-400" ></div>
 
-                                <button onclick="AccordionShow('PQ3')" class="text-base text-left hover:text-primary">How do I proceed to checkout my Go-Dental Cart?</button>
-                                    <div id="PQ3" class="hidden">
+                                <button onclick="AccordionShow('PQ4')" class="text-base text-left hover:text-primary">How do I proceed to checkout my Go-Dental Cart?</button>
+                                    <div id="PQ4" class="hidden">
                                         <p>By following these steps, you can purchase an item of choice:</p>
                                         <p>1. Select a few products you want to order. Also, add how much quantity of the item you want to add.</p>
                                         <p>2. “Add to Cart” to be able to see the list of products you want to buy. </p>
@@ -251,9 +251,9 @@
             </div>
 </div>
 
-            <div class="mx-auto mt-10 text-2xl text-center md:w-1/2">
-                <p class="text-4xl mb-0.5">Question Unanswered?</p>
-                Feel free to<a class="pl-1 italic text-black" href="{{ Route('contact') }}" class="text-3xl font-semibold">Contact Us!</a> You can also use our contact number at +639 (611) 2126 52, available daily, 8AM-8PM (except on holidays).
+            <div class="mx-auto mt-10 text-xl text-center md:w-1/2">
+                <p class="text-3xl mb-0.5 font-medium">Question Unanswered?</p>
+                Feel free to<a class="pl-1 " href="{{ Route('contact') }}" class="">Contact us!</a> You can also use our contact number at +639 (611) 2126 52, available daily, 8AM-8PM (except on holidays).
             </div>
         <!-- END: FAQ Content -->
 

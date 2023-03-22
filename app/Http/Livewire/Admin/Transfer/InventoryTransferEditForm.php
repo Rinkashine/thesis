@@ -58,6 +58,9 @@ class InventoryTransferEditForm extends Component
             'origin' => 'required',
             'shipping' => 'required',
             'selectedProducts.*.quantity' => 'required|numeric|min:1',
+            'selectedProducts.*.quantity' => 'required|numeric|min:1',
+            'selectedProducts.*.price' => 'required|numeric|min:0',
+            'selectedProducts.*.discount' => 'required|numeric|min:0|max:100',
         ];
     }
 
@@ -67,12 +70,18 @@ class InventoryTransferEditForm extends Component
             'origin' => 'required',
             'shipping' => 'required',
             'selectedProducts.*.quantity' => 'required|numeric|min:1',
+            'selectedProducts.*.quantity' => 'required|numeric|min:1',
+            'selectedProducts.*.price' => 'required|numeric|min:0',
+            'selectedProducts.*.discount' => 'required|numeric|min:0|max:100',
         ]);
     }
 
     protected $validationAttributes = [
         'origin' => 'Supplier',
         'shipping' => 'Estimated Arrival',
+        'selectedProducts.*.quantity' => 'quantity',
+        'selectedProducts.*.price' => 'price',
+        'selectedProducts.*.discount' => 'discount'
     ];
 
     public $received_items;
@@ -87,9 +96,10 @@ class InventoryTransferEditForm extends Component
         $this->status = $orderinfos->status;
         $this->products = [];
         $this->selectedProducts = [];
+
         $this->selectedProducts = PurchaseOrderItems::where('purchase_order_id', $orderinfos->id)
         ->join('product', 'purchase_order_items.product_id', '=', 'product.id')
-        ->select('product.id as product_id', 'purchase_order_items.id as id', 'quantity', 'product.name as name', 'product.sku as SKU')
+        ->select('product.id as product_id', 'purchase_order_items.id as id', 'quantity', 'product.name as name', 'product.sku as SKU', 'purchase_order_items.price','purchase_order_items.discount')
         ->get()
         ->toArray();
 
@@ -128,6 +138,8 @@ class InventoryTransferEditForm extends Component
                     'purchase_order_id' => $model->id,
                     'product_id' => $item['id'],
                     'quantity' => $item['quantity'],
+                    'price' => $item['price'],
+                    'discount' => $item['discount']
                 ]);
             }
 
@@ -179,6 +191,12 @@ class InventoryTransferEditForm extends Component
             $supplierinfo = [];
             $this->toggleinfo = false;
         }
+
+       foreach($this->selectedProducts as $selectedproduct){
+            if($selectedproduct['price'] == null){
+                $selectedproduct['price'] = 0;
+            }
+       }
 
         return view('livewire.admin.transfer.inventory-transfer-edit-form', [
             'suppliers' => $suppliers,

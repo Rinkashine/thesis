@@ -13,7 +13,7 @@ use Livewire\Component;
 
 class ReceiveTransferForm extends Component
 {
-    public $transferproducts;
+    public $transferproducts = [];
 
     public $receive = [];
 
@@ -21,30 +21,61 @@ class ReceiveTransferForm extends Component
     public function mount($orderinfo)
     {
         $this->model_id = $orderinfo->id;
-        $this->transferproducts = PurchaseOrderItems::where('purchase_order_id', $orderinfo->id)->get();
+        $this->transferproducts = PurchaseOrderItems::where('purchase_order_id', $orderinfo->id)
+        ->join('product', 'purchase_order_items.product_id', '=', 'product.id')
+        ->select('product.id as product_id', 'purchase_order_items.id as id', 'quantity', 'product.name as name', 'product.sku as SKU', 'purchase_order_items.price','purchase_order_items.discount')
+        ->get()
+        ->toArray();
+
+
+
+
     }
+
+    public function rules()
+    {
+        return [
+            'transferproducts.*.receive' => 'required|numeric|min:0',
+        ];
+    }
+
+    protected $validationAttributes = [
+        'transferproducts.*.receive' => 'accept quantity',
+
+    ];
+
+    public function updated($fields)
+    {
+        $this->validateOnly($fields, [
+            'transferproducts.*.receive' => 'required|numeric|min:0',
+        ]);
+    }
+
 
     public function StoreReceiveInventoryData()
     {
-        foreach ($this->transferproducts as $Tprod) {
-            $product = Product::findorFail($Tprod->product->id);
+        $this->validate();
+
+        foreach ($this->transferproducts as $transferproduct) {
+            $product = Product::findorFail($transferproduct['product_id']);
             $PreviousStock = $product->stock;
-            $order_items_quantity = $this->receive[$Tprod->id];
+            $order_items_quantity = $transferproduct['receive'];
             $latestStock = $PreviousStock + $order_items_quantity;
             $product->stock = $latestStock;
             $product->update();
 
             $operationvalue = "(+$order_items_quantity)";
 
-            $order = PurchaseOrder::findorFail($Tprod->purchase_order_id);
+            $order = PurchaseOrder::findorFail($this->model_id);
             $order->status = 'Received';
             $order->update();
 
-            $item = PurchaseOrderItems::findorfail($Tprod->id);
-            $item->accepted_quantity = $this->receive[$Tprod->id];
+            $item = PurchaseOrderItems::findorfail($transferproduct['id']);
+            $item->accepted_quantity = $transferproduct['receive'];
             $item->update();
+
             InventoryHistory::create([
-                'product_id' => $Tprod->product_id,
+                'product_id' => $transferproduct['product_id'],
                 'activity' => "Transfer Receive #(T$order->id)",
                 'adjusted_by' => Auth::guard('web')->user()->name,
                 'operation_value' => $operationvalue,
@@ -52,7 +83,7 @@ class ReceiveTransferForm extends Component
             ]);
 
             PurchaseOrderTimeline::create([
-                'purchase_order_id' => $Tprod->purchase_order_id,
+                'purchase_order_id' => $this->model_id,
                 'title' => 'Received the Items',
             ]);
         }

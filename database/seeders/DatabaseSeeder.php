@@ -27,9 +27,9 @@ class DatabaseSeeder extends Seeder
         $this->call(CustomerCartSeeder::class);
         $this->call(CustomerOrdersSeeder::class);
         $this->call(CustomerOrderedProductSeeder::class);
-        $this->call(PurchaseOrderSeeder::class);
-        $this->call(PurchaseOrderItemSeeder::class);
-        $this->call(PurchaseOrderTimelineSeeder::class);
+       // $this->call(PurchaseOrderSeeder::class);
+      //  $this->call(PurchaseOrderItemSeeder::class);
+      //  $this->call(PurchaseOrderTimelineSeeder::class);
 
         $this->call(ProductReviewSeeder::class);
         $this->call(InventoryHistorySeeder::class);

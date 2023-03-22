@@ -80,22 +80,44 @@
                 <div class="mt-5">
                     <div class="overflow-x-auto mt-5">
                         <table class="table table-bordered table-hover">
-                            <thead class="">
+                            <thead class="table-dark">
                                 <tr>
                                     <th class="whitespace-nowrap">Product Name</th>
-                                    <th  class="whitespace-nowrap text-center">SKU</th>
+                                    <th class="whitespace-nowrap text-center">SKU</th>
                                     <th class="whitespace-nowrap text-center">Received</th>
+                                    <th class="whitespace-nowrap text-center">Price Per Item</th>
+                                    <th class="whitespace-nowrap text-center">Discount</th>
+                                    <th class="whitespace-nowrap text-center">Total Cost</th>
+                                    <th class="whitespace-nowrap text-center">Total with Discounted Price</th>
                                 </tr>
                             </thead>
                             <tbody>
-
+                                @php
+                                $overallcost= 0;
+                                @endphp
                                 @foreach ($orderinfo->ordered_items as $item)
                                     <tr>
                                         <td  class="whitespace-nowrap ">{{ $item->product->name }}</td>
                                         <td  class="whitespace-nowrap text-center">{{ $item->product->SKU }}</td>
                                         <td  class="whitespace-nowrap text-center">{{ $item->accepted_quantity }} of {{ $item->quantity }}</td>
+                                        <td  class="whitespace-nowrap text-center">₱{{ number_format($item->price,2) }}</td>
+                                        <td  class="whitespace-nowrap text-center">{{ $item->discount }}%</td>
+                                        <td class="whitespace-nowrap text-center">   ₱{{ number_format($item->accepted_quantity * $item->price,2) }}</td>
+                                        <td class="whitespace-nowrap text-center">
+                                            @php
+                                                $total = ($item->accepted_quantity * $item->price) -
+                                                (($item->discount / 100)  * ($item->accepted_quantity * $item->price));
+                                                $overallcost += $total;
+                                            @endphp
+                                            ₱{{ number_format($total,2) }}
+                                        </td>
                                     </tr>
                                 @endforeach
+                                    <tr>
+                                        <td colspan="7" class="whitespace-nowrap text-right">
+                                           Overall Cost:  ₱{{ number_format($overallcost,2) }}
+                                        </td>
+                                    </tr>
                             </tbody>
                         </table>
                     </div>
