@@ -18,7 +18,13 @@
                                 @forelse ($inventory_logs as $logs)
                                 <tr>
                                     <td>{{ $logs->created_at->toDayDateTimeString() }}</td>
-                                    <td  class="whitespace-nowrap text-center">{{ $logs->activity }} </td>
+                                    <td  class="whitespace-nowrap text-center">{{ $logs->activity }}
+                                        @if(!empty( $logs->purchase_order_id))
+                                            <a href="{{ Route('transfer.show',$logs->purchase_order_id) }}">{{ $logs->purchase_order_id }}</a>
+                                        @elseif(!empty($logs->customer_order_id ))
+                                            <a href="{{ Route('orders.show',$logs->customer_order_id) }}">{{ $logs->customer_order_id }}</a>
+                                        @endif
+                                    </td>
                                     <td  class="whitespace-nowrap text-center">{{ $logs->adjusted_by }}</td>
                                     <td  class="whitespace-nowrap text-center"><span class="text-slate-500">{{ $logs->operation_value }}</span> {{ $logs->latest_value }}</td>
                                 </tr>

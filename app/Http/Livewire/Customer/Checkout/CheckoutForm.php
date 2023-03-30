@@ -83,10 +83,11 @@ class CheckoutForm extends Component
                     $latestvalue = $product->stock;
                     InventoryHistory::create([
                         'product_id' => $product->id,
-                        'activity' => 'Customer Order with Order ID of '.$order_id->id,
+                        'activity' => 'Customer Order with Order ID of ',
                         'adjusted_by' => '',
                         'operation_value' => $operationvalue,
                         'latest_value' => $latestvalue,
+                        'customer_order_id' => $order_id->id
                     ]);
                 }
                 $item->delete();
@@ -159,10 +160,11 @@ class CheckoutForm extends Component
                     $latestvalue = $product->stock;
                     InventoryHistory::create([
                         'product_id' => $product->id,
-                        'activity' => 'Customer Order with Order ID of '.$order_id->id,
+                        'activity' => 'Customer Order with Order ID of ',
                         'adjusted_by' => '',
                         'operation_value' => $operationvalue,
                         'latest_value' => $latestvalue,
+                        'customer_order_id' => $order_id->id
                     ]);
                 }
 

@@ -12,6 +12,12 @@ class InventoryHistory extends Model
     protected $table = 'inventory_history';
 
     protected $fillable = [
-        'product_id', 'activity', 'adjusted_by', 'operation_value', 'latest_value',
+        'product_id',
+        'activity',
+        'adjusted_by',
+        'operation_value',
+        'latest_value',
+        'purchase_order_id',
+        'customer_order_id'
     ];
 }

@@ -79,10 +79,12 @@ class OrderRejectForm extends Component
 
                 InventoryHistory::create([
                     'product_id' => $product->id,
-                    'activity' => 'Rejected Customer Order with Order ID of '.$rejectorder->id,
+                    'activity' => 'Rejected Customer Order with Order ID of ',
                     'adjusted_by' => Auth::guard('web')->user()->name,
                     'operation_value' => $operationvalue,
                     'latest_value' => $latestvalue,
+                    'customer_order_id' => $rejectorder->id
+
                 ]);
             }
         }

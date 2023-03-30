@@ -32,6 +32,6 @@ class DatabaseSeeder extends Seeder
       //  $this->call(PurchaseOrderTimelineSeeder::class);
 
         $this->call(ProductReviewSeeder::class);
-        $this->call(InventoryHistorySeeder::class);
+       // $this->call(InventoryHistorySeeder::class);
     }
 }

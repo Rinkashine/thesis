@@ -72,10 +72,11 @@ class ReceiveTransferForm extends Component
 
             InventoryHistory::create([
                 'product_id' => $transferproduct['product_id'],
-                'activity' => "Transfer Receive #(T$order->id)",
+                'activity' => "Transfer Receive #",
                 'adjusted_by' => Auth::guard('web')->user()->name,
                 'operation_value' => $operationvalue,
                 'latest_value' => $product->stock,
+                'purchase_order_id' => $order->id
             ]);
 
             PurchaseOrderTimeline::create([

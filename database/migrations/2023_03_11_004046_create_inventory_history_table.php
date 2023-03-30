@@ -20,6 +20,12 @@ return new class extends Migration
             $table->string('adjusted_by')->nullable();
             $table->string('operation_value');
             $table->string('latest_value');
+            $table->unsignedBigInteger('purchase_order_id')->nullable();
+
+            $table->foreign('purchase_order_id')->references('id')->on('purchase_order');
+
+            $table->unsignedBigInteger('customer_order_id')->nullable();
+            $table->foreign('customer_order_id')->references('id')->on('customer_order');
             $table->timestamps();
         });
     }
