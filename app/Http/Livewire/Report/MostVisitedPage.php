@@ -9,9 +9,9 @@ use Spatie\Analytics\Period;
 
 class MostVisitedPage extends Component
 {
-    public $startdate = '2023-02-19';
+    public $startdate = '2023-01-01T00:00';
 
-    public $enddate = '2023-02-20';
+    public $enddate = '2023-12-31T00:00';
 
     public $mostvisitedpage;
 
@@ -31,8 +31,8 @@ class MostVisitedPage extends Component
         if ($this->enddate < $this->startdate) {
             $this->startdate = $this->enddate;
         } else {
-            $st = Carbon::createFromFormat('Y-m-d', $this->startdate);
-            $ed = Carbon::createFromFormat('Y-m-d', $this->enddate);
+            $st = new Carbon($this->startdate);
+            $ed = new Carbon($this->enddate);
             $period = Period::create($st, $ed);
 
             $this->mostvisitedpage = Analytics::fetchMostVisitedPages($period, 10);

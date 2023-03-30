@@ -2,21 +2,7 @@
     <form wire:submit.prevent="StoreTransferData">
         <div class="grid grid-cols-12 gap-x-6 mt-5 pb-20">
             <div class="intro-y col-span-12">
-                <!-- Begin: Display All Errors-->
-                @if ($errors->any())
-                <div class="alert alert-danger show mb-2" role="alert">
-                    <div class="flex items-center">
-                        <div class="font-medium text-lg">Whoops Something Went Wrong</div>
-                        <div class="text-xs bg-white px-1 rounded-md text-slate-700 ml-auto">Error</div>
-                    </div>
-                    <div class="mt-3">
-                        @foreach ($errors->all() as $error)
-                        <div>{{$error}}</div>
-                        @endforeach
-                    </div>
-                </div>
-                @endif
-                <!-- End: Display All Errors -->
+
                 <!-- Begin: Supplier Information -->
                 <div class="intro-y box p-5">
                     <div class="border border-slate-200/60 dark:border-darkmode-400 rounded-md p-5">
@@ -25,6 +11,7 @@
                                 Supplier
                             </div>
                             @if($toggleinfo)
+                                <!-- Begin: Show Supplier Information Dropdown -->
                                 <div class="dropdown">
                                     <button type="button" class="dropdown-toggle underline text-blue-400" aria-expanded="false" data-tw-toggle="dropdown">
                                         View Supplier Info
@@ -56,13 +43,14 @@
                                                     <li>{{ $info->email }}</li>
                                                     <li>{{ $info->contact_number }}</li>
                                                 @endforeach
-                                            </ul>
-                                        </div>
+                                        </ul>
                                     </div>
-                                @endif
+                                </div>
+                                <!-- End: Show Supplier Information Dropdown -->
+                            @endif
                         </div>
                         <div class="mt-5">
-                            <!-- Supplier Origin -->
+                            <!-- Begin: Supplier Origin -->
                             <div class="form-inline items-start flex-col xl:flex-row mt-5 pt-5 first:mt-0 first:pt-0">
                                 <div class="form-label xl:w-64 xl:!mr-10">
                                     <div class="text-left">
@@ -73,14 +61,20 @@
                                     </div>
                                 </div>
                                 <div class="w-full mt-3 xl:mt-0 flex-1">
-                                    <select wire:model="origin" class="form-select">
+                                    <select wire:model="origin" class="form-select @error('origin') border-danger @enderror" >
                                         <option value="">Select Origin</option>
                                         @foreach ($suppliers as $supplier)
                                             <option value="{{ $supplier->id }}">{{ $supplier->name }}</option>
                                         @endforeach
                                     </select>
+                                    @error('origin')
+                                        <div class="text-danger mt-2">
+                                            {{ $message }}
+                                        </div>
+                                    @enderror
                                 </div>
                             </div>
+                            <!-- End: Supplier Origin -->
                         </div>
                     </div>
                 </div>
@@ -123,47 +117,51 @@
                             @if(!empty($selectedProducts))
                             <div class="overflow-x-auto mt-5">
                                 <table class="table table-bordered table-hover">
-                                    <thead class="table-light">
+                                    <thead class="table-dark">
                                         <tr>
                                             <th class="whitespace-nowrap">Product Name</th>
-                                            <th class="whitespace-nowrap">SKU</th>
+                                            <th class="whitespace-nowrap text-center">SKU</th>
                                             <th class="whitespace-nowrap">Quantity</th>
                                             <th class="whitespace-nowrap">Price per Item</th>
                                             <th class="whitespace-nowrap">Discount</th>
-
-                                            <th class="whitespace-nowrap">Action </th>
+                                            <th class="whitespace-nowrap text-center">Action </th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         @foreach ($selectedProducts as $key=>$selectedproduct)
                                             <tr>
-                                                <td>{{ $selectedproduct['name'] }}</td>
-                                                <td> {{ $selectedproduct['SKU'] }}</td>
+                                                <td class="whitespace-nowrap">{{ $selectedproduct['name'] }}</td>
+                                                <td class="whitespace-nowrap text-center"> {{ $selectedproduct['SKU'] }}</td>
                                                 <td>
-                                                    <input type="number" wire:model="selectedProducts.{{ $key }}.quantity" placeholder="Order Quantity" class="form-control" onkeypress="return event.charCode >= 48">
+                                                    <input type="number" wire:model="selectedProducts.{{ $key }}.quantity"  class="form-control  @error('selectedProducts.'.$key.'.quantity') border-danger @enderror" onkeypress="return event.charCode >= 48">
                                                     @error('selectedProducts.'.$key.'.quantity')
                                                         <div class="text-danger mt-2">
                                                             {{ $message }}
                                                         </div>
                                                     @enderror
                                                 </td>
-                                                <td>
-                                                    <input type="number" min="1" wire:model="selectedProducts.{{ $key }}.price"  placeholder="Price" class="form-control" onkeypress="return event.charCode >= 48">
+                                                <td class="whitespace-nowrap">
+                                                    <input type="number" min="1" wire:model="selectedProducts.{{ $key }}.price"  class="form-control @error('selectedProducts.'.$key.'.price') border-danger @enderror" onkeypress="return event.charCode >= 48">
                                                     @error('selectedProducts.'.$key.'.price')
                                                         <div class="text-danger mt-2">
                                                             {{ $message }}
                                                         </div>
                                                     @enderror
                                                 </td>
-                                                <td>
+                                                <td class="whitespace-nowrap">
+
+                                                    <input type="number" min="0" wire:model="selectedProducts.{{ $key }}.discount"  placeholder="0-100" class="form-control @error('selectedProducts.'.$key.'.discount') border-danger @enderror" onkeypress="return event.charCode >= 48">
                                                     @error('selectedProducts.'.$key.'.discount')
                                                         <div class="text-danger mt-2">
                                                             {{ $message }}
                                                         </div>
                                                     @enderror
-                                                    <input type="number" min="0" wire:model="selectedProducts.{{ $key }}.discount"  placeholder="0-100" class="form-control" onkeypress="return event.charCode >= 48">
                                                 </td>
-                                                <td class="whitespace-nowrap text-center"> <button type="button" wire:click="DeleteTd({{ json_encode($selectedproduct)}})" class="text-danger"> <i class="fa-solid fa-trash mr-1"></i>  Delete</button> </td>
+                                                <td class="whitespace-nowrap text-center">
+                                                    <button type="button" wire:click="DeleteTd({{ json_encode($selectedproduct)}})" class="text-danger">
+                                                        <i class="fa-solid fa-trash mr-1"></i>  Delete
+                                                    </button>
+                                                </td>
                                             </tr>
                                         @endforeach
                                     </tbody>
@@ -194,7 +192,12 @@
                                         </div>
                                     </div>
                                     <div class="w-full mt-3 xl:mt-0 flex-1">
-                                        <input type="date" min="{{ $mindate }}" id="estimatedate" wire:model="shipping" class="form-control" data-single-mode="true">
+                                        <input type="date" min="{{ $mindate }}"  wire:model="shipping" class="form-control" data-single-mode="true">
+                                        @error('shipping')
+                                            <div class="text-danger mt-2">
+                                                {{ $message }}
+                                            </div>
+                                        @enderror
                                     </div>
                                 </div>
                                 <div class="form-inline items-start flex-col xl:flex-row mt-5 pt-5 first:mt-0 first:pt-0">
@@ -208,6 +211,11 @@
                                     <div class="w-full mt-3 xl:mt-0 flex-1">
                                         <div class="relative w-full mx-auto">
                                             <input type="text" wire:model="tracking" class="form-control" >
+                                            @error('tracking')
+                                                <div class="text-danger mt-2">
+                                                    {{ $message }}
+                                                </div>
+                                            @enderror
                                         </div>
                                     </div>
                                 </div>
@@ -225,6 +233,11 @@
                                 <div class="form-inline items-start flex-col xl:flex-row mt-5 pt-5 first:mt-0 first:pt-0">
                                     <div class="w-full mt-3 xl:mt-0 flex-1">
                                         <textarea class="form-control" rows="5" wire:model="remarks">{!! $remarks !!}</textarea>
+                                        @error('remarks')
+                                            <div class="text-danger mt-2">
+                                                {{ $message }}
+                                            </div>
+                                        @enderror
                                     </div>
                                 </div>
                             </div>

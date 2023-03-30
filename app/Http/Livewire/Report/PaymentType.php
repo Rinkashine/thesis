@@ -4,44 +4,47 @@ namespace App\Http\Livewire\Report;
 
 use App\Models\CustomerOrder;
 use Livewire\Component;
-
+use Illuminate\Support\Facades\DB;
 class PaymentType extends Component
 {
-    public $startdate = '2022-02-19';
+    public $startdate = '2023-01-01T00:00';
 
-    public $enddate = '2023-02-20';
+    public $enddate = '2023-12-31T00:00';
+    public $paymenttypelabel = [];
+    public $paymenttypedataset = [];
 
-    public $paymenttypedataset;
-
+    public function cleanVars(){
+        $this->paymenttypelabel = [];
+        $this->paymenttypedataset = [];
+    }
     public function render()
     {
-        $cod = CustomerOrder::where('status', 'Completed')
-        ->where('mode_of_payment', 'Cash On Delivery')
+        $this->cleanVars();
+        $typeofpayment = CustomerOrder::select([
+            DB::raw('mode_of_payment AS type'),
+            DB::raw(value: 'COUNT(mode_of_payment) AS total'),
+        ])->where('status',"Completed")
         ->where('created_at', '>=', $this->startdate)
         ->where('created_at', '<=', $this->enddate)
-        ->get()
-        ->count();
+        ->groupBy('mode_of_payment')
+        ->get();
 
-        $paypal = CustomerOrder::where('status', 'Completed')
-        ->where('mode_of_payment', 'Paid by Paypal')
-        ->where('created_at', '>=', $this->startdate)
-        ->where('created_at', '<=', $this->enddate)
-        ->get()
-        ->count();
 
-        $this->paymenttypedataset = [];
-        array_push($this->paymenttypedataset, $cod);
-        array_push($this->paymenttypedataset, $paypal);
+        foreach($typeofpayment as $data){
+            array_push($this->paymenttypelabel, $data->type);
+            array_push($this->paymenttypedataset, $data->total);
+        }
 
-        $paymenttypelabel = ['Cash On Delivery', 'Paypal'];
+
 
         $this->dispatchBrowserEvent('render-chart', [
-            'label' => $paymenttypelabel,
+            'label' => $this->paymenttypelabel,
             'dataset' => $this->paymenttypedataset,
         ]);
 
         return view('livewire.report.payment-type', [
-            'paymenttypelabel' => $paymenttypelabel,
+            'typeofpayment' => $typeofpayment,
+            'paymenttypelabel' => $this->paymenttypelabel,
             'paymenttypedataset' => $this->paymenttypedataset,
         ]);
     }

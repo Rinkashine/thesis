@@ -57,7 +57,7 @@
                                             </ul>
                                         </div>
                                     </div>
-                                @endif
+                            @endif
                         </div>
                         <div class="mt-5">
                             <!-- Supplier Origin -->
@@ -77,6 +77,11 @@
                                             <option value="{{ $supplier->id }}">{{ $supplier->name }}</option>
                                         @endforeach
                                     </select>
+                                    @error('origin')
+                                        <div class="text-danger mt-2">
+                                            {{ $message }}
+                                        </div>
+                                    @enderror
                                 </div>
                             </div>
                         </div>
@@ -150,7 +155,7 @@
                                                         @if($status == "Pending")
                                                             <span class="flex justify-center">{{ $selectedproduct['quantity'] }} pcs</span>
                                                         @else
-                                                            <input type="number" wire:model='selectedProducts.{{ $key }}.quantity' placeholder="Order Quantity" min="1" class="form-control" onkeypress="return event.charCode >= 48">
+                                                            <input type="number" wire:model='selectedProducts.{{ $key }}.quantity'  min="1" class="form-control @error('selectedProducts.'.$key.'.quantity') border-danger @enderror" onkeypress="return event.charCode >= 48">
                                                             @error('selectedProducts.'.$key.'.quantity')
                                                                 <div class="text-danger mt-2">
                                                                     {{ $message }}
@@ -162,7 +167,7 @@
                                                         @if($status == "Pending")
                                                             <span class="flex justify-center">₱{{ $selectedproduct['price'] }}</span>
                                                         @else
-                                                            <input type="number" wire:model='selectedProducts.{{ $key }}.price' placeholder="Order Quantity"  class="form-control" onkeypress="return event.charCode >= 48">
+                                                            <input type="number" wire:model='selectedProducts.{{ $key }}.price'  class="form-control @error('selectedProducts.'.$key.'.price') border-danger @enderror" onkeypress="return event.charCode >= 48">
                                                             @error('selectedProducts.'.$key.'.price')
                                                                 <div class="text-danger mt-2">
                                                                     {{ $message }}
@@ -174,7 +179,7 @@
                                                         @if($status == "Pending")
                                                             <span class="flex justify-center">{{ $selectedproduct['discount'] }}%</span>
                                                         @else
-                                                            <input type="number" wire:model='selectedProducts.{{ $key }}.discount' placeholder="Order Quantity"  class="form-control" >
+                                                            <input type="number" wire:model='selectedProducts.{{ $key }}.discount' placeholder="0-100" class="form-control @error('selectedProducts.'.$key.'.discount') border-danger @enderror" >
                                                             @error('selectedProducts.'.$key.'.discount')
                                                                 <div class="text-danger mt-2">
                                                                     {{ $message }}
@@ -245,6 +250,11 @@
                                     </div>
                                     <div class="w-full mt-3 xl:mt-0 flex-1">
                                         <input type="date" wire:model="shipping" class="form-control" data-single-mode="true" @if($status != "Draft") disabled @endif>
+                                        @error('shipping')
+                                            <div class="text-danger mt-2">
+                                                {{ $message }}
+                                            </div>
+                                        @enderror
                                     </div>
                                 </div>
                                 <div class="form-inline items-start flex-col xl:flex-row mt-5 pt-5 first:mt-0 first:pt-0">
@@ -258,6 +268,11 @@
                                     <div class="w-full mt-3 xl:mt-0 flex-1">
                                         <div class="relative w-full mx-auto">
                                             <input type="text" wire:model="tracking" class="form-control" @if($status != "Draft") disabled @endif>
+                                            @error('tracking')
+                                                <div class="text-danger mt-2">
+                                                    {{ $message }}
+                                                </div>
+                                            @enderror
                                         </div>
                                     </div>
                                 </div>
@@ -275,6 +290,11 @@
                                 <div class="form-inline items-start flex-col xl:flex-row mt-5 pt-5 first:mt-0 first:pt-0">
                                     <div class="w-full mt-3 xl:mt-0 flex-1">
                                         <textarea class="form-control" rows="5" wire:model="remarks">{!! $remarks !!}</textarea>
+                                        @error('remarks')
+                                            <div class="text-danger mt-2">
+                                                {{ $message }}
+                                            </div>
+                                        @enderror
                                     </div>
                                 </div>
                             </div>

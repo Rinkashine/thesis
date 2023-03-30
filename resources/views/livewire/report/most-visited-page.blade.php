@@ -18,11 +18,11 @@
                 <div class="xl:flex sm:mr-auto" >
                     <div class="sm:flex items-center sm:mr-4">
                         <label class="flex-none xl:w-auto xl:flex-initial mr-2">From:</label>
-                        <input type="date" wire:model.lazy="startdate" class="form-control" max="{{ $enddate }}">
+                        <input type="datetime-local" wire:model.lazy="startdate" class="form-control" max="{{ $enddate }}">
                     </div>
                     <div class="sm:flex items-center sm:mr-4 mt-2 xl:mt-0">
                         <label class="w-12 flex-none xl:w-auto xl:flex-initial mr-2">To:</label>
-                        <input type="date" wire:model.lazy="enddate" class="form-control" min="{{ $startdate }}">
+                        <input type="datetime-local" wire:model.lazy="enddate" class="form-control" min="{{ $startdate }}">
                     </div>
                 </div>
             </div>
@@ -67,29 +67,35 @@
     </div>
     @push('scripts')
     <script>
+        var mostvisitedlabel = {{ Js::from($mostvisitedlabel) }};
+        var mostvisiteddataset =  {{ Js::from($mostvisiteddataset) }};
+        let randomBackgroundColor = [];
+        let usedColors = new Set();
+
+        let dynamicColors = function() {
+            let r = Math.floor(Math.random() * 255);
+            let g = Math.floor(Math.random() * 255);
+            let b = Math.floor(Math.random() * 255);
+            let color = "rgb(" + r + "," + g + "," + b + ")";
+
+            if (!usedColors.has(color)) {
+                usedColors.add(color);
+                return color;
+            } else {
+                return dynamicColors();
+            }
+        };
+
+        for (let i in mostvisitedlabel) {
+            randomBackgroundColor.push(dynamicColors());
+        }
         const data = {
-        labels: {{ Js::from($mostvisitedlabel) }},
+        labels: mostvisitedlabel,
             datasets: [{
                 label: 'Page Views',
-                data: {{ Js::from($mostvisiteddataset) }},
-                backgroundColor: [
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(255, 159, 64, 0.2)',
-                'rgba(255, 205, 86, 0.2)',
-                'rgba(75, 192, 192, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(153, 102, 255, 0.2)',
-                'rgba(201, 203, 207, 0.2)'
-                ],
-                borderColor: [
-                'rgb(255, 99, 132)',
-                'rgb(255, 159, 64)',
-                'rgb(255, 205, 86)',
-                'rgb(75, 192, 192)',
-                'rgb(54, 162, 235)',
-                'rgb(153, 102, 255)',
-                'rgb(201, 203, 207)'
-                ],
+                data: mostvisiteddataset,
+                backgroundColor: randomBackgroundColor,
+                borderColor: randomBackgroundColor,
                 borderWidth: 1
             }]
         };

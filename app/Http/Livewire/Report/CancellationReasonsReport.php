@@ -81,8 +81,8 @@ class CancellationReasonsReport extends Component
             'reasons' => $this->cancelled_reason_dataset,
         ]);
 
-        dd($cancellations);
-        // ->get();
+
+
         return view('livewire.report.cancellation-reasons-report',[
             'cancellations' => $cancellations
         ]);

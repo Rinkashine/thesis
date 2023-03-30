@@ -22,11 +22,11 @@
                                 <div class="xl:flex sm:mr-auto" >
                                     <div class="sm:flex items-center sm:mr-4">
                                         <label class="flex-none xl:w-auto xl:flex-initial mr-2">From:</label>
-                                        <input type="date" wire:model.lazy="startdate" class="form-control" max="{{ $enddate }}">
+                                        <input type="datetime-local" wire:model.lazy="startdate" class="form-control" max="{{ $enddate }}">
                                     </div>
                                     <div class="sm:flex items-center sm:mr-4 mt-2 xl:mt-0">
                                         <label class="w-12 flex-none xl:w-auto xl:flex-initial mr-2">To:</label>
-                                        <input type="date" wire:model="enddate" class="form-control" min="{{ $startdate }}">
+                                        <input type="datetime-local" wire:model="enddate" class="form-control" min="{{ $startdate }}">
                                     </div>
                                 </div>
                             </div>
@@ -87,16 +87,33 @@
     <script>
         var browserchartlabel = {{ Js::from($browserchartlabel) }};
         var browserchartdataset =  {{ Js::from($browserchartdataset) }};
+        let randomBackgroundColor = [];
+        let usedColors = new Set();
+
+        let dynamicColors = function() {
+            let r = Math.floor(Math.random() * 255);
+            let g = Math.floor(Math.random() * 255);
+            let b = Math.floor(Math.random() * 255);
+            let color = "rgb(" + r + "," + g + "," + b + ")";
+
+            if (!usedColors.has(color)) {
+                usedColors.add(color);
+                return color;
+            } else {
+                return dynamicColors();
+            }
+        };
+
+        for (let i in browserchartlabel) {
+            randomBackgroundColor.push(dynamicColors());
+        }
+
         const data = {
             labels: browserchartlabel,
             datasets: [{
                 label: 'Most Used Browser',
                 data: browserchartdataset,
-                backgroundColor: [
-                'rgb(30,95,78)',
-                'rgb(250,209,44)',
-                'rgb(246,168,35)'
-                ],
+                backgroundColor: randomBackgroundColor,
                 hoverOffset: 4
             }]
         };

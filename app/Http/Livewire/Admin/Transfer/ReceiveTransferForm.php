@@ -26,10 +26,6 @@ class ReceiveTransferForm extends Component
         ->select('product.id as product_id', 'purchase_order_items.id as id', 'quantity', 'product.name as name', 'product.sku as SKU', 'purchase_order_items.price','purchase_order_items.discount')
         ->get()
         ->toArray();
-
-
-
-
     }
 
     public function rules()

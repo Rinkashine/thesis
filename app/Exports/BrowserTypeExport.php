@@ -26,8 +26,8 @@ class BrowserTypeExport implements FromCollection, WithHeadings, ShouldAutoSize
      */
     public function collection()
     {
-        $st = Carbon::createFromFormat('Y-m-d', $this->startdate);
-        $ed = Carbon::createFromFormat('Y-m-d', $this->enddate);
+        $st = new Carbon($this->startdate);
+        $ed = new Carbon($this->enddate);
         $period = Period::create($st, $ed);
 
         return Analytics::fetchTopBrowsers($period, 20);

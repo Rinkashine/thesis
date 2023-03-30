@@ -74,6 +74,10 @@ class AddToCart extends Component
         $this->stock_limit = $product->stock;
     }
 
+    public function LoginModal(){
+        $this->dispatchBrowserEvent('openWarningModal');
+    }
+
     public function render()
     {
         if ($this->quantity == null || $this->quantity <= 0) {

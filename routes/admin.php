@@ -65,7 +65,6 @@ Route::group(['prefix' => 'admin'], function () {
         Route::get('/report/UserType/excel/{startdate}/{enddate}', [ReportController::class, 'exportusertypeexcel'])->name('exportusertypeexcel');
         //Export Files For Sales Over Time
         Route::get('/report/SalesOvertime/excel', [ReportController::class, 'exportsalesovertime'])->name('exportsalesovertime');
-
         //Export Files for Sales Product
         Route::get('/report/salesprod/pdf', [ReportController::class, 'exportSalesProductPDF'])->name('exportSalesProductPDF');
 
@@ -109,7 +108,8 @@ Route::group(['prefix' => 'admin'], function () {
         Route::get('/report/OrdersByCustomer/customerbyproduct/excel/',[ReportController::class,'exportOrdersByCustomer'])->name('report.exportOrdersByCustomer');
         Route::get('/report/customerbyproduct/excel/{name}',[ReportController::class,'exportCustomerByProductExcel'])->name('report.exportCustomerByProductExcel');
 
-
+        //Payment By Type Export
+        Route::get('/report/PaymentByType/excel/{startdate}/{enddate}', [ReportController::class, 'exportPaymentByType'])->name('report.exportPaymentByType');
 
         Route::middleware(['PreventBackHistory'])->group(function () {
             Route::get('/logout', [LogoutController::class, 'store'])->name('logout');
@@ -152,7 +152,7 @@ Route::group(['prefix' => 'admin'], function () {
             Route::get('/report/showCustomerPerMonth/{month}/{year}', [ReportController::class,'showCustomerPerMonth'])->name('report.ShowCustomerPerMonth');
 
 
-            Route::get('/report/PaymentByType}', [ReportController::class, 'PaymentTypeIndex'])->name('report.PaymentByType');
+            Route::get('/report/PaymentByType', [ReportController::class, 'PaymentTypeIndex'])->name('report.PaymentByType');
 
             Route::get('/report/UserType', [ReportController::class, 'UserTypeIndex'])->name('report.UserType');
 

@@ -5,7 +5,7 @@
                 <div class="intro-y box p-5">
                     <div class="overflow-x-auto">
                         <table class="table table-bordered table-hover">
-                            <thead class="table-light">
+                            <thead class="table-dark">
                                 <tr>
                                     <th class="whitespace-nowrap">Product</th>
                                     <th class="whitespace-nowrap text-center">SKU</th>
@@ -35,7 +35,7 @@
                 </div>
                 <div class="flex justify-end">
                     <a href="{{ Route('transfer.edit',$model_id ) }}" class="btn btn-elevated-secondary w-32 mr-5 mt-5 gap-5">Cancel</a>
-                    <input type="submit" class="btn btn-primary w-32 mt-5" value="Save" wire:offline.attr="disabled">
+                    <input type="submit" class="btn btn-primary w-32 mt-5" value="Submit" wire:offline.attr="disabled">
                 </div>
             </div>
         </div>

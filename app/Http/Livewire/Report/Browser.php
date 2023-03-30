@@ -7,11 +7,11 @@ use Carbon\Carbon;
 use Livewire\Component;
 use Spatie\Analytics\Period;
 
-class Reportbrowser extends Component
+class Browser extends Component
 {
-    public $startdate = '2023-02-19';
+    public $startdate = '2023-01-01T00:00';
 
-    public $enddate = '2023-02-20';
+    public $enddate = '2023-12-31T00:00';
 
     public $browsers;
 
@@ -19,16 +19,20 @@ class Reportbrowser extends Component
 
     public $browserchartdataset = [];
 
-    public function render()
-    {
+    public function cleanVars(){
         $this->browserchartdataset = [];
         $this->browserchartlabel = [];
+    }
+
+    public function render()
+    {
+        $this->cleanVars();
 
         if ($this->enddate < $this->startdate) {
             $this->startdate = $this->enddate;
         } else {
-            $st = Carbon::createFromFormat('Y-m-d', $this->startdate);
-            $ed = Carbon::createFromFormat('Y-m-d', $this->enddate);
+            $st = new Carbon($this->startdate);
+            $ed = new Carbon($this->enddate);
             $period = Period::create($st, $ed);
 
             $this->browsers = Analytics::fetchTopBrowsers($period, 20);
@@ -43,7 +47,7 @@ class Reportbrowser extends Component
             ]);
         }
 
-        return view('livewire.report.reportbrowser', [
+        return view('livewire.report.browser', [
             'browsers' => $this->browsers,
             'browserchartlabel' => $this->browserchartlabel,
             'browserchartdataset' => $this->browserchartdataset,

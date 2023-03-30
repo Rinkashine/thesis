@@ -22,11 +22,11 @@
                                 <div class="xl:flex sm:mr-auto" >
                                     <div class="sm:flex items-center sm:mr-4">
                                         <label class="flex-none xl:w-auto xl:flex-initial mr-2">From:</label>
-                                        <input type="date" wire:model.lazy="startdate" class="form-control" max="{{ $enddate }}">
+                                        <input type="datetime-local" wire:model.lazy="startdate" class="form-control" max="{{ $enddate }}">
                                     </div>
                                     <div class="sm:flex items-center sm:mr-4 mt-2 xl:mt-0">
                                         <label class="w-12 flex-none xl:w-auto xl:flex-initial mr-2">To:</label>
-                                        <input type="date" wire:model="enddate" class="form-control" min="{{ $startdate }}">
+                                        <input type="datetime-local" wire:model="enddate" class="form-control" min="{{ $startdate }}">
                                     </div>
                                 </div>
                             </div>

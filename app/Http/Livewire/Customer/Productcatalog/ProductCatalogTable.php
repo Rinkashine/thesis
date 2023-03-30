@@ -33,7 +33,7 @@ class ProductCatalogTable extends Component
         'load-more' => 'loadMore',
     ];
 
-    public function loadMore()
+    public function load()
     {
         $this->perPage = $this->perPage + 24;
     }

@@ -7,15 +7,15 @@
     <!-- Content -->
     <div class="flex flex-col items-center flex-1 lg:items-start lg:pt-10">
         <h2 class="mb-6  text-center border-b-2 border-slate-400 ">
-            <div class="font-medium text-5xl  ">
-                Welcome to Go-Dental
+            <div class="font-medium text-2xl lg:text-5xl 2xl:text-5xl ">
+                 Welcome to Go-Dental
             </div>
         </h2>
-        <div class="mb-6 text-xl italic font-normal text-center text-bookmark-grey lg:text-left">
+        <div class="mb-6 text-lg italic font-normal text-center text-bookmark-grey lg:text-left">
             All your Dental needs in One GO! Shop Now!
         </div>
     </div>
-    <div class="z-10 justify-center flex-1 hidden w-full mb-5 md:flex md:mb-16 lg:mb-0">
+    <div class=" justify-center flex-1 hidden w-full mb-5 md:flex md:mb-16 lg:mb-0">
         @if(count($banners) == 0)
             <img class=" h-5/6 sm:w-3/4" src="{{ asset('dist/images/undraw_web_shopping.svg') }}" alt="" />
         @else

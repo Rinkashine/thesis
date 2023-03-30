@@ -1,11 +1,11 @@
 <div>
     <div class="search hidden sm:block">
-        <input type="search" wire:model="query" wire:keydown.enter="SearchProduct" class="search__input form-control border-transparent" placeholder="Search...">
+        <input type="search" wire:focus="handleFocus" wire:blur="handleBlur"  wire:model="query" wire:keydown.enter="SearchProduct" class="search__input form-control border-transparent" placeholder="Search...">
     </div>
-    @if(!empty($query))
+    @if(!empty($query) && $hasfocus)
         <div class="search-result">
             <div class="search-result__content">
-                @if(count($products) != 0)
+                @if(count($products) != 0 ** $hasfocus)
                     <div class="search-result__content__title">List of Products</div>
                      @foreach($products as $product)
                         <a href="{{ Route('productshow',$product->id) }}" class="flex items-center h-full p-1">

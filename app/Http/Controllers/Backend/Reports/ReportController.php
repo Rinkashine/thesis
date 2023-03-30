@@ -35,7 +35,7 @@ use App\Exports\NonVerifiedAccountExport;
 use App\Exports\CancellationReasonsExport;
 use App\Exports\MonthlyCancellationExport;
 use App\Exports\CancellationOverTimeExport;
-
+use App\Exports\PaymentByTypeExport;
 
 
 class ReportController extends Controller
@@ -82,6 +82,14 @@ class ReportController extends Controller
         abort_if(Gate::denies('report_access'),403);
         return view('admin.page.Report.reportpaymentbytype');
     }
+
+    public function exportPaymentByType(Request $request){
+        abort_if(Gate::denies('report_export'),403);
+        return Excel::download(new PaymentByTypeExport($request->startdate,$request->enddate),
+        'PaymentType ('.$request->startdate.' - '.$request->enddate.').xlsx');
+    }
+
+
     //Show Cancellation Report Page
     public function CancellationIndex(){
         abort_if(Gate::denies('report_access'),403);

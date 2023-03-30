@@ -47,12 +47,6 @@
                                 <td class="whitespace-nowrap text-center"><a href="{{ Route('report.PaymentByType') }}">View Details</a></td>
                             </tr>
                             <tr>
-                                <td class="whitespace-nowrap cursor-pointer hover:underline">Return</td>
-                                <td class="whitespace-nowrap text-center">Sales</td>
-                                <td class="whitespace-nowrap text-center"><a href="{{ Route('report.Return') }}">View Details</a></td>
-                            </tr>
-
-                            <tr>
                                 <td class="whitespace-nowrap cursor-pointer hover:underline">Sales over time</td>
                                 <td class="whitespace-nowrap text-center">Sales</td>
                                 <td class="whitespace-nowrap text-center"><a href="{{ Route('report.SalesOvertime') }}">View Details</a></td>

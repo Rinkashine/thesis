@@ -11,6 +11,14 @@ class SearchProductForm extends Component
 
     public $products = [];
 
+    public $hasfocus = false;
+
+    public function handleFocus(){
+        $this->hasfocus = true;
+    }
+    public function handleBlur(){
+        $this->hasfocus = false;
+    }
     public function mount()
     {
         $this->query = '';

@@ -58,7 +58,6 @@ class InventoryTransferEditForm extends Component
             'origin' => 'required',
             'shipping' => 'required',
             'selectedProducts.*.quantity' => 'required|numeric|min:1',
-            'selectedProducts.*.quantity' => 'required|numeric|min:1',
             'selectedProducts.*.price' => 'required|numeric|min:0',
             'selectedProducts.*.discount' => 'required|numeric|min:0|max:100',
         ];
@@ -69,7 +68,6 @@ class InventoryTransferEditForm extends Component
         $this->validateOnly($fields, [
             'origin' => 'required',
             'shipping' => 'required',
-            'selectedProducts.*.quantity' => 'required|numeric|min:1',
             'selectedProducts.*.quantity' => 'required|numeric|min:1',
             'selectedProducts.*.price' => 'required|numeric|min:0',
             'selectedProducts.*.discount' => 'required|numeric|min:0|max:100',
@@ -192,11 +190,7 @@ class InventoryTransferEditForm extends Component
             $this->toggleinfo = false;
         }
 
-       foreach($this->selectedProducts as $selectedproduct){
-            if($selectedproduct['price'] == null){
-                $selectedproduct['price'] = 0;
-            }
-       }
+
 
         return view('livewire.admin.transfer.inventory-transfer-edit-form', [
             'suppliers' => $suppliers,

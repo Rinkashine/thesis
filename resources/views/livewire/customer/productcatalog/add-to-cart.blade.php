@@ -23,7 +23,7 @@
                     @if($stock_limit != 0)
                         <!-- BEGIN: Modal Toggle -->
                         <div class="text-center">
-                            <a href="javascript:;" data-tw-toggle="modal" data-tw-target="#warning-modal-preview" class="btn btn-primary">Add to Cart</a>
+                            <button class="btn btn-primary" type="button" wire:click="LoginModal">Add to Cart</button>
                         </div> <!-- END: Modal Toggle -->
                         <!-- BEGIN: Modal Content -->
                         <div id="warning-modal-preview" class="modal" tabindex="-1" aria-hidden="true">
@@ -52,6 +52,14 @@
                         </div>
                     @endif
                 @endif
+                @push('scripts')
+                    <script>
+                        const warningModal = tailwind.Modal.getInstance(document.querySelector("#warning-modal-preview"));
+                            window.addEventListener('openWarningModal',event => {
+                                warningModal.show();
+                            });
+                    </script>
+                @endpush
             </div>
         </div>
     </form>

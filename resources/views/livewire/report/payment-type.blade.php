@@ -7,7 +7,7 @@
         </div>
         @can('report_export')
             <div>
-                <a href="" class="btn btn-primary">Export To Excel</a>
+                <a href="{{Route('report.exportPaymentByType',['startdate'=>$startdate,'enddate'=>$enddate])}}" class="btn btn-primary"> <i class="fa-solid fa-file-excel mr-1"></i> Export Excel </a>
             </div>
         @endcan
     </div>
@@ -22,11 +22,11 @@
                                 <div class="xl:flex sm:mr-auto" >
                                     <div class="sm:flex items-center sm:mr-4">
                                         <label class="flex-none xl:w-auto xl:flex-initial mr-2">From:</label>
-                                        <input type="date" wire:model.lazy="startdate" class="form-control" max="{{ $enddate }}">
+                                        <input type="datetime-local" wire:model.lazy="startdate" class="form-control" max="{{ $enddate }}">
                                     </div>
                                     <div class="sm:flex items-center sm:mr-4 mt-2 xl:mt-0">
                                         <label class="w-12 flex-none xl:w-auto xl:flex-initial mr-2">To:</label>
-                                        <input type="date" wire:model.lazy="enddate" class="form-control" min="{{ $startdate }}">
+                                        <input type="datetime-local" wire:model.lazy="enddate" class="form-control" min="{{ $startdate }}">
                                     </div>
                                 </div>
                             </div>
@@ -59,14 +59,16 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td class="whitespace-nowrap text-center">Cash On Delivery</td>
-                                            <td class="whitespace-nowrap text-center">{{ $paymenttypedataset[0]  }}</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="whitespace-nowrap text-center">Paypal</td>
-                                            <td class="whitespace-nowrap text-center">{{ $paymenttypedataset[1] }}</td>
-                                        </tr>
+                                        @forelse ($typeofpayment as $data)
+                                            <tr>
+                                                <td class="whitespace-nowrap text-center">{{ $data->type }}</td>
+                                                <td class="whitespace-nowrap text-center">{{ $data->total }}</td>
+                                            </tr>
+                                        @empty
+                                            <tr>
+                                                <td class="whitespace-nowrap text-center" colspan="2">No Data Found</td>
+                                            </tr>
+                                        @endforelse
                                     </tbody>
                                 </table>
                             </div>
@@ -85,7 +87,7 @@
         const paymenttypedata = {
         labels: paymenttypelabel,
         datasets: [{
-            label: 'User Type',
+            label: 'dataset',
             data: paymenttypedataset,
             backgroundColor: [
             'rgb(30,95,78)',

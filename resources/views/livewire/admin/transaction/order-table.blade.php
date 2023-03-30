@@ -70,11 +70,6 @@
                                     <a class="flex items-center text-primary whitespace-nowrap mr-5" href="{{ Route('orders.show',$order->id) }}">
                                         <i class=" fa-regular fa-square-check w-4 h-4 mr-1"></i> View Details
                                      </a>
-                                    @if ($order->status != "Pending for Approval" && $order->status != "Completed" && $order->status != "Rejected" && $order->status != "Cancelled")
-                                        <button wire:click="selectItem({{$order->id}},'changeorderstatus')"class="flex items-center text-primary whitespace-nowrap">
-                                            <i class="fa-solid fa-arrow-right-arrow-left w-4 h-4 mr-1"></i>  Change Status
-                                        </button>
-                                    @endif
                                 </div>
                             </td>
                         </tr>
@@ -103,7 +98,7 @@
         <!-- END: Pagination -->
     </div>
 </div>
-<livewire:admin.transaction.change-order-status-modal/>
+
 
 @push('scripts')
 <script>

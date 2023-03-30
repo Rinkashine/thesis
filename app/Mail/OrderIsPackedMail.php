@@ -3,15 +3,15 @@
 namespace App\Mail;
 
 use Illuminate\Bus\Queueable;
+use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
-
-class ContactMail extends Mailable
+use App\Models\CustomerOrder;
+use App\Models\Customer;
+class OrderIsPackedMail extends Mailable
 {
     use Queueable, SerializesModels;
-
     protected $details;
-
     /**
      * Create a new message instance.
      *
@@ -20,6 +20,7 @@ class ContactMail extends Mailable
     public function __construct($details)
     {
         $this->details = $details;
+
     }
 
     /**
@@ -29,15 +30,14 @@ class ContactMail extends Mailable
      */
     public function build()
     {
-        return $this->subject($this->details['subject'])
+        $orderinfo = CustomerOrder::find($this->details['id']);
+        return $this->subject('Your Go Dental Order is ready for delivery')
         ->from('godentalph@gmail.com', 'Go Dental')
-        ->markdown('customer.mail.contact-mail')
+        ->view('admin.mail.order-packed')
         ->with([
-            'name' => $this->details['name'],
-            'subject' => $this->details['subject'],
-            'message' => $this->details['message'],
-            'email' => $this->details['email'],
-            'phone' => $this->details['phone'],
+           'name' => $orderinfo->customers->name,
+           'order_id' => $this->details['id'],
+           'items' => $orderinfo->orderTransactions,
 
         ]);
     }

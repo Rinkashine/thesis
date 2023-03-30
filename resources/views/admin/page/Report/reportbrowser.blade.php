@@ -3,7 +3,7 @@
 @section('title', 'Browser Type Report')
 
 
-<livewire:report.reportbrowser/>
+<livewire:report.browser/>
 
 @endsection
 

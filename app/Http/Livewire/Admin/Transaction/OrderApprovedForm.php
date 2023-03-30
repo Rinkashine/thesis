@@ -5,7 +5,7 @@ namespace App\Http\Livewire\Admin\Transaction;
 use Alert;
 use App\Models\CustomerOrder;
 use Livewire\Component;
-
+use App\Jobs\OrderApprovedJob;
 class OrderApprovedForm extends Component
 {
     public $modelId;
@@ -41,11 +41,22 @@ class OrderApprovedForm extends Component
     public function approve()
     {
         $approveorder = CustomerOrder::findorfail($this->modelId);
+
         $approveorder->status = 'Processing';
         $approveorder->update();
         Alert::success('Order Approved Successfully', '');
 
-        return redirect()->route('orders.show', $this->modelId);
+        dispatch(new OrderApprovedJob($approveorder));
+
+        $this->dispatchBrowserEvent('closeApprovedModal');
+        $this->emit('refreshParent');
+        $this->dispatchBrowserEvent('SuccessAlert', [
+            'name' => 'Order status was set to Processing',
+            'title' => 'Status Updated Successfully',
+        ]);
+
+        $this->cleanVars();
+        $this->resetErrorBag();
     }
 
     public function render()

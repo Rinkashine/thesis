@@ -53,7 +53,7 @@
                     <div class="w-full flex justify-center border-t border-slate-200/60 dark:border-darkmode-400 mt-2"> </div>
                         <div class="flex justify-center text-center lg:text-left p-5 ">
                             @if(!empty($banner->featured_image))
-                                <img src="{{ url('storage/banner/'.$banner->featured_image) }}" data-action="zoom" class="w-full h-full" alt="Missing Banner Image" onerror="this.onerror=null;this.src='{{ asset('dist/images/ImageNotFound.png') }}'">
+                                <img src="{{ url('storage/banner/'.$banner->featured_image) }}" data-action="zoom" class="w-full h-56" alt="Missing Banner Image" onerror="this.onerror=null;this.src='{{ asset('dist/images/ImageNotFound.png') }}'">
                             @else
                                 <img alt="Missing Image" class="w-56 h-56" data-action="zoom" src="{{asset('dist/images/undraw_pic.svg')}}">
                             @endif
