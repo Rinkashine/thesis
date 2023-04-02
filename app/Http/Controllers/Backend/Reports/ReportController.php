@@ -35,6 +35,9 @@ use App\Exports\NonVerifiedAccountExport;
 use App\Exports\CancellationReasonsExport;
 use App\Exports\MonthlyCancellationExport;
 use App\Exports\CancellationOverTimeExport;
+use App\Exports\ProductRatingsByCustomerExport;
+use App\Exports\ProductRatingsExport;
+
 use App\Exports\PaymentByTypeExport;
 
 
@@ -383,4 +386,31 @@ class ReportController extends Controller
         return Excel::download(new CustomerByProductExport($request->name, $request->id), $request->name.' Bought Products.xlsx');
     }
 
+    public function ProductRatings(){
+        abort_if(Gate::denies('report_access'),403);
+        return view('admin.page.Report.reportproductratings');
+    }
+
+    public function exportProductRatingsExcel(Request $request){
+        abort_if(Gate::denies('report_access'),403);
+
+        return Excel::download(new ProductRatingsExport($request->sorting,$request->startdate,$request->enddate),
+        'Product Ratings('.$request->startdate.' - '.$request->enddate.').xlsx');
+    }
+
+    public function ProductRatingsByCustomer(Request $request){
+        abort_if(Gate::denies('report_access'),403);
+        return view('admin.page.Report.reportproductratingsbycustomer', [
+            'product_id' => $request->product_id,
+            'product_name' => $request->product_name,
+            'from' => $request->from,
+            'to' => $request->to,
+        ]);
+    }
+
+    public function exportProductRatingsByCustomerExcel(Request $request){
+        abort_if(Gate::denies('report_access'),403);
+        return Excel::download(new ProductRatingsByCustomerExport($request->sorting,$request->startdate,$request->enddate,$request->name,$request->product_id),
+        $request->name.' Ratings By Customer('.$request->startdate.' - '.$request->enddate.').xlsx');
+    }
 }

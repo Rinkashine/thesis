@@ -124,8 +124,11 @@
                                 <td class="whitespace-nowrap text-center">System</td>
                                 <td class="whitespace-nowrap text-center"><a href="{{ Route('report.OrdersByCustomer') }}">View Details</a></td>
                             </tr>
-
-
+                            <tr>
+                                <td class="whitespace-nowrap cursor-pointer hover:underline">Product Ratings</td>
+                                <td class="whitespace-nowrap text-center">System</td>
+                                <td class="whitespace-nowrap text-center"><a href="{{ Route('report.ProductRatings') }}">View Details</a></td>
+                            </tr>
 
 
 
