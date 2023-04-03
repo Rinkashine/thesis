@@ -19,11 +19,13 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->string('phone_number')->nullable();
             $table->timestamp('email_verified_at')->nullable();
-            $table->string('password');
+            $table->string('password')->nullable();
             $table->string('photo')->nullable();
-            $table->string('gender');
-            $table->string('birthday');
-            $table->integer('active')->nullable();
+            $table->string('gender')->nullable();
+            $table->string('birthday')->nullable();
+            // $table->string('provider')->nullable();
+            // $table->string('provider_id')->nullable();
+            // $table->string('provider_token')->nullable();
             $table->rememberToken();
             $table->timestamps();
             $table->softDeletes();

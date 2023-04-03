@@ -21,6 +21,9 @@ class CustomerProfile extends Component
         if ($action == 'edit') {
             $this->emit('getModelId', $this->selectedItem);
             $this->dispatchBrowserEvent('openEditInformationModal');
+        }elseif($action == 'SetPassword'){
+            $this->emit('getCustomerId',$this->selectedItem);
+            $this->dispatchBrowserEvent('openSetPasswordModal');
         }
 
         $this->action = $action;

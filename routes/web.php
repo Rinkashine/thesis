@@ -10,7 +10,7 @@ use App\Http\Controllers\Frontend\Account\CustomerReturnsController;
 //Transactions Controller
 use App\Http\Controllers\Frontend\Account\CustomerReviewsController;
 use App\Http\Controllers\Frontend\Account\CustomerWishlistController;
-use App\Http\Controllers\Frontend\Auth\CustomerLoginController;
+
 //Import Customer Account Controller
 use App\Http\Controllers\Frontend\Auth\CustomerLogoutController;
 use App\Http\Controllers\Frontend\Auth\CustomerProfileController;
@@ -26,6 +26,13 @@ use App\Http\Controllers\Frontend\Transaction\CheckoutController;
 use App\Http\Controllers\Frontend\Transaction\ContactController;
 use App\Http\Controllers\Frontend\Transaction\ShippingController;
 use Illuminate\Support\Facades\Route;
+//Auth Controller
+use App\Http\Controllers\Frontend\Auth\CustomerLoginController;
+use App\Http\Controllers\Frontend\Auth\ProviderController;
+use Laravel\Socialite\Facades\Socialite;
+
+Route::get('/auth/{provider}/redirect',[ProviderController::class,'redirect'])->name('redirect');
+Route::get('/auth/{provider}/callback',[ProviderController::class,'callback']);
 
 //Dark Mode Switcher Route
 Route::get('dark-mode-switcher', [DarkModeController::class, 'switch'])->name('dark-mode-switcher');

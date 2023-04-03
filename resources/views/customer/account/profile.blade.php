@@ -44,6 +44,9 @@
                     <!-- Begin: Customer Change Information-->
                     <livewire:customer.auth.customer-change-information/>
                     <!-- End: Customer Change Information -->
+                    <!-- Begin: Customer Change Password Modal -->
+                    <livewire:customer.auth.customer-set-password-form/>
+                    <!-- End: Customer Change Password Modal -->
                     <div class="w-52 mx-auto xl:mr-0 xl:ml-6">
                         <div class="border-2 border-dashed shadow-sm border-slate-200/60 dark:border-darkmode-400 rounded-md p-5">
                             <div class=" ">
@@ -109,13 +112,17 @@
     //Closing Modal and Refreshing its value
     const infoModal = document.getElementById('change-profile-information-modal')
     infoModal.addEventListener('hidden.tw.modal', function(event) {
-        console.log('wor')
         livewire.emit('ForceClose');
     });
 
 
+    const setPassword = tailwind.Modal.getInstance(document.querySelector("#set-password-modal"));
 
-
-
+    window.addEventListener('openSetPasswordModal',event => {
+        setPassword.show();
+    });
+    window.addEventListener('CloseSetPasswordModal',event => {
+        setPassword.hide();
+    });
 </script>
 @endpush

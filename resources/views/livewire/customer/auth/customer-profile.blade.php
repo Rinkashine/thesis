@@ -28,6 +28,9 @@
         </div>
     </div>
     <div class="flex justify-end gap-2">
-        <button class="btn btn-primary w-32 mt-3" type="button"wire:click="selectItem({{Auth::guard('customer')->user()->id}},'edit')">Edit Information</button>
+        @if(Auth::guard('customer')->user()->password == null)
+            <button class="btn btn-primary w-32 mt-3" type="button" wire:click="selectItem({{Auth::guard('customer')->user()->id}},'SetPassword')">Set Password</button>
+        @endif
+        <button class="btn btn-primary w-32 mt-3" type="button" wire:click="selectItem({{Auth::guard('customer')->user()->id}},'edit')">Edit Information</button>
     </div>
 </div>

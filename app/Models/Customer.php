@@ -25,7 +25,10 @@ class Customer extends Authenticatable
         'birthday',
         'photo',
         'gender',
-        'email_verified',
+        'email_verified_at',
+        'provider',
+        'provider_id',
+        'provider_token'
     ];
 
     public function customershippingaddress()
@@ -64,15 +67,15 @@ class Customer extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    /**
-     * The attributes that appends to returned entities.
-     *
-     * @var array
-     */
+    public function socialAccounts()
+    {
+        return $this->hasMany(CustomerSocialLogin::class,'customers_id', 'id');
+    }
 
     /**
      * The getter that return accessible URL for user photo.
      *
      * @var array
      */
+
 }
