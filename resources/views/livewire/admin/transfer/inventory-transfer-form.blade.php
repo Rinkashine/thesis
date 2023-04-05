@@ -98,7 +98,6 @@
                                 <div class="w-full mt-3 xl:mt-0 flex-1">
                                     <div class="intro-x relative">
                                         <input type="search" class="form-control" wire:model="query">
-
                                         <div class="absolute z-50 h-fit w-full rounded-b-lg bg-white shadow-2xl py-2 px-2 mt-2">
                                             <div wire:loading wire:target="query" class="flex items-center font-medium ">
                                                 <div>Searching...</div>
@@ -108,16 +107,16 @@
                                                 @if(!empty($products))
                                                     @foreach($products as $product)
                                                     <div class="flex flex-col sm:flex-row w-full  mt-2 border rounded font-medium px-2 py-2 ">
-                                                        <div class="basis-1/4">
-                                                            <button wire:click="AddTd({{json_encode($product)}})" type="button" class="truncate" >
+                                                        <div class="2xl:w-full xl:w-full lg:w-full md:w-full text-left" >
+                                                            <button wire:click="AddTd({{json_encode($product)}})" type="button" class=" text-left" >
                                                                 {{ $product['name']}}
                                                             </button>
                                                         </div>
-                                                        <div class="basis-2/4 sm:ml-5 text:left sm:text-center">
+                                                        <div class="w-2/4 sm:w-full sm:ml-5 text:left sm:text-center">
                                                             <div class="ml-auto truncate text-slate-500 text-xs">SKU {{ $product['SKU'] }}</div>
                                                         </div>
-                                                        <div class="basis-1/4 sm:ml-5 text:left sm:text-right">
-                                                            <div class="ml-auto truncate text-slate-500 text-xs">Current Stock: {{ $product['stock'] }}</div>
+                                                        <div class="w-1/4 sm:w-full sm:ml-5 text:left sm:text-right">
+                                                            <div class="ml-auto  text-slate-500 text-xs">Current Stock: {{ $product['stock'] }}</div>
                                                         </div>
                                                     </div>
                                                     @endforeach
@@ -127,7 +126,6 @@
                                             </div>
                                             @endif
                                         </div>
-
                                     </div>
                                 </div>
                             </div>

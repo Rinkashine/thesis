@@ -57,7 +57,7 @@
                                 </div>
                                 <div class="px-2 pt-3 pb-2 border-t border-slate-200/60 dark:border-darkmode-400">
                                     <div class="flex w-full text-xs text-slate-500">
-                                        <div class="mr-auto"> Price: <span class="">₱{{$product->sprice }}</span> </div>
+                                        <div class="mr-auto"> <span class="">₱{{$product->sprice }}</span> </div>
                                         <div class="text-xs">{{$product->brand->name }}</div>
                                     </div>
                                 </div>
@@ -144,7 +144,7 @@
                                 </div>
                                 <div class="px-2 pt-3 pb-2 border-t border-slate-200/60 dark:border-darkmode-400">
                                     <div class="flex w-full text-xs text-slate-500">
-                                        <div class="mr-auto"> Price: <span class="">₱{{$product->sprice }}</span> </div>
+                                        <div class="mr-auto"> <span class="">₱{{$product->sprice }}</span> </div>
                                         <div class="text-xs">{{$product->brand_name }}</div>
                                     </div>
                                 </div>
@@ -180,7 +180,7 @@
                                 </div>
                                 <div class="px-2 pt-3 pb-2 border-t border-slate-200/60 dark:border-darkmode-400">
                                     <div class="flex w-full text-xs text-slate-500">
-                                        <div class="mr-auto"> Price: <span class="">₱{{$product->sprice }}</span> </div>
+                                        <div class="mr-auto"> <span class="">₱{{$product->sprice }}</span> </div>
                                         <div class="text-xs">{{$product->brand_name }}</div>
                                     </div>
                                 </div>

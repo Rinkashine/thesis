@@ -13,7 +13,7 @@
                     <div class="col-span-12">
                         @csrf
                         <label for="pos-form-1" class="form-label">Reason:</label>
-                        <input type="text"  wire:model.lazy="remarks" class="form-control flex-1 @error('remarks') border-danger @enderror" placeholder="Cancellation Reason" >
+                        <input type="text"  wire:model.lazy="remarks" class="form-control flex-1 @error('remarks') border-danger @enderror" placeholder="Rejected Reason" >
                         <div class="text-danger mt-2">@error('remarks'){{$message}}@enderror</div>
 
                     </div>

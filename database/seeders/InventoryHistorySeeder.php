@@ -1332,6 +1332,8 @@ class InventoryHistorySeeder extends Seeder
             'adjusted_by' => '',
             'operation_value' => '(-1)',
             'latest_value' => '96',
+            'purchase_order_id' => NULL,
+			'customer_order_id' => 104153212,
             'created_at' => '2022-06-4 00:00:00',
             'updated_at' => '2022-06-4 00:00:00',
             ],
@@ -2082,11 +2084,62 @@ class InventoryHistorySeeder extends Seeder
 			'customer_order_id' => NULL,
             'created_at' => '2023-01-13 00:00:00',
             'updated_at' => '2023-01-13 00:00:00',
+            ],//Order Transfers - End
+            [//March Order - 1
+            'product_id' => '80',
+            'activity' => 'Customer Order with Order ID of ',
+            'adjusted_by' => '',
+            'operation_value' => '(-1)',
+            'latest_value' => '79',
+			'purchase_order_id' => NULL,
+			'customer_order_id' => 104153269,
+            'created_at' => '2023-3-12 00:00:00',
+            'updated_at' => '2023-3-12 00:00:00',
             ],
-
-
-
-
+            [//March Order - 2
+            'product_id' => '80',
+            'activity' => 'Customer Order with Order ID of ',
+            'adjusted_by' => '',
+            'operation_value' => '(-1)',
+            'latest_value' => '78',
+			'purchase_order_id' => NULL,
+			'customer_order_id' => 104153270,
+            'created_at' => '2023-3-14 00:00:00',
+            'updated_at' => '2023-3-14 00:00:00',
+            ],
+            [//March Order - 3
+            'product_id' => '80',
+            'activity' => 'Customer Order with Order ID of ',
+            'adjusted_by' => '',
+            'operation_value' => '(-1)',
+            'latest_value' => '77',
+			'purchase_order_id' => NULL,
+			'customer_order_id' => 104153271,
+            'created_at' => '2023-3-16 00:00:00',
+            'updated_at' => '2023-3-16 00:00:00',
+            ],
+            [//March Order - 4
+            'product_id' => '80',
+            'activity' => 'Customer Order with Order ID of ',
+            'adjusted_by' => '',
+            'operation_value' => '(-1)',
+            'latest_value' => '76',
+			'purchase_order_id' => NULL,
+			'customer_order_id' => 104153272,
+            'created_at' => '2023-3-18 00:00:00',
+            'updated_at' => '2023-3-18 00:00:00',
+            ],
+            [//March Order - 5
+            'product_id' => '80',
+            'activity' => 'Customer Order with Order ID of ',
+            'adjusted_by' => '',
+            'operation_value' => '(-1)',
+            'latest_value' => '75',
+			'purchase_order_id' => NULL,
+			'customer_order_id' => 104153273,
+            'created_at' => '2023-3-20 00:00:00',
+            'updated_at' => '2023-3-20 00:00:00',
+            ],
         ]);
     }
 }

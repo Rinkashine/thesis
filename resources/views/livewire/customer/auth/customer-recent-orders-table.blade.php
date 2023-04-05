@@ -1,52 +1,61 @@
 <div>
     <div class="overflow-x-auto">
-        <table class="table table-bordered table-hover table-striped">
-            <thead class="table-dark">
-                <tr>
-                    <th class="whitespace-nowrap">Order #</th>
-                    <th class="whitespace-nowrap text-center">Place On</th>
-                    <th class="whitespace-nowrap text-center">Items</th>
-                    <th class="whitespace-nowrap text-center">Total</th>
-                    <th class="whitespace-nowrap text-center">Status</th>
-                    <th class="whitespace-nowrap text-center">Action</th>
-                </tr>
-            </thead>
-            <tbody>
-                @forelse ($Orders as $order)
-                <tr>
-                    <td class="whitespace-nowrap">#{{ $order->id }}</td>
-                    <td class="whitespace-nowrap text-center"> {{ $order->created_at->toFormattedDateString() }}</td>
-                    <td class="whitespace-nowrap text-center truncate">
-                        @foreach($ProductsOrdered as $index => $item)
-                            @if($item->customer_order_id == $order->id)
-                                {{ $item->product_name }},
+        <div class="overflow-x-auto">
+            @forelse ($Orders as $order)
+                <div class="mt-2 mb-5 border rounded-md">
+                    <div class="flex flex-row justify-between px-3 py-5 border">
+                        <div>
+                            #{{ $order->id }}
+                            @if ($order->status == "Completed")
+                                <span class="text-success">{{ $order->status }} </span>
+                            @elseif($order->status == "Cancelled" || $order->status == "Rejected")
+                                <span class="text-danger">{{ $order->status }}</span>
+                            @else
+                                <span class="text-pending">{{ $order->status }}</span>
                             @endif
-                        @endforeach
-                    </td>
-                    <td class="whitespace-nowrap text-center">
-                        <div>₱
-                            @php
-                                $total = 0
-                             @endphp
-                            @foreach ($order->orderTransactions as $item)
-                                <?php $total += $item->quantity * $item->price ?>
-                            @endforeach
-                            {{number_format($total,2)}}
                         </div>
-                        <div>{{ $order->mode_of_payment }}</div>
+                        <div class="px-2 rounded-full bg-slate-50">
+                            <span class="text-center whitespace-nowrap"> <a href="{{ Route('order.show',$order->id ) }}"> <i class="w-4 h-4 mr-1 fa-solid fa-eye"></i> Show Details</a></span>
 
-                    </td>
-                    <td class="whitespace-nowrap text-center">
-                        {{ $order->status }}
-                    </td>
-                    <td class="whitespace-nowrap text-center"> <a href="{{ Route('order.show',$order->id ) }}"> <i class="fa-solid fa-eye w-4 h-4 mr-1"></i> Show Details</td></a>
-                </tr>
+                        </div>
+                    </div>
+                    <div>
+                        <table class="table table-fixed bg-slate-50 table-bordered">
+                            <tbody>
+                                @foreach ($order->orderTransactions as $product)
+                                    <tr>
+                                        <td class="text-center truncate  whitespace-nowrap  ">
+                                            {{ $product->product_name }}
+                                        </td>
+                                        <td class="text-center  whitespace-nowrap ">
+                                            {{ $product->quantity }} pcs
+                                        </td>
+                                        <td class="text-center  whitespace-nowrap ">
+                                            ₱{{ number_format($product->price,2) }}
+                                        </td>
+                                    </tr>
+
+                                @endforeach
+                                <tr>
+                                    <td colspan="3" class="text-right">
+                                        @php
+                                            $total = 0
+                                        @endphp
+                                        @foreach ($order->orderTransactions as $product)
+                                            <?php $total += $product->quantity * $product->price ?>
+                                        @endforeach
+                                    Total: ₱{{number_format($total,2)}}
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
             @empty
-            <tr>
-                <td colspan="6" class="font-medium">No Orders Found</td>
-            </tr>
+                <tr>
+                    <td colspan="5" class="font-medium">No Orders Found</td>
+                </tr>
             @endforelse
-            </tbody>
-        </table>
+        </div>
     </div>
 </div>

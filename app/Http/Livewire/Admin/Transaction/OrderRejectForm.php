@@ -43,6 +43,7 @@ class OrderRejectForm extends Component
     public function getModelRejectId($modelId)
     {
         $this->modelId = $modelId;
+        $this->dispatchBrowserEvent('openRejectModal');
     }
 
     private function cleanVars()
@@ -92,10 +93,11 @@ class OrderRejectForm extends Component
         $rejectorder->rejected_reason = $this->remarks;
         $rejectorder->status = 'Rejected';
         $rejectorder->update();
-        Alert::success('Order Rejected Success', '');
+        $this->emit('refreshParent');
+        $this->dispatchBrowserEvent('closeRejectModal');
 
-        return redirect()->route('orders.show', $this->modelId);
-    }
+        $this->cleanVars();
+        $this->resetErrorBag();    }
 
     public function render()
     {

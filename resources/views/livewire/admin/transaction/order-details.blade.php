@@ -20,7 +20,7 @@
                     @if($orderdetails->status == "Completed" || $orderdetails->status == "Delivered")
                         <span class="bg-success/20 text-success rounded px-2 ml-1">{{ $orderdetails->status }}</span>
                     @else
-                        <span class="bg-warning  rounded px-2 ml-1">{{  $orderdetails->status}}</span>
+                        <span class="rounded px-2 ml-1">{{  $orderdetails->status}}</span>
                     @endif
                     </div>
                 </div>
@@ -192,21 +192,42 @@
             <!-- End: Cancellation -->
 
             @if($orderdetails->status == "Pending for Approval")
+              <livewire:admin.transaction.order-approved-form/>
+
                 @livewire('admin.transaction.order-approval',['order' => $orderdetails])
 
             @elseif($orderdetails->status == "Processing")
                 <div class="mt-5 intro-y flex justify-end gap-2">
                     <a onclick="setOrderToCancel()" class="btn btn-danger">
-                        Cancel Order
+                        Reject
                     </a>
                     <a onclick="setOrderToPacked('{{ $orderdetails->id }}')"  href="javascript:;" class="btn btn-primary">
                         Set Status To Packed and Ready to Ship
                     </a>
                 </div>
+            @elseif($orderdetails->status == "Packed")
+                <div class="mt-5 intro-y flex justify-end gap-2">
+                    <a onclick="setOrderToCancel()" class="btn btn-danger">
+                        Reject
+                    </a>
+                    <a onclick="setOrderOutForDelivery('{{ $orderdetails->id }}')"  href="javascript:;" class="btn btn-primary">
+                        Set Status To Out for Delivery
+                    </a>
+                </div>
+            @elseif($orderdetails->status == "Out For Delivery")
+                <div class="mt-5 intro-y flex justify-end gap-2">
+                    <a onclick="setOrderToCancel()" class="btn btn-danger" href="javascript:;">
+                        Reject
+                    </a>
+                    <a onclick="setOrderToCompleted('{{ $orderdetails->id }}')"  href="javascript:;" class="btn btn-primary">
+                        Set Status To Completed
+                    </a>
+                </div>
             @endif
             <livewire:admin.transaction.set-status-to-packed/>
+            <livewire:admin.transaction.order-out-for-delivery-modal/>
+            <livewire:admin.transaction.order-completed-modal/>
 
-            <livewire:admin.transaction.order-approved-form/>
             <livewire:admin.transaction.order-reject-form/>
 
 
@@ -229,7 +250,10 @@
             const setOrderToPacked = (orderid)=>{
                 livewire.emit("SetStatusToPacked", orderid,);
             }
+            const setOrderToCancel = (orderid)=>{
+                livewire.emit("getModelRejectId", orderid,);
 
+            }
             window.addEventListener('HideSetOrderToPackedModal',event => {
                 setOrderToPackedModal.hide()
             });
@@ -237,7 +261,31 @@
                 setOrderToPackedModal.show()
             });
 
+            const setOrderToOutForDeliveryModal = tailwind.Modal.getInstance(document.querySelector("#set-status-to-out-for-delivery-modal"));
 
+            const setOrderOutForDelivery = (orderid)=>{
+                livewire.emit("SetStatusToOutForDelivery",orderid);
+            }
+            window.addEventListener('ShowOutForDeliveryModal',event => {
+                setOrderToOutForDeliveryModal.show()
+            });
+            window.addEventListener('HideOutForDeliveryModal', event => {
+                setOrderToOutForDeliveryModal.hide()
+            });
+
+            const setOrderCompleted = tailwind.Modal.getInstance(document.querySelector("#set-status-completed-modal"));
+
+            const setOrderToCompleted = (orderid) => {
+                livewire.emit("SetStatusToCompleted",orderid);
+            }
+
+            window.addEventListener('ShowCompletedModal',event => {
+                setOrderCompleted.show()
+            });
+
+            window.addEventListener('HideCompletedModal', event => {
+                setOrderCompleted.hide()
+            });
         </script>
     @endpush
 </div>

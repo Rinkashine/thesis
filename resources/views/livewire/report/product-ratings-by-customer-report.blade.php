@@ -17,7 +17,7 @@
                 </div>
                 <div class="sm:flex items-center sm:mr-4 mt-2 xl:mt-0">
                     <label class="w-12 flex-none xl:w-auto xl:flex-initial mr-2">From:</label>
-                    <input " class="form-control sm:w-40 2xl:w-full mt-2 sm:mt-0" wire:model="from" id="from" name ="from"  type="datetime-local" max="{{ $to }}" />
+                    <input class="form-control sm:w-40 2xl:w-full mt-2 sm:mt-0" wire:model="from" id="from" name ="from"  type="datetime-local" max="{{ $to }}" />
                 </div>
                 <div class="sm:flex items-center sm:mr-4 mt-2 xl:mt-0">
                     <label class="w-12 flex-none xl:w-auto xl:flex-initial mr-2">To:</label>
@@ -41,7 +41,7 @@
                     <table class="table table-striped mt-5 table-bordered table-hover">
                         <thead class="table-dark">
                             <tr>
-                                <th class="whitespace-nowrap">Order ID</th>
+                                <th class="whitespace-nowrap text-center">Order ID</th>
                                 <th class="whitespace-nowrap text-center">Customer name</th>
                                 <th class="whitespace-nowrap text-center">Rate</th>
                             </tr>

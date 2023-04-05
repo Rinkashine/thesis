@@ -26,15 +26,6 @@ class ProductReviewSeeder extends Seeder
                 'updated_at' => '2022-01-12 00:00:00',
             ],
             [
-                'customer_id' => '1',
-                'customer_order_item_id' => '5',
-                'customer_order_id' => '104153206',
-                'comment' => 'Good quality, purchased again',
-                'rate' => '5',
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now(),
-            ],
-            [
                 'customer_id' => '3',
                 'customer_order_item_id' => '12',
                 'customer_order_id' => '104153212',

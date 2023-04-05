@@ -61,7 +61,7 @@
                         </div>
                         <div class="mt-5">
                             <!-- Supplier Origin -->
-                            <div class="form-inline items-start flex-col xl:flex-row mt-5 pt-5 first:mt-0 first:pt-0">
+                            <div class="form-inline items-start flex-col mt-5 pt-5 first:mt-0 first:pt-0">
                                 <div class="form-label xl:w-64 xl:!mr-10">
                                     <div class="text-left">
                                         <div class="flex items-center">
@@ -70,7 +70,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="w-full mt-3 xl:mt-0 flex-1">
+                                <div class="w-full mt-3 flex-1">
                                     <select wire:model="origin" class="form-select" @if($status != "Draft") disabled @endif>
                                         <option value="">Select Origin</option>
                                         @foreach ($suppliers as $supplier)
@@ -102,25 +102,34 @@
                                     <div class="w-full mt-3 xl:mt-0 flex-1">
                                         <div class="intro-x relative">
                                             <input type="search" class="form-control" wire:model="query" >
-                                            <div wire:loading wire:target="query" class="flex items-center mt-2 font-medium ">
-                                                <div>Searching...</div>
-                                            </div>
-                                            @if (!empty($query))
-                                            <div class="search-result__content ">
-                                                @if(!empty($products))
-                                                    @foreach($products as $product)
-                                                    <div class="flex items-center mt-2 font-medium">
-                                                        <button wire:click="AddTd({{json_encode($product)}})" type="button" class="truncate" >
-                                                            {{ $product['name']}}
-                                                        </button>
-                                                        <div class="ml-auto w-48 truncate text-slate-500 text-xs text-right">Current Stock: {{ $product['stock'] }}</div>
-                                                    </div>
-                                                    @endforeach
-                                                @else
-                                                    <div class="flex items-center mt-2 font-medium">No Results Found</div>
+                                            <div class="absolute z-50 h-fit w-full rounded-b-lg bg-white shadow-2xl py-2 px-2 mt-2">
+                                                <div wire:loading wire:target="query" class="flex items-center font-medium ">
+                                                    <div>Searching...</div>
+                                                </div>
+                                                @if (!empty($query))
+                                                <div class="search-result__content">
+                                                    @if(!empty($products))
+                                                        @foreach($products as $product)
+                                                        <div class="flex flex-col sm:flex-row w-full  mt-2 border rounded font-medium px-2 py-2 ">
+                                                            <div class="2xl:w-full xl:w-full lg:w-full md:w-full text-left" >
+                                                                <button wire:click="AddTd({{json_encode($product)}})" type="button" class=" text-left" >
+                                                                    {{ $product['name']}}
+                                                                </button>
+                                                            </div>
+                                                            <div class="w-2/4 sm:w-full sm:ml-5 text:left sm:text-center">
+                                                                <div class="ml-auto truncate text-slate-500 text-xs">SKU {{ $product['SKU'] }}</div>
+                                                            </div>
+                                                            <div class="w-1/4 sm:w-full sm:ml-5 text:left sm:text-right">
+                                                                <div class="ml-auto  text-slate-500 text-xs">Current Stock: {{ $product['stock'] }}</div>
+                                                            </div>
+                                                        </div>
+                                                        @endforeach
+                                                    @else
+                                                        <div class="flex items-center mt-2 font-medium">No Results Found</div>
+                                                    @endif
+                                                </div>
                                                 @endif
                                             </div>
-                                            @endif
                                         </div>
                                     </div>
                                 </div>
@@ -167,7 +176,7 @@
                                                         @if($status == "Pending")
                                                             <span class="flex justify-center">₱{{ $selectedproduct['price'] }}</span>
                                                         @else
-                                                            <input type="number" wire:model='selectedProducts.{{ $key }}.price'  class="form-control @error('selectedProducts.'.$key.'.price') border-danger @enderror" onkeypress="return event.charCode >= 48">
+                                                            <input type="number" wire:model='selectedProducts.{{ $key }}.price' min="1"  class="form-control @error('selectedProducts.'.$key.'.price') border-danger @enderror" onkeypress="return event.charCode >= 48">
                                                             @error('selectedProducts.'.$key.'.price')
                                                                 <div class="text-danger mt-2">
                                                                     {{ $message }}
@@ -179,7 +188,7 @@
                                                         @if($status == "Pending")
                                                             <span class="flex justify-center">{{ $selectedproduct['discount'] }}%</span>
                                                         @else
-                                                            <input type="number" wire:model='selectedProducts.{{ $key }}.discount' placeholder="0-100" class="form-control @error('selectedProducts.'.$key.'.discount') border-danger @enderror" >
+                                                            <input type="number" wire:model='selectedProducts.{{ $key }}.discount' max="100" min="0" placeholder="0-100" class="form-control @error('selectedProducts.'.$key.'.discount') border-danger @enderror" >
                                                             @error('selectedProducts.'.$key.'.discount')
                                                                 <div class="text-danger mt-2">
                                                                     {{ $message }}

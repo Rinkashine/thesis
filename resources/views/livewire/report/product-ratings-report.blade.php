@@ -12,8 +12,10 @@
                         <option value="product_name_desc">Product Name (Z-A)</option>
                         <option value="total_number_asc">Number of Ratings(Low To High)</option>
                         <option value="total_number_desc">Number of Ratings (High To Low)</option>
-                        <option value="total_rating_asc">Total Rating(Low To High)</option>
-                        <option value="total_rating_desc">Total Rating (High To Low)</option>
+                        <option value="total_rating_asc">Total Stars(Low To High)</option>
+                        <option value="total_rating_desc">Total Stars (High To Low)</option>
+                        <option value="ratingLow">Rating (Low To High)</option>
+                        <option value="ratingHigh">Rating (High To Low)</option>
                     </select>
                 </div>
                 <div class="sm:flex items-center sm:mr-4 mt-2 xl:mt-0">
@@ -44,16 +46,18 @@
                             <tr>
                                 <th class="whitespace-nowrap">Product Name</th>
                                 <th class="whitespace-nowrap text-center">Number of Ratings</th>
-                                <th class="whitespace-nowrap text-center">Total Rating</th>
+                                <th class="whitespace-nowrap text-center">Total Stars</th>
+                                <th class="whitespace-nowrap text-center">Rating</th>
                                 <th class="whitespace-nowrap text-center">Action</th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach ($products as $product )
                                 <tr>
-                                    <td class="whitespace-nowrap "><a href="{{ Route('product.show',$product) }}"> {{$product->name}}</a> </td>
+                                    <td class="whitespace-nowrap "><a href="{{ Route('product.edit',$product) }}"> {{$product->name}}</a> </td>
                                     <td class="whitespace-nowrap text-center">{{ number_format($product->total)}}</td>
                                     <td class="whitespace-nowrap text-center">{{ number_format($product->rate)}}</td>
+                                    <td class="whitespace-nowrap text-center">{{ number_format($product->ave,2)}}</td>
                                     <td class="whitespace-nowrap text-center"><a href="{{ Route('report.ProductRatingsByCustomer',['product_id' => $product->id, 'product_name' => $product->name, 'from' => $from, 'to' => $to]) }}">View Details</a></td>
 
                                 </tr>

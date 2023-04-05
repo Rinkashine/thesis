@@ -142,13 +142,16 @@
         @livewire('customer.order.cancel-order',['orderdetails' => $orderdetails])
         <livewire:customer.order.cancel-order-modal/>
 
-
-
-
         <!-- Begin: Product Review Modal -->
         <livewire:customer.review.product-review-form :orderDetails="$orderdetails" >
         <!-- End: Product Review Modal -->
 
+        @if($orderdetails->status == "Completed" && $daysDifference <= 7)
+            <div class="intro-x flex justify-end">
+                <a  onclick="RequestRefund('{{ $orderdetails->id }}')" class="btn btn-primary mt-5 ">Request For Refund</a>
+            </div>
+        @endif
+        <livewire:customer.order.request-for-refund-modal/>
     </div>
     <!-- BEGIN: Display Information -->
 </div>
@@ -190,5 +193,16 @@
             icon: event.detail.type
         })
     });
+    const requestrefundmodal = tailwind.Modal.getInstance(document.querySelector("#request-refund-modal"));
+    const RequestRefund = (orderid)=>{
+        livewire.emit("RequestforRefund",orderid);
+    }
+    window.addEventListener('closeRequestForRefundModal',event => {
+        requestrefundmodal.hide()
+    });
+    window.addEventListener('openRequestForRefundModal', event => {
+        requestrefundmodal.show()
+    });
+
 </script>
 @endpush

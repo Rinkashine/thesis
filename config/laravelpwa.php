@@ -59,19 +59,15 @@ return [
         ],
         'shortcuts' => [
             [
-                'name' => 'Shortcut Link 1',
-                'description' => 'Shortcut Link 1 Description',
-                'url' => '/shortcutlink1',
+                'name' => 'Seller Centre',
+                'description' => 'Seller Centre Account',
+                'url' => '/admin/login',
                 'icons' => [
                     "src" => "/images/icons/icon-72x72.png",
                     "purpose" => "any"
                 ]
             ],
-            [
-                'name' => 'Shortcut Link 2',
-                'description' => 'Shortcut Link 2 Description',
-                'url' => '/shortcutlink2'
-            ]
+
         ],
         'custom' => []
     ]

@@ -50,6 +50,12 @@ class ProductRatingsExport implements FromCollection, ShouldAutoSize, WithHeadin
         } elseif ($this->sorting == 'total_rating_desc') {
             $this->column_name = 'rate';
             $this->order_name = 'desc';
+        } elseif ($this->sorting == 'ratingLow') {
+            $this->column_name = 'ave';
+            $this->order_name = 'asc';
+        } elseif ($this->sorting == 'ratingHigh') {
+            $this->column_name = 'ave';
+            $this->order_name = 'desc';
         } else {
             $this->column_name = 'product.name';
             $this->order_name = 'asc';
@@ -58,13 +64,14 @@ class ProductRatingsExport implements FromCollection, ShouldAutoSize, WithHeadin
         return Product::select([
             'product.name',
             'product.id',
-            
-            DB::raw(value: 'COUNT(product_review.customer_order_item_id) AS total'),
-            DB::raw(value: 'SUM(product_review.rate) AS rate')
+
+            DB::raw(value: 'COUNT(CASE WHEN product_review.customer_order_item_id = customer_order_item.id then product.id end) AS total'),
+            DB::raw(value: 'SUM(CASE WHEN product_review.customer_order_item_id = customer_order_item.id then rate end) AS rate'),
+            DB::raw(value: '(SUM(CASE WHEN product_review.customer_order_item_id = customer_order_item.id then rate end)/COUNT(CASE WHEN product_review.customer_order_item_id = customer_order_item.id then product.id end)) AS ave')
         ])
-        // ->leftjoin('product_review','product.id','=','product_review.customer_order_item_id')
+        ->leftjoin('customer_order_item', 'product.id', '=', 'customer_order_item.product_id')
         ->leftjoin('product_review',function($join){
-            $join->on('product_review.customer_order_item_id', '=', 'product.id')
+            $join->on('product_review.customer_order_item_id', '=', 'customer_order_item.id')
             ->where('product_review.created_at', '>=', $this->startdate)
             ->where('product_review.created_at', '<=', $this->enddate);
         })
@@ -78,7 +85,8 @@ class ProductRatingsExport implements FromCollection, ShouldAutoSize, WithHeadin
         return [
             $product->name,
             number_format($product->total,2),
-            number_format($product->rate,2)
+            number_format($product->rate,2),
+            number_format($product->ave,2)
         ];
     }
 
@@ -87,7 +95,8 @@ class ProductRatingsExport implements FromCollection, ShouldAutoSize, WithHeadin
         return [
             'Product Name',
             'Number of Ratings',
-            'Total Rating',
+            'Total Stars',
+            'Rating'
         ];
     }
 }

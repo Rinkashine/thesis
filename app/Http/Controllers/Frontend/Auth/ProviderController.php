@@ -54,6 +54,7 @@ class ProviderController extends Controller
             $user->update();
         }
 
+
             Auth::guard('customer')->login($user);
             return redirect()->intended('/');
 

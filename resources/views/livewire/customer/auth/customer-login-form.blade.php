@@ -5,7 +5,7 @@
         <img  src="{{ asset('dist/images/login.svg') }}" alt="Go Dental Login Image" />
     </div>
     <!-- Content -->
-    <div class="items-center justify-center flex flex-1 intro-x  ">
+    <div class="items-center justify-center flex flex-1  ">
         <div class="my-3 mx-5  box w-auto  ">
             <div class="p-5 border-b-2 border-slate-100 ">
                 <h2 class="intro-x text-2xl font-medium  text-center mr-auto ">
@@ -52,27 +52,19 @@
                             data-action='login' >Login</button>
                         </div>
 
-                        <div class="mt-5 intro-x items-center grid grid-cols-3">
+                        <div class="intro-x  mt-5 items-center grid grid-cols-3">
                             <hr class="border-gray-400">
                             <p class="text-slate-400 text-center">Or, sign with</p>
                             <hr class="border-gray-400">
                         </div>
-
-                        <div class="intro-x flex items-center justify-center text-slate-600  text-xs sm:text-sm">
-                            <div class="flex items-center mr-auto">
+                        <div class="intro-x text-slate-600 text-xs sm:text-sm items-center justify-center flex flex-1 gap-5">
                                 <a href="/auth/facebook/redirect" class="btn mt-5 w-full" ><i class="fa-brands fa-facebook fa-xl mr-1" style="color: #054232;"></i>Facebook</a>
-                            </div>
-                            <div class="flex items-center mr-auto mx-3">
                                 <a href="/auth/github/redirect" class="btn mt-5 w-full" ><i class="fa-brands fa-github fa-xl mr-1" style="color: #054232; "></i>Github</a>
-                            </div>
-                            <div class="flex items-center mr-auto mx-3">
                                 <a href="/auth/google/redirect" class="btn mt-5 w-full" ><i class="fa-brands fa-google fa-xl mr-1" style="color: #054232; "></i>Google</a>
-                            </div>
                         </div>
                         <div class="pt-5 text-center intro-x " >
                             <a class="text-primary font-normal" href="{{Route('CRegister.index')}}">New to Go Dental? Click here.</a>
                         </div>
-
                     </div>
                 </form>
             </div>

@@ -31,10 +31,12 @@ return new class extends Migration
             $table->string('remarks')->nullable();
             $table->unsignedBigInteger('cancellation_reason_id')->nullable();
             $table->foreign('cancellation_reason_id')->references('id')->on('cancellation_reason');
-
             $table->string('cancellation_details')->nullable();
             $table->string('rejected_reason')->nullable();
             $table->string('order_notes')->nullable();
+            $table->unsignedBigInteger('refund_reason_id')->nullable();
+            $table->foreign('refund_reason_id')->references('id')->on('refund_reason');
+            $table->string('details')->nullable();
             $table->timestamps();
         });
     }

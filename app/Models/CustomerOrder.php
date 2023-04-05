@@ -28,6 +28,8 @@ class CustomerOrder extends Model
         'barangay',
         'cancellation_reason_id',
         'cancellation_details',
+        'refund_reason_id',
+        'details',
     ];
 
     public static function search($search)
@@ -50,4 +52,10 @@ class CustomerOrder extends Model
     {
         return $this->hasMany(CustomerOrderItems::class, 'customer_order_id', 'id');
     }
+
+    public function images()
+    {
+        return $this->hasMany(ReturnRequestImage::class, 'customer_order_id', 'id');
+    }
+
 }

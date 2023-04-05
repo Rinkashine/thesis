@@ -23,7 +23,7 @@ class OrderApproval extends Component
 
         if ($action == 'reject') {
             $this->emit('getModelRejectId', $this->selectedItem);
-            $this->dispatchBrowserEvent('openRejectModal');
+
         } elseif ($action == 'approved') {
             $this->emit('getModelApprovedId', $this->selectedItem);
             $this->dispatchBrowserEvent('OpenApprovedModal');

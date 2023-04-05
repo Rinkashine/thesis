@@ -54,7 +54,7 @@
                     </div>
                 </div>
                 <!-- Supplier Origin -->
-                <div class="mt-5 form-inline items-start flex-col xl:flex-row mt-5 pt-5 first:mt-0 first:pt-0">
+                <div class="mt-5 form-inline items-start flex-col mt-5 pt-5 first:mt-0 first:pt-0">
                     <div class="form-label xl:w-64 xl:!mr-10">
                         <div class="text-left">
                             <div class="flex items-center">
@@ -62,7 +62,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="w-full mt-3 xl:mt-0 flex-1">
+                    <div class="w-full mt-3 flex-1">
                         <input type="text" disabled class="form-control w-full" value="{{ $orderinfo->suppliers->name }}">
                     </div>
                 </div>

@@ -154,6 +154,8 @@ class InventoryTransferEditForm extends Component
         }
         $product['product_id'] = $product['id'];
         $product['quantity'] = 1;
+        $product['price'] = 1;
+        $product['discount'] = 0;
         $product['isAdded'] = true;
         array_push($this->selectedProducts, $product);
         $this->query = '';

@@ -707,7 +707,7 @@ class ProductSeeder extends Seeder
                 'name' => 'Applicator Tips',
                 'category_id' => 10,
                 'brand_id' => 41,
-                'stock' => 80,
+                'stock' => 75,
                 'stock_warning' => 20,
                 'SKU' => 'APT001',
                 'cprice' => 75,

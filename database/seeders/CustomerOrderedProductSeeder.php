@@ -1239,6 +1239,49 @@ class CustomerOrderedProductSeeder extends Seeder
                 'price' => 770.00,
                 'quantity' => 1,
             ],
+            [
+                'customer_order_id' => 104153268,
+                'product_id' => 80,
+                'product_name' => 'Cavity Liner',
+                'price' => 770.00,
+                'quantity' => 1,
+            ],
+            [//March Orders - 1
+                'customer_order_id' => 104153269,
+                'product_id' => 80,
+                'product_name' => 'Cavity Liner',
+                'price' => 770.00,
+                'quantity' => 1,
+            ],
+            [//March Orders - 2
+                'customer_order_id' => 104153270,
+                'product_id' => 80,
+                'product_name' => 'Cavity Liner',
+                'price' => 770.00,
+                'quantity' => 1,
+            ],
+            [//March Orders - 3
+                'customer_order_id' => 104153271,
+                'product_id' => 80,
+                'product_name' => 'Cavity Liner',
+                'price' => 770.00,
+                'quantity' => 1,
+            ],
+            [//March Orders - 4
+                'customer_order_id' => 104153272,
+                'product_id' => 80,
+                'product_name' => 'Cavity Liner',
+                'price' => 770.00,
+                'quantity' => 1,
+            ],
+            [//March Orders - 5
+                'customer_order_id' => 104153273,
+                'product_id' => 80,
+                'product_name' => 'Cavity Liner',
+                'price' => 770.00,
+                'quantity' => 1,
+            ],
+
 
 
         ])
