@@ -58,9 +58,8 @@
                             <hr class="border-gray-400">
                         </div>
                         <div class="intro-x text-slate-600 text-xs sm:text-sm items-center justify-center flex flex-1 gap-5">
-                                <a href="/auth/facebook/redirect" class="btn mt-5 w-full" ><i class="fa-brands fa-facebook fa-xl mr-1" style="color: #054232;"></i>Facebook</a>
-                                <a href="/auth/github/redirect" class="btn mt-5 w-full" ><i class="fa-brands fa-github fa-xl mr-1" style="color: #054232; "></i>Github</a>
-                                <a href="/auth/google/redirect" class="btn mt-5 w-full" ><i class="fa-brands fa-google fa-xl mr-1" style="color: #054232; "></i>Google</a>
+                            <a href="/auth/github/redirect" class="btn mt-5 w-full" ><i class="fa-brands fa-github fa-xl mr-1" style="color: #054232; "></i>Github</a>
+                            <a href="/auth/google/redirect" class="btn mt-5 w-full" ><i class="fa-brands fa-google fa-xl mr-1" style="color: #054232; "></i>Google</a>
                         </div>
                         <div class="pt-5 text-center intro-x " >
                             <a class="text-primary font-normal" href="{{Route('CRegister.index')}}">New to Go Dental? Click here.</a>

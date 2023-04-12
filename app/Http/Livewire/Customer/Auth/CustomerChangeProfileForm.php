@@ -46,7 +46,9 @@ class CustomerChangeProfileForm extends Component
         $this->validate();
         $customer_id = Auth::guard('customer')->user()->id;
         $customerinfo = Customer::findorfail($customer_id);
-
+        if (! Storage::disk('public')->exists('customer_profile_picture')) {
+            Storage::disk('public')->makeDirectory('customer_profile_picture', 0775, true);
+        }
         Storage::delete('public/customer_profile_picture/'.$customerinfo->photo);
         $this->photo->store('public/customer_profile_picture');
 
