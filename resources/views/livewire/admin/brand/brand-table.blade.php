@@ -60,10 +60,10 @@
                             <div class="dropdown-menu w-40">
                                 <div class="dropdown-content">
                                     @can('brand_edit')
-                                        <button wire:click="selectItem({{ $brand->id }},'edit')" class="dropdown-item w-full"> <i class="fa-solid fa-pen mr-1"></i></i> Edit </button>
+                                        <button wire:click="selectItem({{ $brand->id }},'edit')" class="dropdown-item w-full"> <i class="fa-solid fa-pen mr-1"></i> Edit </button>
                                     @endcan
                                     @can('brand_edit')
-                                        <button wire:click="selectItem({{ $brand->id }},'change_photo')" class="dropdown-item w-full"> <i class="fa-solid fa-pen mr-1"></i></i> Change Photo </button>
+                                        <button wire:click="selectItem({{ $brand->id }},'change_photo')" class="dropdown-item w-full"> <i class="fa-solid fa-images mr-1"></i> Change Photo </button>
                                     @endcan
                                     @can('brand_delete')
                                         <button wire:click="selectItem({{$brand->id}},'delete')"  class="dropdown-item w-full"> <i class="fa-solid fa-trash mr-1"></i> Delete </button>

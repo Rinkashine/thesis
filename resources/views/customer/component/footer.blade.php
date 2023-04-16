@@ -35,7 +35,7 @@
                         <div class="flex items-center intro-x">
                             <i class="text-base fas fa-envelope"></i>
                             <a href="javascript:void(0)" class="text-base leading-loose text-body-color group">
-                                <span>godentalsph@gmail.com</span>
+                                <span>godentalph@gmail.com</span>
                                 <span class="absolute -bottom-0.5 left-0 w-0 h-0.5 bg-slate-100 transition-all group-hover:w-full"></span>
                             </a>
                         </div>

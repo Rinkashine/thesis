@@ -84,7 +84,11 @@
                                         <!-- Begin: Product Image if there is one image -->
                                         @foreach ($product->images as $model)
                                             <div>
-                                                <img alt="Missing Image" data-action="zoom" class="object-fill w-full h-full " src="{{ url('storage/product_photos/'.$model->images) }}">
+                                                @if (Storage::disk('public')->exists('product_photos/'.$model->images))
+                                                    <img alt="Missing Image" data-action="zoom" class="object-fill w-full h-full " src="{{ url('storage/product_photos/'.$model->images) }}">
+                                                @else
+                                                    <img alt="Missing Image" class="object-scale-down w-full h-48 rounded-md" src="{{  asset('dist/images/ImageNotFound.png') }}" >
+                                                @endif
                                             </div>
                                         @endforeach
                                         <!-- END: Product Image if there is one image -->
@@ -95,7 +99,11 @@
                                                 @foreach ($product->images as $model)
                                                 <div class="h-64 px-2">
                                                     <div class="object-fill w-full h-full" style="height: 100%;">
-                                                        <img alt="" src="{{ url('storage/product_photos/'.$model->images) }}" data-action="zoom" style="height: 100%;" class=""/>
+                                                        @if (Storage::disk('public')->exists('product_photos/'.$model->images))
+                                                            <img alt="Missing Image" src="{{ url('storage/product_photos/'.$model->images) }}" data-action="zoom" style="height: 100%;" class=""/>
+                                                        @else
+                                                             <img alt="Missing Image"  src="{{  asset('dist/images/ImageNotFound.png') }}" data-action="zoom" style="height: 100%;" class="object-scale-down w-full h-48 rounded-md"/>
+                                                        @endif
                                                     </div>
                                                 </div>
                                                 @endforeach

@@ -26,7 +26,7 @@ class AdminAccountSeeder extends Seeder
         $user->assignRole('Super Admin');
 
         User::create([
-            'name' => 'Mark Joseph Manalo',
+            'name' => 'Rinkashine Manalo',
             'email' => 'programmingmind1110@gmail.com',
             'phone_number' => '09369332354',
             'address' => '283 Ramos Compound Baesa Quezon City',

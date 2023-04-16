@@ -1,14 +1,14 @@
 
-<div class="container flex flex-col lg:flex-row items-center py-5 mt-10 px-5">
+<div class="container w-full flex flex-col lg:flex-row items-center py-5 mt-10 px-5">
     <!-- Image -->
     <div class="intro-y flex justify-center flex-1 z-10  hidden  sm:hidden md:hidden lg:hidden xl:block 2xl:block	">
         <img  src="{{ asset('dist/images/login.svg') }}" alt="Go Dental Login Image" />
     </div>
     <!-- Content -->
-    <div class="items-center justify-center flex flex-1  ">
-        <div class="my-3 mx-5  box w-auto  ">
+    <div class="items-center justify-center flex flex-1 w-full ">
+        <div class="box  ">
             <div class="p-5 border-b-2 border-slate-100 ">
-                <h2 class="intro-x text-2xl font-medium  text-center mr-auto ">
+                <h2 class="intro-x text-2xl sm:text-xl font-medium  text-center mr-auto ">
                     Welcome to Go-Dental! Please Login
                 </h2>
             </div>
@@ -58,8 +58,11 @@
                             <hr class="border-gray-400">
                         </div>
                         <div class="intro-x text-slate-600 text-xs sm:text-sm items-center justify-center flex flex-1 gap-5">
+                           <!--
                             <a href="/auth/github/redirect" class="btn mt-5 w-full" ><i class="fa-brands fa-github fa-xl mr-1" style="color: #054232; "></i>Github</a>
+                            -->
                             <a href="/auth/google/redirect" class="btn mt-5 w-full" ><i class="fa-brands fa-google fa-xl mr-1" style="color: #054232; "></i>Google</a>
+
                         </div>
                         <div class="pt-5 text-center intro-x " >
                             <a class="text-primary font-normal" href="{{Route('CRegister.index')}}">New to Go Dental? Click here.</a>

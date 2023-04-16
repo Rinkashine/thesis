@@ -64,7 +64,11 @@
                                                 <img alt="Missing Image" class="object-contain h-full rounded-md w-full" src="{{ asset('dist/images/logo.png') }}" onerror="this.onerror=null;this.src='{{ asset('dist/images/ImageNotFound.png') }}'">
                                             @else
                                                 @foreach ($product->images->take(1)  as $model)
-                                                    <img alt="Missing Image" class="object-contain h-full rounded-md w-full" src="{{ url('storage/product_photos/'.$model->images) }}" onerror="this.onerror=null;this.src='{{ asset('dist/images/ImageNotFound.png') }}'">
+                                                    @if (Storage::disk('public')->exists('product_photos/'.$model->images))
+                                                        <img alt="Missing Image" class="object-contain h-full rounded-md w-full" src="{{ url('storage/product_photos/'.$model->images) }}">
+                                                    @else
+                                                        <img alt="Missing Image" class="object-contain h-full rounded-md w-full" src="{{  asset('dist/images/ImageNotFound.png') }}" >
+                                                    @endif
                                                 @endforeach
                                             @endif
                                         </div>

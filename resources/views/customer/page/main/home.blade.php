@@ -23,7 +23,11 @@
                 @foreach ($banners as $banner)
                     <div class="px-2 h-72">
                         <div class="object-cover h-full overflow-hidden rounded-md"  >
-                            <img class="object-fill h-full w-96 " data-action="zoom" src="{{ url('storage/banner/'.$banner->featured_image) }}" alt="Missing Banner Image" onerror="this.onerror=null;this.src='{{ asset('dist/images/ImageNotFound.png') }}'" />
+                            @if (Storage::disk('public')->exists('banner/'.$banner->featured_image))
+                                <img alt="Image Not Found" class="object-contain h-full w-full " src="{{ url('storage/banner/'.$banner->featured_image) }}" data-action="zoom">
+                            @else
+                                <img alt="Missing Image" class="object-fill h-full w-96 " src="{{  asset('dist/images/ImageNotFound.png') }}" data-action="zoom">
+                            @endif
                         </div>
                     </div>
                 @endforeach
@@ -49,7 +53,11 @@
                             <a href="{{ Route('productshow', $product) }}">
                                 <div class="h-48 2xl:h-48">
                                     @foreach ($product->images->take(1) as $model)
-                                        <img alt="Product Image Not Found" class="object-scale-down w-full h-48 rounded-md" src="{{ url('storage/product_photos/'.$model->images) }}" onerror="this.onerror=null;this.src='{{ asset('dist/images/ImageNotFound.png') }}'">
+                                        @if (Storage::disk('public')->exists('product_photos/'.$model->images))
+                                            <img alt="Product Image Not Found" class="object-scale-down w-full h-48 rounded-md" src="{{ url('storage/product_photos/'.$model->images) }}">
+                                        @else
+                                            <img alt="Missing Image" class="object-scale-down w-full h-48 rounded-md" src="{{  asset('dist/images/ImageNotFound.png') }}" >
+                                        @endif
                                     @endforeach
                                 </div>
                                 <div class="my-3 ">
@@ -84,7 +92,11 @@
                         <div class="relative p-3 rounded-md box zoom-in p-5">
                             <a href="{{ Route('product',['filterbycategory' => $category]) }}">
                                 <div class="h-48 2xl:h-48">
-                                    <img alt="Missing Category Image" class="object-scale-down w-full h-48 rounded-md" src="{{ url('storage/category/'.$category->photo) }}" onerror="this.onerror=null;this.src='{{ asset('dist/images/ImageNotFound.png') }}'">
+                                    @if (Storage::disk('public')->exists('category/'.$category->photo))
+                                        <img alt="Image Not Found" class="object-scale-down w-full h-48 rounded-md" src="{{ url('storage/category/'.$category->photo) }}">
+                                    @else
+                                        <img alt="Missing Image" class="object-scale-down w-full h-48 rounded-md" src="{{  asset('dist/images/ImageNotFound.png') }}" >
+                                    @endif
                                 </div>
                                 <div class="block mt-3 font-medium text-center truncate">{{$category->name }} </div>
                             </a>
@@ -109,7 +121,11 @@
                         <div class="relative p-3 rounded-md box zoom-in p-5">
                             <a href="{{ Route('product',['filterbybrand' => $brand]) }}">
                                 <div class="h-48 2xl:h-48">
-                                    <img alt="Missing Brand Image" class="object-scale-down w-full h-48 rounded-md" src="{{ url('storage/brand/'.$brand->photo) }}" onerror="this.onerror=null;this.src='{{ asset('dist/images/ImageNotFound.png') }}'">
+                                    @if (Storage::disk('public')->exists('brand/'.$brand->photo))
+                                    <img alt="Image Not Found" class="object-scale-down w-full h-48 rounded-md" src="{{ url('storage/brand/'.$brand->photo) }}">
+                                    @else
+                                        <img alt="Missing Image" class="object-scale-down w-full h-48 rounded-md" src="{{  asset('dist/images/ImageNotFound.png') }}" >
+                                    @endif
                                 </div>
                                 <div class="block mt-3 font-medium text-center truncate">{{$brand->name }} </div>
                             </a>
@@ -136,7 +152,11 @@
                             <a href=" {{ Route('productshow', $product) }}">
                                 <div class="h-48 2xl:h-48">
                                     @foreach ($product->images->take(1) as $model)
-                                        <img alt="Product Image Not Found" class="object-scale-down w-full h-48 rounded-md" src="{{ url('storage/product_photos/'.$model->images) }}" onerror="this.onerror=null;this.src='{{ asset('dist/images/ImageNotFound.png') }}'">
+                                        @if (Storage::disk('public')->exists('product_photos/'.$model->images))
+                                        <img alt="Product Image Not Found" class="object-scale-down w-full h-48 rounded-md" src="{{ url('storage/product_photos/'.$model->images) }}">
+                                        @else
+                                            <img alt="Missing Image" class="object-scale-down w-full h-48 rounded-md" src="{{  asset('dist/images/ImageNotFound.png') }}" >
+                                        @endif
                                     @endforeach
                                 </div>
                                 <div class="my-3 ">
@@ -172,7 +192,11 @@
                             <a href=" {{ Route('productshow', $product) }}">
                                 <div class="h-48 2xl:h-48">
                                     @foreach ($product->images->take(1) as $model)
-                                        <img alt="Product Image Not Found" class="object-scale-down w-full h-48 rounded-md" src="{{ url('storage/product_photos/'.$model->images) }}" onerror="this.onerror=null;this.src='{{ asset('dist/images/ImageNotFound.png') }}'">
+                                        @if (Storage::disk('public')->exists('product_photos/'.$model->images))
+                                            <img alt="Product Image Not Found" class="object-scale-down w-full h-48 rounded-md" src="{{ url('storage/product_photos/'.$model->images) }}">
+                                        @else
+                                            <img alt="Missing Image" class="object-scale-down w-full h-48 rounded-md" src="{{  asset('dist/images/ImageNotFound.png') }}" >
+                                        @endif
                                     @endforeach
                                 </div>
                                 <div class="my-3 ">
