@@ -74,10 +74,10 @@
                     </div>
                     <div class="w-full flex justify-center border-t border-slate-200/60 dark:border-darkmode-400 mt-2"> </div>
                         <div class="flex justify-center text-center lg:text-left p-5 ">
-                            @if(!empty($categories->photo))
-                                <img src="{{ url('storage/category/'.$categories->photo) }}" data-action="zoom" class="w-full h-56" alt="Missing Category Image" onerror="this.onerror=null;this.src='{{ asset('dist/images/ImageNotFound.png') }}'">
+                            @if (Storage::disk('public')->exists('category/'.$categories->photo))
+                                <img src="{{ url('storage/category/'.$categories->photo) }}" data-action="zoom" class="w-full h-56" alt="Missing Category Image Image">
                             @else
-                                <img alt="Missing Image" class="w-56 h-56" data-action="zoom" src="{{asset('dist/images/undraw_pic.svg')}}">
+                                <img src="{{  asset('dist/images/ImageNotFound.png') }}" data-action="zoom" class="w-full h-56" alt="Missing Category Image Image">
                             @endif
                         </div>
                 </div>
