@@ -86,8 +86,8 @@ class InventoryTransferForm extends Component
     public function updatedQuery()
     {
         $this->products = Product::where('name', 'like', $this->query.'%')->take(10)
-        ->get()
-        ->toArray();
+        ->get();
+        // ->toArray();
     }
 
     public function AddTd(array $product)
@@ -165,7 +165,6 @@ class InventoryTransferForm extends Component
         return view('livewire.admin.transfer.inventory-transfer-form', [
             'suppliers' => $suppliers,
             'supplierinfo' => $supplierinfo,
-
         ]);
     }
 }

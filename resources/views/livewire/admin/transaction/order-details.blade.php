@@ -1,6 +1,7 @@
 <div>
     <div class="intro-y grid grid-cols-12 gap-5 mt-5">
-        <div class="col-span-12 lg:col-span-4 2xl:col-span-3">
+
+        <div class="col-span-12 2xl:col-span-3">
             <div class="box p-5 rounded-md">
                 <div class="flex items-center border-b border-slate-200/60 dark:border-darkmode-400 pb-5 mb-5">
                     <div class="font-medium text-base truncate">Transaction Details</div>
@@ -107,7 +108,8 @@
 
             </div>
         </div>
-        <div class="col-span-12 lg:col-span-7 2xl:col-span-9">
+
+        <div class="col-span-12 2xl:col-span-9">
             <div class="box p-5 rounded-md">
                 <div class="flex items-center border-b border-slate-200/60 dark:border-darkmode-400 pb-5 mb-5">
                     <div class="font-medium text-base truncate">Order Details</div>
@@ -190,16 +192,26 @@
                 </div>
             @endif
             <!-- End: Cancellation -->
+            <!-- Begin: Reject Order Modal -->
+                <livewire:admin.transaction.order-reject-form/>
+            <!-- End: Reject Order Modal -->
+
 
             @if($orderdetails->status == "Pending for Approval")
-              <livewire:admin.transaction.order-approved-form/>
+                <livewire:admin.transaction.order-approved-form/>
+                <div class="mt-5 intro-y flex justify-end gap-2">
+                    <a onclick="setOrderToCancel()" class="btn btn-danger">
+                        Reject
+                    </a>
+
+                </div>
 
                 @livewire('admin.transaction.order-approval',['order' => $orderdetails])
 
             @elseif($orderdetails->status == "Processing")
                 <div class="mt-5 intro-y flex justify-end gap-2">
                     <a onclick="setOrderToCancel()" class="btn btn-danger">
-                        Reject
+
                     </a>
                     <a onclick="setOrderToPacked('{{ $orderdetails->id }}')"  href="javascript:;" class="btn btn-primary">
                         Set Status To Packed and Ready to Ship
@@ -228,7 +240,6 @@
             <livewire:admin.transaction.order-out-for-delivery-modal/>
             <livewire:admin.transaction.order-completed-modal/>
 
-            <livewire:admin.transaction.order-reject-form/>
 
 
         </div>

@@ -26,7 +26,6 @@
                 <thead>
                     <tr>
                         <th class="whitespace-nowrap">Transfer Code</th>
-                        <th class="whitespace-nowrap">Supplier</th>
                         <th class="text-center whitespace-nowrap">STATUS</th>
                         <th class="whitespace-nowrap text-center">ACTION</th>
 
@@ -36,9 +35,7 @@
                     @forelse ($orders as $order)
                     <tr class="intro-x">
                         <td class="w-40 !py-4"> <a href="{{ Route('transfer.edit',$order->id) }}">{{ $order->id }}</a></td>
-                        <td class="w-40">
-                            <span class="whitespace-nowrap">{{ $order->suppliers->name }}</span>
-                        </td>
+                       
                         <td>
                             <div class="whitespace-nowrap text-center">
                                 @if($order->status == "Pending")

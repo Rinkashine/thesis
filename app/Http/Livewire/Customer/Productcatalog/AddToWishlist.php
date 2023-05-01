@@ -38,6 +38,8 @@ class AddToWishlist extends Component
 
     public function render()
     {
+        $this->customer_id = Auth::guard('customer')->user()->id;
+
         $wishlist_checker = Wishlist::where('product_id', $this->product->id)
         ->where('customers_id', $this->customer_id)
         ->get()->count();
