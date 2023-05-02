@@ -35,7 +35,7 @@
                     @forelse ($orders as $order)
                     <tr class="intro-x">
                         <td class="w-40 !py-4"> <a href="{{ Route('transfer.edit',$order->id) }}">{{ $order->id }}</a></td>
-                       
+                       <td class="w-40 ">{{ $order->suppliers->name }}</td>
                         <td>
                             <div class="whitespace-nowrap text-center">
                                 @if($order->status == "Pending")

@@ -14,7 +14,6 @@ class OrderCompletedModal extends Component
     public function SetStatusToCompleted($orderid)
     {
         $this->model_id = $orderid;
-        $this->dispatchBrowserEvent('ShowCompletedModal');
     }
 
     public function cleanVars(){

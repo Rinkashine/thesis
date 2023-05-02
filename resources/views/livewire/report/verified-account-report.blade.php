@@ -20,7 +20,9 @@
                 </div>
                 @can('report_export')
                     <div class="mt-5">
-                        <a href="{{Route('report.exportVerifiedAccountsExcel')}}" class="btn btn-primary"> <i class="fa-solid fa-file-excel mr-1"></i> Export Excel </a>
+                        <a href="{{Route('report.exportVerifiedAccountsExcel')}}" class="btn btn-primary">
+                            Export Excel
+                        </a>
                     </div>
                 @endcan
             </div>
@@ -43,7 +45,7 @@
                                 {{-- <td class="whitespace-nowrap text-center"><a href="{{ Route('report.VerifiedAccount') }}">View Details</a></td> --}}
                             </tr>
                         @endforeach
-                            
+
                         </tbody>
                     </table>
                 </div>

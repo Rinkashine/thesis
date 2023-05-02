@@ -15,7 +15,6 @@ class SetStatusToPacked extends Component
     public function SetStatusToPacked($orderid)
     {
         $this->model_id = $orderid;
-        $this->dispatchBrowserEvent('ShowSetOrderToPackedModal');
     }
 
     public function cleanVars(){

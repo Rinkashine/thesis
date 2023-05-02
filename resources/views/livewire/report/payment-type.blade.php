@@ -7,7 +7,9 @@
         </div>
         @can('report_export')
             <div>
-                <a href="{{Route('report.exportPaymentByType',['startdate'=>$startdate,'enddate'=>$enddate])}}" class="btn btn-primary"> <i class="fa-solid fa-file-excel mr-1"></i> Export Excel </a>
+                <a href="{{Route('report.exportPaymentByType',['startdate'=>$startdate,'enddate'=>$enddate])}}" class="btn btn-primary">
+                    Export Excel
+                </a>
             </div>
         @endcan
     </div>

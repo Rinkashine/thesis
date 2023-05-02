@@ -29,54 +29,56 @@
             </div>
             @can('report_export')
                 <div class="mt-5">
-                    <a href="{{Route('report.exportProductByCustomerExcel',['sorting'=>$sorting,'startdate'=>$from,'enddate'=>$to, 'product_name' => $product_name, 'product_id' => $product_id])}}" class="btn btn-primary"> <i class="fa-solid fa-file-excel mr-1"></i> Export Excel </a>
+                    <a href="{{Route('report.exportProductByCustomerExcel',['sorting'=>$sorting,'startdate'=>$from,'enddate'=>$to, 'product_name' => $product_name, 'product_id' => $product_id])}}" class="btn btn-primary">
+                        Export Excel
+                    </a>
                 </div>
             @endcan
         </div>
-            <!-- Begin: Customers Table -->
-            <div class="overflow-x-auto scrollbar-hidden">
-                <div class="overflow-x-auto">
-                    <table class="table table-striped mt-5 table-bordered table-hover">
-                        <thead class="table-dark">
+        <!-- Begin: Customers Table -->
+        <div class="overflow-x-auto scrollbar-hidden">
+            <div class="overflow-x-auto">
+                <table class="table table-striped mt-5 table-bordered table-hover">
+                    <thead class="table-dark">
+                        <tr>
+                            <th class="whitespace-nowrap ">Customer Name</th>
+                            <th class="whitespace-nowrap text-center">Customer Email</th>
+                            <th class="whitespace-nowrap text-center">Total Quantity</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach ($customers as $customer )
                             <tr>
-                                <th class="whitespace-nowrap ">Customer Name</th>
-                                <th class="whitespace-nowrap text-center">Customer Email</th>
-                                <th class="whitespace-nowrap text-center">Total Quantity</th>
+                                <td class="whitespace-nowrap ">{{$customer->name}}</td>
+                                <td class="whitespace-nowrap text-center">{{$customer->email}}</td>
+                                <td class="whitespace-nowrap text-center">{{ number_format($customer->total_quantity)}}</td>
                             </tr>
-                        </thead>
-                        <tbody>
-                            @foreach ($customers as $customer )
-                                <tr>
-                                    <td class="whitespace-nowrap ">{{$customer->name}}</td>
-                                    <td class="whitespace-nowrap text-center">{{$customer->email}}</td>
-                                    <td class="whitespace-nowrap text-center">{{ number_format($customer->total_quantity)}}</td>
-                                </tr>
-                            @endforeach
-                        </tbody>
-                    </table>
-                </div>
+                        @endforeach
+                    </tbody>
+                </table>
             </div>
-            <!-- End: Customers Table -->
-            <!-- Begin: Customers Pagination -->
-            <div class="intro-y col-span-12 flex flex-wrap sm:flex-row sm:flex-nowrap items-center mt-5">
-                <nav class="w-full sm:w-auto sm:mr-auto">
-                    {!! $customers->onEachSide(1)->links() !!}
-                </nav>
-                <div class="mx-auto text-slate-500">
-                    @if($customers->count() == 0)
-                        Showing 0 to 0 of 0 entries
-                    @else
-                        Showing {{$customers->firstItem()}} to {{$customers->lastItem()}} of {{$customers->total()}} entries
-                    @endif
-                </div>
-                <select wire:model="perPage" class="w-20 form-select box mt-3 sm:mt-0">
-                    <option>10</option>
-                    <option>25</option>
-                    <option>50</option>
-                    <option>100</option>
-                </select>
-            </div>
-            <!-- End: Customers Pagination -->
         </div>
+        <!-- End: Customers Table -->
+        <!-- Begin: Customers Pagination -->
+        <div class="intro-y col-span-12 flex flex-wrap sm:flex-row sm:flex-nowrap items-center mt-5">
+            <nav class="w-full sm:w-auto sm:mr-auto">
+                {!! $customers->onEachSide(1)->links() !!}
+            </nav>
+            <div class="mx-auto text-slate-500">
+                @if($customers->count() == 0)
+                    Showing 0 to 0 of 0 entries
+                @else
+                    Showing {{$customers->firstItem()}} to {{$customers->lastItem()}} of {{$customers->total()}} entries
+                @endif
+            </div>
+            <select wire:model="perPage" class="w-20 form-select box mt-3 sm:mt-0">
+                <option>10</option>
+                <option>25</option>
+                <option>50</option>
+                <option>100</option>
+            </select>
+        </div>
+        <!-- End: Customers Pagination -->
     </div>
 </div>
+

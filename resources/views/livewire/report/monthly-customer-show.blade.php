@@ -1,15 +1,7 @@
 <div>
-    {{-- {{$month}} --}}
     <div class="grid grid-cols-12 gap-6 mt-5">
         <div class="intro-y col-span-12 flex flex-wrap sm:flex-nowrap items-center mt-2">
             <div class="font-medium text-base flex items-center border-b border-slate-200/60 dark:border-darkmode-400 pb-5"> <a href="{{ Route('report.customerPerMonth') }}" class="mr-2 btn">←</a> {{$date}} Customers  </div>
-            <div class="hidden md:block mx-auto text-slate-500">
-                @if($users->count() == 0)
-                Showing 0 to 0 of 0 entries
-                @else
-                    {{-- Showing {{$users->firstItem()}} to {{$users->lastItem()}} of {{$users->total()}} entries --}}
-                @endif
-            </div>
         </div>
         <!-- BEGIN: Users Layout -->
         @forelse($users as $user)

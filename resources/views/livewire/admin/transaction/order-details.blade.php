@@ -192,56 +192,40 @@
                 </div>
             @endif
             <!-- End: Cancellation -->
+
+
+
             <!-- Begin: Reject Order Modal -->
-                <livewire:admin.transaction.order-reject-form/>
-            <!-- End: Reject Order Modal -->
-
-
-            @if($orderdetails->status == "Pending for Approval")
-                <livewire:admin.transaction.order-approved-form/>
-                <div class="mt-5 intro-y flex justify-end gap-2">
-                    <a onclick="setOrderToCancel()" class="btn btn-danger">
-                        Reject
-                    </a>
-
-                </div>
-
-                @livewire('admin.transaction.order-approval',['order' => $orderdetails])
-
-            @elseif($orderdetails->status == "Processing")
-                <div class="mt-5 intro-y flex justify-end gap-2">
-                    <a onclick="setOrderToCancel()" class="btn btn-danger">
-
-                    </a>
-                    <a onclick="setOrderToPacked('{{ $orderdetails->id }}')"  href="javascript:;" class="btn btn-primary">
-                        Set Status To Packed and Ready to Ship
-                    </a>
-                </div>
-            @elseif($orderdetails->status == "Packed")
-                <div class="mt-5 intro-y flex justify-end gap-2">
-                    <a onclick="setOrderToCancel()" class="btn btn-danger">
-                        Reject
-                    </a>
-                    <a onclick="setOrderOutForDelivery('{{ $orderdetails->id }}')"  href="javascript:;" class="btn btn-primary">
-                        Set Status To Out for Delivery
-                    </a>
-                </div>
-            @elseif($orderdetails->status == "Out For Delivery")
-                <div class="mt-5 intro-y flex justify-end gap-2">
-                    <a onclick="setOrderToCancel()" class="btn btn-danger" href="javascript:;">
-                        Reject
-                    </a>
-                    <a onclick="setOrderToCompleted('{{ $orderdetails->id }}')"  href="javascript:;" class="btn btn-primary">
-                        Set Status To Completed
-                    </a>
-                </div>
-            @endif
+            <livewire:admin.transaction.order-reject-form/>
+            <livewire:admin.transaction.order-approved-form/>
             <livewire:admin.transaction.set-status-to-packed/>
             <livewire:admin.transaction.order-out-for-delivery-modal/>
             <livewire:admin.transaction.order-completed-modal/>
+            <!-- End: Reject Order Modal -->
+            <!-- Begin: Set Status To Packed Modal -->
+            <!-- End: Set Status To Packed Modal -->
 
-
-
+            @if($orderdetails->status == "Pending for Approval")
+                <div class="mt-5 intro-y flex justify-end gap-2">
+                    <button wire:click="selectItem({{ $orderdetails->id }},'reject_order')" class="btn btn-danger">  Reject </button>
+                    <button wire:click="selectItem({{ $orderdetails->id }},'approve_order')" class="btn btn-primary">  Approve </button>
+                </div>
+            @elseif($orderdetails->status == "Processing")
+                <div class="mt-5 intro-y flex justify-end gap-2">
+                    <button wire:click="selectItem({{ $orderdetails->id }},'reject_order')" class="btn btn-danger">  Reject </button>
+                    <button wire:click="selectItem({{ $orderdetails->id }},'set_status_to_packed')" class="btn btn-primary">  Set Status To Packed </button>
+                </div>
+            @elseif($orderdetails->status == "Packed")
+                <div class="mt-5 intro-y flex justify-end gap-2">
+                    <button wire:click="selectItem({{ $orderdetails->id }},'reject_order')" class="btn btn-danger">  Reject </button>
+                    <button wire:click="selectItem({{ $orderdetails->id }},'set_status_to_out_for_delivery')" class="btn btn-primary">Set Status To Out for Delivery </button>
+                </div>
+            @elseif($orderdetails->status == "Out For Delivery")
+                <div class="mt-5 intro-y flex justify-end gap-2">
+                    <button wire:click="selectItem({{ $orderdetails->id }},'reject_order')" class="btn btn-danger">  Reject </button>
+                    <button wire:click="selectItem({{ $orderdetails->id }},'set_status_to_completed')" class="btn btn-primary">Set Status To Completed</button>
+                </div>
+            @endif
         </div>
     </div>
 
@@ -254,41 +238,53 @@
     </div>
     @push('scripts')
         <script>
-            //const cancelOrderModal = document.querySelector('');
+            //Begin: Set Status To Processing
+            const setApproveOrderModal = tailwind.Modal.getInstance(document.querySelector("#order-approved-modal"));
+            window.addEventListener('ShowApprovedOrderModal',event => {
+                setApproveOrderModal.show();
+            });
+
+            window.addEventListener('closeApprovedModal',event => {
+                setApproveOrderModal.hide();
+            });
+
+
+            //End: Set Status To Processing
+            //Begin: Set Reject Order
+            const setRejectOrderModal = tailwind.Modal.getInstance(document.querySelector("#order-reject-modal"));
+
+            window.addEventListener('openRejectOrderModal',event => {
+                setRejectOrderModal.show();
+            });
+
+            window.addEventListener('closeRejectModal',event => {
+                setRejectOrderModal.hide();
+            });
+
+            //End: Set Reject Order
+            //Begin: Set Status To Packed
             const setOrderToPackedModal = tailwind.Modal.getInstance(document.querySelector("#set-status-to-packed-modal"));
 
-          ///  const setOrderToPackedModal = document.querySelector('#set-status-to-packed-modal');
-            const setOrderToPacked = (orderid)=>{
-                livewire.emit("SetStatusToPacked", orderid,);
-            }
-            const setOrderToCancel = (orderid)=>{
-                livewire.emit("getModelRejectId", orderid,);
-
-            }
             window.addEventListener('HideSetOrderToPackedModal',event => {
                 setOrderToPackedModal.hide()
             });
             window.addEventListener('ShowSetOrderToPackedModal', event => {
                 setOrderToPackedModal.show()
             });
-
+            //End: Set Status To Packed
+            //Begin: Set Status for Out For Delivery
             const setOrderToOutForDeliveryModal = tailwind.Modal.getInstance(document.querySelector("#set-status-to-out-for-delivery-modal"));
 
-            const setOrderOutForDelivery = (orderid)=>{
-                livewire.emit("SetStatusToOutForDelivery",orderid);
-            }
             window.addEventListener('ShowOutForDeliveryModal',event => {
                 setOrderToOutForDeliveryModal.show()
             });
             window.addEventListener('HideOutForDeliveryModal', event => {
                 setOrderToOutForDeliveryModal.hide()
             });
+            //End: Set Status for Out For Delivery
 
+            //Begin: Set Status To Completed
             const setOrderCompleted = tailwind.Modal.getInstance(document.querySelector("#set-status-completed-modal"));
-
-            const setOrderToCompleted = (orderid) => {
-                livewire.emit("SetStatusToCompleted",orderid);
-            }
 
             window.addEventListener('ShowCompletedModal',event => {
                 setOrderCompleted.show()
@@ -297,6 +293,54 @@
             window.addEventListener('HideCompletedModal', event => {
                 setOrderCompleted.hide()
             });
+            //End: Set Status To Completed
+
+
+
+
+        window.addEventListener('SuccessAlert',event => {
+            let id = (Math.random() + 1).toString(36).substring(7);
+            Toastify({
+                node: $("#success-notification-content") .clone() .removeClass("hidden")[0],
+                duration: 7000,
+                className: `toast-${id}`,
+                newWindow: false,
+                close: true,
+                gravity: "top",
+                position: "right",
+                stopOnFocus: true, }).showToast();
+
+                const toast = document.querySelector(`.toast-${id}`)
+                toast.querySelector("#title").innerText = event.detail.title
+                toast.querySelector("#message").innerText = event.detail.name
+            });
+            //Invalid Alert
+            window.addEventListener('InvalidAlert',event => {
+                let id = (Math.random() + 1).toString(36).substring(7);
+                Toastify({
+                    node: $("#invalid-success-notification-content") .clone() .removeClass("hidden")[0],
+                    duration: 7000,
+                    newWindow: true,
+                    className: `toast-${id}`,
+                    close: true,
+                    gravity: "top",
+                    position: "right",
+                    stopOnFocus: true, }).showToast();
+
+                    const toast = document.querySelector(`.toast-${id}`)
+                        toast.querySelector("#title").innerText = event.detail.title
+                        toast.querySelector("#message").innerText = event.detail.name
+            });
+
+
+
+            //const cancelOrderModal = document.querySelector('');
+
+          ///  const setOrderToPackedModal = document.querySelector('#set-status-to-packed-modal');
+
+
+
+
         </script>
     @endpush
 </div>

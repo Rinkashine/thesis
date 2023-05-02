@@ -11,19 +11,20 @@ use Spatie\Permission\Models\Role;
 
 
 class MonthlyCustomerShow extends Component
-{   use WithPagination;
+{
+    use WithPagination;
 
+    protected $paginationTheme = 'bootstrap';
 
     protected $users;
+
     public function mount($from, $to, $month, $year){
-        // $this->users = $users
         $this->from = $from;
         $this->to = $to;
         $this->month = $month;
         $this->year = $year;
 
         $this->perPage = 9;
-        // dd($this->to);
     }
     public function render()
     {

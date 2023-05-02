@@ -7,7 +7,9 @@
         </div>
         @can('report_export')
             <div>
-                <a href="{{ Route('exportMostVisitedPageExcel',['startdate'=>$startdate,'enddate'=>$enddate]) }}" class="btn btn-primary">Export To Excel</a>
+                <a href="{{ Route('exportMostVisitedPageExcel',['startdate'=>$startdate,'enddate'=>$enddate]) }}" class="btn btn-primary">
+                    Export To Excel
+                </a>
             </div>
         @endcan
     </div>

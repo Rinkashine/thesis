@@ -60,38 +60,47 @@
 
         var saleschartlabel = {{ Js::from($saleschartlabel) }}
         var saleschartdataset = {{ Js::from($saleschartdataset) }}
+
+        let randomBackgroundColor = [];
+        let usedColors = new Set();
+
+        let dynamicColors = function() {
+            let r = Math.floor(Math.random() * 255);
+            let g = Math.floor(Math.random() * 255);
+            let b = Math.floor(Math.random() * 255);
+            let color = "rgb(" + r + "," + g + "," + b + ")";
+
+            if (!usedColors.has(color)) {
+                usedColors.add(color);
+                return color;
+            } else {
+                return dynamicColors();
+            }
+        };
+
+        for (let i in saleschartlabel) {
+            randomBackgroundColor.push(dynamicColors());
+        }
+
         const data = {
         labels: saleschartlabel,
         datasets: [{
             label: 'Sales',
             data: saleschartdataset,
-            backgroundColor: [
-            'rgba(255, 99, 132, 0.2)',
-            'rgba(255, 159, 64, 0.2)',
-            'rgba(255, 205, 86, 0.2)',
-            'rgb(255, 205, 86)',
-            ],
-            borderColor: [
-            'rgb(255, 99, 132)',
-            'rgb(255, 159, 64)',
-            'rgb(255, 205, 86)',
-            'rgb(255, 205, 86)',
-
-            ],
+            backgroundColor: randomBackgroundColor,
+            borderColor: randomBackgroundColor,
             borderWidth: 1
         }]
         };
 
         const config = {
-        type: 'bar',
-        data: data,
-        options: {
-            scales: {
-            y: {
-                beginAtZero: true
-            }
-            }
-        },
+            type: 'bar',
+            data: data,
+            options: {
+                plugins: {
+                    legend: false // Hide legend
+                },
+            },
         };
 
         const Sales = new Chart(

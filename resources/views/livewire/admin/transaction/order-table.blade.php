@@ -12,23 +12,19 @@
                     <option value="">Status</option>
                     <option value="Pending For Approval">Pending For Approval</option>
                     <option value="Processing">Processing</option>
-                    <option value="Ready For Delivery">Ready For Delivery</option>
-                    <option value="Will Try To Deliver Today">Will Try To Deliver Today</option>
+                    <option value="Packed">Packed</option>
+                    <option value="Out For Delivery">Out For Delivery</option>
                     <option value="Rejected">Rejected</option>
                     <option value="Completed">Completed</option>
                 </select>
             </div>
             <div class="hidden xl:block mx-auto text-slate-500">Showing {{ $orders->firstItem() }} to {{ $orders->lastItem() }} of {{ $orders->total() }} entries</div>
-            <div class="w-full xl:w-auto flex items-center mt-3 xl:mt-0">
-                <button class="btn btn-primary shadow-md mr-2"> <i data-lucide="file-text" class="w-4 h-4 mr-2"></i> Export to Excel </button>
-            </div>
         </div>
         <!-- BEGIN: Data List -->
         <div class="intro-y col-span-12 overflow-auto 2xl:overflow-visible">
             <table class="table table-report -mt-2">
                 <thead>
                     <tr>
-
                         <th class="whitespace-nowrap">Order ID</th>
                         <th class="whitespace-nowrap">BUYER NAME</th>
                         <th class="text-center whitespace-nowrap">STATUS</th>

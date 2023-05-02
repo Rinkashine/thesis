@@ -16,29 +16,30 @@ use App\Exports\BrowserTypeExport;
 use Illuminate\Support\Facades\DB;
 use App\Exports\SalesProductExport;
 use App\Exports\CustomerSpentExport;
+use App\Exports\PaymentByTypeExport;
+
+
 use App\Exports\SalesCategoryExport;
-
-
 use App\Exports\SalesOverTimeExport;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Gate;
 use Maatwebsite\Excel\Facades\Excel;
+use App\Exports\ProductRatingsExport;
 use App\Exports\RejectedOrdersExport;
 use App\Exports\CancelledOrdersExport;
 use App\Exports\MostVisitedPageExport;
 use App\Exports\OrdersByProductExport;
 use App\Exports\VerifiedAccountExport;
+use App\Exports\CustomerPerMonthExport;
 use App\Exports\OrdersByCustomerExport;
 use App\Exports\CustomerByProductExport;
 use App\Exports\ProductByCustomerExport;
 use App\Exports\NonVerifiedAccountExport;
 use App\Exports\CancellationReasonsExport;
 use App\Exports\MonthlyCancellationExport;
+
 use App\Exports\CancellationOverTimeExport;
 use App\Exports\ProductRatingsByCustomerExport;
-use App\Exports\ProductRatingsExport;
-
-use App\Exports\PaymentByTypeExport;
 
 
 class ReportController extends Controller
@@ -412,5 +413,9 @@ class ReportController extends Controller
         abort_if(Gate::denies('report_access'),403);
         return Excel::download(new ProductRatingsByCustomerExport($request->sorting,$request->startdate,$request->enddate,$request->name,$request->product_id),
         $request->name.' Ratings By Customer('.$request->startdate.' - '.$request->enddate.').xlsx');
+    }
+    public function exportCustomerPerMonthEXCEL (Request $request){
+        abort_if(Gate::denies('report_access'),403);
+        return Excel::download(new CustomerPerMonthExport,'Customer Per Month.xlsx');
     }
 }

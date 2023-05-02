@@ -11,20 +11,6 @@
             </div>
         @endcan
     </div>
-    {{-- <div class="intro-y box mt-5 ">
-        <div class="flex items-center p-5 border-b border-slate-200/60 dark:border-darkmode-400">
-            <div>
-                <div>
-                    <h2 class="font-medium text-base mr-auto">
-                        Chart
-                    </h2>
-                </div>
-            </div>
-        </div>
-        <div class="p-5">
-            <canvas id="test" height="80px"></canvas>
-        </div>
-    </div> --}}
     <div class="intro-y box mt-5 ">
         <div class="p-5">
             <div class="overflow-x-auto">

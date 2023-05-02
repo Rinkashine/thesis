@@ -14,7 +14,6 @@ class OrderOutForDeliveryModal extends Component
     public function SetStatusToOutForDelivery($orderid)
     {
         $this->model_id = $orderid;
-        $this->dispatchBrowserEvent('ShowOutForDeliveryModal');
     }
 
     public function cleanVars(){

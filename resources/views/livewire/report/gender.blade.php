@@ -17,7 +17,6 @@
                 <!-- BEGIN: Main Body Chart -->
                 <div class="col-span-12 xl:col-span-8 mt-6">
                     <div class=" box mt-5 w-full">
-
                         <div class="p-5" >
                             <div class="flex justify-center items-center ">
                                 <div class="w-1/2 h-1/2" wire:ignore>
@@ -57,7 +56,6 @@
                                                 <td class="whitespace-nowrap text-center" colspan="3">No Data Found</td>
                                             </tr>
                                         @endforelse
-
                                     </tbody>
                                 </table>
                             </div>

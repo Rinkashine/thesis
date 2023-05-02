@@ -17,6 +17,29 @@ class OrderDetails extends Component
     public function mount($orderdetails){
         $this->model_id = $orderdetails->id;
     }
+
+    public function selectItem($itemId, $action)
+    {
+        $this->selectedItem = $itemId;
+        if($action == 'approve_order'){
+            $this->emit('SetStatusToProcessing', $this->selectedItem);
+            $this->dispatchBrowserEvent('ShowApprovedOrderModal');
+        }elseif($action == 'reject_order') {
+            $this->emit('getModelRejectId', $this->selectedItem);
+            $this->dispatchBrowserEvent('openRejectOrderModal');
+        }elseif($action == 'set_status_to_packed'){
+            $this->emit('SetStatusToPacked', $this->selectedItem);
+            $this->dispatchBrowserEvent('ShowSetOrderToPackedModal');
+        }elseif($action == 'set_status_to_out_for_delivery'){
+            $this->emit('SetStatusToOutForDelivery', $this->selectedItem);
+            $this->dispatchBrowserEvent('ShowOutForDeliveryModal');
+        }elseif($action == 'set_status_to_completed'){
+            $this->emit('SetStatusToCompleted', $this->selectedItem);
+            $this->dispatchBrowserEvent('ShowCompletedModal');
+        }
+        $this->action = $action;
+    }
+
     public function render()
     {
         $orderdetails = CustomerOrder::findorfail($this->model_id);

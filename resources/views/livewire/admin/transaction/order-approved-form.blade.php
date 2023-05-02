@@ -9,12 +9,12 @@
                             Are you sure?
                         </div>
                         <div class="text-slate-500 mt-2">
-                            You want to approved this order!
+                            You want to approve this order!
                         </div>
                     </div>
                     <div class="px-5 pb-8 text-center">
                         <button wire:click="closeModal" type="button"  class="btn btn-outline-secondary w-24 mr-1">Cancel</button>
-                        <button wire:click="approve" type="submit" class="btn btn-primary  w-24">Approved</button>
+                        <button wire:click="approve" type="submit" class="btn btn-primary  w-24">Approve</button>
                     </div>
                 </div>
             </div>

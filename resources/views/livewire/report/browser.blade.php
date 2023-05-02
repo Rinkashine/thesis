@@ -72,7 +72,6 @@
                                                 <td class="whitespace-nowrap text-center" colspan="3">No Data Found</td>
                                             </tr>
                                         @endforelse
-
                                     </tbody>
                                 </table>
                             </div>

@@ -11,14 +11,14 @@ class OrderApprovedForm extends Component
     public $modelId;
 
     protected $listeners = [
-        'getModelApprovedId',
+        'SetStatusToProcessing',
         'forceCloseModal',
         'refreshChild' => '$refresh',
     ];
 
-    public function getModelApprovedId($modelId)
+    public function SetStatusToProcessing($orderid)
     {
-        $this->modelId = $modelId;
+        $this->modelId = $orderid;
     }
 
     private function cleanVars()

@@ -17,13 +17,6 @@
                     <label class="w-12 flex-none xl:w-auto xl:flex-initial mr-2">Value</label>
                     <input type="search" wire:model.lazy="search" class="form-control sm:w-40 2xl:w-full mt-2 sm:mt-0" placeholder="Search...">
                 </div>
-                <div class="mt-2 xl:mt-0">
-                    @can('supplier_archive_access')
-                        <a href="{{Route('SupplierArchiveIndex')}}">
-                            <button  type="button" class="btn btn-secondary w-full sm:w-32 mt-2 sm:mt-0 sm:ml-1" >  <i class="fa-solid fa-file-zipper w-4 h-4 mr-2"></i>Archive</button>
-                        </a>
-                    @endcan
-                </div>
             </div>
             @can('supplier_export')
                 <div class="flex mt-5 sm:mt-0">

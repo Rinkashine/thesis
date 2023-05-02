@@ -14,14 +14,6 @@
                         <option value="total_quantity_desc">Total Ordered Products (High To Low)</option>
                     </select>
                 </div>
-                {{-- <div class="sm:flex items-center sm:mr-4 mt-2 xl:mt-0">
-                    <label class="w-12 flex-none xl:w-auto xl:flex-initial mr-2">From:</label>
-                    <input " class="form-control sm:w-40 2xl:w-full mt-2 sm:mt-0" wire:model="from" id="from" name ="from"  type="datetime-local" max="{{ $to }}" />
-                </div>
-                <div class="sm:flex items-center sm:mr-4 mt-2 xl:mt-0">
-                    <label class="w-12 flex-none xl:w-auto xl:flex-initial mr-2">To:</label>
-                    <input type="datetime-local" class="form-control sm:w-40 2xl:w-full mt-2 sm:mt-0" id="to" name ="to" wire:model="to" min="{{ $from }}"/>
-                </div> --}}
                 <div class="sm:flex items-center sm:mr-4 mt-2 xl:mt-0">
                     <label class="w-12 flex-none xl:w-auto xl:flex-initial mr-2">Seach</label>
                     <input wire:model.lazy="search" type="search" class="form-control sm:w-40 2xl:w-full mt-2 sm:mt-0" placeholder="Search...">
@@ -29,7 +21,9 @@
             </div>
             @can('report_export')
                 <div class="mt-5">
-                    <a href="{{Route('report.exportOrdersByCustomer')}}" class="btn btn-primary"> <i class="fa-solid fa-file-excel mr-1"></i> Export Excel </a>
+                    <a href="{{Route('report.exportOrdersByCustomer')}}" class="btn btn-primary">
+                        Export Excel
+                    </a>
                 </div>
             @endcan
         </div>

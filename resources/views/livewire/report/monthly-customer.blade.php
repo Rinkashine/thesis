@@ -7,7 +7,9 @@
         </div>
         @can('report_export')
             <div>
-                <a href="{{ Route('exportCustomerPerMonthEXCEL') }}" class="btn btn-primary">Export To Excel</a>
+                <a href="{{ Route('exportCustomerPerMonthEXCEL') }}" class="btn btn-primary">
+                    Export To Excel
+                </a>
             </div>
         @endcan
     </div>
