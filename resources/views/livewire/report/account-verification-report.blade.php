@@ -7,87 +7,94 @@
         </div>
         @can('report_export')
             <div>
-                {{-- <a href="{{ Route('exportsalesovertime') }}" class="btn btn-primary">Export To Excel</a> --}}
+                 <a href="{{ Route('exportsalesovertime') }}" class="btn btn-primary">Export To Excel</a>
             </div>
         @endcan
     </div>
-    <div class="intro-y box mt-5 ">
-        <div class="p-5">
-            <div class="overflow-x-auto">
-                <table class="table table-bordered">
-                    <thead class="table-dark">
-                        <tr>
-                            <td class="whitespace-nowrap text-center">Account</td>
-                            <td class="whitespace-nowrap text-center">Count</td>
-                            <td class="whitespace-nowrap text-center">Action</td>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td class="wwhitespace-nowrap text-center">Verified</td>
-                            <td class="whitespace-nowrap text-center">{{$verified}}</td>
-                            <td class="whitespace-nowrap text-center"><a href="{{ Route('report.VerifiedAccount') }}">View Details</a></td>
-                        </tr>
-                        <tr>
-                            <td class="wwhitespace-nowrap text-center">Non-Verified</td>
-                            <td class="whitespace-nowrap text-center">{{$nonverified}} </td>
-                            <td class="whitespace-nowrap text-center"><a href="{{ Route('report.NonVerifiedAccount') }}">View Details</a></td>
-                        </tr>
-                    </tbody>
-                </table>
+    <div class="grid grid-cols-12 gap-6">
+        <div class="col-span-12">
+            <div class="grid grid-cols-12 gap-6">
+                <!-- BEGIN: Main Body Chart -->
+                <div class="col-span-12 xl:col-span-8 mt-6">
+                    <div class=" box mt-5 w-full">
+                        <div class="p-5" >
+                            <div class="flex justify-center items-center ">
+                                <div class="w-1/2 h-1/2" wire:ignore>
+                                    <canvas id="Account"></canvas>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <!-- END: Main Body Chart -->
+                <!-- BEGIN: Table Data -->
+                <div class="col-span-12 xl:col-span-4 2xl:mt-5">
+                    <div class="intro-y box  mt-12 sm:mt-5">
+                        <div class="flex items-center p-5 border-b border-slate-200/60 dark:border-darkmode-400">
+                            <h2 class="font-medium text-base mr-auto">
+                                Verified User Report
+                            </h2>
+                        </div>
+                        <div class="p-5">
+                            <div class="overflow-x-auto">
+                                <table class="table table-bordered">
+                                    <thead class="table-dark">
+                                        <tr>
+                                            <td class="whitespace-nowrap">Type</td>
+                                            <td class="whitespace-nowrap text-center">Total</td>
+                                            <td class="whitespace-nowrap text-center">Action</td>
+
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td class="whitespace-nowrap">Verified</td>
+                                            <td class="whitespace-nowrap text-center">{{$verified}}</td>
+                                            <td class="whitespace-nowrap text-center"><a href="{{ Route('report.VerifiedAccount') }}">View Details</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="whitespace-nowrap">Non-Verified</td>
+                                            <td class="whitespace-nowrap text-center">{{$nonverified}} </td>
+                                            <td class="whitespace-nowrap text-center"><a href="{{ Route('report.NonVerifiedAccount') }}">View Details</a></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- END: Table Data -->
             </div>
         </div>
     </div>
-    {{-- @push('scripts')
-    <script>
+    @push('scripts')
+        <script>
+            var accountlabel = {{ Js::from($accountlabel) }};
+            var accountdataset =  {{ Js::from($accountdataset) }};
+            const data = {
+                labels: accountlabel,
+                datasets: [{
+                    label: 'User Types',
+                    data: accountdataset,
+                    backgroundColor: [
+                    'rgb(30,95,78)',
+                    'rgb(250,209,44)',
+                    ],
+                    hoverOffset: 4
+                }]
+            };
 
-        var saleschartlabel = {{ Js::from($saleschartlabel) }}
-        var saleschartdataset = {{ Js::from($saleschartdataset) }}
-        const data = {
-        labels: saleschartlabel,
-        datasets: [{
-            label: 'Sales',
-            data: saleschartdataset,
-            backgroundColor: [
-            'rgba(255, 99, 132, 0.2)',
-            'rgba(255, 159, 64, 0.2)',
-            'rgba(255, 205, 86, 0.2)',
-            'rgb(255, 205, 86)',
-            ],
-            borderColor: [
-            'rgb(255, 99, 132)',
-            'rgb(255, 159, 64)',
-            'rgb(255, 205, 86)',
-            'rgb(255, 205, 86)',
+            const config = {
+                type: 'doughnut',
+                data: data,
+            };
 
-            ],
-            borderWidth: 1
-        }]
-        };
+            const GenderChart = new Chart(
+                document.getElementById('Account'),
+                config
+            );
 
-        const config = {
-        type: 'bar',
-        data: data,
-        options: {
-            scales: {
-            y: {
-                beginAtZero: true
-            }
-            }
-        },
-        };
-
-        const Sales = new Chart(
-            document.getElementById('test'),
-            config
-        );
-        //End: Sales Chart
-        document.querySelector("input[type=number]")
-      .oninput = e => console.log(new Date(e.target.valueAsNumber, 0, 1))
-    </script>
-
-    @endpush --}}
-
-
-
+        </script>
+    @endpush
 </div>

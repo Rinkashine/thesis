@@ -26,7 +26,7 @@ class UserExport implements FromCollectionm, WithHeadings, ShouldAutoSize
             'address',
             'password',
             'gender',
-            'age',
+             'age',
             'Created_at',
             'Updated_at',
         ];

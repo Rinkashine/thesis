@@ -22,13 +22,7 @@
                     <label class="w-12 flex-none xl:w-auto xl:flex-initial mr-2">Value</label>
                     <input wire:model.lazy="search" type="search" class="form-control sm:w-40 2xl:w-full mt-2 sm:mt-0" placeholder="Search...">
                 </div>
-                <div class="mt-2 xl:mt-0">
-                    @can('product_archive_access')
-                        <a href="{{Route('ProductArchiveIndex')}}">
-                            <button  type="button" class="btn btn-secondary w-full sm:w-32 mt-2 sm:mt-0 sm:ml-1" >  <i class="fa-solid fa-file-zipper w-4 h-4 mr-2"></i>Archive</button>
-                        </a>
-                    @endcan
-                </div>
+
             </div>
             @can('product_export')
                 <div class="flex mt-5 sm:mt-0">
@@ -97,14 +91,15 @@
                                <div class="flex justify-center items-center">
                                    <div class="flex justify-center items-center">
                                         @can('product_edit')
-                                            <a class="flex items-center mr-3" href="{{Route('product.edit',$product)}}"> <i class="fa-regular fa-pen-to-square w-4 h-4 mr-1"></i> Edit </a>
+                                            <a class="flex items-center mr-3 text-primary" href="{{Route('product.edit',$product)}}">
+                                                <i class="fa-regular fa-pen-to-square w-4 h-4 mr-1"></i> Edit
+                                            </a>
                                         @endcan
                                         @can('product_archive')
                                             <button wire:click="selectItem({{$product->id}},'delete')" class="flex items-center text-danger">
-                                                <i class="fa-regular fa-trash-can w-4 h-4 mr-1" ></i> Archive
+                                                <i class="fa-regular fa-trash-can w-4 h-4 mr-1" ></i> Delete
                                             </button>
                                         @endcan
-
                                    </div>
                                </div>
                            </td>

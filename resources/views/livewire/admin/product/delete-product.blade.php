@@ -9,12 +9,12 @@
                             Are you sure?
                         </div>
                         <div class="text-slate-500 mt-2">
-                            Do you want to archive this product
+                            Do you want to delete this product
                         </div>
                     </div>
                     <div class="px-5 pb-8 text-center">
                         <button wire:click="closeModal" type="button"  class="btn btn-outline-secondary w-24 mr-1">Cancel</button>
-                        <button wire:click="delete" type="submit" class="btn btn-danger w-24">Archive</button>
+                        <button wire:click="delete" type="submit" class="btn btn-danger w-24">Delete</button>
                     </div>
                 </div>
             </div>

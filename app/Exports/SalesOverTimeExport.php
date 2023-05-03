@@ -170,7 +170,7 @@ class SalesOverTimeExport implements FromCollection, WithHeadings, ShouldAutoSiz
         return [
             $sales->year,
             $sales->month_name,
-            $sales->total,
+           '₱'.number_format($sales->total,2),
         ];
     }
 

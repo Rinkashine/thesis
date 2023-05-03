@@ -50,13 +50,7 @@
 
         @if(Auth::guard('customer')->check())
         <!-- BEGIN: Notifications -->
-        <a href="{{ Route('cart.index') }}">
-            <div class="intro-x dropdown mr-4 sm:mr-6">
-                <div class="notification notification--light notification--bullet cursor-pointer" role="button" aria-expanded="false">
-                    <i data-lucide="shopping-cart" class="@notification__icon dark:text-slate-500"></i>
-                </div>
-            </div>
-        </a>
+        <livewire:customer.component.carticon/>
         <!-- END: Notifications -->
 
         <!-- BEGIN: Account Menu -->

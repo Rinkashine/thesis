@@ -84,44 +84,11 @@
                 </div>
             </div>
         </div>
-        <div class="flex justify-between flex-col  md:flex-col lg:flex-row  2xl:flex-row  sm:flex-col gap-5 ">
-            <div class="intro-y box p-5 mt-5 w-full">
-                <h2 class="font-medium text-base mr-auto">
-                    Shipping Addresses
-                </h2>
-                <div class="w-full border-t border-slate-200/60 mt-1 mb-2"></div>
-                <div class="overflow-x-auto">
-                    <table class="table table-bordered table-hover">
-                        <thead class="table-light">
-                            <tr>
-                                <th class="whitespace-nowrap">Full Name</th>
-                                <th class="whitespace-nowrap text-center">Address</th>
-                                <th class="whitespace-nowrap text-center">Postcode</th>
-                                <th class="whitespace-nowrap text-center">Phone Number</th>
-                            </tr>
-                        </thead>
-                        <tbody id="addressTbody" >
-                            @forelse ($address as $address)
-                            <tr >
-                                <td class="whitespace-nowrap">{{ $address->name }}</td>
-                                <td class="whitespace-nowrap text-center">{{ $address->house }}</td>
-                                <td class="whitespace-nowrap text-center address" wire:ignore>{{ $address->province }}-{{ $address->city }}-{{ $address->barangay}}</td>
-                                <td class="whitespace-nowrap text-center">{{ $address->phone_number }}</td>
-                            </tr>
-                            @empty
-                                <tr>
-                                    <td colspan="5">No Address Data</td>
-                                </tr>
-                            @endforelse
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
+
         <div class="intro-y box mt-5 ">
             <div class="flex items-center p-5 border-b border-slate-200/60 dark:border-darkmode-400">
                 <h2 class="font-medium text-base mr-auto">
-                    Order List
+                    List of Orders
                 </h2>
             </div>
 

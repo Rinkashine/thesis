@@ -44,6 +44,7 @@ class RemoveProductCart extends Component
         $this->emit('refreshParent');
         $this->cleanVars();
         $this->dispatchBrowserEvent('CloseDeleteModal');
+        $this->emit('refreshcarticon');
     }
 
     public function render()

@@ -72,14 +72,14 @@
                                         <div class="flex justify-center items-center">
                                             <div class="flex justify-center items-center">
                                                 @can('supplier_show')
-                                                    <a class="flex items-center mr-3" href="{{ Route('supplier.show',$supplier) }}"> <i class="fa-solid fa-eye w-4 h-4 mr-1"></i> Show </a>
+                                                    <a class="flex items-center mr-3    " href="{{ Route('supplier.show',$supplier) }}"> <i class="fa-solid fa-eye w-4 h-4 mr-1"></i> Show </a>
                                                 @endcan
                                                 @can('supplier_edit')
-                                                    <a class="flex items-center mr-3" href="{{ Route('supplier.edit',$supplier) }}" > <i class="fa-regular fa-pen-to-square w-4 h-4 mr-1"></i> Edit </a>
+                                                    <a class="flex items-center mr-3 text-primary" href="{{ Route('supplier.edit',$supplier) }}" > <i class="fa-regular fa-pen-to-square w-4 h-4 mr-1"></i> Edit </a>
                                                 @endcan
                                                 @can('supplier_archive')
-                                                    <button wire:click="selectItem({{$supplier->id}},'archive')" class="flex items-center ">
-                                                        <i class="fa-regular fa-trash-can w-4 h-4 mr-1" ></i> Archive
+                                                    <button wire:click="selectItem({{$supplier->id}},'archive')" class="flex items-center text-danger">
+                                                        <i class="fa-regular fa-trash-can w-4 h-4 mr-1" ></i> Delete
                                                     </button>
                                                 @endcan
                                             </div>

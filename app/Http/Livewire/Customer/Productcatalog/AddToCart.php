@@ -51,6 +51,8 @@ class AddToCart extends Component
                 'check' => 0,
             ]);
         }
+        $this->emit('refreshcarticon');
+
         $this->dispatchBrowserEvent('swal:modal', [
             'type' => 'success',
             'title' => 'Successfully Added To Cart',

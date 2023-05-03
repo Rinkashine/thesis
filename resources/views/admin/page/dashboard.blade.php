@@ -62,7 +62,7 @@
             </div>
             <!-- END: General Report -->
             <!-- BEGIN: Sales Report -->
-           <div class="col-span-12 xl:col-span-8 mt-4">
+            <div class="col-span-12 xl:col-span-8 mt-4 hidden sm:block">
                 <div class=" w-full">
                     <div class="flex items-center border-b border-slate-200/60 dark:border-darkmode-400">
                         <h2 class="font-medium text-lg mr-auto">

@@ -4,6 +4,7 @@ namespace App\Http\Livewire\Admin\Transaction;
 
 use Livewire\Component;
 use App\Models\CustomerOrder;
+use App\Jobs\OrderIsOutForDeliveryJob;
 
 class OrderOutForDeliveryModal extends Component
 {
@@ -24,6 +25,9 @@ class OrderOutForDeliveryModal extends Component
         $customer = CustomerOrder::findorfail($this->model_id);
         $customer->status = "Out For Delivery";
         $customer->update();
+
+        dispatch(new OrderIsOutForDeliveryJob($customer));
+
         $this->dispatchBrowserEvent('HideOutForDeliveryModal');
         $this->emit('refreshParent');
         $this->dispatchBrowserEvent('SuccessAlert', [

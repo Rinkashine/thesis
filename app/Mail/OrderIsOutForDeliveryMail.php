@@ -7,8 +7,8 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 use App\Models\CustomerOrder;
-use App\Models\Customer;
-class OrderIsPackedMail extends Mailable
+
+class OrderIsOutForDeliveryMail extends Mailable
 {
     use Queueable, SerializesModels;
     protected $details;
@@ -30,9 +30,9 @@ class OrderIsPackedMail extends Mailable
     public function build()
     {
         $orderinfo = CustomerOrder::find($this->details['id']);
-        return $this->subject('Your Go Dental Order is ready for delivery')
+        return $this->subject('Your Go Dental Order is Out For Delivery')
         ->from('godentalph@gmail.com', 'Go Dental')
-        ->view('admin.mail.order-packed')
+        ->view('admin.mail.order-out-for-delivery')
         ->with([
            'name' => $orderinfo->customers->name,
            'order_id' => $this->details['id'],
