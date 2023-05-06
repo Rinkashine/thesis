@@ -4,6 +4,16 @@
     <title>How To Generate Invoice PDF In Laravel 9 - Techsolutionstuff</title>
 </head>
 <style type="text/css">
+@page { margin: 5px 5px 10px; }
+#footer {
+    position: fixed;
+    left: 20px;
+    bottom: 0;
+    text-align: center;
+    }
+#footer .page:after {
+    content: counter(page);
+}
     body{
         font-family: 'Roboto Condensed', sans-serif;
     }
@@ -77,94 +87,126 @@
     }
 </style>
 <body>
-<div class="head-title">
-    <h1 class="text-center m-0 p-0">Invoice</h1>
-</div>
-<div class="add-detail mt-10">
-    <div class="w-50 float-left mt-10">
-        <p class="m-0 pt-5 text-bold w-100">Order Id - <span class="gray-color">{{ $orderdetails->id }}</span></p>
-        <p class="m-0 pt-5 text-bold w-100">Order Date - <span class="gray-color">{{ $orderdetails->created_at->toFormattedDateString() }}</span></p>
-    </div>
-    <div class="w-50 float-left logo mt-10">
-        <img src="{{ public_path('dist/images/MainLogo.png') }}" alt="Logo">
-    </div>
-    <div style="clear: both;"></div>
-</div>
-<div class="table-section bill-tbl w-100 mt-10">
-    <table class="table w-100 mt-10">
-        <tr>
-            <th class="w-50">Shipping Address</th>
-            <th class="w-50">Customer</th>
-        </tr>
-        <tr>
-            <td>
-                <div class="box-text">
-                    <p>{{ $orderdetails->received_by }},</p>
-                    <p>{{ $orderdetails->house }},</p>
-                    <p>{{ $orderdetails->city }}</p>
-                    <p>Contact: {{ $orderdetails->phone_number }}</p>
-                </div>
-            </td>
-            <td>
-                <div class="box-text">
-                    <p>{{ $orderdetails->customers->name }}</p>
-                    <p>email: {{ $orderdetails->customers->email }}</p>
-                    <p>Contact: {{ $orderdetails->customers->phone_number }}</p>
-                </div>
-            </td>
-        </tr>
-    </table>
-</div>
-<div class="table-section bill-tbl w-100 mt-10">
-    <table class="table w-100 mt-10">
-        <tr>
-            <th class="w-50">Payment Method</th>
-        </tr>
-        <tr>
-            <td>Cash On Delivery</td>
-        </tr>
-    </table>
-</div>
-<div class="table-section bill-tbl w-100 mt-10">
-    <table class="table w-100 mt-10">
-        <tr>
-            <th class="w-50">Product Name</th>
-            <th class="w-50">Price</th>
-            <th class="w-50">Qty</th>
-            <th class="w-50">Total</th>
-        </tr>
-        @php
-            $total = 0;
-        @endphp
-        @foreach($orderdetails->orderTransactions as $order)
-            <?php $total += $order->quantity * $order->price ?>
-            <tr>
-                <td>{{ $order->product_name }}</td>
-                <td>₱{{ number_format($order->price,2) }}</td>
-                <td>{{ number_format($order->quantity) }}</td>
-                <td>₱{{ number_format($order->price * $order->quantity ,2)}}</td>
-            </tr>
-        @endforeach
+    <header>
+        <div class="head-title">
+            <h1 class="text-center m-0 p-0">Invoice</h1>
+        </div>
+    </header>
+    <main>
+        <div class="add-detail mt-10">
+            <div class="w-50 float-left mt-10">
+                <p class="m-0 pt-5 text-bold w-100">Order Id - <span class="gray-color">{{ $orderdetails->id }}</span></p>
+                <p class="m-0 pt-5 text-bold w-100">Order Date - <span class="gray-color">{{ $orderdetails->created_at->toFormattedDateString() }}</span></p>
+            </div>
+            <div class="w-50 float-left logo mt-10">
+                <img src="{{ public_path('dist/images/MainLogo.png') }}" alt="Logo">
+            </div>
+            <div style="clear: both;"></div>
+        </div>
+        <div class="table-section bill-tbl w-100 mt-10">
+            <table class="table w-100 mt-10">
+                <tr>
+                    <th class="w-50">Shipping Address</th>
+                    <th class="w-50">Customer</th>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="box-text">
+                            <p>{{ $orderdetails->received_by }},</p>
+                            <p>{{ $orderdetails->house }},</p>
+                            <p>{{ $orderdetails->city }}</p>
+                            <p>Contact: {{ $orderdetails->phone_number }}</p>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="box-text">
+                            <p>{{ $orderdetails->customers->name }}</p>
+                            <p>email: {{ $orderdetails->customers->email }}</p>
+                            <p>Contact: {{ $orderdetails->customers->phone_number }}</p>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="table-section bill-tbl w-100 mt-10">
+            <table class="table w-100 mt-10">
+                <tr>
+                    <th class="w-50">Payment Method</th>
+                </tr>
+                <tr>
+                    <td>Cash On Delivery</td>
+                </tr>
+            </table>
+        </div>
+        <div class="table-section bill-tbl w-100 mt-10">
+            <table class="table w-100 mt-10">
+                <thead>
+                    <tr>
+                        <th class="w-50">Product Name</th>
+                        <th class="w-50">Price</th>
+                        <th class="w-50">Qty</th>
+                        <th class="w-50">Total</th>
+                    </tr>
+                </thead>
+               <tbody>
+                @php
+                    $total = 0;
+                @endphp
+                @foreach($orderdetails->orderTransactions as $order)
+                    <?php $total += $order->quantity * $order->price ?>
+                    <tr>
+                        <td>{{ $order->product_name }}</td>
+                        <td>{{ number_format($order->price,2) }}</td>
+                        <td>{{ number_format($order->quantity) }}</td>
+                        <td>{{ number_format($order->price * $order->quantity ,2)}}</td>
+                    </tr>
+                @endforeach    @foreach($orderdetails->orderTransactions as $order)
+                <?php $total += $order->quantity * $order->price ?>
+                <tr>
+                    <td>{{ $order->product_name }}</td>
+                    <td>{{ number_format($order->price,2) }}</td>
+                    <td>{{ number_format($order->quantity) }}</td>
+                    <td>{{ number_format($order->price * $order->quantity ,2)}}</td>
+                </tr>
+            @endforeach
+                <tr>
+                    <td colspan="7">
+                        <div class="total-part">
+                            <div class="total-left w-85 float-left" align="right">
+                                <p>Total</p>
+                                <p>Shipping Fee</p>
+                                <p>Total Payable</p>
+                            </div>
+                            <div class="total-right w-15 float-left text-bold" align="right">
+                                <p>
+                                    <span style="font-family: DejaVu Sans;">&#x20B1;</span> {{ number_format($total,2) }}
+                                </p>
+                                <p><span style="font-family: DejaVu Sans;">&#x20B1;</span>100</p>
+                                <p><span style="font-family: DejaVu Sans;">&#x20B1;</span>{{ number_format($total + 100,2) }}</p>
+                            </div>
+                            <div style="clear: both;"></div>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+            </table>
+        </div>
+    </main>
+    <footer>
 
-        <tr>
-            <td colspan="7">
-                <div class="total-part">
-                    <div class="total-left w-85 float-left" align="right">
-                        <p>Total</p>
-                        <p>Shipping Fee</p>
-                        <p>Total Payable</p>
-                    </div>
-                    <div class="total-right w-15 float-left text-bold" align="right">
-                        <p>
-                            <span style="font-family: DejaVu Sans;">&#x20B1;</span> {{ number_format($total,2) }}
-                        </p>
-                        <p><span style="font-family: DejaVu Sans;">&#x20B1;</span>100</p>
-                        <p><span style="font-family: DejaVu Sans;">&#x20B1;</span>{{ number_format($total + 100,2) }}</p>
-                    </div>
-                    <div style="clear: both;"></div>
-                </div>
-            </td>
-        </tr>
-    </table>
-</div>
+    </footer>
+
+    <div class="footer">
+        Page {PAGE_NUM} of {PAGE_COUNT}
+    </div>
+    <script type="text/php">
+        if (isset($pdf)) {
+            $pdf->page_script('
+                 if ($PAGE_COUNT > 1) {
+                     $font = $fontMetrics->getFont("Lato", "regular");
+                     $pdf->page_text(522, 770, "Page {PAGE_NUM} / {PAGE_COUNT}", $font, 12, array(.5,.5,.5));
+                }
+            ');
+       }
+    </script>
 </html>
