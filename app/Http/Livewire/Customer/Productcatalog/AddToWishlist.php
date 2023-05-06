@@ -38,11 +38,16 @@ class AddToWishlist extends Component
 
     public function render()
     {
-        $this->customer_id = Auth::guard('customer')->user()->id;
+        if(Auth::guard('customer')->check()){
+            $this->customer_id = Auth::guard('customer')->user()->id;
 
-        $wishlist_checker = Wishlist::where('product_id', $this->product->id)
-        ->where('customers_id', $this->customer_id)
-        ->get()->count();
+            $wishlist_checker = Wishlist::where('product_id', $this->product->id)
+            ->where('customers_id', $this->customer_id)
+            ->get()->count();
+        }else{
+            $wishlist_checker = [];
+        }
+
 
         return view('livewire.customer.productcatalog.add-to-wishlist', [
             'wishlist_checker' => $wishlist_checker,

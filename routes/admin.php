@@ -125,7 +125,8 @@ Route::group(['prefix' => 'admin'], function () {
             Route::get('/product/featuredproducts', [ProductController::class, 'FeaturedProductIndex'])->name('product.FeaturedProduct');
             Route::resource('product', ProductController::class);
             //End: Product Module
-            //Begin: Order Module
+            //Begin: Order
+            Route::get('/orders/print_waybill/{id}',[OrderController::class, 'Invoice'])->name('invoice');
             Route::resource('orders', OrderController::class)->only('index', 'show');
             //End: Order Module
             //Begin: Banner Module

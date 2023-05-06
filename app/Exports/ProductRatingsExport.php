@@ -50,10 +50,10 @@ class ProductRatingsExport implements FromCollection, ShouldAutoSize, WithHeadin
     public function columnWidths(): array
     {
         return [
-            'A' => 45,       
-            'B' => 20,  
+            'A' => 45,
+            'B' => 20,
             'C' => 20,
-            'D' => 20,     
+            'D' => 20,
         ];
     }
     public function drawings()
@@ -69,12 +69,12 @@ class ProductRatingsExport implements FromCollection, ShouldAutoSize, WithHeadin
     }
     public function styles(Worksheet $sheet)
     {
-        
+
         $sheet->getStyle('A6:D' . $sheet->getHighestDataRow())
               ->getBorders()
               ->getAllBorders()
               ->setBorderStyle(Border::BORDER_THIN);
-            
+
         $sheet->getPageMargins()->setTop(0.3);
         $sheet->getPageMargins()->setLeft(0.25);
         $sheet->getPageMargins()->setRight(0.25);
@@ -83,7 +83,7 @@ class ProductRatingsExport implements FromCollection, ShouldAutoSize, WithHeadin
         $totalRows = $sheet->getHighestRow();
 
         // initializ a variable to keep track of the row color
-        $rowColor = 'cddbd7'; 
+        $rowColor = 'cddbd7';
         $fontColor = 'FAFAFA';
         $sheet->getStyle('A6:D6')->applyFromArray([
             'fill' => [
@@ -107,7 +107,7 @@ class ProductRatingsExport implements FromCollection, ShouldAutoSize, WithHeadin
                         'argb' => $rowColor,
                     ],
                 ],
-                
+
             ]);
             $rowColor = ($rowColor === 'FAFAFA') ? 'cddbd7' : 'FAFAFA';
             // $fontColor = ($fontColor === 'FFFFFF') ? '000000' : 'FFFFFF';
@@ -125,7 +125,7 @@ class ProductRatingsExport implements FromCollection, ShouldAutoSize, WithHeadin
             'A3' => ['font' => ['size' => 14]],
             'A2' => ['font' => ['bold' => true]],
             'A5' => ['font' => ['size' => 13]],
-            
+
         ];
     }
     public function registerEvents(): array
@@ -142,7 +142,7 @@ class ProductRatingsExport implements FromCollection, ShouldAutoSize, WithHeadin
                 $event->sheet->setCellValue('A' . $this->last_row + 2,'Prepared by: ' . $this->user_name);
                 $event->sheet->setCellValue('A' . $this->last_row + 3, date('F d, Y h:i:s', strtotime(Carbon::now())));
                 $event->sheet->getDelegate()->freezePane('A7');
-                
+
             },
             BeforeSheet::class => function(BeforeSheet $event) {
                 $event->sheet->mergeCells('A2:D2');
@@ -207,7 +207,7 @@ class ProductRatingsExport implements FromCollection, ShouldAutoSize, WithHeadin
             $this->column_name = 'product.name';
             $this->order_name = 'asc';
         }
-        
+
     }
     /**
     * @return \Illuminate\Support\Collection

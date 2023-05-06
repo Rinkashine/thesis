@@ -25,19 +25,19 @@
                     <li>
                         <div class="flex items-center mt-2 mb-2 intro-x">
                             <i class="text-base fas fa-phone"></i>
-                            <a href="javascript:void(0)" class="text-base leading-loose text-body-color group">
+                            <p class="text-base leading-loose text-body-color group">
                                 <span>+639 (612) 126 52</span>
                                 <span class="absolute -bottom-0.5 left-0 w-0 h-0.5 bg-slate-100 transition-all group-hover:w-full"></span>
-                            </a>
+                            </p>
                         <div>
                     </li>
                     <li>
                         <div class="flex items-center intro-x">
                             <i class="text-base fas fa-envelope"></i>
-                            <a href="javascript:void(0)" class="text-base leading-loose text-body-color group">
+                            <p class="text-base leading-loose text-body-color group">
                                 <span>godentalph@gmail.com</span>
                                 <span class="absolute -bottom-0.5 left-0 w-0 h-0.5 bg-slate-100 transition-all group-hover:w-full"></span>
-                            </a>
+                            </p>
                         </div>
                     </li>
               </ul>

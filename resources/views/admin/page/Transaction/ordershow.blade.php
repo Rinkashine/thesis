@@ -9,7 +9,7 @@
         </h2>
     </div>
     <div>
-        <button class="btn btn-primary" value="">Print Waybill</button>
+        <a class="btn btn-primary" href="{{ Route('invoice',$orderdetails->id) }}">Print Waybill</a>
     </div>
 </div>
 <!-- End: Intro Header -->

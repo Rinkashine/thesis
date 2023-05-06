@@ -791,8 +791,14 @@ select {
 .col-end-12 {
   grid-column-end: 12;
 }
+.float-left {
+  float: left;
+}
 .m-auto {
   margin: auto;
+}
+.m-0 {
+  margin: 0px;
 }
 .my-auto {
   margin-top: auto;
@@ -2167,10 +2173,6 @@ select {
 
   .sm\:ml-auto {
     margin-left: auto;
-  }
-
-  .sm\:ml-1 {
-    margin-left: 0.25rem;
   }
 
   .sm\:ml-2 {

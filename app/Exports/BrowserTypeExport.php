@@ -39,7 +39,7 @@ class BrowserTypeExport implements FromCollection, ShouldAutoSize, WithHeadings,
     public function columnWidths(): array
     {
         return [
-            'A' => 56,          
+            'A' => 56,
         ];
     }
     public function drawings()
@@ -55,12 +55,12 @@ class BrowserTypeExport implements FromCollection, ShouldAutoSize, WithHeadings,
     }
     public function styles(Worksheet $sheet)
     {
-        
+
         $sheet->getStyle('A6:B' . $sheet->getHighestDataRow())
               ->getBorders()
               ->getAllBorders()
               ->setBorderStyle(Border::BORDER_THIN);
-            
+
         $sheet->getPageMargins()->setTop(0.3);
         $sheet->getPageMargins()->setLeft(0.25);
         $sheet->getPageMargins()->setRight(0.25);
@@ -69,7 +69,7 @@ class BrowserTypeExport implements FromCollection, ShouldAutoSize, WithHeadings,
         $totalRows = $sheet->getHighestRow();
 
         // initializ a variable to keep track of the row color
-        $rowColor = 'cddbd7'; 
+        $rowColor = 'cddbd7';
         $fontColor = 'FAFAFA';
         $sheet->getStyle('A6:B6')->applyFromArray([
             'fill' => [
@@ -94,10 +94,10 @@ class BrowserTypeExport implements FromCollection, ShouldAutoSize, WithHeadings,
                         'argb' => $rowColor,
                     ],
                 ],
-                
+
             ]);
             // $sheet->getStyle("A{$i}:C{$i}")->getFont()->setColor(new Color($fontColor));
-            
+
             // alternate the row color for the next row
             $rowColor = ($rowColor === 'FAFAFA') ? 'cddbd7' : 'FAFAFA';
             // $fontColor = ($fontColor === 'FFFFFF') ? '000000' : 'FFFFFF';
@@ -115,7 +115,7 @@ class BrowserTypeExport implements FromCollection, ShouldAutoSize, WithHeadings,
             'A3' => ['font' => ['size' => 14]],
             'A2' => ['font' => ['bold' => true]],
             'A5' => ['font' => ['size' => 13]],
-            
+
         ];
     }
     public function registerEvents(): array
@@ -123,6 +123,8 @@ class BrowserTypeExport implements FromCollection, ShouldAutoSize, WithHeadings,
         return [
             AfterSheet::class => function(AfterSheet $event) {
                 // dd($this->sort);
+                $event->sheet->getHeaderFooter()->setOddFooter('&R&P');
+
                 $event->sheet->setCellValue('A2','Browser Type Report');
                 $event->sheet->setCellValue('A3', date('F d, Y', strtotime($this->startdate)). ' - ' . date('F d, Y', strtotime($this->enddate)));
                 $event->sheet->getDelegate()->getStyle('B')
@@ -131,7 +133,7 @@ class BrowserTypeExport implements FromCollection, ShouldAutoSize, WithHeadings,
                 $event->sheet->setCellValue('A' . $this->last_row + 2,'Prepared by: ' . $this->user_name);
                 $event->sheet->setCellValue('A' . $this->last_row + 3, date('F d, Y h:i:s', strtotime(Carbon::now())));
                 $event->sheet->getDelegate()->freezePane('A7');
-                
+
             },
             BeforeSheet::class => function(BeforeSheet $event) {
                 $event->sheet->mergeCells('A2:B2');

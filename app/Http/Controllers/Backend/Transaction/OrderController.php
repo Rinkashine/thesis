@@ -7,6 +7,7 @@ use App\Models\Customer;
 use App\Models\CustomerOrder;
 use App\Models\CustomerOrderItems;
 use Illuminate\Support\Facades\Gate;
+use PDF;
 
 class OrderController extends Controller
 {
@@ -16,6 +17,17 @@ class OrderController extends Controller
         abort_if(Gate::denies('order_access'), 403);
 
         return view('admin.page.Transaction.order');
+    }
+
+    public function Invoice($id){
+        $orderdetails = CustomerOrder::findorfail($id);
+
+        $pdf = PDF::loadView('admin.page.Transaction.invoice_pdf',[
+            'orderdetails' => $orderdetails
+        ]);
+
+        return $pdf->download('techsolutionstuff.pdf');
+
     }
 
     public function show($id)

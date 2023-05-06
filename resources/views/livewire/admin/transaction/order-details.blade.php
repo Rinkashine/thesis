@@ -63,7 +63,7 @@
                     <i class="fa-solid fa-tag text-slate mr-2"></i>Total Price:
                     <div class="ml-auto">₱
                         @php
-                            $total = 0
+                            $total = 0;
                         @endphp
                         @foreach ($orderdetails->orderTransactions as $item)
                             <?php $total += $item->quantity * $item->price ?>
