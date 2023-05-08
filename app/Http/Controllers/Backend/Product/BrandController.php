@@ -24,28 +24,4 @@ class BrandController extends Controller
 
         return Excel::download(new BrandExport, 'brands.xlsx');
     }
-
-    //Export Brand to CSV
-    public function exportbrandcsv()
-    {
-        abort_if(Gate::denies('brand_export'), 403);
-
-        return Excel::download(new BrandExport, 'brands.csv');
-    }
-
-    //Export Brand to HTML
-    public function exportbrandhtml()
-    {
-        abort_if(Gate::denies('brand_export'), 403);
-
-        return Excel::download(new BrandExport, 'brands.html');
-    }
-
-    //Export Brand to PDF
-    public function exportbrandpdf()
-    {
-        abort_if(Gate::denies('brand_export'), 403);
-
-        return Excel::download(new BrandExport, 'brands.pdf');
-    }
 }

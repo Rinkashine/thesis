@@ -27,15 +27,6 @@
                                 <li>
                                     <a href="{{Route('exportsupplierexcel')}}" class="dropdown-item">  <i class="fa-solid fa-file-excel mr-1"></i>  Export Excel </a>
                                 </li>
-                                <li>
-                                    <a  href="{{Route('exportsuppliercsv')}}" class="dropdown-item">  <i class="fa-solid fa-file-csv mr-1"></i>Export CSV </a>
-                                </li>
-                                <li>
-                                    <a href="{{Route('exportsupplierpdf')}}" class="dropdown-item"> <i class="fa-solid fa-file-pdf mr-1"></i> Export PDF </a>
-                                </li>
-                                <li>
-                                    <a  href="{{Route('exportsupplierhtml')}}" class="dropdown-item"> <i class="fa-brands fa-html5 mr-1"></i> Export HTML </a>
-                                </li>
                             </ul>
                         </div>
                     </div>

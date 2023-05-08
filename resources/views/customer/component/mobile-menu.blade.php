@@ -27,7 +27,7 @@
             </a>
         </li>
         <li>
-            <a href="{{Route('CRegister.index')}}" class="menu">
+            <a href="{{Route('register.index')}}" class="menu">
                 <div class="menu__icon"> <i class="fa-solid fa-user-plus"></i> </div>
                 <div class="menu__title"> Sign Up  </div>
             </a>

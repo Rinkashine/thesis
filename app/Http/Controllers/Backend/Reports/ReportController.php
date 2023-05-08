@@ -40,8 +40,8 @@ use App\Exports\MonthlyCancellationExport;
 
 use App\Exports\CancellationOverTimeExport;
 use App\Exports\ProductRatingsByCustomerExport;
-
-
+use PDF;
+use App\Models\Product;
 class ReportController extends Controller
 {
     //Show Report Main Page
@@ -121,16 +121,40 @@ class ReportController extends Controller
         'Most Visited Page ('.$request->startdate.' - '.$request->enddate.').xlsx');
     }
     //Show Product Sale Page
-    public function salesProd(){
+    public function SalesByProductIndex(){
         abort_if(Gate::denies('report_access'),403);
         return view('admin.page.Report.reportsalesprod');
     }
     //Export Product Sales
-    public function exportSalesProductEXCEL(Request $request){
+    public function exportSalesByProductEXCEL(Request $request){
         abort_if(Gate::denies('report_export'),403);
-        return Excel::download(new SalesProductExport($request->sorting,$request->startdate,$request->enddate),
-        'Sales Product ('.$request->startdate.' - '.$request->enddate.').xlsx');
+        $start = $request->startdate;
+        $end = $request->enddate;
+        $products = Product::select([
+            'product.id',
+            'product.name',
+            DB::raw(value: 'SUM(CASE WHEN customer_order.status = "Completed" then customer_order_item.quantity else 0 end) AS quantity'),
+            DB::raw(value: 'SUM(CASE WHEN customer_order.status = "Completed" then customer_order_item.quantity * customer_order_item.price  else 0 end) as total_sales'),
+        ])
+        ->leftjoin('customer_order_item', 'product.id', '=', 'customer_order_item.product_id')
+        ->leftjoin('customer_order', function ($join) use ($start,$end) {
+            $join->on('customer_order_item.customer_order_id', '=', 'customer_order.id')
+            ->where('customer_order.created_at', '>=', $start)
+            ->where('customer_order.created_at', '<=', $end);
+        })
+        ->groupBy('product.name', 'product.id')
+        ->get();
+
+
+        $pdf = PDF::loadView('admin.export.sales-by-product',[
+            'products' => $products
+        ]);
+
+        return $pdf->download("Sales By Product.pdf");
     }
+
+
+
     // Show Customer Sales Page
     public function CustomersTotalSpent(){
         abort_if(Gate::denies('report_access'),403);

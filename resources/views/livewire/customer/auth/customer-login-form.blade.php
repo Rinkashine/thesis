@@ -65,7 +65,7 @@
 
                         </div>
                         <div class="pt-5 text-center intro-x " >
-                            <a class="text-primary font-normal" href="{{Route('CRegister.index')}}">New to Go Dental? Click here.</a>
+                            <a class="text-primary font-normal" href="{{Route('register.index')}}">New to Go Dental? Click here.</a>
                         </div>
                     </div>
                 </form>

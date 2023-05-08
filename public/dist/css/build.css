@@ -794,11 +794,11 @@ select {
 .float-left {
   float: left;
 }
-.m-auto {
-  margin: auto;
-}
 .m-0 {
   margin: 0px;
+}
+.m-auto {
+  margin: auto;
 }
 .my-auto {
   margin-top: auto;
@@ -1154,6 +1154,9 @@ select {
 }
 .w-1 {
   width: 0.25rem;
+}
+.w-80 {
+  width: 20rem;
 }
 .w-3\/4 {
   width: 75%;
@@ -1888,6 +1891,10 @@ select {
 .text-gray-50 {
   --tw-text-opacity: 1;
   color: rgb(249 250 251 / var(--tw-text-opacity));
+}
+.text-light {
+  --tw-text-opacity: 1;
+  color: rgb(var(--color-light) / var(--tw-text-opacity));
 }
 .text-red-400 {
   --tw-text-opacity: 1;

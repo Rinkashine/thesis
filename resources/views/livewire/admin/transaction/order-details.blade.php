@@ -1,6 +1,5 @@
 <div>
     <div class="intro-y grid grid-cols-12 gap-5 mt-5">
-
         <div class="col-span-12 2xl:col-span-3">
             <div class="box p-5 rounded-md">
                 <div class="flex items-center border-b border-slate-200/60 dark:border-darkmode-400 pb-5 mb-5">

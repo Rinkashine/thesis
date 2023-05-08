@@ -25,27 +25,5 @@ class CategoryController extends Controller
         return Excel::download(new CategoryExport, 'categories.xlsx');
     }
 
-    //Export Category to CSV
-    public function exportcategoriescsv()
-    {
-        abort_if(Gate::denies('category_export'), 403);
 
-        return Excel::download(new CategoryExport, 'categories.csv');
-    }
-
-    //Export Category to HTMl
-    public function exportcategorieshtml()
-    {
-        abort_if(Gate::denies('category_export'), 403);
-
-        return Excel::download(new CategoryExport, 'categories.html');
-    }
-
-    //Export Category to PDF
-    public function exportcategoriespdf()
-    {
-        abort_if(Gate::denies('category_export'), 403);
-
-        return Excel::download(new CategoryExport, 'categories.pdf');
-    }
 }

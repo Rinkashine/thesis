@@ -57,6 +57,7 @@ class OrderApprovedForm extends Component
 
         $this->cleanVars();
         $this->resetErrorBag();
+        $this->emit('refreshWaybill');
     }
 
     public function render()

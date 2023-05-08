@@ -26,7 +26,7 @@ class OrderController extends Controller
             'orderdetails' => $orderdetails
         ]);
 
-        return $pdf->download('techsolutionstuff.pdf');
+        return $pdf->download("Order Receipt $orderdetails->id.pdf");
 
     }
 

@@ -8,9 +8,11 @@
             <a href="{{ url()->previous() }}" class="mr-2 btn">←</a> Transaction Details
         </h2>
     </div>
+
     <div>
-        <a class="btn btn-primary" href="{{ Route('invoice',$orderdetails->id) }}">Print Waybill</a>
+        @livewire('admin.transaction.order-waybill',['orderdetails' => $orderdetails])
     </div>
+
 </div>
 <!-- End: Intro Header -->
 <!-- BEGIN: Transaction Details -->
@@ -18,11 +20,3 @@
 <!-- END: Transaction Details -->
 
 @endsection
-@push('scripts')
-    <script>
-    //SuccessAlert
-
-    //Hide Modal and Refresh its value
-
-    </script>
-@endpush

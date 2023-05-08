@@ -27,97 +27,86 @@ use App\Http\Controllers\Backend\Users\UsersController;
 Route::group(['prefix' => 'admin'], function () {
     Route::middleware(['guest:web', 'PreventBackHistory'])->group(function () {
         Route::resource('login', LoginController::class)->only(['index', 'store']);
-        Route::resource('register', RegisterController::class)->only(['index', 'store']);
-        Route::get('reset/password/{token}', [ResetController::class, 'ShowResetForm'])->name('reset.password.form');
-        Route::post('reset/password', [ResetController::class, 'ResetPassword'])->name('reset.password');
-        Route::resource('reset', ResetController::class)->only(['index', 'store']);
     });
 
     Route::middleware(['auth:web'])->group(function () {
         //Begin: Export Files for Category
         Route::get('/category/excel', [CategoryController::class, 'exportcategoriesexcel'])->name('exportcategoriesexcel');
-        Route::get('/category/csv', [CategoryController::class, 'exportcategoriescsv'])->name('exportcategoriescsv');
-        Route::get('/category/html', [CategoryController::class, 'exportcategorieshtml'])->name('exportcategorieshtml');
-        Route::get('/category/pdf', [CategoryController::class, 'exportcategoriespdf'])->name('exportcategoriespdf');
-        //End: Export Files for Category
         //Begin: Export Files for Brand
         Route::get('/brand/excel', [BrandController::class, 'exportbrandexcel'])->name('exportbrandexcel');
-        Route::get('/brand/csv', [BrandController::class, 'exportbrandcsv'])->name('exportbrandcsv');
-        Route::get('/brand/html', [BrandController::class, 'exportbrandhtml'])->name('exportbrandhtml');
-        Route::get('/brand/pdf', [BrandController::class, 'exportbrandpdf'])->name('exportbrandpdf');
-        //End: Export Files for Brand
         //Begin: Export Files for Product
         Route::get('/product/excel', [ProductController::class, 'exportproductexcel'])->name('exportproductexcel');
-        Route::get('/product/csv', [ProductController::class, 'exportproductcsv'])->name('exportproductcsv');
-        Route::get('/product/html', [ProductController::class, 'exportproducthtml'])->name('exportproducthtml');
-        Route::get('/product/pdf', [ProductController::class, 'exportproductpdf'])->name('exportproductpdf');
-        //End: Export Files for Product
         //Begin:Export Files for Supplier
         Route::get('/supplier/excel', [SupplierController::class, 'exportsupplierexcel'])->name('exportsupplierexcel');
-        Route::get('/supplier/csv', [SupplierController::class, 'exportsuppliercsv'])->name('exportsuppliercsv');
-        Route::get('/supplier/html', [SupplierController::class, 'exportsupplierhtml'])->name('exportsupplierhtml');
-        Route::get('/supplier/pdf', [SupplierController::class, 'exportsupplierpdf'])->name('exportsupplierpdf');
-        //End: Export Files for Supplier
         //Begin:Export Files for Role
         Route::get('/role/excel', [RoleController::class, 'exportroleexcel'])->name('exportroleexcel');
-        Route::get('/role/csv', [RoleController::class, 'exportrolecsv'])->name('exportrolecsv');
-        Route::get('/role/html', [RoleController::class, 'exportrolehtml'])->name('exportrolehtml');
-        Route::get('/role/pdf', [RoleController::class, 'exportrolepdf'])->name('exportrolepdf');
-        //End: EXport Files for Role
-        //Begin: Export Files for System Report
+        //Begin: Export Files for Browser Type
         Route::get('/report/browser/excel/{startdate}/{enddate}', [ReportController::class, 'exportbrowsertypeexcel'])->name('exportbrowsertypeexcel');
+        //Begin: Export Files for User Type
         Route::get('/report/UserType/excel/{startdate}/{enddate}', [ReportController::class, 'exportusertypeexcel'])->name('exportusertypeexcel');
-        Route::get('/report/cancelledorders/excel',[ReportController::class,'exportCancelledOrdersExcel'])->name('exportCancelledOrdersExcel');
-        Route::get('/report/cancellationreasons/excel',[ReportController::class,'exportCancellationReasonsExcel'])->name('exportCancellationReasonsExcel');
-        Route::get('/report/rejectedorders/excel',[ReportController::class,'exportRejectedOrdersExcel'])->name('exportRejectedOrdersExcel');
-        Route::get('/report/cancellationovertime/excel',[ReportController::class,'exportCancellationOverTime'])->name('report.exportCancellationOverTime');
-        Route::get('/report/monthlycancellation/excel/{month}/{year}',[ReportController::class,'exportMonthlyCancellation'])->name('report.exportMonthlyCancellation');
-        Route::get('/report/customerPerMonth/excel',[ReportController::class,'exportCustomerPerMonthEXCEL'])->name('exportCustomerPerMonthEXCEL');
-        Route::get('/report/productbycustomer/excel/',[ReportController::class,'exportProductByCustomerExcel'])->name('report.exportProductByCustomerExcel');
-        Route::get('/report/VerifiedAccount/excel/',[ReportController::class,'exportVerifiedAccountsExcel'])->name('report.exportVerifiedAccountsExcel');
-        Route::get('/report/NonVerifiedAccount/excel/',[ReportController::class,'exportNonVerifiedAccountsExcel'])->name('report.exportNonVerifiedAccountsExcel');
-        Route::get('/report/OrdersByProduct/excel/',[ReportController::class,'exportOrdersByProductExcel'])->name('report.exportOrdersByProductExcel');
-        Route::get('/report/OrdersByCustomer/customerbyproduct/excel/',[ReportController::class,'exportOrdersByCustomer'])->name('report.exportOrdersByCustomer');
-        Route::get('/report/customerbyproduct/excel/{name}',[ReportController::class,'exportCustomerByProductExcel'])->name('report.exportCustomerByProductExcel');
+        //Begin: Export Files for List of Most Visited Page
         Route::get('/report/MostVisitedPage/excel/{startdate}/{enddate}', [ReportController::class, 'exportMostVisitedPageExcel'])->name('exportMostVisitedPageExcel');
+        //Begin: Export Files for Number of Cancelled Orders
+        Route::get('/report/cancelledorders/excel',[ReportController::class,'exportCancelledOrdersExcel'])->name('exportCancelledOrdersExcel');
+        //Begin: Export Files  for Cancellation Reason
+        Route::get('/report/cancellationreasons/excel',[ReportController::class,'exportCancellationReasonsExcel'])->name('exportCancellationReasonsExcel');
+        //Begin: Export Files for Number of Reject Orders
+        Route::get('/report/rejectedorders/excel',[ReportController::class,'exportRejectedOrdersExcel'])->name('exportRejectedOrdersExcel');
+        //Begin: Export Files for Number of cancelled orders overtime
+        Route::get('/report/cancellationovertime/excel',[ReportController::class,'exportCancellationOverTime'])->name('report.exportCancellationOverTime');
+        //Begin: Export Files for Monthly Cancellation Reports
+        Route::get('/report/monthlycancellation/excel/{month}/{year}',[ReportController::class,'exportMonthlyCancellation'])->name('report.exportMonthlyCancellation');
+        //Begin: Export Files for Numbers of Created Customers Per Month
+        Route::get('/report/customerPerMonth/excel',[ReportController::class,'exportCustomerPerMonthEXCEL'])->name('exportCustomerPerMonthEXCEL');
+        //Begin: Export Files for Number of Products Bought by the Customer
+        Route::get('/report/productbycustomer/excel/',[ReportController::class,'exportProductByCustomerExcel'])->name('report.exportProductByCustomerExcel');
+        //Begin: Export Files for Number of Verified Accounts
+        Route::get('/report/VerifiedAccount/excel/',[ReportController::class,'exportVerifiedAccountsExcel'])->name('report.exportVerifiedAccountsExcel');
+        //Begin: Export Files for Non Verified Accounts
+        Route::get('/report/NonVerifiedAccount/excel/',[ReportController::class,'exportNonVerifiedAccountsExcel'])->name('report.exportNonVerifiedAccountsExcel');
+        //Begin:
+        Route::get('/report/OrdersByProduct/excel/',[ReportController::class,'exportOrdersByProductExcel'])->name('report.exportOrdersByProductExcel');
+        //Begin:
+        Route::get('/report/OrdersByCustomer/customerbyproduct/excel/',[ReportController::class,'exportOrdersByCustomer'])->name('report.exportOrdersByCustomer');
+        //Begin:
+        Route::get('/report/customerbyproduct/excel/{name}',[ReportController::class,'exportCustomerByProductExcel'])->name('report.exportCustomerByProductExcel');
+        //Begin: Export files for the Type of Payment
         Route::get('/report/PaymentByType/excel/{startdate}/{enddate}', [ReportController::class, 'exportPaymentByType'])->name('report.exportPaymentByType');
+        //Begin: Export files for the list of products and their respective ratings
         Route::get('/report/productratings/excel/{sorting}/{startdate}/{enddate}',[ReportController::class,'exportProductRatingsExcel'])->name('report.exportProductRatingsExcel');
+        //Begin: Export Files for the products and list of customers who rate that product
         Route::get('/report/productratings/ProductRatingsByCustomer/excel/{sorting}/{startdate}/{enddate}/{name}',[ReportController::class,'exportProductRatingsByCustomerExcel'])->name('report.exportProductRatingsByCustomerExcel');
-        //End: Export Files for System Report
-        //Begin Export Files for Sales Report
-        Route::get('/report/salesprod/html', [ReportController::class, 'exportSalesProductHTML'])->name('exportSalesProductHTML');
+        //Begin Export Files for Sales Overtime
         Route::get('/report/SalesOvertime/excel', [ReportController::class, 'exportsalesovertime'])->name('exportsalesovertime');
-        Route::get('/report/salesprod/pdf', [ReportController::class, 'exportSalesProductPDF'])->name('exportSalesProductPDF');
-        Route::get('/report/salesprod/excel/{sorting}/{startdate}/{enddate}', [ReportController::class, 'exportSalesProductEXCEL'])->name('exportSalesProductEXCEL');
+        //Begin: Export Files for Sales by Product
+        Route::get('/report/salesprod/excel/{sorting}/{startdate}/{enddate}', [ReportController::class, 'exportSalesByProductEXCEL'])->name('exportSalesProductEXCEL');
+        //Begin Export Files for Sales by Brand
         Route::get('/report/salesbrand/excel/{sorting}/{startdate}/{enddate}', [ReportController::class, 'exportSalesBrandEXCEL'])->name('exportSalesBrandEXCEL');
+        //Begin: Export Files For Sales by Category
         Route::get('/report/salescategory/excel/{sorting}/{startdate}/{enddate}', [ReportController::class, 'exportSalesCategoryEXCEL'])->name('exportSalesCategoryEXCEL');
+        //Begin: Export Files for number of brand ordered
         Route::get('/report/orderbrand/excel/{sorting}/{startdate}/{enddate}', [ReportController::class, 'exportOrderBrandExcel'])->name('exportOrderBrandExcel');
+        //Begin: Export Files for number of category ordered
         Route::get('/report/ordercategory/excel/{sorting}/{startdate}/{enddate}', [ReportController::class, 'exportOrderCategoryExcel'])->name('exportOrderCategoryExcel');
+        //Begin: Export Files for customers total spent
         Route::get('/report/CustomersTotalSpent/excel/{sorting}/{startdate}/{enddate}',[ReportController::class,'exportCustomerTotalSpent'])->name('exportCustomerTotalSpent');
-        //End: Export Files for Sales Report
-        //Begin: Export Files for Demographics Report
+        //Begin: Export files for List of genders
         Route::get('/report/gender/excel', [ReportController::class, 'exportGenderExcel'])->name('exportGenderExcel');
-        //End: Export Files for Demographics Report
 
         Route::middleware(['PreventBackHistory'])->group(function () {
             //Begin: Logout Module
             Route::get('/logout', [LogoutController::class, 'store'])->name('logout');
-            //End: Logout Module
             //Begin: Dashboard Module
             Route::resource('dashboard', DashboardController::class)->only(['index']);
-            //End: Dashboard Module
             //Begin: Product Attribute Module
             Route::resource('brand', BrandController::class)->only(['index']);
             Route::resource('category', CategoryController::class)->only('index');
-            //End: Product Attribute
             //Begin: Inventory Module
             Route::resource('inventory', InventoryController::class)->except(['edit', 'show', 'create']);
             Route::get('product/inventory_history/{id}', [ProductController::class, 'ProductInventoryHistory'])->name('ProductInventoryHistory');
-            //End: Inventory Module
             //Begin: Purchase Order Module
             Route::resource('transfer', InventoryTransferController::class);
             Route::get('/receive/{id}', [InventoryTransferController::class, 'receive'])->name('inventory.receive');
-            //End: Purchase Order Module
             //Begin: Product Module
             Route::get('/product/archive', [ProductController::class, 'ProductArchiveIndex'])->name('ProductArchiveIndex');
             Route::delete('/product/archive/{id}', [ProductController::class, 'ProductArchiveDestroy']);
@@ -177,7 +166,8 @@ Route::group(['prefix' => 'admin'], function () {
             //End: List of Reports: Demographics
 
             //Begin: List of Reports: Sales
-            Route::get('/report/salesprod', [ReportController::class, 'salesProd'])->name('report.SalesProd');
+            Route::get('/report/SalesByProduct', [ReportController::class, 'SalesByProductIndex'])->name('report.SalesProd');
+
             Route::get('/report/CustomersTotalSpent', [ReportController::class, 'CustomersTotalSpent'])->name('report.CustomersTotalSpent');
             Route::get('/report/salesbrand', [ReportController::class, 'salesBrand'])->name('report.SalesBrand');
             Route::get('/report/orderbrand', [ReportController::class, 'BrandOrderIndex'])->name('report.OrderBrand');

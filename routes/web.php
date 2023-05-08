@@ -34,11 +34,6 @@ use Laravel\Socialite\Facades\Socialite;
 Route::get('/auth/{provider}/redirect',[ProviderController::class,'redirect'])->name('redirect');
 Route::get('/auth/{provider}/callback',[ProviderController::class,'callback']);
 
-//Dark Mode Switcher Route
-Route::get('dark-mode-switcher', [DarkModeController::class, 'switch'])->name('dark-mode-switcher');
-//Color Mode Switcher Route
-Route::get('color-scheme-switcher/{color_scheme}', [ColorSchemeController::class, 'switch'])->name('color-scheme-switcher');
-
 Route::middleware(['PreventBackHistory'])->group(function () {
     Route::get('/', function () {
         return view('customer.page.main.home');
@@ -59,7 +54,7 @@ Route::middleware(['PreventBackHistory'])->group(function () {
 
     Route::middleware(['guest:customer'])->group(function () {
         Route::resource('CLogin', CustomerLoginController::class)->only(['index', 'store']);
-        Route::resource('CRegister', CustomerRegisterController::class)->only(['index']);
+        Route::resource('register', CustomerRegisterController::class)->only(['index']);
         Route::resource('resetcustomer', CustomerResetController::class)->only(['index', 'store']);
         Route::get('resetcustomer/password/{token}', [CustomerResetController::class, 'ShowResetForm'])->name('customer.reset.password.form');
         Route::post('resetcustomer/password', [CustomerResetController::class, 'ResetPassword'])->name('customer.reset.password');
