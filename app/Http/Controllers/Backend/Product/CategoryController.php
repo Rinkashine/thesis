@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers\Backend\Product;
 
-use App\Exports\CategoryExport;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Gate;
-use Maatwebsite\Excel\Facades\Excel;
-
+use App\Models\Category;
+use PDF;
+use Illuminate\Support\Facades\Auth;
+use Carbon\Carbon;
 class CategoryController extends Controller
 {
     //Show Category Page
@@ -21,8 +22,17 @@ class CategoryController extends Controller
     public function exportcategoriesexcel()
     {
         abort_if(Gate::denies('category_export'), 403);
+        $categories = Category::all();
+        $prepared_by = Auth::guard('web')->user()->name;
+        $day = Carbon::now();
+        $today = $day->format('F d, Y');
+        $pdf = PDF::loadView('admin.export.list-of-categories',[
+            'categories' => $categories,
+            'prepared_by' => $prepared_by,
+            'today' => $today
+        ]);
 
-        return Excel::download(new CategoryExport, 'categories.xlsx');
+        return $pdf->download("List of Categories.pdf");
     }
 
 

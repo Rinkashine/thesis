@@ -41,6 +41,7 @@ use App\Exports\MonthlyCancellationExport;
 use App\Exports\CancellationOverTimeExport;
 use App\Exports\ProductRatingsByCustomerExport;
 use PDF;
+use Illuminate\Support\Facades\Auth;
 use App\Models\Product;
 class ReportController extends Controller
 {
@@ -49,49 +50,7 @@ class ReportController extends Controller
         abort_if(Gate::denies('report_access'),403);
         return view('admin.page.Report.report');
     }
-    //Show Browser Report Page
-    public function BrowserIndex(){
-        abort_if(Gate::denies('report_access'),403);
-        return view('admin.page.Report.reportbrowser');
-    }
-    //Export Browser Report
-    public function exportbrowsertypeexcel(Request $request){
-        abort_if(Gate::denies('report_export'),403);
-        return Excel::download(new BrowserTypeExport($request->startdate,$request->enddate),
-        'Browser Type ('.$request->startdate.' - '.$request->enddate.').xlsx');
-    }
-    //Show Sales Over Time Report Page
-    public function SalesOvertimeIndex(){
-        abort_if(Gate::denies('report_access'),403);
-        return view('admin.page.Report.reportsalesovertime');
-    }
-    //Export Sales Over Tieme
-    public function exportsalesovertime(){
-        abort_if(Gate::denies('report_access'),403);
-        return Excel::download(new SalesOverTimeExport,'salesovertime.xlsx');
-    }
-    //Show User Type Report Page
-    public function UserTypeIndex(){
-        abort_if(Gate::denies('report_access'),403);
-        return view('admin.page.Report.reportusertype');
-    }
-    //Export User Type
-    public function exportusertypeexcel(Request $request){
-        abort_if(Gate::denies('report_export'),403);
-        return Excel::download(new UserTypeExport($request->startdate,$request->enddate),
-        'User Type ('.$request->startdate.' - '.$request->enddate.').xlsx');
-    }
-    //Show Payment Type Report Page
-    public function PaymentTypeIndex(){
-        abort_if(Gate::denies('report_access'),403);
-        return view('admin.page.Report.reportpaymentbytype');
-    }
 
-    public function exportPaymentByType(Request $request){
-        abort_if(Gate::denies('report_export'),403);
-        return Excel::download(new PaymentByTypeExport($request->startdate,$request->enddate),
-        'PaymentType ('.$request->startdate.' - '.$request->enddate.').xlsx');
-    }
 
 
     //Show Cancellation Report Page
@@ -109,68 +68,7 @@ class ReportController extends Controller
         abort_if(Gate::denies('report_access'),403);
         return view('admin.page.Report.reportbrowser');
     }
-    //Show Most Visited Page
-    public function MostVisitedPageIndex(){
-        abort_if(Gate::denies('report_access'),403);
-        return view('admin.page.Report.reportmostvisitedpage');
-    }
-    //Export Most Visited Page Report
-    public function exportMostVisitedPageExcel(Request $request){
-        abort_if(Gate::denies('report_export'),403);
-        return Excel::download(new MostVisitedPageExport($request->startdate,$request->enddate),
-        'Most Visited Page ('.$request->startdate.' - '.$request->enddate.').xlsx');
-    }
-    //Show Product Sale Page
-    public function SalesByProductIndex(){
-        abort_if(Gate::denies('report_access'),403);
-        return view('admin.page.Report.reportsalesprod');
-    }
-    //Export Product Sales
-    public function exportSalesByProductEXCEL(Request $request){
-        abort_if(Gate::denies('report_export'),403);
-        $start = $request->startdate;
-        $end = $request->enddate;
-        $products = Product::select([
-            'product.id',
-            'product.name',
-            DB::raw(value: 'SUM(CASE WHEN customer_order.status = "Completed" then customer_order_item.quantity else 0 end) AS quantity'),
-            DB::raw(value: 'SUM(CASE WHEN customer_order.status = "Completed" then customer_order_item.quantity * customer_order_item.price  else 0 end) as total_sales'),
-        ])
-        ->leftjoin('customer_order_item', 'product.id', '=', 'customer_order_item.product_id')
-        ->leftjoin('customer_order', function ($join) use ($start,$end) {
-            $join->on('customer_order_item.customer_order_id', '=', 'customer_order.id')
-            ->where('customer_order.created_at', '>=', $start)
-            ->where('customer_order.created_at', '<=', $end);
-        })
-        ->groupBy('product.name', 'product.id')
-        ->get();
 
-
-        $pdf = PDF::loadView('admin.export.sales-by-product',[
-            'products' => $products
-        ]);
-
-        return $pdf->download("Sales By Product.pdf");
-    }
-
-
-
-    // Show Customer Sales Page
-    public function CustomersTotalSpent(){
-        abort_if(Gate::denies('report_access'),403);
-        return view('admin.page.Report.reportcustomerstotalspent');
-    }
-    //Export Customer Sales
-    public function exportCustomerTotalSpent(Request $request){
-        abort_if(Gate::denies('report_export'),403);
-        return Excel::download(new CustomerSpentExport($request->sorting,$request->startdate,$request->enddate),
-        'Customer Total Spent ('.$request->startdate.' - '.$request->enddate.').xlsx');
-    }
-    //Show Brand Sales Page
-    public function salesBrand(){
-        abort_if(Gate::denies('report_access'),403);
-        return view('admin.page.Report.reportsalesbrand');
-    }
 
     public function customerPerMonth(){
         abort_if(Gate::denies('report_access'),403);
@@ -203,125 +101,15 @@ class ReportController extends Controller
     }
 
 
-    //Show No of Brand Orders Page
-    public function BrandOrderIndex(){
-        abort_if(Gate::denies('report_access'),403);
-        return view('admin.page.Report.reportbrandorder');
-    }
-    // Export Brand Sales
-    public function exportSalesBrandEXCEL(Request $request){
-        abort_if(Gate::denies('report_export'),403);
-        return Excel::download(new SalesBrandExport($request->sorting,$request->startdate,$request->enddate),
-        'Sales Brand ('.$request->startdate.' - '.$request->enddate.').xlsx');
-    }
-    //Export No of Brand Orders
-    public function exportOrderBrandExcel(Request $request){
-        abort_if(Gate::denies('report_export'),403);
-        return Excel::download(new BrandNoOrder($request->sorting,$request->startdate,$request->enddate),
-        'Order Brand ('.$request->startdate.' - '.$request->enddate.').xlsx');
-    }
-    //Show Category Sales Page
-    public function salesCategory(){
-        abort_if(Gate::denies('report_access'),403);
-        return view('admin.page.Report.reportsalescategory');
-    }
-    //Show No. of Category Page
-    public function CategoryOrderIndex(){
-        abort_if(Gate::denies('report_access'),403);
-        return view('admin.page.Report.reportcategoryorder');
-    }
-    //Export Category Sales
-    public function exportSalesCategoryEXCEL(Request $request){
-        abort_if(Gate::denies('report_export'),403);
-        return Excel::download(new SalesCategoryExport($request->sorting,$request->startdate,$request->enddate),
-        'Sales Category ('.$request->startdate.' - '.$request->enddate.').xlsx');
-    }
-    //Export No of Category Orders
-    public function exportOrderCategoryExcel(Request $request){
-        abort_if(Gate::denies('report_export'),403);
-        return Excel::download(new CategoryNoOrder($request->sorting,$request->startdate,$request->enddate),
-        'Order Category ('.$request->startdate.' - '.$request->enddate.').xlsx');
-    }
-    public function GenderIndex(){
-        abort_if(Gate::denies('report_access'),403);
-        return view('admin.page.Report.reportgender');
-    }
-    public function exportGenderExcel(){
-        abort_if(Gate::denies('report_export'),403);
-        return Excel::download(new GenderExport,'Gender.xlsx');
-    }
 
     //Show No. of Category Page
-    public function CancelledOrders(){
-        abort_if(Gate::denies('report_access'),403);
-        return view('admin.page.Report.reportcancelledorders');
-    }
-    public function exportCancelledOrdersExcel(Request $request){
-        abort_if(Gate::denies('report_export'),403);
-        return Excel::download(new CancelledOrdersExport($request->sorting,$request->startdate,$request->enddate),
-        'Cancelled Orders ('.$request->startdate.' - '.$request->enddate.').xlsx');
-    }
 
 
-    public function CancellationReasons(){
-        abort_if(Gate::denies('report_access'),403);
-        return view('admin.page.Report.reportcancellationreasons');
-    }
-    public function exportCancellationReasonsExcel(Request $request){
-        abort_if(Gate::denies('report_export'),403);
-        return Excel::download(new CancellationReasonsExport($request->sorting,$request->startdate,$request->enddate),
-        'Cancellation Reasons ('.$request->startdate.' - '.$request->enddate.').xlsx');
-    }
 
 
-    public function RejectedOrders(){
-        abort_if(Gate::denies('report_access'),403);
-        return view('admin.page.Report.reportrejectedorders');
-    }
-    public function exportRejectedOrdersExcel(Request $request){
-        abort_if(Gate::denies('report_export'),403);
-        return Excel::download(new RejectedOrdersExport($request->sorting,$request->startdate,$request->enddate),
-        'Rejected Orders ('.$request->startdate.' - '.$request->enddate.'.xlsx');
-    }
 
-    public function CancellationOverTime(){
-        abort_if(Gate::denies('report_access'),403);
-        return view('admin.page.Report.reportcancellationovertime');
-    }
 
-    public function MonthlyCancellation(Request $request){
-        abort_if(Gate::denies('report_access'),403);
-        $month = date('m', strtotime($request->month));
-        $x = 30;
-        if($month == '01' || $month == '03' || $month == '05' || $month == '07' || $month == '08' ||  $month == '10' ||  $month == '12'){
-            $x = 31;
-        }elseif($month == '02' && ($request->year%4) == '0'){
-            $x = 28;
-        }elseif($month == '02' && ($request->year%4) != '0'){
-            $x = 29;
-        }
-        $year = $request->year;
-        $from = $year .'-'.$month.'-'.'01';
-        $to = $year.'-'.$month.'-'.$x.' 23-59-59';
-        // dd($month, $year);
-        return view('admin.page.Report.reportmonthlycancellation',[
-            'from' => $from,
-            'to' => $to,
-            'month' => $month,
-            'year' => $year,
-        ]);
-    }
-    public function exportCancellationOverTime(){
-        abort_if(Gate::denies('report_access'),403);
-        return Excel::download(new CancellationOverTimeExport,'CancellationOverTime.xlsx');
-    }
 
-    public function exportMonthlyCancellation(Request $request){
-        abort_if(Gate::denies('report_access'),403);
-        $month = date('F', mktime(0, 0, 0, $request->month, 10));
-
-        return Excel::download(new MonthlyCancellationExport($request->month,$request->year,$request->startdate,$request->enddate), $month.' '.$request->year.' Cancelled Orders.xlsx');
-    }
 
     public function AccountVerification(){
         abort_if(Gate::denies('report_access'),403);
@@ -338,11 +126,7 @@ class ReportController extends Controller
         // dd('this is account non verification');
         return view('admin.page.Report.reportnonverifiedaccount');
     }
-    // public function TopBuyerPerProduct(){
-    //     abort_if(Gate::denies('report_access'),403);
-    //     // dd('this is top buyer');
-    //     return view('admin.page.Report.reporttopbuyerperproduct');
-    // }
+
     public function OrdersByProduct(){
         abort_if(Gate::denies('report_access'),403);
         // dd('this is top buyer');
@@ -438,6 +222,7 @@ class ReportController extends Controller
         return Excel::download(new ProductRatingsByCustomerExport($request->sorting,$request->startdate,$request->enddate,$request->name,$request->product_id),
         $request->name.' Ratings By Customer('.$request->startdate.' - '.$request->enddate.').xlsx');
     }
+
     public function exportCustomerPerMonthEXCEL (Request $request){
         abort_if(Gate::denies('report_access'),403);
         return Excel::download(new CustomerPerMonthExport,'Customer Per Month.xlsx');

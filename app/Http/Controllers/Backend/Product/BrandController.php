@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers\Backend\Product;
 
-use App\Exports\BrandExport;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Gate;
-use Maatwebsite\Excel\Facades\Excel;
-
+use App\Models\Brand;
+use PDF;
+use Illuminate\Support\Facades\Auth;
+use Carbon\Carbon;
 class BrandController extends Controller
 {
     //Show Brand Page
@@ -21,7 +22,16 @@ class BrandController extends Controller
     public function exportbrandexcel()
     {
         abort_if(Gate::denies('brand_export'), 403);
+        $brands = Brand::all();
+        $prepared_by = Auth::guard('web')->user()->name;
+        $day = Carbon::now();
+        $today = $day->format('F d, Y');
+        $pdf = PDF::loadView('admin.export.list-of-brands',[
+            'brands' => $brands,
+            'prepared_by' => $prepared_by,
+            'today' => $today
+        ]);
 
-        return Excel::download(new BrandExport, 'brands.xlsx');
+        return $pdf->download("List of Brands.pdf");
     }
 }

@@ -33,7 +33,7 @@
                 @can('report_export')
                     <div class="mt-5">
                         <a href="{{Route('exportSalesProductEXCEL',['sorting'=>$sorting,'startdate'=>$from,'enddate'=>$to])}}" class="btn btn-primary">
-                            Export Excel
+                            Export
                         </a>
                     </div>
                 @endcan

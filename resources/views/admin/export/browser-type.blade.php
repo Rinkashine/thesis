@@ -1,12 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Sales By Product</title>
+    <title>Browser Type</title>
 </head>
 <style type="text/css">
     @page {
         margin: 0px 0px 0px 0px;
-
         }
     /** Define now the real margins of every page in the PDF **/
     body {
@@ -155,32 +154,27 @@
         </div>
         <hr>
     </header>
-
     <main>
-
-            <div class="w-100" style="margin-bottom:10px">
-                    <div>
-                        <h3 class="text-center header-title">Sales by Product </h3>
-                        <h5 class="text-center header-title">From: {{ $from }} - To: {{ $to }}</h5>
-                    </div>
+        <div class="w-100" style="margin-bottom:10px">
+            <div>
+                <h3 class="text-center header-title">Browser Type </h3>
+                <h5 class="text-center header-title">From: {{ $from }} - To: {{ $to }}</h5>
             </div>
-
-            <div style="clear: both;"></div>
+        </div>
+        <div style="clear: both;"></div>
         <div>
             <table class="table w-100">
                 <thead>
                     <tr class="text-white">
-                        <th class="w-50 th-color-dark">Name</th>
-                        <th class="w-50 th-color-dark">Quantity</th>
-                        <th class="w-50 th-color-dark">Total Sales</th>
+                        <th class="w-50 th-color-dark">Browser</th>
+                        <th class="w-50 th-color-dark">Session</th>
                     </tr>
                 </thead>
                <tbody>
-                    @foreach($products as $product)
+                    @foreach($browsers as $browser)
                         <tr class="stripe">
-                            <td>{{ $product->name }}</td>
-                            <td class="text-center" style="font-family: DejaVu Sans; font-size: 0.8rem;">{{ number_format($product->quantity) }}</td>
-                            <td class="text-center" style="font-family: DejaVu Sans; font-size: 0.8rem;">&#x20B1;{{ number_format($product->total_sales,2) }}</td>
+                            <td class="text-center">{{ $browser['browser'] }}</td>
+                            <td  class="text-center">{{ $browser['sessions'] }}</td>
                         </tr>
                     @endforeach
                 </tbody>

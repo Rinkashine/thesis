@@ -11,13 +11,13 @@
                         <select wire:model="sorting"  class="form-select w-full sm:w-32 2xl:w-full mt-2 sm:mt-0 sm:w-auto">
                             <option value="customer_name_asc">Customer Name (A-Z)</option>
                             <option value="customer_name_desc">Customer Name (Z-A)</option>
-                            <option value="total_spent_asc">Total Cancellations (Low To High)</option>
-                            <option value="total_spent_desc">Total Cancellations (High To Low)</option>
+                            <option value="cancellation_asc">Total Cancellations (Low To High)</option>
+                            <option value="cancellation_desc">Total Cancellations (High To Low)</option>
                         </select>
                     </div>
                     <div class="sm:flex items-center sm:mr-4 mt-2 xl:mt-0">
                         <label class="w-12 flex-none xl:w-auto xl:flex-initial mr-2">From:</label>
-                        <input " class="form-control sm:w-40 2xl:w-full mt-2 sm:mt-0" wire:model="from" id="from" name ="from"  type="datetime-local" max="{{ $to }}" />
+                        <input class="form-control sm:w-40 2xl:w-full mt-2 sm:mt-0" wire:model="from" id="from" name ="from"  type="datetime-local" max="{{ $to }}" />
                     </div>
                     <div class="sm:flex items-center sm:mr-4 mt-2 xl:mt-0">
                         <label class="w-12 flex-none xl:w-auto xl:flex-initial mr-2">To:</label>

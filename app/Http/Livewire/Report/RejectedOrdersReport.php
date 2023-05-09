@@ -29,12 +29,15 @@ class RejectedOrdersReport extends Component
         }elseif($this->sorting == 'customer_name_desc'){
             $this->column_name = "customers.name";
             $this->order_name = 'desc';
-        }elseif($this->sorting == 'total_spent_asc'){
+        }elseif($this->sorting == 'cancellation_asc'){
             $this->column_name = 'total';
             $this->order_name = "asc";
-        }elseif($this->sorting == 'total_spent_desc'){
+        }elseif($this->sorting == 'cancellation_desc'){
             $this->column_name = 'total';
             $this->order_name = 'desc';
+        }else{
+            $this->column_name = "customers.name";
+            $this->order_name = "asc";
         }
         $customers = Customer::select([
             'customers.id',
