@@ -1,12 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>List of Brand</title>
+    <title>{{ $product_name }} - Buyer</title>
 </head>
 <style type="text/css">
     @page {
         margin: 0px 0px 0px 0px;
-
         }
     /** Define now the real margins of every page in the PDF **/
     body {
@@ -146,20 +145,20 @@
             <img style="width:100px; height:100px;" src="{{ public_path('dist/images/MainLogo.png') }}" alt="Logo">
         </div>
         <div class="w-100" style="padding: 20px; ">
-            <h2 class="">Roman Dental Supplies Trading</h2>
-                <div style="margin: auto; width: 30%;">
-                    <h5 class="text-left header-title">Address: Grand Royale Subdivision</h5>
-                    <h5 class="text-left header-title">Contact No: +639 (612) 126 52</h5>
-                </div>
-            <div style="clear: both;"></div>
+                <h2 class="">Roman Dental Supplies Trading</h2>
+                    <div style="margin: auto; width: 30%;">
+                        <h5 class="text-left header-title">Address: Grand Royale Subdivision</h5>
+                        <h5 class="text-left header-title">Contact No: +639 (612) 126 52</h5>
+                    </div>
+                <div style="clear: both;"></div>
         </div>
         <hr>
     </header>
     <main>
         <div class="w-100" style="margin-bottom:10px">
             <div>
-                <h3 class="text-center header-title">List of Brand </h3>
-                <h5 class="text-center header-title">As of {{ $today }}</h5>
+                <h3 class="text-center header-title">{{ $product_name }} - Buyer </h3>
+                <h5 class="text-center header-title">From: {{ $from }} - To: {{ $to }}</h5>
             </div>
         </div>
         <div style="clear: both;"></div>
@@ -167,15 +166,17 @@
             <table class="table w-100">
                 <thead>
                     <tr class="text-white">
-                        <th class="w-50 th-color-dark">ID</th>
                         <th class="w-50 th-color-dark">Name</th>
+                        <th class="w-50 th-color-dark">Email</th>
+                        <th class="w-50 th-color-dark">Total Quantity</th>
                     </tr>
                 </thead>
                <tbody>
-                    @foreach($brands as $brand)
+                    @foreach($customers as $customer)
                         <tr class="stripe">
-                            <td class="text-center">{{ $brand->id }}</td>
-                            <td  class="text-center">{{ $brand->name }}</td>
+                            <td class="text-center">{{ $customer->name }}</td>
+                            <td  class="text-center">{{ $customer->email }}</td>
+                            <td  class="text-center">{{ number_format($customer->total_quantity) }}</td>
                         </tr>
                     @endforeach
                 </tbody>

@@ -41,6 +41,17 @@ use App\Http\Controllers\Backend\Reports\CancellationOverTimeController;
 use App\Http\Controllers\Backend\Reports\MonthlyCancellationController;
 use App\Http\Controllers\Backend\Reports\CancellationReasonController;
 use App\Http\Controllers\Backend\Reports\NumberRejectedOrderController;
+use App\Http\Controllers\Backend\Reports\CustomersGainedPerMonthController;
+use App\Http\Controllers\Backend\Reports\AccountVerificationController;
+use App\Http\Controllers\Backend\Reports\VerifiedAccountController;
+use App\Http\Controllers\Backend\Reports\NonVerifiedAccountController;
+use App\Http\Controllers\Backend\Reports\QuantityProductsOrderedController;
+use App\Http\Controllers\Backend\Reports\ProductBuyerController;
+use App\Http\Controllers\Backend\Reports\TotalOrderedProductPerCustomerController;
+use App\Http\Controllers\Backend\Reports\CustomerBoughtProductController;
+use App\Http\Controllers\Backend\Reports\ProductRatingController;
+use App\Http\Controllers\Backend\Reports\RatingsByCustomerController;
+
 
 
 
@@ -77,25 +88,25 @@ Route::group(['prefix' => 'admin'], function () {
         //Begin: Export Files for Monthly Cancellation Reports
         Route::get('/report/monthlycancellation/excel/{month}/{year}',[MonthlyCancellationController::class,'exportMonthlyCancellation'])->name('report.exportMonthlyCancellation');
         //Begin: Export Files for Numbers of Created Customers Per Month
-        Route::get('/report/customerPerMonth/excel',[ReportController::class,'exportCustomerPerMonthEXCEL'])->name('exportCustomerPerMonthEXCEL');
+        Route::get('/report/customerPerMonth/excel',[CustomersGainedPerMonthController::class,'exportCustomerPerMonthEXCEL'])->name('exportCustomerPerMonthEXCEL');
         //Begin: Export Files for Number of Products Bought by the Customer
-        Route::get('/report/productbycustomer/excel/',[ReportController::class,'exportProductByCustomerExcel'])->name('report.exportProductByCustomerExcel');
+        Route::get('/report/productbycustomer/excel/',[ProductBuyerController::class,'exportProductByCustomerExcel'])->name('report.exportProductByCustomerExcel');
         //Begin: Export Files for Number of Verified Accounts
-        Route::get('/report/VerifiedAccount/excel/',[ReportController::class,'exportVerifiedAccountsExcel'])->name('report.exportVerifiedAccountsExcel');
+        Route::get('/report/VerifiedAccount/excel/',[VerifiedAccountController::class,'exportVerifiedAccountsExcel'])->name('report.exportVerifiedAccountsExcel');
         //Begin: Export Files for Non Verified Accounts
-        Route::get('/report/NonVerifiedAccount/excel/',[ReportController::class,'exportNonVerifiedAccountsExcel'])->name('report.exportNonVerifiedAccountsExcel');
+        Route::get('/report/NonVerifiedAccount/excel/',[NonVerifiedAccountController::class,'exportNonVerifiedAccountExcel'])->name('report.exportNonVerifiedAccountsExcel');
         //Begin:
-        Route::get('/report/OrdersByProduct/excel/',[ReportController::class,'exportOrdersByProductExcel'])->name('report.exportOrdersByProductExcel');
+        Route::get('/report/OrdersByProduct/excel/',[QuantityProductsOrderedController::class,'exportOrdersByProductExcel'])->name('report.exportOrdersByProductExcel');
         //Begin:
-        Route::get('/report/OrdersByCustomer/customerbyproduct/excel/',[ReportController::class,'exportOrdersByCustomer'])->name('report.exportOrdersByCustomer');
+        Route::get('/report/OrdersByCustomer/customerbyproduct/excel/',[TotalOrderedProductPerCustomerController::class,'exportOrdersByCustomer'])->name('report.exportOrdersByCustomer');
         //Begin:
-        Route::get('/report/customerbyproduct/excel/{name}',[ReportController::class,'exportCustomerByProductExcel'])->name('report.exportCustomerByProductExcel');
+        Route::get('/report/customerbyproduct/excel/{name}',[CustomerBoughtProductController::class,'exportCustomerByProductExcel'])->name('report.exportCustomerByProductExcel');
         //Begin: Export files for the Type of Payment
         Route::get('/report/PaymentByType/excel/{startdate}/{enddate}', [PaymentByTypeController::class, 'exportPaymentByType'])->name('report.exportPaymentByType');
         //Begin: Export files for the list of products and their respective ratings
-        Route::get('/report/productratings/excel/{sorting}/{startdate}/{enddate}',[ReportController::class,'exportProductRatingsExcel'])->name('report.exportProductRatingsExcel');
+        Route::get('/report/productratings/excel/{sorting}/{startdate}/{enddate}',[ProductRatingController::class,'exportProductRatingsExcel'])->name('report.exportProductRatingsExcel');
         //Begin: Export Files for the products and list of customers who rate that product
-        Route::get('/report/productratings/ProductRatingsByCustomer/excel/{sorting}/{startdate}/{enddate}/{name}',[ReportController::class,'exportProductRatingsByCustomerExcel'])->name('report.exportProductRatingsByCustomerExcel');
+        Route::get('/report/productratings/ProductRatingsByCustomer/excel/{sorting}/{startdate}/{enddate}/{name}',[RatingsByCustomerController::class,'exportProductRatingsByCustomerExcel'])->name('report.exportProductRatingsByCustomerExcel');
         //Begin Export Files for Sales Overtime
         Route::get('/report/SalesOvertime/excel', [SalesOverTimeController::class, 'exportsalesovertime'])->name('exportsalesovertime');
         //Begin: Export Files for Sales by Product
@@ -160,7 +171,7 @@ Route::group(['prefix' => 'admin'], function () {
             Route::get('/report/rejectedorders',[NumberRejectedOrderController::class,'RejectedOrders'])->name('report.RejectedOrders');
             Route::get('/report/cancellationovertime',[CancellationOverTimeController::class,'CancellationOverTime'])->name('report.CancellationOverTime');
             Route::get('/report/monthlycancellation/{month}/{year}', [MonthlyCancellationController::class,'MonthlyCancellation'])->name('report.MonthlyCancellation');
-            Route::get('/report/customerPerMonth',[ReportController::class,'customerPerMonth'])->name('report.customerPerMonth');
+            Route::get('/report/customerPerMonth',[CustomersGainedPerMonthController::class,'customerPerMonth'])->name('report.customerPerMonth');
             Route::get('/report/showCustomerPerMonth/{month}/{year}', [ReportController::class,'showCustomerPerMonth'])->name('report.ShowCustomerPerMonth');
             Route::get('/report/PaymentByType', [PaymentByTypeController::class, 'PaymentTypeIndex'])->name('report.PaymentByType');
             Route::get('/report/UserType', [UserTypeController::class, 'UserTypeIndex'])->name('report.UserType');
@@ -168,16 +179,16 @@ Route::group(['prefix' => 'admin'], function () {
             Route::get('/report/SalesOvertime', [SalesOverTimeController::class, 'SalesOvertimeIndex'])->name('report.SalesOvertime');
             Route::get('/report/Cancellation', [ReportController::class, 'CancellationIndex'])->name('report.Cancellation');
             Route::get('/report/accountverification',[ReportController::class,'AccountVerification'])->name('report.AccountVerification');
-            Route::get('/report/VerifiedAccount',[ReportController::class,'VerifiedAccount'])->name('report.VerifiedAccount');
-            Route::get('/report/NonVerifiedAccount',[ReportController::class,'NonVerifiedAccount'])->name('report.NonVerifiedAccount');
+            Route::get('/report/VerifiedAccount',[VerifiedAccountController::class,'VerifiedAccount'])->name('report.VerifiedAccount');
+            Route::get('/report/NonVerifiedAccount',[NonVerifiedAccountController::class,'NonVerifiedAccount'])->name('report.NonVerifiedAccount');
             Route::get('/report/TopBuyerPerProduct',[ReportController::class,'TopBuyerPerProduct'])->name('report.TopBuyerPerProduct');
-            Route::get('/report/OrdersByProduct',[ReportController::class,'OrdersByProduct'])->name('report.OrdersByProduct');
-            Route::get('/report/OrdersByProduct/ProductByCustomer/{name}',[ReportController::class,'ProductByCustomer'])->name('report.ProductByCustomer');
-            Route::get('/report/OrdersByCustomer',[ReportController::class,'OrdersByCustomer'])->name('report.OrdersByCustomer');
-            Route::get('/report/OrdersByCustomer/CustomerByProduct/{name}',[ReportController::class,'CustomerByProduct'])->name('report.CustomerByProduct');
+            Route::get('/report/OrdersByProduct',[QuantityProductsOrderedController::class,'OrdersByProduct'])->name('report.OrdersByProduct');
+            Route::get('/report/OrdersByProduct/ProductByCustomer/{name}',[ProductBuyerController::class,'ProductByCustomer'])->name('report.ProductByCustomer');
+            Route::get('/report/OrdersByCustomer',[TotalOrderedProductPerCustomerController::class,'OrdersByCustomer'])->name('report.OrdersByCustomer');
+            Route::get('/report/OrdersByCustomer/CustomerByProduct/{name}',[CustomerBoughtProductController::class,'CustomerByProduct'])->name('report.CustomerByProduct');
 
-            Route::get('/report/productratings',[ReportController::class,'ProductRatings'])->name('report.ProductRatings');
-            Route::get('/report/productratings/ProductRatingsByCustomer/{product_id}/{product_name}',[ReportController::class,'ProductRatingsByCustomer'])->name('report.ProductRatingsByCustomer');
+            Route::get('/report/productratings',[ProductRatingController::class,'ProductRatings'])->name('report.ProductRatings');
+            Route::get('/report/productratings/ProductRatingsByCustomer/{product_id}/{product_name}',[RatingsByCustomerController::class,'ProductRatingsByCustomer'])->name('report.ProductRatingsByCustomer');
             //Return To Be Made Soon
             Route::get('/report/Return', [ReportController::class, 'ReturnIndex'])->name('report.Return');
             //End: List of Reports: System

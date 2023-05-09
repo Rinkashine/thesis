@@ -2,7 +2,7 @@
     <div class="intro-y box p-5">
         <div class="border border-slate-200/60 dark:border-darkmode-400 rounded-md p-5">
             <div class="font-medium text-base flex items-center border-b border-slate-200/60 dark:border-darkmode-400 pb-5">
-                <a href="{{Route('report.OrdersByCustomer')}}" class="mr-2 btn">←</a> {{$customer_name}} Bought Products
+                <a href="{{Route('report.OrdersByCustomer')}}" class="mr-2 btn">←</a>{!! $customer_name !!} Bought Products
             </div>
 
             <div class="flex flex-col sm:flex-row sm:items-end xl:items-start">
@@ -36,7 +36,7 @@
                         <table class="table table-striped mt-5 table-bordered table-hover">
                             <thead class="table-dark">
                                 <tr>
-                                    <th class="whitespace-nowrap ">product Name</th>
+                                    <th class="whitespace-nowrap ">Product Name</th>
                                     <th class="whitespace-nowrap text-center">Total Ordered Products</th>
                                 </tr>
                             </thead>
