@@ -1,8 +1,15 @@
 <div>
-    <div class="grid grid-cols-12 gap-6 mt-5">
-        <div class="intro-y col-span-12 flex flex-wrap sm:flex-nowrap items-center mt-2">
-            <div class="font-medium text-base flex items-center border-b border-slate-200/60 dark:border-darkmode-400 pb-5"> <a href="{{ Route('report.customerPerMonth') }}" class="mr-2 btn">←</a> {{$date}} Customers  </div>
+    <div class="intro-y flex justify-between items-center mt-8">
+        <div class="font-medium text-base flex items-center border-b border-slate-200/60 dark:border-darkmode-400">
+            <a href="{{ Route('report.customerPerMonth') }}" class="mr-2 btn">←</a> {{$date}} Customers
         </div>
+        <div>
+            <a href="{{ Route('exportCustomerPerMonthList',['from' => $from,'to' => $to]) }}" class="btn btn-primary"> Export </a>
+        </div>
+    </div>
+
+    <div class="grid grid-cols-12 gap-6 mt-5">
+
         <!-- BEGIN: Users Layout -->
         @forelse($users as $user)
         <div class="intro-y col-span-12 md:col-span-6 lg:col-span-4">

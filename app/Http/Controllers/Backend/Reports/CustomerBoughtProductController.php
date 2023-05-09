@@ -23,7 +23,7 @@ class CustomerBoughtProductController extends Controller
     }
 
     public function exportCustomerByProductExcel(Request $request){
-        abort_if(Gate::denies('report_access'),403);
+        abort_if(Gate::denies('report_export'),403);
         $customer_id = $request->id;
         $column_name = "";
         $order_name = "";

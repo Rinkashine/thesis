@@ -31,7 +31,7 @@
             @can('report_export')
                 <div class="mt-5">
                     <a href="{{Route('report.exportProductRatingsByCustomerExcel', ['sorting'=>$sorting,'startdate'=>$from,'enddate'=>$to, 'name' => $product_name, 'product_id' => $product_id])}}" class="btn btn-primary">
-                        Export Excel
+                        Excel
                     </a>
                 </div>
             @endcan
@@ -51,10 +51,9 @@
                         <tbody>
                             @foreach ($rating as $rate )
                                 <tr>
-                                    <td class="whitespace-nowrap text-center">{{ ($rate->customer_order_id)}}</td>
-                                    <td class="whitespace-nowrap text-center">{{ $rate->name}}</td>
-                                    <td class="whitespace-nowrap text-center">{{$rate->rate}}</td>
-
+                                    <td class="whitespace-nowrap text-center"><a href="{{ Route('orders.show',$rate->customer_order_id) }}">#{{ ($rate->customer_order_id)}}</a></td>
+                                    <td class="whitespace-nowrap text-center"><a href="{{ Route('customer.show',$rate->customer_id) }}">{{ $rate->name}}</a></td>
+                                    <td class="whitespace-nowrap text-center">{{ $rate->rate}}</td>
                                 </tr>
                             @endforeach
                         </tbody>

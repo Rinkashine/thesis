@@ -6,9 +6,10 @@ use App\Models\Review;
 use Livewire\Component;
 use Livewire\WithPagination;
 use Illuminate\Support\Facades\DB;
+use App\Models\Product;
 
 class ProductRatingsByCustomerReport extends Component
-{   
+{
     use WithPagination;
     protected $paginationTheme = 'bootstrap';
 
@@ -28,12 +29,10 @@ class ProductRatingsByCustomerReport extends Component
 
     protected $queryString = ['search' => ['except' => '']];
 
-    public function mount($product_id, $product_name, $from, $to){
+    public function mount($product_id, $from, $to){
         $this->product_id = $product_id;
-        $this->product_name = $product_name;
         $this->from = $from;
         $this->to = $to;
-        // dd($this->product_name);
     }
 
     public function render()
@@ -54,12 +53,16 @@ class ProductRatingsByCustomerReport extends Component
             $this->column_name = 'rate';
             $this->order_name = 'desc';
         }
+        $product_info = Product::findorfail($this->product_id);
+        $product_name = $product_info->name;
 
         $rating = Review::join('customer_order_item', 'product_review.customer_order_item_id', '=', 'customer_order_item.id')
         ->leftjoin('customers','customers.id','=','product_review.customer_id')
         ->select([
             'rate',
-            'customer_order_item.customer_order_id', 'customers.name',
+            'customer_order_item.customer_order_id',
+            'customers.name',
+            'customers.id as customer_id',
             DB::raw('(SELECT customers.name FROM customers WHERE customers.id = product_review.customer_id) as customer_name'),
             DB::raw('(SELECT customers.photo FROM customers WHERE customers.id = product_review.customer_id) as customer_photo'),
             'product_review.created_at'])
@@ -69,12 +72,10 @@ class ProductRatingsByCustomerReport extends Component
         ->where('customers.name','like','%'.$this->search.'%')
         ->orderby($this->column_name, $this->order_name)
         ->paginate($this->perPage);
-        // ->get();
-        // dd($reviews->toArray());
 
         return view('livewire.report.product-ratings-by-customer-report',[
             'rating' => $rating,
-            'product_name' => $this->product_name,
+            'product_name' => $product_name,
             'product_id' => $this->product_id
         ]);
     }

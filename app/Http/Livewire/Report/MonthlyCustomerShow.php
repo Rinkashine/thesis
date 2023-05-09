@@ -17,7 +17,8 @@ class MonthlyCustomerShow extends Component
     protected $paginationTheme = 'bootstrap';
 
     protected $users;
-
+    public $month;
+    public $year;
     public function mount($from, $to, $month, $year){
         $this->from = $from;
         $this->to = $to;
