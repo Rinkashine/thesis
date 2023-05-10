@@ -22,6 +22,7 @@ class RoleExport implements FromCollection, WithHeadings, ShouldAutoSize
         return [
             '#',
             'Name',
+            'Guard Name',
             'Created_at',
             'Updated_at',
         ];

@@ -31,15 +31,15 @@ Route::group(['prefix' => 'admin'], function () {
 
     Route::middleware(['auth:web'])->group(function () {
         //Begin: Export Files for Category
-        Route::get('/category/excel', [CategoryController::class, 'exportcategoriesexcel'])->name('exportcategoriesexcel');
+        Route::get('/category/pdf', [CategoryController::class, 'exportcategoriesexcel'])->name('exportcategoriespdf');
         //Begin: Export Files for Brand
-        Route::get('/brand/excel', [BrandController::class, 'exportbrandexcel'])->name('exportbrandexcel');
+        Route::get('/brand/pdf', [BrandController::class, 'exportbrandexcel'])->name('exportbrandpdf');
         //Begin: Export Files for Product
-        Route::get('/product/excel', [ProductController::class, 'exportproductexcel'])->name('exportproductexcel');
+        Route::get('/product/pdf', [ProductController::class, 'exportproductexcel'])->name('exportproductpdf');
         //Begin:Export Files for Supplier
-        Route::get('/supplier/excel', [SupplierController::class, 'exportsupplierexcel'])->name('exportsupplierexcel');
+        Route::get('/supplier/pdf', [SupplierController::class, 'exportsupplierexcel'])->name('exportsupplierpdf');
         //Begin:Export Files for Role
-        Route::get('/role/excel', [RoleController::class, 'exportroleexcel'])->name('exportroleexcel');
+        Route::get('/role/pdf', [RoleController::class, 'exportroleexcel'])->name('exportrolepdf');
 
 
         Route::middleware(['PreventBackHistory'])->group(function () {

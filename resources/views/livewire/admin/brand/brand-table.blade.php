@@ -4,20 +4,6 @@
             @can('brand_create')
                 <button class="btn btn-primary shadow-md mr-2" data-tw-toggle="modal" data-tw-target="#add-item-modal">Add New Brand</button>
             @endcan
-            @can('brand_export')
-            <div class="dropdown">
-                <button class="dropdown-toggle btn px-2 box" aria-expanded="false" data-tw-toggle="dropdown">
-                    <span class="w-5 h-5 flex items-center justify-center"><i class="fa-regular fa-plus w-4 h-4"></i></span>
-                </button>
-                <div class="dropdown-menu w-40">
-                    <ul class="dropdown-content">
-                        <li>
-                            <a href="{{Route('exportbrandexcel')}}" class="dropdown-item"> <i class="fa-solid fa-file-excel mr-1"></i> Export to Excel  </a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        @endcan
             <div class="hidden md:block mx-auto text-slate-500">
                 @if($brands->count() == 0)
                     Showing 0 to 0 of 0 entries

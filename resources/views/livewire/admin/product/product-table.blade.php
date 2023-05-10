@@ -31,7 +31,7 @@
                         <div class="dropdown-menu w-40">
                             <ul class="dropdown-content">
                                 <li>
-                                    <a href="{{Route('exportproductexcel')}}" class="dropdown-item"> <i class="fa-solid fa-file-excel mr-1"></i> Export Excel </a>
+                                    <a href="{{Route('exportproductpdf')}}" class="dropdown-item"> <i class="fa-solid fa-file-excel mr-1"></i> Export Excel </a>
                                 </li>
                             </ul>
                         </div>

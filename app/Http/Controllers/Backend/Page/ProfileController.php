@@ -12,12 +12,12 @@ class ProfileController extends Controller
 {
     public function index()
     {
-        return view('admin.page.profile');
+        return view('admin.page.profile.user-info');
     }
 
     public function changepass()
     {
-        return view('admin.page.changepass');
+        return view('admin.page.profile.changepass');
     }
 
     public function resetpass(Request $request)

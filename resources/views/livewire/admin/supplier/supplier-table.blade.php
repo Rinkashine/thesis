@@ -19,17 +19,8 @@
                 </div>
             </div>
             @can('supplier_export')
-                <div class="flex mt-5 sm:mt-0">
-                    <div class="dropdown w-1/2 sm:w-auto">
-                        <button class="dropdown-toggle btn btn-outline-secondary w-full sm:w-auto" aria-expanded="false" data-tw-toggle="dropdown"> <i class="fa-regular fa-newspaper w-4 h-4 mr-2"></i> Export <i class="fa-solid fa-chevron-down w-4 h-4 ml-auto sm:ml-2"></i> </button>
-                        <div class="dropdown-menu w-40">
-                            <ul class="dropdown-content">
-                                <li>
-                                    <a href="{{Route('exportsupplierexcel')}}" class="dropdown-item">  <i class="fa-solid fa-file-excel mr-1"></i>  Export Excel </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
+                <div class="intro-y flex mt-5 sm:mt-0">
+                    <a href="{{Route('exportsupplierpdf')}}" class="btn btn-primary">Export</a>
                 </div>
             @endcan
         </div>

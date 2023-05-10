@@ -2,7 +2,16 @@
 @section('content')
 @section('title', 'Brand')
 <!-- Begin: Header -->
-<h2 class="intro-y text-lg font-medium mt-10">Brand</h2>
+<div class="intro-y flex justify-between space-between mt-10">
+    <div>
+        <h2 class="text-lg font-medium ">Brand</h2>
+    </div>
+    @can('brand_export')
+        <div>
+            <a href="{{Route('exportbrandpdf')}}" class="btn btn-primary">Export</a>
+        </div>
+    @endcan
+</div>
 <!-- End: Header -->
 
 
