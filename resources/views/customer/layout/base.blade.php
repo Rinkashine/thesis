@@ -13,7 +13,7 @@
         </script>
         <!-- Google tag (gtag.js) -->
         <meta charset="utf-8">
-        <link href="{{asset('icons/log.png')}}" rel="shortcut icon">
+        <link href="{{asset('dist/images/MainLogo.png')}}" rel="shortcut icon">
         <link rel="stylesheet" href="{{ asset('dist/css/build.css') }}" />
         <link rel="stylesheet" href="{{ asset('dist/css/app.css') }}" />
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -34,8 +34,6 @@
     </head>
     <!-- END: Head -->
     <body class="py-5 md:py-0 bg-black/[0.15] dark:bg-transparent">
-
-
         <!-- BEGIN: Mobile Menu -->
         @include('customer.component.mobile-menu')
         <!-- END: Mobile Menu -->

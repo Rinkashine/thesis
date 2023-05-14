@@ -80,6 +80,6 @@ class SalesByProductController extends Controller
             'prepared_by' => $prepared_by
         ]);
 
-        return $pdf->download("Sales By Product.pdf");
+        return $pdf->download("Product Sales.pdf");
     }
 }

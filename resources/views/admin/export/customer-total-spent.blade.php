@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Customer Total Spent</title>
+    <title> Customer Expenditure</title>
 </head>
 <style type="text/css">
     @page {
@@ -157,7 +157,7 @@
     <main>
         <div class="w-100" style="margin-bottom:10px">
             <div>
-                <h3 class="text-center header-title">Customer Total Spent </h3>
+                <h3 class="text-center header-title"> Customer Expenditure </h3>
                 <h5 class="text-center header-title">From: {{ $from }} - To: {{ $to }}</h5>
             </div>
         </div>

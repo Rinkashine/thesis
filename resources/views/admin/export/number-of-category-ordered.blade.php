@@ -1,12 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Number of Categories Ordered</title>
+    <title>Category Order Volume</title>
 </head>
 <style type="text/css">
     @page {
         margin: 0px 0px 0px 0px;
-
         }
     /** Define now the real margins of every page in the PDF **/
     body {
@@ -158,7 +157,7 @@
     <main>
         <div class="w-100" style="margin-bottom:10px">
                 <div>
-                    <h3 class="text-center header-title">Quantity of Categories Ordered </h3>
+                    <h3 class="text-center header-title">Category Order Volume </h3>
                     <h5 class="text-center header-title">From: {{ $from }} - To: {{ $to }}</h5>
                 </div>
         </div>

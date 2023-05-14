@@ -151,7 +151,7 @@
                     <img class="object-scale-down w-full max-w-md max-h-56" src="{{ asset('dist/images/Construction.svg') }}">
                 </div>
                 <div>
-                    <div class="ml-1 sm:text-sm">Quantity of Orders by Product</div>
+                    <div class="ml-1 sm:text-sm">Product Order Volume</div>
                 </div>
                 <div class="p-1 mt-1 text-sm text-center border-t">
                     <a class="sm:text-base" href="{{ Route('report.OrdersByProduct') }}">View Details</a>
@@ -163,7 +163,7 @@
                     <img class="object-scale-down w-full max-w-md max-h-56" src="{{ asset('dist/images/Construction.svg') }}">
                 </div>
                 <div>
-                    <div class="ml-1 sm:text-sm">Quantity of Orders by Customer</div>
+                    <div class="ml-1 sm:text-sm">Customer's Order Volume</div>
                 </div>
                 <div class="p-1 mt-1 text-sm text-center border-t">
                     <a class="sm:text-base" href="{{ Route('report.OrdersByCustomer') }}">View Details</a>
@@ -194,7 +194,7 @@
                     <img class="object-scale-down w-full max-w-md max-h-56" src="{{ asset('dist/images/SalesOvertime.svg') }}">
                 </div>
                 <div>
-                    <div class="ml-1 sm:text-sm">Sales Over Time</div>
+                    <div class="ml-1 sm:text-sm">Monthly Sales</div>
                 </div>
                 <div class="p-1 mt-1 text-sm text-center border-t">
                     <a class="sm:text-base" href="{{ Route('report.SalesOvertime') }}">View Details</a>
@@ -206,19 +206,18 @@
                     <img class="object-scale-down w-full max-w-md max-h-56" src="{{ asset('dist/images/SalesbyProduct.svg') }}">
                 </div>
                 <div>
-                    <div class="ml-1 sm:text-sm">Sales by Product</div>
+                    <div class="ml-1 sm:text-sm">Product Sales</div>
                 </div>
                 <div class="p-1 mt-1 text-sm text-center border-t">
                     <a class="sm:text-base" href="{{ Route('report.SalesProd') }}">View Details</a>
                 </div>
             </div>
-            <!-- Customer Total Spent -->
-            <div class="col-span-6 zoom-in p-2 text-xs bg-white border rounded-md shadow-md md:col-span-3 lg:col-span-2 w-fit">
+            <div class="col-span-6 zoom-in p-2 t    ext-xs bg-white border rounded-md shadow-md md:col-span-3 lg:col-span-2 w-fit">
                 <div>
                     <img class="object-scale-down w-full max-w-md max-h-56" src="{{ asset('dist/images/CustomerTotalSpent.svg') }}">
                 </div>
                 <div>
-                    <div class="ml-1 sm:text-sm">Customer Total Spent</div>
+                    <div class="ml-1 sm:text-sm"> Customer Expenditure</div>
                 </div>
                 <div class="p-1 mt-1 text-sm text-center border-t">
                     <a class="sm:text-base" href="{{ Route('report.CustomersTotalSpent') }}">View Details</a>
@@ -230,7 +229,7 @@
                     <img class="object-scale-down w-full max-w-md max-h-56" src="{{ asset('dist/images/ProductSalesperBrand.svg') }}">
                 </div>
                 <div>
-                    <div class="ml-1 sm:text-sm">Products Sales per Brand</div>
+                    <div class="ml-1 sm:text-sm">Brand Sales</div>
                 </div>
                 <div class="p-1 mt-1 text-sm text-center border-t">
                     <a class="sm:text-base" href="{{ Route('report.SalesBrand') }}">View Details</a>
@@ -242,7 +241,7 @@
                     <img class="object-scale-down w-full max-w-md max-h-56" src="{{ asset('dist/images/Construction.svg') }}">
                 </div>
                 <div>
-                    <div class="ml-1 sm:text-sm">Products Sales per Category</div>
+                    <div class="ml-1 sm:text-sm">Category</div>
                 </div>
                 <div class="p-1 mt-1 text-sm text-center border-t">
                     <a class="sm:text-base" href="{{ Route('report.SalesCategory') }}">View Details</a>
@@ -254,7 +253,7 @@
                     <img class="object-scale-down w-full max-w-md max-h-56" src="{{ asset('dist/images/Construction.svg') }}">
                 </div>
                 <div>
-                    <div class="ml-1 sm:text-sm">Products Sold per Brand</div>
+                    <div class="ml-1 sm:text-sm">Brand Order Volume</div>
                 </div>
                 <div class="p-1 mt-1 text-sm text-center border-t">
                     <a class="sm:text-base" href="{{ Route('report.OrderBrand') }}">View Details</a>
@@ -266,7 +265,7 @@
                     <img class="object-scale-down w-full max-w-md max-h-56" src="{{ asset('dist/images/Construction.svg') }}">
                 </div>
                 <div>
-                    <div class="ml-1 sm:text-sm">Products Sold per Category</div>
+                    <div class="ml-1 sm:text-sm">Category Order Volume</div>
                 </div>
                 <div class="p-1 mt-1 text-sm text-center border-t">
                     <a class="sm:text-base" href="{{ Route('report.OrderCategory') }}">View Details</a>

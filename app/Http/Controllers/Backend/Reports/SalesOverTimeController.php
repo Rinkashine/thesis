@@ -45,7 +45,7 @@ class SalesOverTimeController extends Controller
             'prepared_by' => $prepared_by
         ]);
 
-        return $pdf->download("Sales Over Time.pdf");
+        return $pdf->download("Monthly Sales.pdf");
     }
 
 }

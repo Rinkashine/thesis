@@ -166,8 +166,8 @@
             <table class="table w-100">
                 <thead>
                     <tr class="text-white">
-                        <th class="w-50 th-color-dark">Gender</th>
-                        <th class="w-50 th-color-dark">Count</th>
+                        <th class="w-50 th-color-dark">Type</th>
+                        <th class="w-50 th-color-dark">Total</th>
                     </tr>
                 </thead>
                <tbody>

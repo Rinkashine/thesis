@@ -1,7 +1,7 @@
 <?php
 
 return [
-    'name' => 'LaravelPWA',
+    'name' => 'Go Dental',
     'manifest' => [
         'name' => 'Go Dental',
         'short_name' => 'Dental',

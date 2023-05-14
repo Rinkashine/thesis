@@ -11,8 +11,8 @@
                         <select wire:model="sorting"  class="form-select w-full sm:w-32 2xl:w-full mt-2 sm:mt-0 sm:w-auto">
                             <option value="customer_name_asc">Customer Name (A-Z)</option>
                             <option value="customer_name_desc">Customer Name (Z-A)</option>
-                            <option value="cancellation_asc">Total Cancellations (Low To High)</option>
-                            <option value="cancellation_desc">Total Cancellations (High To Low)</option>
+                            <option value="cancellation_asc">Total Rejection (Low To High)</option>
+                            <option value="cancellation_desc">Total Rejection (High To Low)</option>
                         </select>
                     </div>
                     <div class="sm:flex items-center sm:mr-4 mt-2 xl:mt-0">

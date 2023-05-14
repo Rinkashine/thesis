@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Sales By Product</title>
+    <title>Product Sales</title>
 </head>
 <style type="text/css">
     @page {
@@ -160,7 +160,7 @@
 
             <div class="w-100" style="margin-bottom:10px">
                     <div>
-                        <h3 class="text-center header-title">Sales by Product </h3>
+                        <h3 class="text-center header-title">Product Sales </h3>
                         <h5 class="text-center header-title">From: {{ $from }} - To: {{ $to }}</h5>
                     </div>
             </div>

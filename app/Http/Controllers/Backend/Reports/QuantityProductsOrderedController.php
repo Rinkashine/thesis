@@ -65,6 +65,6 @@ class QuantityProductsOrderedController extends Controller
             'today' => $today
         ]);
 
-        return $pdf->download("The number of items ordered per product.pdf");
+        return $pdf->download("Product Order Volume.pdf");
     }
 }

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Sales Over Time</title>
+    <title>Monthly Sales </title>
 </head>
 <style type="text/css">
     @page {
@@ -157,7 +157,7 @@
     <main>
         <div class="w-100" style="margin-bottom:10px">
             <div>
-                <h3 class="text-center header-title">Sales Over Time </h3>
+                <h3 class="text-center header-title">Monthly Sales </h3>
                 <h5 class="text-center header-title">As of {{ $today }}</h5>
             </div>
         </div>

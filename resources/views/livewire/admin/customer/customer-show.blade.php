@@ -116,7 +116,11 @@
                 </div>
                 <div class="px-2 text-right sm:text-center">
                     <span>Ordered Date: {{$order->created_at->toDayDateTimeString()}}</span>
-                    <span class="rounded-full bg-slate-50  whitespace-nowrap pl-2"> <a href="{{ Route('order.show',$order->id ) }}"> <i class="w-4 h-4 mr-1 fa-solid fa-eye"></i> Show Details</a></span>
+                    <span class="rounded-full bg-slate-50  whitespace-nowrap pl-2">
+                        <a href="{{ Route('orders.show',$order->id ) }}">
+                            <i class="w-4 h-4 mr-1 fa-solid fa-eye"></i> Show Details
+                        </a>
+                    </span>
                 </div>
             </div>
             <div>

@@ -66,7 +66,7 @@ Route::group(['prefix' => 'admin'], function () {
             Route::get('/orders/print_waybill/{id}',[OrderController::class, 'Invoice'])->name('invoice');
             Route::resource('orders', OrderController::class)->only('index', 'show');
             //End: Order Module
-            Route::resource('post', PostController::class)->only('index');
+            Route::resource('banner', PostController::class)->only('index');
             //Begin: Supplier Module
             Route::get('/supplier/archive', [SupplierController::class, 'SupplierArchiveIndex'])->name('SupplierArchiveIndex');
             Route::resource('supplier', SupplierController::class);

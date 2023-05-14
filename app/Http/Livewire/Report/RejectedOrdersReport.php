@@ -39,6 +39,7 @@ class RejectedOrdersReport extends Component
             $this->column_name = "customers.name";
             $this->order_name = "asc";
         }
+
         $customers = Customer::select([
             'customers.id',
             'customers.name',
@@ -51,6 +52,7 @@ class RejectedOrdersReport extends Component
         ->groupBy('customers.name','customers.id','customers.email')
         ->orderBy($this->column_name, $this->order_name)
         ->paginate($this->perPage);
+
         return view('livewire.report.rejected-orders-report',[
             'customers' => $customers
         ]);

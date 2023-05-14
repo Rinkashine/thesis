@@ -67,7 +67,7 @@ class CustomerTotalSpentController extends Controller
             'prepared_by' => $prepared_by
         ]);
 
-        return $pdf->download("Customer Total Spent.pdf");
+        return $pdf->download(" Customer Expenditure.pdf");
 
     }
 }

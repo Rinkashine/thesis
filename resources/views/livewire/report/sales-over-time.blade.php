@@ -2,7 +2,7 @@
     <div class="intro-y flex justify-between items-center mt-8">
         <div>
             <h2 class="text-lg font-medium mr-auto">
-                <a href="{{ Route('report.index') }}" class="mr-2 btn">←</a>Sales Over Time
+                <a href="{{ Route('report.index') }}" class="mr-2 btn">←</a>Monthly Sales
             </h2>
         </div>
         @can('report_export')

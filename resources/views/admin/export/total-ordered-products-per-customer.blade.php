@@ -157,7 +157,7 @@
     <main>
         <div class="w-100" style="margin-bottom:10px">
             <div>
-                <h3 class="text-center header-title">Ordered Products per Customer </h3>
+                <h3 class="text-center header-title">Number of Items Ordered by Product </h3>
                 <h5 class="text-center header-title">As of {{ $today }}</h5>
             </div>
         </div>

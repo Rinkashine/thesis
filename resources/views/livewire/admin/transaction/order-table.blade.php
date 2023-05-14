@@ -38,8 +38,16 @@
                 <tbody>
                     @forelse ($orders as $order)
                         <tr class="intro-x">
-                            <td class="w-40 !py-4"><a href="{{ Route('orders.show',$order->id) }}" class="underline decoration-dotted whitespace-nowrap"> #{{ $order->id }}</a>  </td>
-                            <td class="w-40"> <a class="font-medium whitespace-nowrap">{{ $order->customers->name }}</a></td>
+                            <td class="w-40 !py-4">
+                                <a href="{{ Route('orders.show',$order->id) }}" class="underline decoration-dotted whitespace-nowrap">
+                                    #{{ $order->id }}
+                                </a>
+                            </td>
+                            <td class="w-40">
+                                <a class="font-medium whitespace-nowrap">
+                                    {{ $order->customers->name }}
+                                </a>
+                            </td>
                             <td class="text-center">
                                 @if($order->status == "Completed")
                                 <div class="flex items-center justify-center whitespace-nowrap text-primary">{{ $order->status }}</div>

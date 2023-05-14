@@ -46,7 +46,7 @@ class TotalOrderedProductPerCustomerController extends Controller
             'prepared_by' => $prepared_by
         ]);
 
-        return $pdf->download("Customer Total Ordered Products.pdf");
+        return $pdf->download("Customer Order Volume.pdf");
 
 
     }

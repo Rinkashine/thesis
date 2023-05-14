@@ -158,7 +158,7 @@
     <main>
         <div class="w-100" style="margin-bottom:10px">
             <div>
-                <h3 class="text-center header-title">Cancelled Orders </h3>
+                <h3 class="text-center header-title">Cancelled Orders (User) </h3>
                 <h5 class="text-center header-title">As of {{ $today }}</h5>
             </div>
         </div>
@@ -169,7 +169,7 @@
                     <tr class="text-white">
                         <th class="w-50 th-color-dark">Name</th>
                         <th class="w-50 th-color-dark">Email</th>
-                        <th class="w-50 th-color-dark">Count</th>
+                        <th class="w-50 th-color-dark">Total</th>
                     </tr>
                 </thead>
                <tbody>

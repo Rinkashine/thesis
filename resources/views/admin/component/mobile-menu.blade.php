@@ -108,7 +108,7 @@
 
         @can('post_access')
         <li>
-            <a href="{{Route('post.index')}}" class="menu">
+            <a href="{{Route('banner.index')}}" class="menu">
                 <div class="menu__icon"> <i class="fa-solid fa-signs-post fa-lg p-1"></i> </div>
                 <div class="menu__title"> Home Banner </div>
             </a>

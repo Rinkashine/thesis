@@ -1,6 +1,6 @@
 @extends('admin.layout.admin')
 @section('content')
-@section('title', 'Orders by Product Report')
+@section('title', 'Product Order Quantity')
 
 <livewire:report.orders-by-customer/>
 

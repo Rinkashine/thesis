@@ -11,7 +11,7 @@ class InventoryTransferController extends Controller
 {
     public function index()
     {
-        abort_if(Gate::denies('inventory_transfer'), 403);
+        abort_if(Gate::denies('inventory_transfer_access'), 403);
 
         return view('admin.page.product.inventorytransfer');
     }
@@ -26,6 +26,7 @@ class InventoryTransferController extends Controller
     public function edit($id)
     {
         $orderinfo = PurchaseOrder::findorfail($id);
+
         if ($orderinfo->status == 'Received') {
             return redirect()->route('transfer.show', $id);
         }

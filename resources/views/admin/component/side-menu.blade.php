@@ -118,7 +118,7 @@
         <!--Post-->
         @can('post_access')
         <li>
-            <a href="{{Route('post.index')}}" class="side-menu {{ (request()->is('admin/post')) ? 'side-menu--active' : '' }}">
+            <a href="{{Route('banner.index')}}" class="side-menu {{ (request()->is('admin/banner')) ? 'side-menu--active' : '' }}">
                 <div class="side-menu__icon"> <i class="fa-solid fa-signs-post fa-lg p-1"></i> </div>
                 <div class="side-menu__title"> Home Banner </div>
             </a>

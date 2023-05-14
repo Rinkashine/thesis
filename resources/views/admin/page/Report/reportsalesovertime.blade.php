@@ -1,6 +1,6 @@
 @extends('admin.layout.admin')
 @section('content')
-@section('title', 'Sales Overtime')
+@section('title', 'Monthly Sales')
 
 
 <livewire:report.sales-over-time/>

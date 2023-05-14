@@ -24,6 +24,7 @@ class NumberRejectedOrderController extends Controller
         $prepared_by = Auth::guard('web')->user()->name;
         $start = $request->startdate;
         $end = $request->enddate;
+
         if($request->sorting == 'customer_name_asc'){
             $column_name = "customers.name";
             $order_name = "asc";
@@ -36,6 +37,9 @@ class NumberRejectedOrderController extends Controller
         }elseif($request->sorting == 'cancellation_desc'){
             $column_name = 'total';
             $order_name = 'desc';
+        }else{
+            $column_name = "customers.name";
+            $order_name = "asc";
         }
 
         $customers =  Customer::select([

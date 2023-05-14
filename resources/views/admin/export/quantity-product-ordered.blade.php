@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>the number of items ordered per product</title>
+    <title>Product Order Volume</title>
 </head>
 <style type="text/css">
     @page {
@@ -158,7 +158,7 @@
     <main>
         <div class="w-100" style="margin-bottom:10px">
             <div>
-                <h3 class="text-center header-title">The Number of items Ordered per product </h3>
+                <h3 class="text-center header-title">Product Order Volume </h3>
                 <h5 class="text-center header-title">As of {{ $today }}</h5>
             </div>
         </div>
@@ -168,7 +168,7 @@
                 <thead>
                     <tr class="text-white">
                         <th class="w-50 th-color-dark">Name</th>
-                        <th class="w-50 th-color-dark">Total Sales</th>
+                        <th class="w-50 th-color-dark">Count</th>
                     </tr>
                 </thead>
                <tbody>

@@ -169,8 +169,9 @@
                 <thead>
                     <tr class="text-white">
                         <th class="w-50 th-color-dark">Name</th>
-                        <th class="w-50 th-color-dark">Quantity</th>
-                        <th class="w-50 th-color-dark">Total Sales</th>
+                        <th class="w-50 th-color-dark">Number of Ratings</th>
+                        <th class="w-50 th-color-dark">Total Stars</th>
+                        <th class="w-50 th-color-dark">Rating</th>
                     </tr>
                 </thead>
                <tbody>
