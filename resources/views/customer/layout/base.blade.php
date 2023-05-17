@@ -35,7 +35,7 @@
     </head>
     <!-- END: Head -->
     <body class="py-5 md:py-0 bg-black/[0.15] dark:bg-transparent">
-        <livewire:offline/>
+
 
         <!-- BEGIN: Mobile Menu -->
         @include('customer.component.mobile-menu')

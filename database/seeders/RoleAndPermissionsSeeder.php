@@ -168,7 +168,6 @@ class RoleAndPermissionsSeeder extends Seeder
             'inventory_access',
             'inventory_logs',
             'inventory_transfer_access',
-            'discount_access',
         ];
         foreach ($datamonitorpermissions as $permission) {
             $datamonitor->givePermissionTo($permission);

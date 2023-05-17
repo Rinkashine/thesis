@@ -108,7 +108,7 @@ class DashboardController extends Controller
         ->orderBy('ave', 'desc')
         ->get()->take(5);
 
-       $mostvisitedpage = Analytics::fetchMostVisitedPages(Period::months(6), 10);
+       $mostvisitedpage = Analytics::fetchMostVisitedPages(Period::months(6), 5);
        $usertype = Analytics::fetchUserTypes(Period::months(1));
        $uniquevisitor = $usertype[0]['sessions'];
 
