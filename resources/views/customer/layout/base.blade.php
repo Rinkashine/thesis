@@ -2,15 +2,16 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}" class="{{ $dark_mode ? 'dark' : '' }}{{ $color_scheme != 'default' ? ' ' . $color_scheme : '' }}">
     <!-- BEGIN: Head -->
     <head>
-        <!-- Google tag (gtag.js) -->
-        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-256796243-1"></script>
+            <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-268210889-2"></script>
         <script>
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
 
-        gtag('config', 'UA-256796243-1');
+        gtag('config', 'UA-268210889-2');
         </script>
+
         <!-- Google tag (gtag.js) -->
         <meta charset="utf-8">
         <link href="{{asset('dist/images/MainLogo.png')}}" rel="shortcut icon">
@@ -34,13 +35,17 @@
     </head>
     <!-- END: Head -->
     <body class="py-5 md:py-0 bg-black/[0.15] dark:bg-transparent">
+        <livewire:offline/>
+
         <!-- BEGIN: Mobile Menu -->
         @include('customer.component.mobile-menu')
         <!-- END: Mobile Menu -->
+
         @include('customer.component.top-menu')
         <!-- BEGIN: Top Bar -->
         @include('customer.component.side-menu')
         <!-- Content -->
+
         <div class="content content--top-nav">
             @yield('content')
         </div>

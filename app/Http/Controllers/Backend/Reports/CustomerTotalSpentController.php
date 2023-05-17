@@ -15,7 +15,7 @@ class CustomerTotalSpentController extends Controller
    // Show Customer Sales Page
    public function CustomersTotalSpent(){
         abort_if(Gate::denies('report_access'),403);
-        return view('admin.page.Report.reportcustomerstotalspent');
+        return view('admin.page.Report.customertotalspent');
     }
 
     public function exportCustomerTotalSpent(Request $request){

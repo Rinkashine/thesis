@@ -16,13 +16,13 @@ class CustomerBoughtProductController extends Controller
 {
     public function CustomerByProduct(Request $request){
         abort_if(Gate::denies('report_access'),403);
-        return view('admin.page.Report.reportcustomerbyproduct',[
+        return view('admin.page.Report.customerbyproduct',[
             'name' => $request->name,
             'id' => $request->id
         ]);
     }
 
-    public function exportCustomerByProductExcel(Request $request){
+    public function exportCustomerByProduct(Request $request){
         abort_if(Gate::denies('report_export'),403);
         $customer_id = $request->id;
         $column_name = "";
@@ -59,6 +59,7 @@ class CustomerBoughtProductController extends Controller
         ->groupBy('product.name')
         ->orderBy('total_quantity', 'desc')
         ->get();
+
         $customerinfo = Customer::findorfail($customer_id);
         $customer_name = $customerinfo->name;
         $pdf = PDF::loadView('admin.export.customer-bought-product',[

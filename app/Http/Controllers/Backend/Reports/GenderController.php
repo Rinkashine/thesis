@@ -15,7 +15,7 @@ class GenderController extends Controller
 {
     public function GenderIndex(){
         abort_if(Gate::denies('report_access'),403);
-        return view('admin.page.Report.reportgender');
+        return view('admin.page.Report.gender');
     }
     public function exportGenderExcel(){
         abort_if(Gate::denies('report_export'),403);

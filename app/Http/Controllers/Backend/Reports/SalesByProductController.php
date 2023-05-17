@@ -14,10 +14,10 @@ class SalesByProductController extends Controller
 {
     public function SalesByProductIndex(){
         abort_if(Gate::denies('report_access'),403);
-        return view('admin.page.Report.reportsalesprod');
+        return view('admin.page.Report.productsales');
     }
     //Export Product Sales
-    public function exportSalesByProductEXCEL(Request $request){
+    public function exportProductSales(Request $request){
         abort_if(Gate::denies('report_export'),403);
         $start = $request->startdate;
         $end = $request->enddate;

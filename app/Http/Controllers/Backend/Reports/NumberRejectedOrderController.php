@@ -14,10 +14,10 @@ class NumberRejectedOrderController extends Controller
 {
     public function RejectedOrders(){
         abort_if(Gate::denies('report_access'),403);
-        return view('admin.page.Report.reportrejectedorders');
+        return view('admin.page.Report.rejectedorders');
     }
 
-    public function exportRejectedOrdersExcel(Request $request){
+    public function exportRejectedOrders(Request $request){
         abort_if(Gate::denies('report_export'),403);
         $column_name = "";
         $order_name = "";

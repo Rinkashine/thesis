@@ -14,10 +14,10 @@ class CancellationReasonController extends Controller
 {
     public function CancellationReasons(){
         abort_if(Gate::denies('report_access'),403);
-        return view('admin.page.Report.reportcancellationreasons');
+        return view('admin.page.Report.cancellationreasons');
     }
 
-    public function exportCancellationReasonsExcel(Request $request){
+    public function exportCancellationReason(Request $request){
         abort_if(Gate::denies('report_export'),403);
         $start = $request->startdate;
         $end = $request->enddate;

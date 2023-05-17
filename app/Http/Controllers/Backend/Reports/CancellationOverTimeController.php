@@ -14,7 +14,7 @@ class CancellationOverTimeController extends Controller
 {
     public function CancellationOverTime(){
         abort_if(Gate::denies('report_access'),403);
-        return view('admin.page.Report.reportcancellationovertime');
+        return view('admin.page.Report.cancellationovertime');
     }
 
     public function exportCancellationOverTime(){

@@ -28,7 +28,7 @@ class MonthlyCancellationController extends Controller
         $from = $year .'-'.$month.'-'.'01';
         $to = $year.'-'.$month.'-'.$x.' 23-59-59';
 
-        return view('admin.page.Report.reportmonthlycancellation',[
+        return view('admin.page.Report.monthlycancellation',[
             'from' => $from,
             'to' => $to,
             'month' => $month,

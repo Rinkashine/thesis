@@ -16,10 +16,10 @@ class ProductRatingController extends Controller
 {
     public function ProductRatings(){
         abort_if(Gate::denies('report_access'),403);
-        return view('admin.page.Report.reportproductratings');
+        return view('admin.page.Report.productratings');
     }
 
-    public function exportProductRatingsExcel(Request $request){
+    public function exportProductRatings(Request $request){
         abort_if(Gate::denies('report_access'),403);
         $prepared_by = Auth::guard('web')->user()->name;
         $start = $request->startdate;

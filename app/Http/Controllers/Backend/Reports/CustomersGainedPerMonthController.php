@@ -14,7 +14,7 @@ class CustomersGainedPerMonthController extends Controller
 {
     public function customerPerMonth(){
         abort_if(Gate::denies('report_access'),403);
-        return view('admin.page.Report.reportmonthlycustomer');
+        return view('admin.page.Report.monthlycustomer');
     }
     public function exportCustomerPerMonthEXCEL (Request $request){
         abort_if(Gate::denies('report_access'),403);

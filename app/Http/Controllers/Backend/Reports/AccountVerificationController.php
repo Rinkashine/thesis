@@ -15,7 +15,7 @@ class AccountVerificationController extends Controller
 {
     public function AccountVerification(){
         abort_if(Gate::denies('report_access'),403);
-        return view('admin.page.Report.reportaccountverification');
+        return view('admin.page.Report.accountverification');
     }
 
     public function exportAccountVerification(){

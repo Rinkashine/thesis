@@ -1,72 +1,60 @@
 <div>
-    <div class="intro-y flex justify-between items-center mt-8">
-        <div>
-            <h2 class="text-lg font-medium mr-auto">
-                <a href="{{ Route('report.index') }}" class="mr-2 btn">←</a>Most Visited Page Report
+    <!-- Title and Export Button -->
+    <div class="flex items-center justify-between mt-5 intro-y">
+        <div class="text-base">
+            <h2 class="mr-auto font-medium sm:text-lg">
+                <a href="{{ Route('report.index') }}" class="mr-2 text-lg bg-white btn">←</a>Most Visited Page Report
             </h2>
         </div>
         @can('report_export')
-            <div>
-                <a href="{{ Route('exportMostVisitedPageExcel',['startdate'=>$startdate,'enddate'=>$enddate]) }}" class="btn btn-primary">
-                    Export To Excel
-                </a>
-            </div>
+            <a href="{{ Route('export.MostVisitedPage')}}" class="btn btn-primary">
+                Export
+            </a>
         @endcan
     </div>
-    <div class="intro-y box mt-5 ">
 
-        <div class="flex items-center p-5 border-b border-slate-200/60 dark:border-darkmode-400">
-            <div class="flex flex-col sm:flex-row sm:items-end xl:items-start ">
-                <div class="xl:flex sm:mr-auto" >
-                    <div class="sm:flex items-center sm:mr-4">
-                        <label class="flex-none xl:w-auto xl:flex-initial mr-2">From:</label>
-                        <input type="datetime-local" wire:model.lazy="startdate" class="form-control" max="{{ $enddate }}">
-                    </div>
-                    <div class="sm:flex items-center sm:mr-4 mt-2 xl:mt-0">
-                        <label class="w-12 flex-none xl:w-auto xl:flex-initial mr-2">To:</label>
-                        <input type="datetime-local" wire:model.lazy="enddate" class="form-control" min="{{ $startdate }}">
-                    </div>
-                </div>
-            </div>
-        </div>
+    <!-- Charts -->
+    <div class="hidden sm:mt-10 intro-y box sm:block ">
+
         <div class="p-5" wire:ignore>
             <canvas id="visitedpagechart" height="80px"></canvas>
         </div>
     </div>
-    <div class="intro-y box mt-5 ">
+
+    <div class="p-2 mt-5 intro-y box">
         <div class="flex items-center p-5 border-b border-slate-200/60 dark:border-darkmode-400">
-            <h2 class="font-medium text-base mr-auto">
-                Data
+            <h2 class="mr-auto text-base font-medium">
+                Page Ranking
             </h2>
         </div>
-        <div class="p-5">
-            <div class="overflow-x-auto">
-                <table class="table table-bordered">
-                    <thead class="table-dark">
-                        <tr>
-                            <td class="whitespace-nowrap text-center">Rank</td>
-                            <td class="whitespace-nowrap text-center">Page</td>
-                            <td class="whitespace-nowrap text-center">Views</td>
+        <div class="mt-3 sm:p-3">
+            <div class="border">
+                <table class="table text-xs table-fixed">
+                    <thead class="bg-primary">
+                        <tr class="text-white sm:text-base">
+                            <td class="text-center whitespace-nowrap">Rank</td>
+                            <td class="text-center whitespace-nowrap">Page</td>
+                            <td class="text-center whitespace-nowrap">Views</td>
                         </tr>
                     </thead>
                     <tbody>
                         @forelse ($mostvisitedpage as $page)
-                        <tr>
-                            <td class="whitespace-nowrap text-center">{{ $loop->iteration }}</td>
-                            <td class="whitespace-nowrap text-center"><a href="{{ $page['url']}}">{{ $page['pageTitle'] }}</a></td>
-                            <td class="whitespace-nowrap text-center">{{ $page['pageViews'] }}</td>
+                        <tr class="sm:text-sm">
+                            <td class="text-center whitespace-nowrap">{{ $loop->iteration }}</td>
+                            <td class="text-center whitespace-nowrap"><a href="{{ $page['url']}}">{{ $page['pageTitle'] }}</a></td>
+                            <td class="text-center whitespace-nowrap">{{ number_format($page['pageViews']) }}</td>
                         </tr>
                         @empty
-                        <tr>
-                            <td class="whitespace-nowrap text-center" colspan="3">No Data Found</td>
+                        <tr class="sm:text-sm">
+                            <td class="text-center whitespace-nowrap" colspan="3">No Data Found</td>
                         </tr>
                         @endforelse
-
                     </tbody>
                 </table>
             </div>
         </div>
     </div>
+
     @push('scripts')
     <script>
         var mostvisitedlabel = {{ Js::from($mostvisitedlabel) }};

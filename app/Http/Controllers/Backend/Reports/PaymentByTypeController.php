@@ -15,7 +15,7 @@ class PaymentByTypeController extends Controller
 {
     public function PaymentTypeIndex(){
         abort_if(Gate::denies('report_access'),403);
-        return view('admin.page.Report.reportpaymentbytype');
+        return view('admin.page.Report.paymentbytype');
     }
 
     public function exportPaymentByType(Request $request){

@@ -18,8 +18,7 @@ class DashboardController extends Controller
     {
         $pastyear = date('Y-m-d', strtotime('-1 year'));
         $currentyear = date("Y-m-d") . " 23:59:00";
-        // $currentyear = "2022-10-01";
-        // dd($currentyear);
+
         $monthlysales = CustomerOrder::join('customer_order_item', 'customer_order.id', '=', 'customer_order_item.customer_order_id')
         ->select([
             DB::raw(value: 'YEAR(customer_order.created_at) as year'),
@@ -28,21 +27,17 @@ class DashboardController extends Controller
             DB::raw(value: 'SUM(customer_order_item.quantity*customer_order_item.price) as total'),
         ])
         ->where('customer_order.status', 'Completed')
-        // ->whereYear('created_at', $currentyear)
         ->where('created_at', '<', $currentyear )
         ->where('created_at', '>', $pastyear )
         ->groupBy('month_name', 'year', 'month')
         ->orderBy('year', 'asc')
         ->orderBy('month', 'asc')
         ->get();
-        // dd($monthlysales->toArray());
         $saleschartlabel = [];
         $saleschartdataset = [];
 
         foreach ($monthlysales as $sales) {
             $date = $sales->month_name." ".$sales->year;
-            // dd($date);
-            // array_push($saleschartlabel, $sales->month_name);
             array_push($saleschartlabel, $date);
             array_push($saleschartdataset, $sales->total);
         }
@@ -55,8 +50,7 @@ class DashboardController extends Controller
             }
         }
 
-        $usertype = Analytics::fetchUserTypes(Period::months(1));
-        $uniquevisitor = $usertype[0]['sessions'];
+
 
         $pendingorderscount = CustomerOrder::where('status', 'Pending for Approval')->get()->count();
         $completedorderscount = CustomerOrder::where('status', 'Completed')->get()->count();
@@ -67,10 +61,8 @@ class DashboardController extends Controller
         $customercount = Customer::all()->count();
         $usercount = User::all()->count();
         $criticalproducts = Product::get()->where('stock', '<=', 'stock_warning')->take(5);
-        // dd($criticalproducts->toArray());
 
-        $mostvisitedpage = Analytics::fetchMostVisitedPages(Period::years(1), 20);
-        $browsers = Analytics::fetchTopBrowsers(Period::days(7), 20);
+
 
         $topSellingProducts = CustomerOrderItems::select([
             'product_name',
@@ -85,7 +77,6 @@ class DashboardController extends Controller
         ->groupby('product_name')
         ->orderBy('quantity','desc')
         ->get()->take(5);
-        // dd($topSellingProducts->toArray());
         $topCustomers = Customer::select([
             'customers.id',
             'customers.name',
@@ -99,7 +90,6 @@ class DashboardController extends Controller
         ->groupBy('customers.name', 'customers.id', 'customers.email')
         ->orderBy('total_spent', 'desc')
         ->get()->take(3);
-        // dd($topCustomers->toArray());
         $feautredProducts = Product::where('featured', 1)->with('images')->get()->take(6);
 
         $ratedProducts = Product::select([
@@ -118,19 +108,16 @@ class DashboardController extends Controller
         ->orderBy('ave', 'desc')
         ->get()->take(5);
 
-        $mostvisitedpage = Analytics::fetchMostVisitedPages(Period::years(1), 5);
-
-        // dd($mostvisitedpage->toArray());
+       $mostvisitedpage = Analytics::fetchMostVisitedPages(Period::months(6), 10);
+       $usertype = Analytics::fetchUserTypes(Period::months(1));
+       $uniquevisitor = $usertype[0]['sessions'];
 
         return view('admin.page.dashboard', [
-            'browsers' => $browsers,
             'mostvisitedpage' => $mostvisitedpage,
-            'usertype' => $usertype,
             'totalsales' => $totalsales,
             'activeproductcount' => $activeproductcount,
             'inactiveproductcount' => $inactiveproductcount,
             'criticalproducts' => $criticalproducts,
-            'uniquevisitor' => $uniquevisitor ,
             'saleschartlabel' => $saleschartlabel,
             'saleschartdataset' => $saleschartdataset,
             'pendingorderscount' => $pendingorderscount,
@@ -139,8 +126,7 @@ class DashboardController extends Controller
             'topCustomers' => $topCustomers,
             'feautredProducts' => $feautredProducts,
             'ratedProducts' => $ratedProducts,
-            'mostvisitedpage' => $mostvisitedpage
-
+            'uniquevisitor' => $uniquevisitor
         ]);
     }
 }

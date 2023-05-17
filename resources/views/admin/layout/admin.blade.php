@@ -25,6 +25,7 @@
     <body class="py-5 md:py-0 bg-black/[0.15] ">
 
         <!-- Dark Mode Switcher -->
+        <livewire:offline/>
 
         <!-- BEGIN: Mobile Menu -->
         @include('admin.component.mobile-menu')
@@ -38,7 +39,6 @@
                 <!-- BEGIN: Top Bar -->
                 @include('admin.component.top-menu')
                 <!-- END: Top Bar -->
-                <livewire:offline/>
                 @yield('content')
             </div>
         </div>

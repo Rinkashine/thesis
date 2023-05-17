@@ -9,9 +9,9 @@ use Spatie\Analytics\Period;
 
 class Browser extends Component
 {
-    public $startdate = '2023-01-01T00:00';
+    // public $startdate = '2023-01-01T00:00';
 
-    public $enddate = '2023-12-31T00:00';
+    // public $enddate = '2023-12-31T00:00';
 
     public $browsers;
 
@@ -28,14 +28,14 @@ class Browser extends Component
     {
         $this->cleanVars();
 
-        if ($this->enddate < $this->startdate) {
-            $this->startdate = $this->enddate;
-        } else {
-            $st = new Carbon($this->startdate);
-            $ed = new Carbon($this->enddate);
-            $period = Period::create($st, $ed);
+        // if ($this->enddate < $this->startdate) {
+        //     $this->startdate = $this->enddate;
+        // } else {
+        //     $st = new Carbon($this->startdate);
+        //     $ed = new Carbon($this->enddate);
+        //     $period = Period::create($st, $ed);
 
-            $this->browsers = Analytics::fetchTopBrowsers($period, 20);
+            $this->browsers = Analytics::fetchTopBrowsers(Period::months(1), 20);
             foreach ($this->browsers as $browser) {
                 array_push($this->browserchartlabel, $browser['browser']);
                 array_push($this->browserchartdataset, $browser['sessions']);
@@ -45,7 +45,7 @@ class Browser extends Component
                 'label' => $this->browserchartlabel,
                 'dataset' => $this->browserchartdataset,
             ]);
-        }
+       // }
 
         return view('livewire.report.browser', [
             'browsers' => $this->browsers,

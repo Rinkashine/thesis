@@ -14,9 +14,9 @@ class CancelledOrderController extends Controller
 {
     public function CancelledOrders(){
         abort_if(Gate::denies('report_access'),403);
-        return view('admin.page.Report.reportcancelledorders');
+        return view('admin.page.Report.cancelledorders');
     }
-    public function exportCancelledOrdersExcel(Request $request){
+    public function exportCancelledOrders(Request $request){
         abort_if(Gate::denies('report_export'),403);
         $day = Carbon::now();
         $today = $day->format('F d, Y');

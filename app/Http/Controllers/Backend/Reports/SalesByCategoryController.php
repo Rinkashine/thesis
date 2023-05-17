@@ -12,12 +12,12 @@ use App\Models\Category;
 use PDF;
 class SalesByCategoryController extends Controller
 {
-    public function salesCategory(){
+    public function CategorySalesIndex(){
         abort_if(Gate::denies('report_access'),403);
-        return view('admin.page.Report.reportsalescategory');
+        return view('admin.page.Report.categorysales');
     }
 
-    public function exportSalesCategoryEXCEL(Request $request){
+    public function exportCategorySales(Request $request){
         abort_if(Gate::denies('report_export'),403);
         $start = $request->startdate;
         $end = $request->enddate;

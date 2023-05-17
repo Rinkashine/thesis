@@ -10,14 +10,15 @@ use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
 use App\Models\Brand;
 use PDF;
+
 class SalesByBrandController extends Controller
 {
-    public function salesBrand(){
+    public function BrandSalesIndex(){
         abort_if(Gate::denies('report_access'),403);
-        return view('admin.page.Report.reportsalesbrand');
+        return view('admin.page.Report.brandsales');
     } //
 
-    public function exportSalesBrandEXCEL(Request $request){
+    public function exportBrandSales(Request $request){
         abort_if(Gate::denies('report_export'),403);
         $start = $request->startdate;
         $end = $request->enddate;

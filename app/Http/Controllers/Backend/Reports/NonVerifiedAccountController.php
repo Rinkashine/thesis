@@ -15,10 +15,10 @@ class NonVerifiedAccountController extends Controller
 
     public function NonVerifiedAccount(){
         abort_if(Gate::denies('report_access'),403);
-        return view('admin.page.Report.reportnonverifiedaccount');
+        return view('admin.page.Report.nonverifiedaccount');
     }
 
-    public function exportNonVerifiedAccountExcel(Request $request){
+    public function exportNonVerifiedAccount(Request $request){
         abort_if(Gate::denies('report_access'),403);
         $prepared_by = Auth::guard('web')->user()->name;
         $day = Carbon::now();

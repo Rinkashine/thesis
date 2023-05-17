@@ -53,7 +53,7 @@ class ProductByCustomer extends Component
             'customers.id',
             'customers.name',
             'customers.email',
-            
+
             DB::raw(value: 'SUM(CASE WHEN customer_order.status = "Completed" then customer_order_item.quantity end) AS total_quantity')
         ])
         ->leftjoin('customer_order','customers.id','=','customer_order.customers_id')
@@ -68,8 +68,7 @@ class ProductByCustomer extends Component
         ->groupBy('customers.name','customers.id','customers.email')
         ->orderBy($this->column_name, $this->order_name)
         ->paginate($this->perPage);
-        // ->get();
-        // dd($customers->toArray());
+
         return view('livewire.report.product-by-customer',[
             'customers' => $customers,
             'product_name' => $this->product_name,

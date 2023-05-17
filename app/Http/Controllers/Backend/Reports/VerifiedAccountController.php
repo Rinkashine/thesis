@@ -14,7 +14,7 @@ class VerifiedAccountController extends Controller
 {
     public function VerifiedAccount(){
         abort_if(Gate::denies('report_access'),403);
-        return view('admin.page.Report.reportverifiedaccount');
+        return view('admin.page.Report.verifiedaccount');
     }
 
     public function exportVerifiedAccountsExcel(Request $request){

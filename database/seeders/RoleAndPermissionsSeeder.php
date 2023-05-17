@@ -19,7 +19,6 @@ class RoleAndPermissionsSeeder extends Seeder
 
         // create permissions
         $permissions = [
-
             'role_edit',
             'role_create',
             'role_show',
@@ -74,8 +73,6 @@ class RoleAndPermissionsSeeder extends Seeder
             'inventory_transfer_access',
             'inventory_transfer_delete',
             'inventory_transfer_create',
-            'discount_access',
-
         ];
         foreach ($permissions as $permission) {
             Permission::create([

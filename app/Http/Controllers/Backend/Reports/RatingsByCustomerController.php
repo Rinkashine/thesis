@@ -17,7 +17,7 @@ class RatingsByCustomerController extends Controller
 {
     public function ProductRatingsByCustomer(Request $request){
         abort_if(Gate::denies('report_access'),403);
-        return view('admin.page.Report.reportproductratingsbycustomer', [
+        return view('admin.page.Report.productratingsbycustomer', [
             'product_id' => $request->product_id,
             'product_name' => $request->product_name,
             'from' => $request->from,
@@ -25,7 +25,7 @@ class RatingsByCustomerController extends Controller
         ]);
     }
 
-    public function exportProductRatingsByCustomerExcel(Request $request){
+    public function exportProductRatingsByCustomer(Request $request){
         abort_if(Gate::denies('report_access'),403);
         $prepared_by = Auth::guard('web')->user()->name;
 

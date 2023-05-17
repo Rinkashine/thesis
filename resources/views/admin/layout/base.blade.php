@@ -18,7 +18,6 @@
     </head>
     <body class="login">
 
-
         <!-- Begin Content -->
         @yield('content')
         <!-- End Content -->

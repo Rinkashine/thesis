@@ -16,13 +16,13 @@ class ProductBuyerController extends Controller
 {
     public function ProductByCustomer(Request $request){
         abort_if(Gate::denies('report_access'),403);
-        return view('admin.page.Report.reportproductbycustomer',[
+        return view('admin.page.Report.productbycustomer',[
             'name' => $request->name,
             'id' => $request->id
         ]);
     }
 
-    public function exportProductByCustomerExcel(Request $request){
+    public function exportProductByCustomer(Request $request){
         abort_if(Gate::denies('report_access'),403);
         $product_id = $request->product_id;
         $start = $request->startdate;

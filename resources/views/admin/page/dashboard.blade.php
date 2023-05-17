@@ -180,7 +180,7 @@
                             </div>
                         @endforeach
                         @can('report_access')
-                            <a href="{{ Route('report.SalesProd') }}" class="intro-x w-full block text-center rounded-md py-3 border border-dotted border-slate-400 dark:border-darkmode-300 text-slate-500">View More</a>
+                            <a href="{{ Route('report.ProductSales') }}" class="intro-x w-full block text-center rounded-md py-3 border border-dotted border-slate-400 dark:border-darkmode-300 text-slate-500">View More</a>
                         @endcan
                     </div>
                 </div>
@@ -202,7 +202,7 @@
                             </div>
                         @endforeach
                         @can('report_access')
-                            <a href="{{ Route('report.SalesProd') }}" class="intro-x w-full block text-center rounded-md py-3 border border-dotted border-slate-400 dark:border-darkmode-300 text-slate-500">View More</a>
+                            <a href="{{ Route('report.ProductRatings') }}" class="intro-x w-full block text-center rounded-md py-3 border border-dotted border-slate-400 dark:border-darkmode-300 text-slate-500">View More</a>
                         @endcan
                     </div>
                 </div>
