@@ -17,7 +17,7 @@
                 </div>
             </div>
             <div class="flex justify-center">
-                <div class="w-1/2" >
+                <div class="w-1/2" wire:ignore >
                     <canvas id="ReasonForCancellationChart"  ></canvas>
                 </div>
             </div>
@@ -33,7 +33,7 @@
                         <label class="flex-none mr-2 xl:w-auto xl:flex-initial">Sort</label>
                         <select wire:model="sorting"  class="w-full mt-2 form-select 2xl:w-full sm:mt-0 sm:w-auto">
                             <option value="cancellation_name_asc">Cancellation Name (A-Z)</option>
-                            <option value="cancellation_name_desc">Brand Cancellation (Z-A)</option>
+                            <option value="cancellation_name_desc">Cancellation Name (Z-A)</option>
                             <option value="total_spent_asc">Total Cancellations (Low To High)</option>
                             <option value="total_spent_desc">Total Cancellations (High To Low)</option>
                         </select>
@@ -47,7 +47,7 @@
                         <input type="datetime-local" class="mt-2 form-control sm:w-40 2xl:w-full sm:mt-0" id="to" name ="to" wire:model="to" min="{{ $from }}"/>
                     </div>
                     <div class="items-center mt-2 sm:flex sm:mr-4 xl:mt-0">
-                        <label class="flex-none w-12 mr-2 xl:w-auto xl:flex-initial">Seach</label>
+                        <label class="flex-none w-12 mr-2 xl:w-auto xl:flex-initial">Search</label>
                         <input wire:model.lazy="search" type="search" class="mt-2 form-control sm:w-40 2xl:w-full sm:mt-0" placeholder="Search...">
                     </div>
                 </div>

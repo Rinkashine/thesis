@@ -23,7 +23,22 @@ class NonVerifiedAccountController extends Controller
         $prepared_by = Auth::guard('web')->user()->name;
         $day = Carbon::now();
         $today = $day->format('F d, Y');
-        $customers = Customer::select('name', 'email')->where('email_verified_at','=',null)->orderBy('name')->get();
+
+        if($request->sorting == 'customer_name_asc'){
+            $column_name = "name";
+            $order_name = "asc";
+        }elseif($request->sorting == 'customer_name_desc'){
+            $column_name = "name";
+            $order_name = 'desc';
+        }else{
+            $column_name = "name";
+            $order_name = "asc";
+        }
+
+        $customers = Customer::select('name', 'email')
+        ->where('email_verified_at','=',null)
+        ->orderBy($column_name, $order_name)
+        ->get();
         $pdf = PDF::loadView('admin.export.non-verified-account',[
             'customers' => $customers,
             'prepared_by' => $prepared_by,

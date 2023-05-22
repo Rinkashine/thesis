@@ -2483,14 +2483,14 @@ select{
 .grid-cols-9{
     grid-template-columns: repeat(9, minmax(0, 1fr));
 }
+.grid-cols-10{
+    grid-template-columns: repeat(10, minmax(0, 1fr));
+}
 .grid-cols-8{
     grid-template-columns: repeat(8, minmax(0, 1fr));
 }
 .grid-cols-3{
     grid-template-columns: repeat(3, minmax(0, 1fr));
-}
-.grid-cols-10{
-    grid-template-columns: repeat(10, minmax(0, 1fr));
 }
 .flex-row{
     flex-direction: row;
@@ -16207,14 +16207,14 @@ html body{
     .sm\:mt-5{
         margin-top: 1.25rem;
     }
+    .sm\:mt-10{
+        margin-top: 2.5rem;
+    }
     .sm\:mr-auto{
         margin-right: auto;
     }
     .sm\:mr-4{
         margin-right: 1rem;
-    }
-    .sm\:mt-10{
-        margin-top: 2.5rem;
     }
     .sm\:mb-0{
         margin-bottom: 0px;
@@ -16240,14 +16240,14 @@ html body{
     .sm\:w-3\/4{
         width: 75%;
     }
-    .sm\:w-32{
-        width: 8rem;
-    }
     .sm\:w-auto{
         width: auto;
     }
     .sm\:w-40{
         width: 10rem;
+    }
+    .sm\:w-32{
+        width: 8rem;
     }
     .sm\:w-1\/2{
         width: 50%;

@@ -19,12 +19,29 @@ class CustomerOrderVolume extends Controller
         return view('admin.page.Report.customerordervolume');
     }
 
-    public function exportCustomerOrderVolume(){
+    public function exportCustomerOrderVolume(Request $request){
         abort_if(Gate::denies('report_access'),403);
 
         $day = Carbon::now();
         $today = $day->format('F d, Y');
         $prepared_by = Auth::guard('web')->user()->name;
+
+        if($request->sorting == 'customer_name_asc'){
+            $column_name = "name";
+            $order_name = "asc";
+        }elseif($request->sorting == 'customer_name_desc'){
+            $column_name = "name";
+            $order_name = 'desc';
+        }elseif($request->sorting == 'total_quantity_asc'){
+            $column_name = 'total_quantity';
+            $order_name = "asc";
+        }elseif($request->sorting == 'total_quantity_desc'){
+            $column_name = 'total_quantity';
+            $order_name = 'desc';
+        }else{
+            $column_name = "name";
+            $order_name = "asc";
+        }
 
         $customers = Customer::select([
             'customers.id',

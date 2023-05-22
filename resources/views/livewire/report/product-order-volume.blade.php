@@ -5,7 +5,7 @@
             <a href="{{Route('report.index')}}" class="mr-2 bg-white btn">←</a> Product Order Volume
         </h2>
         @can('report_export')
-            <a href="{{Route('export.ProductOrderVolume')}}" class="btn btn-primary">Export</a>
+            <a href="{{Route('export.ProductOrderVolume',['sorting'=>$sorting])}}" class="btn btn-primary">Export</a>
         @endcan
     </div>
 
@@ -15,14 +15,14 @@
                 <div class="items-center sm:flex sm:mr-4">
                     <label class="flex-none mr-2 xl:w-auto xl:flex-initial">Sort</label>
                     <select wire:model="sorting"  class="w-full mt-2 form-select sm:w-32 2xl:w-full sm:mt-0 sm:w-auto">
-                        <option value="product_name_asc">product Name (A-Z)</option>
-                        <option value="product_name_desc">product Name (Z-A)</option>
-                        <option value="order_quantity_asc">Order Quantity (Low To High)</option>
-                        <option value="order_quantity_desc">Order Quantity (High To Low)</option>
+                        <option value="product_name_asc">Product Name (A-Z)</option>
+                        <option value="product_name_desc">Product Name (Z-A)</option>
+                        <option value="order_quantity_asc">Total Quantity (Low To High)</option>
+                        <option value="order_quantity_desc">Total Quantity (High To Low)</option>
                     </select>
                 </div>
                 <div class="items-center mt-2 sm:flex sm:mr-4 xl:mt-0">
-                    <label class="flex-none w-12 mr-2 xl:w-auto xl:flex-initial">Seach</label>
+                    <label class="flex-none w-12 mr-2 xl:w-auto xl:flex-initial">Search</label>
                     <input wire:model.lazy="search" type="search" class="mt-2 form-control sm:w-40 2xl:w-full sm:mt-0" placeholder="Search...">
                 </div>
             </div>
@@ -34,7 +34,7 @@
                         <div class="col-span-5 p-2 rounded-l-lg bg-primary">
                             <div class="grid gap-1 text-center text-white">
                                 <div>Product Name</div>
-                                <div>Total Ordered Products</div>
+                                <div>Total</div>
                             </div>
                         </div>
                         <div class="col-span-4 p-2">
@@ -57,7 +57,7 @@
                     <thead class="bg-primary">
                         <tr class="text-white sm:text-base">
                             <th class="whitespace-nowrap ">Product Name</th>
-                            <th class="text-center whitespace-nowrap">Total Ordered Products</th>
+                            <th class="text-center whitespace-nowrap">Total</th>
                             <th class="text-center whitespace-nowrap"></th>
                         </tr>
                     </thead>

@@ -5,7 +5,7 @@
             <a href="{{Route('report.AccountVerification')}}" class="mr-2 bg-white btn">←</a>Non-Verified Accounts
         </h2>
         @can('report_export')
-            <a href="{{Route('export.NonVerifiedAccount')}}" class="text-sm btn btn-primary">Export</a>
+            <a href="{{Route('export.NonVerifiedAccount',['sorting'=>$sorting])}}" class="text-sm btn btn-primary">Export</a>
         @endcan
     </div>
 

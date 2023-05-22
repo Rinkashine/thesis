@@ -18,19 +18,24 @@ class MostVisitedPageController extends Controller
         return view('admin.page.Report.mostvisitedpage');
     }
     //Export Most Visited Page Report
-    public function exportMostVisitedPageExcel(Request $request){
+    public function exportMostVisitedPage(Request $request){
         abort_if(Gate::denies('report_export'),403);
+        $st = new Carbon($request->startdate);
+        $ed = new Carbon($request->enddate);
+        $period = Period::create($st, $ed);
 
-        $pages = Analytics::fetchMostVisitedPages(Period::months(1), 10);
+        $pages = Analytics::fetchMostVisitedPages($period, 10);
 
         $prepared_by = Auth::guard('web')->user()->name;
 
-        $day = Carbon::now();
-        $today = $day->format('F d, Y');
+        $from = Carbon::parse($st)->format("F d, Y H:i A");
+        $to = Carbon::parse($ed)->format("F d, Y H:i A");
+
 
         $pdf = PDF::loadView('admin.export.most-visited-page',[
             'pages' => $pages,
-            'today' => $today,
+            'from' => $from,
+            'to' => $to,
             'prepared_by' => $prepared_by
         ]);
 

@@ -18,7 +18,7 @@
                 </div>
             </div>
         </div>
-        <div class="p-5">
+        <div class="p-5" wire:ignore>
             <canvas id="test" height="80px"></canvas>
         </div>
     </div>

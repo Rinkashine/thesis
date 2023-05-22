@@ -18,23 +18,23 @@ class UserTypeController extends Controller
         return view('admin.page.Report.usertype');
     }
     //Export User Type
-    public function exportusertypeexcel(Request $request){
+    public function exportUserType(Request $request){
         abort_if(Gate::denies('report_export'),403);
-        // $st = new Carbon($request->startdate);
-        // $ed = new Carbon($request->enddate);
-        // $period = Period::create($st, $ed);
-        $usertype = Analytics::fetchUserTypes(Period::months(1));
+        $st = new Carbon($request->startdate);
+        $ed = new Carbon($request->enddate);
+        $period = Period::create($st, $ed);
+        $usertype = Analytics::fetchUserTypes($period);
 
         $prepared_by = Auth::guard('web')->user()->name;
 
-        // $from = Carbon::parse($request->startdate)->format("F d, Y H:i A");
-        // $to = Carbon::parse($request->enddate)->format("F d, Y H:i A");
-        $day = Carbon::now();
-        $today = $day->format('F d, Y');
+        $from = Carbon::parse($request->startdate)->format("F d, Y H:i A");
+        $to = Carbon::parse($request->enddate)->format("F d, Y H:i A");
+
 
         $pdf = PDF::loadView('admin.export.user-type',[
             'usertype' => $usertype,
-            'today' => $today,
+            'from' => $from,
+            'to' => $to,
             'prepared_by' => $prepared_by
         ]);
 

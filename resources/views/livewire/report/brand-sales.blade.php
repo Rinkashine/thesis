@@ -2,7 +2,7 @@
     <!-- Title and Export Button -->
     <div class="flex items-center justify-between mt-5 intro-y">
         <h2 class="mr-auto text-lg font-medium">
-            <a href="{{Route('report.index')}}" class="mr-2 bg-white btn">←</a> Sales by brand
+            <a href="{{Route('report.index')}}" class="mr-2 bg-white btn">←</a> Brand Sales
         </h2>
         @can('report_export')
             <a href="{{Route('export.BrandSales',['sorting'=>$sorting,'startdate'=>$from,'enddate'=>$to])}}" class="btn btn-primary">Export</a>
@@ -17,8 +17,8 @@
                 </div>
             </div>
             <div class="flex justify-center">
-                <div class="w-full" >
-                    <canvas id="SalesTypeChart"  ></canvas>
+                <div class="w-full" wire:ignore>
+                    <canvas id="SalesTypeChart"></canvas>
                 </div>
             </div>
         </div>
@@ -47,7 +47,7 @@
                         <input type="datetime-local" class="form-control sm:w-40 2xl:w-full mt-2 sm:mt-0" id="to" name ="to" wire:model="to" min="{{ $from }}"/>
                     </div>
                     <div class="sm:flex items-center sm:mr-4 mt-2 xl:mt-0">
-                        <label class="w-12 flex-none xl:w-auto xl:flex-initial mr-2">Seach</label>
+                        <label class="w-12 flex-none xl:w-auto xl:flex-initial mr-2">Search</label>
                         <input wire:model.lazy="search" type="search" class="form-control sm:w-40 2xl:w-full mt-2 sm:mt-0" placeholder="Search...">
                     </div>
                 </div>

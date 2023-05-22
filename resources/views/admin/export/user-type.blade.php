@@ -159,7 +159,7 @@
         <div class="w-100" style="margin-bottom:10px">
             <div>
                 <h3 class="text-center header-title">User Type </h3>
-                <h5 class="text-center header-title">As of {{ $today }}</h5>
+                <h5 class="text-center header-title">From: {{ $from }} - To: {{ $to }}</h5>
             </div>
         </div>
         <div style="clear: both;"></div>

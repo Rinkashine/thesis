@@ -32,7 +32,7 @@
                         <input type="datetime-local" class="mt-2 form-control sm:w-40 2xl:w-full sm:mt-0" id="to" name ="to" wire:model="to" min="{{ $from }}"/>
                     </div>
                     <div class="items-center mt-2 sm:flex sm:mr-4 xl:mt-0">
-                        <label class="flex-none w-12 mr-2 xl:w-auto xl:flex-initial">Seach</label>
+                        <label class="flex-none w-12 mr-2 xl:w-auto xl:flex-initial">Search</label>
                         <input wire:model.lazy="search" type="search" class="mt-2 form-control sm:w-40 2xl:w-full sm:mt-0" placeholder="Search...">
                     </div>
                 </div>

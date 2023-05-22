@@ -5,7 +5,7 @@
             <a href="{{Route('report.AccountVerification')}}" class="mr-2 bg-white btn">←</a>Verified Accounts
         </h2>
         @can('report_export')
-            <a href="{{Route('report.exportVerifiedAccountsExcel')}}" class="btn btn-primary">Export</a>
+            <a href="{{Route('report.exportVerifiedAccountsExcel',['sorting' => $sorting])}}" class="btn btn-primary">Export</a>
         @endcan
     </div>
 

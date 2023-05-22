@@ -9,9 +9,9 @@ use Spatie\Analytics\Period;
 
 class UserType extends Component
 {
-    // public $startdate = '2023-01-01T00:00';
+    public $startdate = '2023-01-01T00:00';
 
-    // public $enddate = '2023-12-31T00:00';
+    public $enddate = '2023-12-31T00:00';
 
     public $usertype;
 
@@ -29,14 +29,14 @@ class UserType extends Component
     {
         $this->cleanVars();
 
-        // if ($this->enddate < $this->startdate) {
-        //     $this->startdate = $this->enddate;
-        // } else {
-        //     $st = new Carbon($this->startdate);
-        //     $ed = new Carbon($this->enddate);
-          //  $period = Period::create($st, $ed);
+        if ($this->enddate < $this->startdate) {
+            $this->startdate = $this->enddate;
+        } else {
+            $st = new Carbon($this->startdate);
+            $ed = new Carbon($this->enddate);
+            $period = Period::create($st, $ed);
 
-            $this->usertype = Analytics::fetchUserTypes(Period::months(1));
+            $this->usertype = Analytics::fetchUserTypes($period);
 
             foreach ($this->usertype as $type) {
                 array_push($this->usertypelabel, $type['type']);
@@ -47,7 +47,7 @@ class UserType extends Component
                 'label' => $this->usertypelabel,
                 'dataset' => $this->usertypedataset,
             ]);
-       // }
+       }
 
         return view('livewire.report.user-type', [
             'usertype' => $this->usertype,

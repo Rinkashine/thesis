@@ -41,6 +41,9 @@ class CancellationReasons extends Component
         }elseif($this->sorting == 'total_spent_desc'){
             $this->column_name = 'total';
             $this->order_name = 'desc';
+        }else{
+            $this->column_name = "name";
+            $this->order_name = "asc";
         }
         $cancellations = CancellationReason::select([
             'name',

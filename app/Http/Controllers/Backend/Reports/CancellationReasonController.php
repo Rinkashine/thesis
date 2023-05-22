@@ -19,6 +19,24 @@ class CancellationReasonController extends Controller
 
     public function exportCancellationReason(Request $request){
         abort_if(Gate::denies('report_export'),403);
+
+        if($request->sorting == 'cancellation_name_asc'){
+            $column_name = "name";
+            $order_name = "asc";
+        }elseif($request->sorting == 'cancellation_name_desc'){
+            $column_name = "name";
+            $order_name = 'desc';
+        }elseif($request->sorting == 'total_spent_asc'){
+            $column_name = 'total';
+            $order_name = "asc";
+        }elseif($request->sorting == 'total_spent_desc'){
+            $column_name = 'total';
+            $order_name = 'desc';
+        }else{
+            $column_name = "name";
+            $order_name = "asc";
+        }
+
         $start = $request->startdate;
         $end = $request->enddate;
         $prepared_by = Auth::guard('web')->user()->name;
@@ -34,9 +52,8 @@ class CancellationReasonController extends Controller
             ->where('customer_order.created_at', '>=', $start)
             ->where('customer_order.created_at','<=',$end);
         })
-
         ->groupBy('name','cancellation_reason.id')
-        ->orderBy('cancellation_reason.id')
+        ->orderBy($column_name, $order_name)
         ->get();
 
         $from = Carbon::parse($start)->format("F d, Y H:i A");

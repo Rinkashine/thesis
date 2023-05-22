@@ -19,21 +19,22 @@ class BrowserTypeController extends Controller
         return view('admin.page.Report.browser');
     }
     //Export Browser Report
-    public function exportbrowsertypeexcel(Request $request){
+    public function exportbrowsertype(Request $request){
         abort_if(Gate::denies('report_export'),403);
-        // $st = new Carbon($request->startdate);
-        // $ed = new Carbon($request->enddate);
-        // $period = Period::create($st, $ed);
-        $browsers = Analytics::fetchTopBrowsers(Period::months(1), 20);
+         $st = new Carbon($request->startdate);
+         $ed = new Carbon($request->enddate);
+         $period = Period::create($st, $ed);
+        $browsers = Analytics::fetchTopBrowsers($period, 20);
 
         $prepared_by = Auth::guard('web')->user()->name;
 
-        $day = Carbon::now();
-        $today = $day->format('F d, Y');
+        $from = Carbon::parse($st)->format("F d, Y H:i A");
+        $to = Carbon::parse($ed)->format("F d, Y H:i A");
 
         $pdf = PDF::loadView('admin.export.browser-type',[
             'browsers' => $browsers,
-            'today' => $today,
+            'from' => $from,
+            'to' => $to,
             'prepared_by' => $prepared_by
         ]);
 
