@@ -53,9 +53,9 @@
                     <div class="w-full flex justify-center border-t border-slate-200/60 dark:border-darkmode-400 mt-2"> </div>
                         <div class="flex justify-center text-center lg:text-left p-5 ">
                             @if (Storage::disk('public')->exists('category/'.$categories->photo))
-                                <img src="{{ url('storage/category/'.$categories->photo) }}" data-action="zoom" class="w-full h-56" alt="Missing Category Image Image">
+                                <img src="{{ url('storage/category/'.$categories->photo) }}" data-action="zoom" class="object-contain w-full h-56" alt="Missing Category Image Image">
                             @else
-                                <img src="{{  asset('dist/images/ImageNotFound.png') }}" data-action="zoom" class="w-full h-56" alt="Missing Category Image Image">
+                                <img src="{{  asset('dist/images/ImageNotFound.png') }}" data-action="zoom" class="object-contain w-full h-56" alt="Missing Category Image Image">
                             @endif
                         </div>
                 </div>

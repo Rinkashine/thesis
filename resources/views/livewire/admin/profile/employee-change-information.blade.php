@@ -30,9 +30,9 @@
                        <div class="text-danger mt-2">@error('gender'){{$message}}@enderror</div>
                    </div>
                    <div class="col-span-12 sm:col-span-6">
-                       <label for="modal-form-4" class="form-label ">Age:</label>
-                       <input id="modal-form-4" type="number" class="form-control  @error('age') border-danger @enderror" wire:model.lazy="age">
-                       <div class="text-danger mt-2">@error('age'){{$message}}@enderror</div>
+                       <label for="modal-form-4" class="form-label ">Date of Birth:</label>
+                       <input id="modal-form-4" type="date" class="form-control  @error('birthday') border-danger @enderror" wire:model.lazy="birthday">
+                       <div class="text-danger mt-2">@error('birthday'){{$message}}@enderror</div>
                    </div>
                    <div class="col-span-12">
                         <label for="modal-form-4" class="form-label ">Address:</label>

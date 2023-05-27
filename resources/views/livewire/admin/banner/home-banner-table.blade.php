@@ -43,6 +43,9 @@
                                     @can('post_edit')
                                         <button wire:click="selectItem({{ $banner->id }},'edit')" class="dropdown-item w-full"> <i class="fa-solid fa-pen mr-1"></i></i> Edit </button>
                                     @endcan
+                                    @can('post_edit')
+                                        <button wire:click="selectItem({{ $banner->id }},'change_photo')" class="dropdown-item w-full"> <i class="fa-solid fa-images mr-1"></i> Change Photo </button>
+                                    @endcan
                                     @can('post_delete')
                                         <button wire:click="selectItem({{$banner->id}},'delete')"  class="dropdown-item w-full"> <i class="fa-solid fa-trash mr-1"></i> Delete </button>
                                     @endcan
@@ -52,10 +55,10 @@
                     </div>
                     <div class="w-full flex justify-center border-t border-slate-200/60 dark:border-darkmode-400 mt-2"> </div>
                         <div class="flex justify-center text-center lg:text-left p-5 ">
-                            @if(!empty($banner->featured_image))
-                                <img src="{{ url('storage/banner/'.$banner->featured_image) }}" data-action="zoom" class="w-full h-56" alt="Missing Banner Image" onerror="this.onerror=null;this.src='{{ asset('dist/images/ImageNotFound.png') }}'">
+                            @if (Storage::disk('public')->exists('banner/'.$banner->featured_image))
+                                <img src="{{ url('storage/banner/'.$banner->featured_image) }}" data-action="zoom" class="object-contain w-full h-56" alt="Missing Banner Image">
                             @else
-                                <img alt="Missing Image" class="w-56 h-56" data-action="zoom" src="{{asset('dist/images/undraw_pic.svg')}}">
+                                <img src="{{  asset('dist/images/ImageNotFound.png') }}" data-action="zoom" class="object-contain w-full h-56" alt="Missing Brand Image">
                             @endif
                         </div>
                 </div>

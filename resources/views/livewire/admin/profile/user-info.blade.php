@@ -23,8 +23,8 @@
                         <input id="Gender" type="text" class="form-control" placeholder="Input text" value="{{Auth::guard('web')->user()->gender}}" disabled>
                     </div>
                     <div class="mt-3">
-                        <label for="Age" class="form-label">Age</label>
-                        <input id="Age" type="text" class="form-control" placeholder="Input text" value="{{Auth::guard('web')->user()->age}}" disabled>
+                        <label for="Age" class="form-label">Date of Birth</label>
+                        <input id="Age" type="text" class="form-control" placeholder="Input text" value="{{Auth::guard('web')->user()->birthday}}" disabled>
                     </div>
                     <div class="mt-3 ">
                         <label for="Address" class="form-label">Address</label>
@@ -34,7 +34,11 @@
 
 
             </div>
-            <div class="flex justify-end"> <button type="button"  wire:click="selectItem('edit_info')" class="btn btn-primary w-32 mt-8">Edit Information</button></div>
+            <div class="flex justify-end">
+                <button type="button"  wire:click="selectItem('edit_info')" class="btn btn-primary w-32 mt-8">
+                    Edit Information
+                </button>
+            </div>
         </div>
         <div class="w-52 mx-auto xl:mr-0 xl:ml-6">
             <div class="border-2 border-dashed shadow-sm border-slate-200/60 dark:border-darkmode-400 rounded-md p-5">
@@ -68,18 +72,19 @@
             });
             //Closing Modal and Refreshing its value
             const ForceCloseChangePhotoModal = document.getElementById('change-profile-modal')
+
             ForceCloseChangePhotoModal.addEventListener('hidden.tw.modal', function(event) {
                 livewire.emit('forceClosePhotoModal');
             });
 
-            const OpenEditInfoModal = tailwind.Modal.getInstance(document.querySelector("#change-profile-information-modal"));
-            window.addEventListener('openEditInfoModal',event => {
-                OpenEditInfoModal.show();
 
+            const EditInfoModal = tailwind.Modal.getInstance(document.querySelector("#change-profile-information-modal"));
+            window.addEventListener('openEditInfoModal',event => {
+                EditInfoModal.show();
             });
             //Hide Form Modal
-            window.addEventListener('CloseChangePhotoModal',event => {
-                OpenEditInfoModal.hide();
+            window.addEventListener('CloseEditInfoModal',event => {
+                EditInfoModal.hide();
             });
 
 

@@ -8,25 +8,36 @@ use App\Models\User;
 use Alert;
 class EmployeeChangeInformation extends Component
 {
+    protected $listeners = [
+        'forceCloseEditModal',
+        'getModelInfo',
+    ];
+
     public $name;
 
     public $phone;
 
     public $gender;
 
-    public $age;
+    public $birthday;
 
     public $address;
 
     public $employee_id;
 
-    public function mount(){
-        $employee_info = Auth::guard('web')->user();
+
+    public $modelId;
+
+    public function getModelInfo($modelId){
+        $this->modelId = $modelId;
+
+        $employee_info = User::find($this->modelId);
+
         $this->employee_id = $employee_info->id;
         $this->name = $employee_info->name;
         $this->phone = $employee_info->phone_number;
         $this->gender = $employee_info->gender;
-        $this->age = $employee_info->age;
+        $this->birthday = $employee_info->birthday;
         $this->address = $employee_info->address;
     }
 
@@ -36,7 +47,7 @@ class EmployeeChangeInformation extends Component
             'name' => 'required|max:50',
             'phone' => 'required|phone:PH',
             'gender' => 'required',
-            'age' => 'required|numeric',
+            'birthday' => 'required|date',
             'address' => 'required|max:50',
 
         ];
@@ -48,7 +59,7 @@ class EmployeeChangeInformation extends Component
             'name' => 'required|max:50',
             'phone' => 'required|phone:PH',
             'gender' => 'required',
-            'age' => 'required|numeric',
+            'birthday' => 'required|date',
             'address' => 'required|max:50',
         ]);
     }
@@ -58,7 +69,7 @@ class EmployeeChangeInformation extends Component
         $this->name = null;
         $this->phone = null;
         $this->gender = null;
-        $this->age = null;
+        $this->birthday = null;
         $this->address = null;
 
     }
@@ -70,7 +81,7 @@ class EmployeeChangeInformation extends Component
         $employee_info->name = $this->name;
         $employee_info->phone_number = $this->phone;
         $employee_info->gender = $this->gender;
-        $employee_info->age = $this->age;
+        $employee_info->birthday = $this->birthday;
         $employee_info->address = $this->address;
         $employee_info->update();
 
@@ -81,9 +92,8 @@ class EmployeeChangeInformation extends Component
 
     public function CloseModal()
     {
-        $this->cleanVars();
         $this->resetErrorBag();
-        $this->dispatchBrowserEvent('CloseInformationModal');
+        $this->dispatchBrowserEvent('CloseEditInfoModal');
     }
 
     public function ForceClose()

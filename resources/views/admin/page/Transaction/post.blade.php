@@ -18,6 +18,7 @@
 <!-- Begin: Delete Banner -->
 <livewire:admin.banner.delete-banner/>
 <!-- End: Delete Banner -->
+<livewire:admin.banner.home-banner-change-photo-form/>
 
 <div id="success-notification-content" class="toastify-content hidden flex non-sticky-notification-content">
     <i class="fa-regular fa-circle-check fa-3x text-success mx-auto"></i>
@@ -84,6 +85,21 @@
         livewire.emit('forceCloseModal');
     });
 
+
+    const ChangePhotoModal = tailwind.Modal.getInstance(document.querySelector("#change-item-modal"));
+    window.addEventListener('openChangePhotoModal',event => {
+        ChangePhotoModal.show();
+
+    });
+    //Hide Form Modal
+    window.addEventListener('closeChangePhotoModal',event => {
+        ChangePhotoModal.hide();
+    });
+    //Closing Modal and Refreshing its value
+    const ForceCloseChangePhotoModal = document.getElementById('change-item-modal')
+    ForceCloseChangePhotoModal.addEventListener('hidden.tw.modal', function(event) {
+        livewire.emit('forceClosePhotoModal');
+    });
 
      //SuccessAlert
      window.addEventListener('SuccessAlert',event => {

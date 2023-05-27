@@ -1,6 +1,6 @@
 @extends('admin.layout.admin')
 @section('content')
-@section('title', 'Profile')
+@section('title', 'Change Password')
 <div class="intro-y flex items-center mt-8">
     <h2 class="text-lg font-medium mr-auto">
         Update Profile

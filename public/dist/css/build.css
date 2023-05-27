@@ -1360,11 +1360,11 @@ select {
 .gap-5 {
   gap: 1.25rem;
 }
-.gap-9 {
-  gap: 2.25rem;
-}
 .gap-1 {
   gap: 0.25rem;
+}
+.gap-9 {
+  gap: 2.25rem;
 }
 .gap-16 {
   gap: 4rem;
@@ -2400,9 +2400,9 @@ select {
     line-height: 1.25rem;
   }
 
-  .sm\:text-xl {
-    font-size: 1.25rem;
-    line-height: 1.75rem;
+  .sm\:text-base {
+    font-size: 1rem;
+    line-height: 1.5rem;
   }
 
   .sm\:text-3xl {
@@ -2410,9 +2410,9 @@ select {
     line-height: 2.25rem;
   }
 
-  .sm\:text-base {
-    font-size: 1rem;
-    line-height: 1.5rem;
+  .sm\:text-xl {
+    font-size: 1.25rem;
+    line-height: 1.75rem;
   }
 
   .sm\:text-lg {

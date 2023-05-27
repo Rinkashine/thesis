@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\Admin\Profile;
 
 use Livewire\Component;
+use Illuminate\Support\Facades\Auth;
 
 class UserInfo extends Component
 {
@@ -21,6 +22,8 @@ class UserInfo extends Component
             $this->dispatchBrowserEvent('openChangePhotoModal');
         } elseif ($action == 'edit_info') {
             $this->dispatchBrowserEvent('openEditInfoModal');
+            $employee_id = Auth::guard('web')->user()->id;
+            $this->emit('getModelInfo', $employee_id);
         }
         $this->action = $action;
     }

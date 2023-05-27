@@ -12,7 +12,7 @@ class HomeBannerEditForm extends Component
 
     public $status;
 
-    public $modelId = 1;
+    public $modelId;
 
     protected $listeners = [
         'refreshChild' => '$refresh',

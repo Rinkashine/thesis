@@ -36,7 +36,9 @@ class HomeBannerTable extends Component
         } elseif ($action == 'edit') {
             $this->emit('getEditModalId', $this->selectedItem);
             $this->dispatchBrowserEvent('openEditModal');
-        } else {
+        }elseif ($action == 'change_photo') {
+            $this->emit('getModelInfo', $this->selectedItem);
+            $this->dispatchBrowserEvent('openChangePhotoModal');
         }
         $this->action = $action;
     }

@@ -1742,6 +1742,27 @@ class CustomerOrdersSeeder extends Seeder
                 'created_at' => '2023-5-12 00:00:00',
                 'updated_at' => '2023-5-12 00:00:00',
             ],
+            [ //104153287 - Mark's 10 Order
+                'customers_id' => 1,
+                'shippingfee' =>100.00 ,
+                'mode_of_payment' => 'Cash On Delivery',
+                'payment_id' => null,
+                'status' => 'Completed',
+                'received_by' => 'Mark Joseph Manalo',
+                'phone_number' => '09369332354',
+                'notes' => 'Yellow Gate',
+                'house' => '283 Ramos Compound Baesa Quezon City',
+                'province' => 'Second District(NCR)',
+                'city' => 'Quezon City',
+                'barangay' => "Baesa",
+                'remarks' => null,
+                'cancellation_reason_id' => null,
+                'cancellation_details' => null,
+                'rejected_reason' => null,
+                'order_notes' => null,
+                'created_at' => '2023-5-15 00:00:00',
+                'updated_at' => '2023-5-15 00:00:00',
+            ],
         ]);
     }
 }
