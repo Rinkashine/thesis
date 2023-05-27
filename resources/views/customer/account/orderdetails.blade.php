@@ -2,11 +2,6 @@
 @section('content')
 @section('title', 'Order Details')
 <!-- Begin: Header -->
-<div class="intro-y flex items-center mt-8">
-    <h2 class="text-lg font-medium mr-auto">
-            Welcome to Go Dental!
-    </h2>
-</div>
 <!-- End: Header -->
 <!-- Begin: Order Details Body -->
 <div class="grid grid-cols-12 gap-6">
@@ -16,61 +11,63 @@
     <!-- BEGIN: Display Information -->
     <div class="col-span-12 lg:col-span-8 2xl:col-span-9">
         <div class="intro-y box lg:mt-5">
-            <div class="flex justify-between items-center p-5 border-b border-slate-200/60">
+            <div class="flex items-center justify-between p-5 border-b border-slate-200/60">
                 <div>
-                    <h2 class="font-medium text-base mr-auto">
-                        <a href="{{ url()->previous() }}" class="mr-2 btn">←</a> Order Details
+                    <h2 class="mr-auto text-base font-medium">
+                        <a href="{{ url()->previous() }}" class="mr-2 shadow-md btn">←</a>
                     </h2>
                 </div>
                 <div>
                     @if($orderdetails->status == "Rejected" || $orderdetails->status == "Cancelled")
-                        <div class="btn btn-rounded btn-danger-soft w-24 mr-1 mb-2">{{ $orderdetails->status }}</div>
+                        <div class="w-24 mb-2 mr-1 btn btn-rounded btn-danger-soft">{{ $orderdetails->status }}</div>
                     @elseif($orderdetails->status == "Completed")
-                        <div class="btn btn-rounded btn-success-soft w-full text-xs	">{{ $orderdetails->status }}</div>
+                        <div class="w-full text-xs btn btn-rounded btn-success-soft ">{{ $orderdetails->status }}</div>
                     @else
-                        <div class="ml-2 px-2 py-2 bg-slate-200 text-slate-600  text-xs rounded-md">{{ $orderdetails->status }}</div>
+                        <div class="px-2 py-2 ml-2 text-xs rounded-md bg-slate-200 text-slate-600">{{ $orderdetails->status }}</div>
                     @endif
                 </div>
             </div>
-            <div class="p-5">
-
-                <div class="overflow-x-auto">
-                    <table class="table table-bordered">
-                        <thead class="table-dark">
-                            <th class="whitespace-nowrap">Product Name</th>
-                            <th class="whitespace-nowrap text-center">Price</th>
-                            <th class="whitespace-nowrap text-center">Quantity</th>
-                            @if($orderdetails->status == "Completed")
-                                <th class="whitespace-nowrap text-center">Action</th>
-                            @endif
-                            </thead>
-                        <tbody>
-                            @foreach ($orderdetails->orderTransactions as $order)
-                                <tr>
-                                    <td class="whitespace-nowrap"> <a href="{{ Route('productshow',$order->product_id) }}">{{ $order->product_name }}</a></td>
-                                    <td class="whitespace-nowrap text-center">₱{{ number_format($order->price,2) }}</td>
-                                    <td class="whitespace-nowrap text-center">{{ number_format($order->quantity) }}</td>
+            <div class="p-2">
+                <div class="sm:p-3">
+                    <div class="border">
+                        <table class="table text-xs table-fixed">
+                            <thead class="bg-slate-50">
+                                <tr class="sm:text-base">
+                                    <th class="whitespace-nowrap">Product Name</th>
+                                    <th class="text-center whitespace-nowrap">Price</th>
+                                    <th class="text-center whitespace-nowrap">Quantity</th>
                                     @if($orderdetails->status == "Completed")
-                                        @if($order->reviewTransactions->count()  == 0)
-                                            <td class="whitespace-nowrap text-center text-success">
-                                                <a onclick="setProductToReview('{{$order->product_name}}', {{$order->id}})" href="javascript:;">
-                                                    <i class="fa-solid fa-eye w-4 h-4 mr-1"></i> Make a review
-                                                </a>
-                                            </td>
-                                        @else
-                                            <td class="text-center whitespace-nowrap">Reviewed</td>
-                                        @endif
-
+                                        <th class="text-center whitespace-nowrap">Action</th>
                                     @endif
+                                    </thead>
                                 </tr>
-                            @endforeach
-                        </tbody>
-                    </table>
+                            <tbody class="sm:text-sm">
+                                @foreach ($orderdetails->orderTransactions as $order)
+                                    <tr>
+                                        <td class="overflow-x-auto whitespace-nowrap"> <a href="{{ Route('productshow',$order->product_id) }}">{{ $order->product_name }}</a></td>
+                                        <td class="text-center whitespace-nowrap">₱{{ number_format($order->price,2) }}</td>
+                                        <td class="text-center whitespace-nowrap">{{ number_format($order->quantity) }}</td>
+                                        @if($orderdetails->status == "Completed")
+                                            @if($order->reviewTransactions->count()  == 0)
+                                                <td class="text-center whitespace-nowrap text-success">
+                                                    <a onclick="setProductToReview('{{$order->product_name}}', {{$order->id}})" href="javascript:;">
+                                                        <i class="w-4 h-4 mr-1 fa-solid fa-eye"></i> Make a review
+                                                    </a>
+                                                </td>
+                                            @else
+                                                <td class="text-center whitespace-nowrap">Reviewed</td>
+                                            @endif
+                                        @endif
+                                    </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
         </div>
 
-        <div class="intro-y box mt-5 p-5">
+        <div class="p-5 mt-5 intro-y box">
             <div>
                 Order ID:{{ $orderdetails->id }}
             </div>
@@ -86,10 +83,10 @@
             </div>
             @endif
         </div>
-        <div class="flex justify-between flex-col  md:flex-col lg:flex-row  2xl:flex-row  sm:flex-col gap-5 ">
-            <div class="intro-y box p-5 mt-5 w-full">
+        <div class="flex flex-col justify-between gap-5 md:flex-col lg:flex-row 2xl:flex-row sm:flex-col ">
+            <div class="w-full p-5 mt-5 intro-y box">
                 <div class="font-medium">Shipping Information</div>
-                <div class="w-full border-t border-slate-200/60 mt-1 mb-2"></div>
+                <div class="w-full mt-1 mb-2 border-t border-slate-200/60"></div>
                 <div>
                     Receiver: {{ $orderdetails->received_by }}
                 </div>
@@ -106,9 +103,9 @@
                     Postal Code: {{ $orderdetails->province }}~{{ $orderdetails->city }}~{{ $orderdetails->barangay }}
                 </div>
             </div>
-            <div class="intro-y box p-5 mt-5 w-full">
+            <div class="w-full p-5 mt-5 intro-y box">
                 <div class="font-medium">Total Summary</div>
-                <div class="w-full border-t border-slate-200/60 mt-1 mb-2"></div>
+                <div class="w-full mt-1 mb-2 border-t border-slate-200/60"></div>
 
                 <div class="flex justify-between">
                     <div>Subtotal</div>
@@ -126,7 +123,7 @@
                     <div>Shipping Fee</div>
                     <div>₱{{ number_format($orderdetails->shippingfee) }}</div>
                 </div>
-                <div class="w-full border-t border-slate-200/60 mt-1 mb-2"></div>
+                <div class="w-full mt-1 mb-2 border-t border-slate-200/60"></div>
                 <div class="flex justify-between">
                     <div>Total</div>
                     <div>₱{{ number_format($total+$orderdetails->shippingfee,2) }}</div>
@@ -135,7 +132,7 @@
         </div>
 
         @if($orderdetails->status == "Rejected")
-            <div class="box intro-y mt-5 p-5">
+            <div class="p-5 mt-5 box intro-y">
                 Rejected Order Reason: {{ $orderdetails->rejected_reason }}
             </div>
         @endif
@@ -147,8 +144,8 @@
         <!-- End: Product Review Modal -->
 
         @if($orderdetails->status == "Completed" && $daysDifference <= 7)
-            <div class="intro-x flex justify-end">
-                <a  onclick="RequestRefund('{{ $orderdetails->id }}')" class="btn btn-primary mt-5 ">Request For Refund</a>
+            <div class="flex justify-end intro-x">
+                <a  onclick="RequestRefund('{{ $orderdetails->id }}')" class="mt-5 btn btn-primary ">Request For Refund</a>
             </div>
         @endif
         <livewire:customer.order.request-for-refund-modal/>

@@ -8,7 +8,7 @@
     <div class="intro-y box mt-2 lg:mt-5">
         <div class="flex items-center p-5 border-b border-slate-200/60 dark:border-darkmode-400">
             <h2 class="font-medium text-base mr-auto">
-                Add New Users
+                <a href="{{ url()->previous() }}" class="mr-2 btn">←</a> Add New Users
             </h2>
         </div>
         <!-- Begin: Users Form -->

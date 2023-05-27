@@ -1220,6 +1220,9 @@ select {
 .w-1\/5 {
   width: 20%;
 }
+.w-64 {
+  width: 16rem;
+}
 .max-w-md {
   max-width: 28rem;
 }

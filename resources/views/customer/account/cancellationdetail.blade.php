@@ -2,11 +2,6 @@
 @section('content')
 @section('title', 'Order Details')
 <!-- Begin: Header -->
-<div class="intro-y flex items-center mt-8">
-    <h2 class="text-lg font-medium mr-auto">
-            Welcome to Go Dental!
-    </h2>
-</div>
 <!-- End: Header -->
 <!-- Begin: Order Details Body -->
 <div class="grid grid-cols-12 gap-6">
@@ -16,40 +11,43 @@
     <!-- BEGIN: Display Information -->
     <div class="col-span-12 lg:col-span-8 2xl:col-span-9">
         <div class="intro-y box lg:mt-5">
-            <div class="flex justify-between items-center p-5 border-b border-slate-200/60">
+            <div class="flex items-center justify-between p-5 border-b border-slate-200/60">
                 <div>
-                    <h2 class="font-medium text-base mr-auto">
-                        <a href="{{ url()->previous() }}" class="mr-2 btn">←</a> Order Details
+                    <h2 class="mr-auto text-base font-medium">
+                        <a href="{{ url()->previous() }}" class="mr-2 btn">←</a>
                     </h2>
                 </div>
                 <div>
-                    <div class="ml-2 px-2 py-2 bg-slate-200 text-slate-600  text-xs rounded-md">{{ $orderdetails->status }}</div>
+                    <div class="px-2 py-2 ml-2 text-xs rounded-md bg-slate-200 text-slate-600">{{ $orderdetails->status }}</div>
                 </div>
             </div>
-            <div class="p-5">
-
-                <div class="overflow-x-auto">
-                    <table class="table table-bordered">
-                        <thead class="table-dark">
-                            <th class="whitespace-nowrap">Product Name</th>
-                            <th class="whitespace-nowrap text-center">Price</th>
-                            <th class="whitespace-nowrap text-center">Quantity</th>
-                        </thead>
-                        <tbody>
-                            @foreach ($products as $product)
-                                <tr>
-                                    <td class="whitespace-nowrap">{{ $product->product_name }}</td>
-                                    <td class="whitespace-nowrap text-center">₱{{ number_format($product->price,2) }}</td>
-                                    <td class="whitespace-nowrap text-center">{{ number_format($product->quantity) }}</td>
+            <div class="p-2">
+                <div class="sm:p-3">
+                    <div class="border">
+                        <table class="table text-xs table-fixed">
+                            <thead class="bg-slate-50">
+                                <tr class="sm:text-base">
+                                    <th class="whitespace-nowrap">Product Name</th>
+                                    <th class="text-center whitespace-nowrap">Price</th>
+                                    <th class="text-center whitespace-nowrap">Quantity</th>
                                 </tr>
-                            @endforeach
-                        </tbody>
-                    </table>
+                            </thead>
+                            <tbody>
+                                @foreach ($products as $product)
+                                    <tr class="sm:text-base">
+                                        <td class="overflow-x-auto whitespace-nowrap">{{ $product->product_name }}</td>
+                                        <td class="text-center whitespace-nowrap">₱{{ number_format($product->price,2) }}</td>
+                                        <td class="text-center whitespace-nowrap">{{ number_format($product->quantity) }}</td>
+                                    </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
         </div>
 
-        <div class="intro-y box mt-5 p-5">
+        <div class="p-5 mt-5 intro-y box">
             <div>
                 Order ID:{{ $orderdetails->id }}
             </div>

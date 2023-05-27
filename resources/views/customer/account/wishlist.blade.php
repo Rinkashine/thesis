@@ -2,11 +2,6 @@
 @section('content')
 @section('title', 'Wishlist')
 <!-- Begin: Header -->
-<div class="intro-y flex items-center mt-8">
-    <h2 class="text-lg font-medium mr-auto">
-            Welcome to Go Dental!
-    </h2>
-</div>
 <!-- End: Header -->
 <!-- Begin: Reviews Body -->
 <div class="grid grid-cols-12 gap-6">
@@ -17,11 +12,11 @@
         <!-- BEGIN: Display Information -->
         <div class="intro-y box lg:mt-5">
             <div class="flex items-center p-5 border-b border-slate-200/60 dark:border-darkmode-400">
-                    <h2 class="font-medium text-base mr-auto">
+                    <h2 class="mr-auto text-base font-medium">
                         My Wishlist
                     </h2>
                 </div>
-                <div class="p-5">
+                <div class="p-2">
                     <!-- Begin: Customer Wishlist Products Table -->
                     <livewire:customer.wishlist.product-wishlist/>
                     <!-- End: Customer Wishlist Product Table -->

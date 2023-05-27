@@ -21,7 +21,7 @@ class AdminAccountSeeder extends Seeder
             'address' => '283 Ramos Compound Baesa Quezon City',
             'password' => 'Onepiece25!',
             'gender' => 'Male',
-            'age' => '20',
+            'birthday' => '2001-06-08',
         ]);
         $user->assignRole('Super Admin');
 
@@ -29,10 +29,10 @@ class AdminAccountSeeder extends Seeder
             'name' => 'Rinkashine Manalo',
             'email' => 'programmingmind1110@gmail.com',
             'phone_number' => '09369332354',
-            'address' => '283 Ramos Compound Baesa Quezon City',
+            'address' => '217 Segundo Street Baesa Quezon City',
             'password' => 'Onepiece25!',
             'gender' => 'Male',
-            'age' => '20',
+            'birthday' => '2001-05-23',
         ])->assignRole('Head Manager');
 
         User::create([
@@ -42,7 +42,7 @@ class AdminAccountSeeder extends Seeder
             'address' => '122 10-Bayan St., San Francisco Del Monte, Quezon City, Metro Manila ',
             'password' => 'Onepiece25!',
             'gender' => 'Male',
-            'age' => '20',
+            'birthday' => '2000-01-23',
         ])->assignRole('Inventory Employee');
 
         User::create([
@@ -52,7 +52,7 @@ class AdminAccountSeeder extends Seeder
             'address' => '14 A Matulungin St. Brgy. Central, Quezon City, Metro Manila',
             'password' => 'Onepiece25!',
             'gender' => 'Male',
-            'age' => '20',
+            'birthday' => '2001-05-23',
         ])->assignRole('Customer Care Employee');
 
         User::create([
@@ -62,7 +62,7 @@ class AdminAccountSeeder extends Seeder
             'address' => 'Phs. 4 Blk 7 Lt. 7 Grand Royale subd., City of Malolos, Bulacan',
             'password' => 'Onepiece25!',
             'gender' => 'Male',
-            'age' => '20',
+            'birthday' => '2001-12-22',
         ])->assignRole('Data Monitoring Employee');
     }
 }

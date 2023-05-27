@@ -2,11 +2,6 @@
 @section('content')
 @section('title', 'Cancelled Orders')
 <!-- Begin: Header -->
-<div class="intro-y flex items-center mt-8">
-    <h2 class="text-lg font-medium mr-auto">
-            Cancelled Orders
-    </h2>
-</div>
 <!-- End: Header -->
 <!-- Begin: Canccelation Body -->
 <div class="grid grid-cols-12 gap-6">
@@ -17,7 +12,7 @@
         <!-- BEGIN: Display Information -->
         <div class="intro-y box lg:mt-5">
             <div class="flex items-center p-5 border-b border-slate-200/60 dark:border-darkmode-400">
-                <h2 class="font-medium text-base mr-auto">
+                <h2 class="mr-auto text-base font-medium">
                     Order Cancellation
                 </h2>
             </div>
@@ -45,13 +40,13 @@
                                     <tbody>
                                         @foreach ($order->orderTransactions as $product)
                                             <tr>
-                                                <td class="text-center truncate  whitespace-nowrap  ">
+                                                <td class="text-center truncate whitespace-nowrap ">
                                                     {{ $product->product_name }}
                                                 </td>
-                                                <td class="text-center  whitespace-nowrap ">
+                                                <td class="text-center whitespace-nowrap ">
                                                     {{ $product->quantity }} pcs
                                                 </td>
-                                                <td class="text-center  whitespace-nowrap ">
+                                                <td class="text-center whitespace-nowrap ">
                                                     ₱{{ number_format($product->price,2) }}
                                                 </td>
                                             </tr>
@@ -72,9 +67,11 @@
                             </div>
                         </div>
                     @empty
-                            <tr>
-                                <td colspan="5" class="font-medium">No Orders Found</td>
-                            </tr>
+                    <div class="px-5 py-5 text-lg bg-gradient-to-r from-slate-50 via-white to-slate-100">
+                        <img alt="CancellationMobile" class="block object-scale-down w-full mt-3 max-h-24 sm:hidden" src="{{ asset('dist/images/CancellationMobile.svg') }}">
+                        <p class="text-center sm:text-3xl bold">Have Concerns? Let us know!</p>
+                        <img alt="CancellationMobile" class="hidden object-scale-down w-full mt-3 sm:block max-h-96" src="{{ asset('dist/images/Cancellation.svg') }}">
+                    </div>
                      @endforelse
                 </div>
             </div>

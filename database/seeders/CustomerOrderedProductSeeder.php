@@ -1281,9 +1281,97 @@ class CustomerOrderedProductSeeder extends Seeder
                 'price' => 770.00,
                 'quantity' => 1,
             ],
-
-
-
+            [//April Orders - 1
+                'customer_order_id' => 104153274,
+                'product_id' => 94,
+                'product_name' => 'Tooth Mousse',
+                'price' => 1200.00,
+                'quantity' => 3,
+            ],
+            [//April Orders - 2
+                'customer_order_id' => 104153275,
+                'product_id' => 61,
+                'product_name' => 'Densply IRM',
+                'price' => 2800.00,
+                'quantity' => 2,
+            ],
+            [//April Orders - 3
+                'customer_order_id' => 104153276,
+                'product_id' => 3,
+                'product_name' => 'HCD Gloves',
+                'price' => 400.00,
+                'quantity' => 10,
+            ],
+            [//April Orders - 4
+                'customer_order_id' => 104153277,
+                'product_id' => 16,
+                'product_name' => 'Denject Disposable Needles',
+                'price' => 300.00,
+                'quantity' => 2,
+            ],
+            [//April Orders - 5
+                'customer_order_id' => 104153278,
+                'product_id' => 50,
+                'product_name' => 'Finishing Strip',
+                'price' => 350.00,
+                'quantity' => 6,
+            ],
+            [//April Orders - 6
+                'customer_order_id' => 104153279,
+                'product_id' => 107,
+                'product_name' => 'Surgical Handpiece',
+                'price' => 1200.00,
+                'quantity' => 1,
+            ],
+            [//April Orders - 7
+                'customer_order_id' => 104153280,
+                'product_id' => 21,
+                'product_name' => 'Dochem Gutta Percha',
+                'price' => 200.00,
+                'quantity' => 5,
+            ],
+            [//May Orders - 1
+                'customer_order_id' => 104153281,
+                'product_id' => 81,
+                'product_name' => 'Copalite Intermediatary Varnish',
+                'price' => 420.00,
+                'quantity' => 2,
+            ],
+            [//May Orders - 2
+                'customer_order_id' => 104153282,
+                'product_id' => 15,
+                'product_name' => 'Cyanamid Surgical Silk',
+                'price' => 85.00,
+                'quantity' => 16,
+            ],
+            [//May Orders - 3
+                'customer_order_id' => 104153283,
+                'product_id' => 135,
+                'product_name' => 'Rotation Wedge',
+                'price' => 550.00,
+                'quantity' => 2,
+            ],
+            [//May Orders - 4
+                'customer_order_id' => 104153284,
+                'product_id' => 58,
+                'product_name' => 'Fuji Glass Ionomer Cement',
+                'price' => 4500.00,
+                'quantity' => 3,
+            ],
+            [//May Orders - 5
+                'customer_order_id' => 104153285,
+                'product_id' => 64,
+                'product_name' => 'Ionocem Glass Ionomer Cement',
+                'price' => 310.00,
+                'quantity' => 2,
+            ],
+            [//May Orders - 6
+                'customer_order_id' => 104153286,
+                'product_id' => 17,
+                'product_name' => 'Misawa Medical Disposable Needle',
+                'price' => 350.00,
+                'quantity' => 20,
+            ],
         ])
         ;
     }

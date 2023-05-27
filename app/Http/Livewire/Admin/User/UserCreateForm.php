@@ -24,7 +24,7 @@ class UserCreateForm extends Component
 
     public $gender;
 
-    public $age;
+    public $birthday;
 
     public $address;
 
@@ -40,7 +40,7 @@ class UserCreateForm extends Component
             'email' => 'required|email',
             'gender' => 'required',
             'phone' => 'required|phone:PH',
-            'age' => 'required|numeric',
+            'birthday' => 'required|date',
             'role' => 'required',
             'password' => 'required',
         ];
@@ -54,7 +54,7 @@ class UserCreateForm extends Component
             'email' => 'required|email',
             'gender' => 'required',
             'phone' => 'required|phone:PH',
-            'age' => 'required',
+            'birthday' => 'required|date',
             'role' => 'required',
             'password' => 'required',
         ]);
@@ -73,7 +73,7 @@ class UserCreateForm extends Component
             'password' => $this->password,
             'photo' => $imagename.'.png',
             'gender' => $this->gender,
-            'age' => $this->age,
+            'birthday' => $this->birthday,
 
         ];
 

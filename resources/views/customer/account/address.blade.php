@@ -2,11 +2,6 @@
 @section('content')
 @section('title', 'Address Book')
 <!-- Begin: Header -->
-<div class="intro-y flex items-center mt-8">
-    <h2 class="text-lg font-medium mr-auto">
-            Welcome to Go Dental!
-    </h2>
-</div>
 <!-- End: Header -->
 <!-- Begin: Address Body -->
 <div class="grid grid-cols-12 gap-6">
@@ -17,11 +12,11 @@
         <!-- BEGIN: Display Information -->
         <div class="intro-y box lg:mt-5">
             <div class="flex items-center p-5 border-b border-slate-200/60 dark:border-darkmode-400">
-                <h2 class="font-medium text-base mr-auto">
+                <h2 class="mr-auto text-base font-medium">
                     Address Book
                 </h2>
             </div>
-            <div class="p-5">
+            <div class="p-2">
                 <!-- Begin: Customer Address Table -->
                 <livewire:customer.address.customer-address-table/>
                 <!-- End: Customer Address Table -->
@@ -37,11 +32,11 @@
 </div>
 <!-- End: Address Body -->
 <!-- Success Notification -->
-<div id="success-notification-content" class="toastify-content hidden flex non-sticky-notification-content">
-    <i class="fa-regular fa-circle-check fa-3x text-success mx-auto"></i>
+<div id="success-notification-content" class="flex hidden toastify-content non-sticky-notification-content">
+    <i class="mx-auto fa-regular fa-circle-check fa-3x text-success"></i>
     <div class="ml-4 mr-4">
         <div class="font-medium" id="title"></div>
-        <div class="text-slate-500 mt-1" id="message"></div>
+        <div class="mt-1 text-slate-500" id="message"></div>
     </div>
 </div>
 <!-- End: Success Notification -->

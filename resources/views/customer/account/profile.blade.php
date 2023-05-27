@@ -2,11 +2,6 @@
 @section('content')
 @section('title', 'Profile Information')
 <!-- Begin: Header -->
-<div class="intro-y flex items-center mt-8">
-    <h2 class="text-lg font-medium mr-auto">
-            Welcome to Go Dental!
-    </h2>
-</div>
 <!-- End: Header -->
 <!-- Begin: Profile Body -->
 <div class="grid grid-cols-12 gap-6">
@@ -17,13 +12,13 @@
     <div class="col-span-12 lg:col-span-8 2xl:col-span-9">
         <div class="intro-y box lg:mt-5">
             <div class="flex items-center p-5 border-b border-slate-200/60 dark:border-darkmode-400">
-                <h2 class="font-medium text-base mr-auto">
+                <h2 class="mr-auto text-base font-medium">
                     Personal Information
                 </h2>
                 <!-- Begin: If Customer Not Verify -->
                 @if(!Auth::guard('customer')->user()->email_verified_at)
                     <div class="dropdown">
-                        <a href="{{ Route('customer.verify') }}" class="text-slate-500 leading-none">
+                        <a href="{{ Route('customer.verify') }}" class="leading-none text-slate-500">
                             Verify Account!
                         </a>
                     </div>
@@ -32,9 +27,9 @@
             </div>
             <div class="p-5">
                 @if(session('fail'))
-                    <div class="alert alert-danger show mb-2 intro-x" role="alert">{{ session('fail') }}</div>
+                    <div class="mb-2 alert alert-danger show intro-x" role="alert">{{ session('fail') }}</div>
                 @endif
-                <div class="flex flex-col-reverse xl:flex-row flex-col">
+                <div class="flex flex-col xl:flex-row">
                     <!-- Begin: Show Customer Profile -->
                     <livewire:customer.auth.customer-profile/>
                     <!-- End: Show Customer Profile -->
@@ -47,17 +42,17 @@
                     <!-- Begin: Customer Change Password Modal -->
                     <livewire:customer.auth.customer-set-password-form/>
                     <!-- End: Customer Change Password Modal -->
-                    <div class="w-52 mx-auto xl:mr-0 xl:ml-6">
-                        <div class="border-2 border-dashed shadow-sm border-slate-200/60 dark:border-darkmode-400 rounded-md p-5">
-                            <div class=" ">
+                    <div class="mx-auto w-52 xl:mr-0 xl:ml-6">
+                        <div class="p-5 border-2 border-dashed rounded-md shadow-sm border-slate-200/60 dark:border-darkmode-400">
+                            <div class="">
                                 @if(!empty(Auth::guard('customer')->user()->photo))
-                                    <img src="{{ url('storage/customer_profile_picture/'.Auth::guard('customer')->user()->photo.'') }}" class="rounded-md h-40 w-full object-fill"  alt="Missing Image" data-action="zoom">
+                                    <img src="{{ url('storage/customer_profile_picture/'.Auth::guard('customer')->user()->photo.'') }}" class="object-fill w-full h-40 rounded-md"  alt="Missing Image" data-action="zoom">
                                 @else
                                     <img alt="Missing Image" class="rounded-md" src="{{asset('dist/images/undraw_pic.svg')}}" data-action="zoom">
                                 @endif
                             </div>
-                            <div class="mx-auto cursor-pointer relative mt-5">
-                                <button class="btn btn-primary w-full" data-tw-toggle="modal" data-tw-target="#change-profile-modal">
+                            <div class="relative mx-auto mt-5 cursor-pointer">
+                                <button class="w-full btn btn-primary" data-tw-toggle="modal" data-tw-target="#change-profile-modal">
                                     Change Photo
                                 </button>
                             </div>
@@ -68,9 +63,9 @@
         </div>
         <!-- END: Personal Information -->
         <!-- BEGIN: RECENT ORDERS -->
-        <div class="intro-y box mt-5">
+        <div class="mt-5 intro-y box">
             <div class="flex items-center p-5 border-b border-slate-200/60 dark:border-darkmode-400">
-                <h2 class="font-medium text-base mr-auto">
+                <h2 class="mr-auto text-base font-medium">
                     Recent Orders
                 </h2>
             </div>

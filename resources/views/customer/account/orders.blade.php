@@ -2,11 +2,6 @@
 @section('content')
 @section('title', 'Order List')
 <!-- Begin: Header -->
-<div class="intro-y flex items-center mt-8">
-    <h2 class="text-lg font-medium mr-auto">
-            Welcome to Go Dental!
-    </h2>
-</div>
 <!-- End: Header -->
 <!-- Begin: Orders Body -->
 <div class="grid grid-cols-12 gap-6">
@@ -18,11 +13,11 @@
 
         <div class="intro-y box lg:mt-5">
             <div class="flex items-center p-5 border-b border-slate-200/60 dark:border-darkmode-400">
-                <h2 class="font-medium text-base mr-auto">
+                <h2 class="mr-auto text-base font-medium">
                     My Orders
                 </h2>
             </div>
-            <div class="p-5">
+            <div class="p-2">
                 <!-- Begin: Customer Orders Table-->
                 <livewire:customer.order.customer-orders-table/>
                 <!-- End: Customer Orders Table-->
