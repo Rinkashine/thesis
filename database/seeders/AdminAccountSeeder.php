@@ -39,7 +39,7 @@ class AdminAccountSeeder extends Seeder
             'name' => 'Gene Vincent Soriano',
             'email' => 'gvasoriano2511@gmail.com',
             'phone_number' => '09611212652',
-            'address' => '122 10-Bayan St., San Francisco Del Monte, Quezon City, Metro Manila ',
+            'address' => '122 10-Bayan St., San Francisco Del Monte, Quezon City ',
             'password' => 'Onepiece25!',
             'gender' => 'Male',
             'birthday' => '2000-01-23',

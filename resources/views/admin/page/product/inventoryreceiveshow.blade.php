@@ -5,7 +5,7 @@
 <div class="intro-y flex justify-between items-center mt-8">
     <div>
         <h2 class="text-lg font-medium mr-auto">
-            <a href="{{ Route('transfer.index') }}" class="mr-2 btn">←</a> {{ $orderinfo->id }}
+            <a href="{{ Route('transfer.index') }}" class="mr-2 btn">←</a> P{{ $orderinfo->id }}
             <span class=" btn-rounded btn-success-soft w-full text-sm mr-1 mb-2 p-1">
                 {{ $orderinfo->status }}
             </span>

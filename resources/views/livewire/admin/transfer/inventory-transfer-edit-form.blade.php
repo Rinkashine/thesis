@@ -321,25 +321,41 @@
                             <div class="flex flex-col grid-cols-12 md:grid text-gray-50">
 
                                 @foreach ($purchase_order_timeline as $item)
-                                <div class="flex md:contents">
-                                    <div class="relative col-start-2 col-end-4 mr-10 md:mx-auto">
-                                      <div class="flex items-center justify-center w-6 h-full">
-                                        <div class="w-1 h-full pointer-events-none bg-success"></div>
-                                      </div>
-                                      <div class="absolute w-6 h-6 -mt-3 text-center rounded-full shadow bg-success top-1/2">
-                                        <i class="mt-1 text-white fas fa-check-circle"></i>
-                                      </div>
+                                    <div class="flex md:contents">
+                                        <div class="relative col-start-2 col-end-4 mr-10 md:mx-auto">
+                                        <div class="flex items-center justify-center w-6 h-full">
+                                            <div class="w-1 h-full pointer-events-none bg-success"></div>
+                                        </div>
+                                        <div class="absolute w-6 h-6 -mt-3 text-center rounded-full shadow bg-success top-1/2">
+                                            <i class="mt-1 text-white fas fa-check-circle"></i>
+                                        </div>
+                                        </div>
+                                        <div class="w-full col-start-4 col-end-12 p-4 my-4 mr-auto shadow-md bg-success rounded-xl">
+                                        <h3 class="mb-1 text-lg font-semibold">{{ $item->title }}</h3>
+                                        <p class="leading-tight text-justify">
+                                            {{ $item->created_at->DiffForHumans() }}
+                                        </p>
+                                        </div>
                                     </div>
-                                    <div class="w-full col-start-4 col-end-12 p-4 my-4 mr-auto shadow-md bg-success rounded-xl">
-                                      <h3 class="mb-1 text-lg font-semibold">{{ $item->title }}</h3>
-                                      <p class="leading-tight text-justify">
-                                        {{ $item->created_at->DiffForHumans() }}
-                                      </p>
-                                    </div>
-                                </div>
                                 @endforeach
+                                @if($status != "Pending")
+                                    <div class="flex md:contents">
+                                        <div class="relative col-start-2 col-end-4 mr-10 md:mx-auto">
+                                        <div class="flex items-center justify-center w-6 h-full">
+                                            <div class="w-1 h-full bg-gray-300 pointer-events-none"></div>
+                                        </div>
+                                        <div class="absolute w-6 h-6 -mt-3 text-center bg-gray-300 rounded-full shadow top-1/2">
+                                            <i class="mt-1 text-gray-400 fas fa-exclamation-circle"></i>
+                                        </div>
+                                        </div>
+                                        <div class="w-full col-start-4 col-end-12 p-4 my-4 mr-auto bg-gray-300 shadow-md rounded-xl">
+                                        <h3 class="mb-1 text-lg font-semibold text-gray-400">Mark as Pending</h3>
+                                        <p class="leading-tight text-justify">
 
-
+                                        </p>
+                                        </div>
+                                    </div>
+                                @endif
 
                                 <div class="flex md:contents">
                                     <div class="relative col-start-2 col-end-4 mr-10 md:mx-auto">

@@ -24,6 +24,12 @@ class UsersController extends Controller
         return view('admin.page.Users.usersadd');
     }
 
+    public function edit(User $user){
+        return view('admin.page.Users.usersedit',[
+            'user' => $user
+        ]);
+    }
+
     public function UserArchiveIndex()
     {
         return view('admin.page.Users.userarchive');

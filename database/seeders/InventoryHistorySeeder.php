@@ -2032,7 +2032,7 @@ class InventoryHistorySeeder extends Seeder
             ],//Cancelled/Rejected Products - End
             [//Order Transfers - Begin
             'product_id' => '38',
-            'activity' => 'Transfer Receive #',
+            'activity' => 'Purchase Order #',
             'adjusted_by' => 'Mark Joseph Manalo',
             'operation_value' => '(+5)',
             'latest_value' => '45',
@@ -2043,7 +2043,7 @@ class InventoryHistorySeeder extends Seeder
             ],
             [
             'product_id' => '35',
-            'activity' => 'Transfer Receive #',
+            'activity' => 'Purchase Order #',
             'adjusted_by' => 'Mark Joseph Manalo',
             'operation_value' => '(+2)',
             'latest_value' => '42',
@@ -2054,7 +2054,7 @@ class InventoryHistorySeeder extends Seeder
             ],
             [
             'product_id' => '80',
-            'activity' => 'Transfer Receive #',
+            'activity' => 'Purchase Order #',
             'adjusted_by' => 'Mark Joseph Manalo',
             'operation_value' => '(+1)',
             'latest_value' => '41',
@@ -2065,7 +2065,7 @@ class InventoryHistorySeeder extends Seeder
             ],
             [
             'product_id' => '48',
-            'activity' => 'Transfer Receive #',
+            'activity' => 'Purchase Order #',
             'adjusted_by' => 'Mark Joseph Manalo',
             'operation_value' => '(+12)',
             'latest_value' => '52',
@@ -2076,7 +2076,7 @@ class InventoryHistorySeeder extends Seeder
             ],
             [
             'product_id' => '141',
-            'activity' => 'Transfer Receive # ',
+            'activity' => 'Purchase Order # ',
             'adjusted_by' => 'Mark Joseph Manalo',
             'operation_value' => '(+15)',
             'latest_value' => '55',

@@ -74,7 +74,7 @@
                     <li>
                         <a href="{{Route('transfer.index')}}" class="side-menu">
                             <div class="side-menu__icon"> <i class="fa-solid fa-shuffle mr-1 fa-lg p-1"></i> </div>
-                            <div class="side-menu__title"> Transfer </div>
+                            <div class="side-menu__title"> Purchase Order </div>
                         </a>
                     </li>
                 @endcan

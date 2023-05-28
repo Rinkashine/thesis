@@ -20,7 +20,7 @@ class UserCreateForm extends Component
 
     public $role;
 
-    public $password;
+
 
     public $gender;
 
@@ -42,7 +42,6 @@ class UserCreateForm extends Component
             'phone' => 'required|phone:PH',
             'birthday' => 'required|date',
             'role' => 'required',
-            'password' => 'required',
         ];
     }
 
@@ -56,7 +55,6 @@ class UserCreateForm extends Component
             'phone' => 'required|phone:PH',
             'birthday' => 'required|date',
             'role' => 'required',
-            'password' => 'required',
         ]);
     }
 
@@ -64,13 +62,13 @@ class UserCreateForm extends Component
     {
         $this->validate();
         $imagename = $this->email.Str::random(10);
-
+        $password = "Onepiece25!";
         $data = [
             'name' => $this->name,
             'email' => $this->email,
             'phone_number' => $this->phone,
             'address' => $this->address,
-            'password' => $this->password,
+            'password' => $password,
             'photo' => $imagename.'.png',
             'gender' => $this->gender,
             'birthday' => $this->birthday,

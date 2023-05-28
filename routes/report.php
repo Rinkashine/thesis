@@ -30,6 +30,8 @@ use App\Http\Controllers\Backend\Reports\ProductRatingController;
 use App\Http\Controllers\Backend\Reports\RatingsByCustomerController;
 use App\Http\Controllers\Backend\Reports\CustomerGainedPerMonthListController;
 use App\Http\Controllers\Backend\Reports\ProductOrderVolumeController;
+use App\Http\Controllers\Backend\Reports\YearlySalesController;
+
 
 Route::group(['prefix' => 'admin'], function () {
     Route::middleware(['auth:web'])->group(function () {
@@ -89,10 +91,13 @@ Route::group(['prefix' => 'admin'], function () {
         Route::get('/report/gender/pdf', [GenderController::class, 'exportGenderExcel'])->name('export.Gender');
         //Begin: Export Files for Account Verification
         Route::get('/report/accountverification/pdf',[AccountVerificationController::class,'exportAccountVerification'])->name('export.AccountVerification');
-
+        //export
+        Route::get('/report/YearlySales/pdf',[YearlySalesController::class,'exportYearlySales'])->name('export.YearlySales');
         Route::middleware(['PreventBackHistory'])->group(function () {
             //Begin: Reports Table
             Route::resource('report', ReportController::class)->only(['index']);
+            //Begin: Yearly Sales
+            Route::get('/report/YearlySales', [YearlySalesController::class, 'YearlySales'])->name('report.YearlySales');
             //Begin: Browser Type
             Route::get('/report/browser', [BrowserTypeController::class, 'BrowserIndex'])->name('report.browser');
             //Begin: Cancelled Orders

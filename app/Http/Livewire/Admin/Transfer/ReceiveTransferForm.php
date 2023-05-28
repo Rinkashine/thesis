@@ -72,7 +72,7 @@ class ReceiveTransferForm extends Component
 
             InventoryHistory::create([
                 'product_id' => $transferproduct['product_id'],
-                'activity' => "Transfer Receive #",
+                'activity' => "Purchase Order #",
                 'adjusted_by' => Auth::guard('web')->user()->name,
                 'operation_value' => $operationvalue,
                 'latest_value' => $product->stock,
@@ -85,7 +85,7 @@ class ReceiveTransferForm extends Component
             ]);
         }
 
-        Alert::success('Action Success', 'product was successfully received');
+        Alert::success('Action Success', 'Proudct was successfully received');
         return redirect()->route('transfer.index');
     }
 

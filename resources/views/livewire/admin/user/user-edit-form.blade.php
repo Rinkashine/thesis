@@ -1,5 +1,5 @@
 <div>
-    <form wire:submit.prevent="StoreUserData">
+    <form wire:submit.prevent="UpdateUserData">
         @csrf
         <div class="p-5">
             <div class="grid grid-cols-12 gap-x-5">
@@ -53,7 +53,7 @@
                 </div>
             </div>
             <div class="text-right mt-5">
-                <button type="submit" class="btn btn-primary w-24 mt-3">Save</button>
+                <button type="submit" class="btn btn-primary w-24 mt-3">Update</button>
             </div>
         </div>
     </form>

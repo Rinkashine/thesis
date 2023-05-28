@@ -1,6 +1,6 @@
 <div>
     <h2 class="intro-y text-lg font-medium mt-10">
-        Inventory Transfer
+        Purchase Order
     </h2>
     <div class="grid grid-cols-12 gap-6 mt-5">
         <div class="intro-y col-span-12 flex flex-wrap xl:flex-nowrap items-center mt-2">
@@ -25,17 +25,17 @@
             <table class="table table-report -mt-2">
                 <thead>
                     <tr>
-                        <th class="whitespace-nowrap">Transfer Code</th>
-                        <th class="text-center whitespace-nowrap">STATUS</th>
-                        <th class="whitespace-nowrap text-center">ACTION</th>
-
+                        <th class="whitespace-nowrap">Purchase ID</th>
+                        <th class="whitespace-nowrap text-center">Supplier</th>
+                        <th class="text-center whitespace-nowrap">Status</th>
+                        <th class="whitespace-nowrap text-center">Action</th>
                     </tr>
                 </thead>
                 <tbody>
                     @forelse ($orders as $order)
                     <tr class="intro-x">
                         <td class="w-40 !py-4"> <a href="{{ Route('transfer.edit',$order->id) }}">{{ $order->id }}</a></td>
-                       <td class="w-40 ">{{ $order->suppliers->name }}</td>
+                       <td class="w-40 text-center">{{ $order->suppliers->name }}</td>
                         <td>
                             <div class="whitespace-nowrap text-center">
                                 @if($order->status == "Pending")

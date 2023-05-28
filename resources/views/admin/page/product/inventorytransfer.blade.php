@@ -1,6 +1,6 @@
 @extends('admin.layout.admin')
 @section('content')
-@section('title', 'Inventory Transfer')
+@section('title', 'Purchase Order')
 
 
 <!-- Begin: Inventory Transfer  -->
