@@ -113,8 +113,9 @@
                 <div class="flex items-center border-b border-slate-200/60 dark:border-darkmode-400 pb-5 mb-5">
                     <div class="font-medium text-base truncate">Order Details</div>
                     @if($orderdetails->order_notes  == null)
-                        @livewire('admin.transaction.order-notes-form',['order' => $orderdetails])
-                        <livewire:admin.transaction.order-note-modal/>
+                    <button wire:click="selectItem({{$orderdetails->id}},'StoreOrderNotes')" class="flex items-center ml-auto text-primary">
+                        <i class="fa-solid fa-plus mr-2"></i> Add Notes
+                    </button>
                     @endif
                 </div>
                 <div class="overflow-auto lg:overflow-visible -mt-3">
@@ -143,6 +144,7 @@
                     </table>
                 </div>
             </div>
+            <livewire:admin.transaction.order-note-modal/>
 
             <!-- Begin: Rejected Reason -->
             @if($orderdetails->rejected_reason  != null)
@@ -162,7 +164,10 @@
                 <div class="box p-5 rounded-md mt-5">
                     <div class="flex items-center border-b border-slate-200/60 dark:border-darkmode-400 pb-5 mb-5">
                         <div class="font-medium text-base truncate">Notes:</div>
-                        @livewire('form.edit-order-notes-form',['order' => $orderdetails])
+                        <button wire:click="selectItem({{$orderdetails->id}},'StoreOrderNotes')" class="flex items-center ml-auto text-primary">
+                            <i class="fa-solid fa-pencil mr-2"></i>  Edit
+                        </button>
+
                     </div>
                     <div class="overflow-auto lg:overflow-visible -mt-3">
                         {{ $orderdetails->order_notes }}
@@ -191,7 +196,31 @@
                 </div>
             @endif
             <!-- End: Cancellation -->
+            @if($orderdetails->refund_reason_id  != null)
+                <div class="box p-5 rounded-md mt-5">
+                    <div class="flex items-center border-b border-slate-200/60 dark:border-darkmode-400 pb-5 mb-5">
+                        <div class="font-medium text-base truncate">Cancel Reason of Customer:</div>
 
+                    </div>
+                    <div class="overflow-auto lg:overflow-visible -mt-3">
+                        Main Reason:{{ $orderdetails->refund_reason->name }}
+                    </div>
+                    <div>
+                        Detailed Reason: {{ $orderdetails->details }}
+                    </div>
+                    <div>
+
+                    </div>
+                </div>
+                <div class="grid grid-cols-12 gap-5 mt-5">
+                @foreach ($orderdetails->return_request_photo as $item)
+                <div class="box intro-y p-5 col-span-12 sm:col-span-6">
+                    <img alt="Missing Image" class="object-contain h-96 rounded-md w-full" data-action="zoom" src="{{ url('storage/return_images/'.$item->images) }}">
+                </div>
+
+                @endforeach
+                </div>
+            @endif
 
 
             <!-- Begin: Reject Order Modal -->
@@ -200,6 +229,10 @@
             <livewire:admin.transaction.set-status-to-packed/>
             <livewire:admin.transaction.order-out-for-delivery-modal/>
             <livewire:admin.transaction.order-completed-modal/>
+
+            <livewire:admin.transaction.order-accept-return-modal/>
+            <livewire:admin.transaction.order-reject-return-modal/>
+
             <!-- End: Reject Order Modal -->
             <!-- Begin: Set Status To Packed Modal -->
             <!-- End: Set Status To Packed Modal -->
@@ -224,6 +257,11 @@
                     <button wire:click="selectItem({{ $orderdetails->id }},'reject_order')" class="btn btn-danger">  Reject </button>
                     <button wire:click="selectItem({{ $orderdetails->id }},'set_status_to_completed')" class="btn btn-primary">Set Status To Completed</button>
                 </div>
+             @elseif($orderdetails->status == "Requesting For Refund")
+                <div class="mt-5 intro-y flex justify-end gap-2">
+                    <button wire:click="selectItem({{ $orderdetails->id }},'reject_return')" class="btn btn-danger">  Reject Return</button>
+                    <button wire:click="selectItem({{ $orderdetails->id }},'accept_return')" class="btn btn-primary">Approved Return</button>
+                </div>
             @endif
         </div>
     </div>
@@ -237,6 +275,16 @@
     </div>
     @push('scripts')
         <script>
+            const setNoteModal = tailwind.Modal.getInstance(document.querySelector("#order-notes-modal"));
+            window.addEventListener('openOrderNotesModal',event => {
+                setNoteModal.show();
+            });
+
+            window.addEventListener('closeOrderNotesModal',event => {
+                setNoteModal.hide();
+            });
+
+
             //Begin: Set Status To Processing
             const setApproveOrderModal = tailwind.Modal.getInstance(document.querySelector("#order-approved-modal"));
             window.addEventListener('ShowApprovedOrderModal',event => {
@@ -293,10 +341,29 @@
                 setOrderCompleted.hide()
             });
             //End: Set Status To Completed
+            //Begin: Reject Return Modal
+            const rejectReturn = tailwind.Modal.getInstance(document.querySelector("#reject-return-confirmation-modal"));
 
+            window.addEventListener('openRejectReturnModal',event => {
+                rejectReturn.show()
 
+            });
 
+            window.addEventListener('closeRejectReturnModal', event => {
+                rejectReturn.hide()
+            });
+            //End: Reject Return Modal
+            //Begin: Accept Return Modal
+            const acceptReturn = tailwind.Modal.getInstance(document.querySelector("#accept-return-confirmation-modal"));
 
+            window.addEventListener('openAcceptReturnModal',event => {
+                acceptReturn.show()
+            });
+
+            window.addEventListener('closeApprovedReturn', event => {
+                acceptReturn.hide()
+            });
+            //End: Accept Return Modal
         window.addEventListener('SuccessAlert',event => {
             let id = (Math.random() + 1).toString(36).substring(7);
             Toastify({

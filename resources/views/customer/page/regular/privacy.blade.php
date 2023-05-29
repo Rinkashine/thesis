@@ -1,9 +1,6 @@
 @extends('customer.layout.base')
 @section('content')
 @section('title', 'Privacy Policy')
-<header>
-
-</header>
 <section>
     <div class="flex justify-center">
         <div class="py-10 mt-5 intro-y box sm:py-20">
@@ -82,7 +79,7 @@
                         </li>
 
                         <li>
-                        Location data, such as when you check for deals near you or the delivery / pick-up status of orders.
+                        Location data,such as the delivery / pick-up status of orders.
                         </li>
                     </p>
                            <br>
@@ -92,11 +89,9 @@
 
                 <p>
                 We will only be able to collect certain categories of personal data if you voluntarily provide the personal data to us or as otherwise provided for under this Privacy Notice. If you choose not to provide your personal data to us or subsequently withdraw your consent to our use of your personal data, we may not be able to provide you with certain features or functionality on the Services or access to the Platform.
-                In some situations, you may provide personal data of other individuals to us (such as your family members or friends or persons in your contact list),
-                when you use the "Find My Friends" or similar function, or when you add them as recipients or beneficiaries of any use of our Services. You represent and warrant that you have obtained the necessary consent, license and permissions from such individuals to share and transfer his/her personal data to us, and for us to collect, store, use, disclose or otherwise process that data in accordance with this Privacy Notice.
-                If you sign up to be a user on our Platform using your social media account or link your Go Dental account to your social media account or use certain other Go Dental social media features, we may access personal data about you which you have voluntarily provided to your social media provider in accordance with the provider's policies and we will manage your personal data in accordance with this Privacy Notice.
-                    </p>
-                    <br>
+                If you sign up to be a user on our Platform using your google account or link your Go Dental account to your google account or use certain other Go Dental social media features, we may access personal data about you which you have voluntarily provided to your social media provider in accordance with the provider's policies and we will manage your personal data in accordance with this Privacy Notice.
+                </p>
+                <br>
 
                 <div class="mt-1 mb-1 text-base font-medium">5. Collection of Other Data</div>
                 <p>
@@ -138,7 +133,7 @@
                 </p>
                 <br>
 
-                <div class="mt-1 mb-1 text-base font-medium">9. Does Go Dental Disclose the information it collects form its visitors to outside parties?</div>
+                <div class="mt-1 mb-1 text-base font-medium">9. Does Go Dental Disclose the information it collects from its visitors to outside parties?</div>
 
                 We use and disclose personal data for the purposes described below in accordance with applicable local laws and, if required, upon obtaining your consent.
                 Depending on your relationship with us (for example, whether you are a buyer, a visitor to our websites, or a user of our mobile applications), the personal data which we collect from you or via third parties may be used for certain purposes, as follows:  <br>
@@ -174,11 +169,11 @@
                 To safeguard your personal data from unauthorised access, collection, use, disclosure, processing, copying, modification, disposal, loss, misuse, modification or similar risks during the course of your use of our Platform and/or Services, we have introduced appropriate administrative, physical and technical measures such as:
                 (a) Restricting access to personal data to individuals who require access;
                 (b) Maintaining technology products to prevent unauthorised computer access;
-                (c) Using 128-bit SSL (secure sockets layer) encryption technology when processing your financial details; and/or
+                (c) Using 2048-bit SSL (secure sockets layer) encryption technology when processing your financial details; and/or
                 (d) implementing other security measures as required by applicable law.
                 You should be aware, however, that no method of transmission over the Internet or method of electronic storage is completely secure. While security cannot be guaranteed, we strive to protect the security of your information and are constantly reviewing and enhancing our information security measures. You are also advised to exercise caution with respect to the sharing of your personal data and your authentication/ security details (such as passwords, credit card details, transaction details) outside of our Platform / Services.
 
-                The Platform may contain links to other websites operated by other parties, such as our business affiliates, merchants or payment gateways.
+                The Platform may contain links to other websites operated by other parties, such as our business affiliates or payment gateways.
                 We are not responsible for the privacy practices of websites operated by these other parties.
                 You are advised to check on the applicable privacy policies of those websites to determine how they will handle any information they collect from you.
                 Please note that even if the third party is affiliated with us, we have no control over these third party websites, each of which may have their own separate privacy and data collection practices independent of us.
@@ -202,11 +197,6 @@
                 Our legal rights and remedies are expressly reserved in such an event.
 
             </div>
-
-
-
-
-
         </div>
     </div>
 </section>

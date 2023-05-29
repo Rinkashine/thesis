@@ -49,7 +49,7 @@
                         </div>
                         <div class="mt-3">
                             <label for="mobile_number" class="form-label">Mobile Number</label>
-                            <input id="mobile_number" type="number" class="form-control" placeholder="Please enter your mobile number" name="phone_number"  value="{{old('phone_number') ?? $address->phone_number}}">
+                            <input id="mobile_number" type="tel" class="form-control" placeholder="Please enter your mobile number" name="phone_number"  value="{{old('phone_number') ?? $address->phone_number}}">
                         </div>
                         <div class="mt-3">
                             <label for="notes" class="form-label">Other Notes</label>

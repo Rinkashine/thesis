@@ -85,7 +85,7 @@ class RequestForRefundModal extends Component
         $this->resetErrorBag();
         $this->dispatchBrowserEvent('closeRequestForRefundModal');
         //temporary
-        return redirect()->route('order.show',$this->model_id );
+        return redirect()->route('order.show',$order->id );
 
 
     }

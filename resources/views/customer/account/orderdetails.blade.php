@@ -18,8 +18,8 @@
                     </h2>
                 </div>
                 <div>
-                    @if($orderdetails->status == "Rejected" || $orderdetails->status == "Cancelled")
-                        <div class="w-24 mb-2 mr-1 btn btn-rounded btn-danger-soft">{{ $orderdetails->status }}</div>
+                    @if($orderdetails->status == "Rejected" || $orderdetails->status == "Cancelled" || $orderdetails->status == "Return Request Rejected")
+                        <div class="w-full mb-2 mr-1 btn btn-rounded btn-danger-soft">{{ $orderdetails->status }}</div>
                     @elseif($orderdetails->status == "Completed")
                         <div class="w-full text-xs btn btn-rounded btn-success-soft ">{{ $orderdetails->status }}</div>
                     @else

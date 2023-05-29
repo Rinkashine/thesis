@@ -18,8 +18,8 @@
                         <select wire:model="sorting"  class="w-full mt-2 form-select 2xl:w-full sm:mt-0 sm:w-auto">
                             <option value="product_name_asc">Product Name (A-Z)</option>
                             <option value="product_name_desc">Product Name (Z-A)</option>
-                            <option value="total_number_asc">Number of Ratings(Low To High)</option>
-                            <option value="total_number_desc">Number of Ratings (High To Low)</option>
+                            <option value="total_number_asc">Number of Review(Low To High)</option>
+                            <option value="total_number_desc">Number of Review (High To Low)</option>
                             <option value="total_rating_asc">Total Stars(Low To High)</option>
                             <option value="total_rating_desc">Total Stars (High To Low)</option>
                             <option value="ratingLow">Rating (Low To High)</option>

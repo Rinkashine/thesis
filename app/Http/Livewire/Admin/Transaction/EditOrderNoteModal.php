@@ -2,35 +2,36 @@
 
 namespace App\Http\Livewire\Admin\Transaction;
 
-use App\Models\CustomerOrder;
 use Livewire\Component;
+use App\Models\CustomerOrder;
 
-class OrderNoteModal extends Component
+class EditOrderNoteModal extends Component
 {
+
     public $model_id;
 
     public $notes;
 
     protected $listeners = [
-        'getOrderIdModal',
+        'getOrderIdNoteModal',
         'forceCloseModal',
     ];
 
     protected function rules()
     {
         return [
-            'notes' => 'max:255',
+            'notes' => 'required|max:255',
         ];
     }
 
     public function updated($fields)
     {
         $this->validateOnly($fields, [
-            'notes' => 'max:255',
+            'notes' => 'required|max:255',
         ]);
     }
 
-    public function getOrderIdModal($modelId)
+    public function getOrderIdNoteModal($modelId)
     {
         $this->model_id = $modelId;
         $model = CustomerOrder::findorfail($this->model_id);
@@ -55,23 +56,19 @@ class OrderNoteModal extends Component
         $this->notes = null;
     }
 
-    public function StoreNoteData()
+    public function UpdateNoteData()
     {
         $this->validate();
         $model = CustomerOrder::findorfail($this->model_id);
         $model->order_notes = $this->notes;
         $model->update();
-        $this->emit('refreshParent');
-        $this->resetErrorBag();
-        $this->cleanVars();
-        $this->emit('refreshParent');
 
-        $this->dispatchBrowserEvent('closeOrderNotesModal');
-
+        return redirect()->route('orders.show', $this->model_id);
     }
+
 
     public function render()
     {
-        return view('livewire.admin.transaction.order-note-modal');
+        return view('livewire.admin.transaction.edit-order-note-modal');
     }
 }

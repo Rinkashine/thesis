@@ -4,9 +4,9 @@
             <div class="flex flex-row justify-between px-3 py-5 border">
                 <div>
                     #{{ $order->id }}
-                    @if ($order->status == "Completed")
+                    @if ($order->status == "Completed" || $order->status == "Refunded")
                         <span class="text-success">{{ $order->status }} </span>
-                    @elseif($order->status == "Cancelled" || $order->status == "Rejected")
+                    @elseif($order->status == "Cancelled" || $order->status == "Rejected" || $order->status == "Return Request Rejected")
                         <span class="text-danger">{{ $order->status }}</span>
                     @else
                         <span class="text-pending">{{ $order->status }}</span>

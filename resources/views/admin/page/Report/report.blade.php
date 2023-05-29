@@ -215,6 +215,7 @@
             Sales Section
         </div>
         <div class="grid grid-cols-12 gap-4">
+
             <!-- Monthly Sales -->
             <div class="col-span-6 p-2 text-xs bg-white border rounded-md shadow-md md:col-span-3 lg:col-span-2 w-fit zoom-in">
                 <div>
@@ -238,6 +239,19 @@
                 <div class="p-1 mt-1 text-sm text-center border-t">
                     <a class="sm:text-base" href="{{ Route('report.ProductSales') }}">View Details</a>
                 </div>
+            </div>
+            <div class="col-span-6 p-2 text-xs bg-white border rounded-md shadow-md md:col-span-3 lg:col-span-2 w-fit zoom-in">
+                <a class="sm:text-base" href="{{ Route('report.YearlySales') }}">
+                    <div>
+                        <img class="object-scale-down w-full max-w-md max-h-56" src="{{ asset('dist/images/YearlySales.svg') }}">
+                    </div>
+                    <div>
+                        <div class="ml-1 sm:text-sm">Yearly Sales</div>
+                    </div>
+                    <div class="p-1 mt-1 text-sm text-center border-t">
+                        <p>View Details</p>
+                    </div>
+                </a>
             </div>
             <!-- Customer Expenditure -->
             <div class="col-span-6 p-2 text-xs bg-white border rounded-md shadow-md md:col-span-3 lg:col-span-2 w-fit zoom-in">
@@ -276,19 +290,7 @@
                 </div>
             </div>
 
-            <div class="col-span-6 p-2 text-xs bg-white border rounded-md shadow-md md:col-span-3 lg:col-span-2 w-fit zoom-in">
-                <a class="sm:text-base" href="{{ Route('report.YearlySales') }}">
-                    <div>
-                        <img class="object-scale-down w-full max-w-md max-h-56" src="{{ asset('dist/images/YearlySales.svg') }}">
-                    </div>
-                    <div>
-                        <div class="ml-1 sm:text-sm">Yearly Sales</div>
-                    </div>
-                    <div class="p-1 mt-1 text-sm text-center border-t">
-                        <p>View Details</p>
-                    </div>
-                </a>
-            </div>
+
             <!-- Brand Order Volume -->
             <div class="col-span-6 p-2 text-xs bg-white border rounded-md shadow-md md:col-span-3 lg:col-span-2 w-fit zoom-in">
                 <div>

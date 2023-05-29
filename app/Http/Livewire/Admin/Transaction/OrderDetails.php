@@ -36,6 +36,15 @@ class OrderDetails extends Component
         }elseif($action == 'set_status_to_completed'){
             $this->emit('SetStatusToCompleted', $this->selectedItem);
             $this->dispatchBrowserEvent('ShowCompletedModal');
+        }elseif($action == 'StoreOrderNotes'){
+            $this->emit('getOrderIdModal', $this->selectedItem);
+            $this->dispatchBrowserEvent('openOrderNotesModal');
+        }elseif($action == 'reject_return'){
+            $this->emit('getReturnOrderId', $this->selectedItem);
+            $this->dispatchBrowserEvent('openRejectReturnModal');
+        }elseif($action == 'accept_return'){
+            $this->emit('getReturnOrderId', $this->selectedItem);
+            $this->dispatchBrowserEvent('openAcceptReturnModal');
         }
         $this->action = $action;
     }
@@ -45,7 +54,6 @@ class OrderDetails extends Component
         $orderdetails = CustomerOrder::findorfail($this->model_id);
         $customerinfo = Customer::withTrashed()->findorfail($orderdetails->customers_id);
         $products = CustomerOrderItems::where('customer_order_id', $orderdetails->id)->get();
-
         return view('livewire.admin.transaction.order-details',[
             'orderdetails' => $orderdetails,
             'products' => $products,

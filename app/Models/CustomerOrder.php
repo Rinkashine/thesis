@@ -48,12 +48,18 @@ class CustomerOrder extends Model
         return $this->belongsTo(CancellationReason::class);
     }
 
+    public function refund_reason()
+    {
+        return $this->belongsTo(ReturnReason::class);
+    }
+
     public function orderTransactions()
     {
         return $this->hasMany(CustomerOrderItems::class, 'customer_order_id', 'id');
     }
 
-    public function images()
+
+    public function return_request_photo()
     {
         return $this->hasMany(ReturnRequestImage::class, 'customer_order_id', 'id');
     }

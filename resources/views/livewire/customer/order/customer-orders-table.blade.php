@@ -4,16 +4,21 @@
             <div class="flex flex-row justify-between px-3 py-5 border">
                 <div>
                     #{{ $order->id }}
-                    @if ($order->status == "Completed")
+                    @if ($order->status == "Completed" || $order->status == "Refunded")
                         <span class="text-success">{{ $order->status }} </span>
-                    @elseif($order->status == "Cancelled" || $order->status == "Rejected")
+                    @elseif($order->status == "Cancelled" || $order->status == "Rejected" || $order->status == "Return Request Rejected")
                         <span class="text-danger">{{ $order->status }}</span>
                     @else
                         <span class="text-pending">{{ $order->status }}</span>
                     @endif
                 </div>
                 <div class="px-2 rounded-full bg-slate-50">
-                    <span class="text-center"> <a href="{{ Route('order.show',$order->id ) }}"> <i class="w-4 h-4 mr-1 fa-solid fa-eye"></i> Show Details</a></span>
+                    <span class="text-center">
+                        <a href="{{ Route('order.show',$order->id ) }}">
+                            <i class="w-4 h-4 mr-1 fa-solid fa-eye"></i>
+                            Show Details
+                        </a>
+                    </span>
                 </div>
             </div>
             <div>

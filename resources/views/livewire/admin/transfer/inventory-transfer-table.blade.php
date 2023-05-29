@@ -6,7 +6,7 @@
         <div class="intro-y col-span-12 flex flex-wrap xl:flex-nowrap items-center mt-2">
             <div class="flex w-full sm:w-auto">
                 <div class="w-48 relative text-slate-500">
-                    <input wire:model.lazy="search" type="search" class="form-control w-48 box " placeholder="Search by Transfer Code...">
+                    <input wire:model.lazy="search" type="search" class="form-control w-48 box " placeholder="Search">
                 </div>
                 <select class="form-select box ml-2" wire:model="sorting">
                     <option value="">Status</option>

@@ -7,18 +7,18 @@
             <div class="px-2 mt-5">
                 <div class="text-lg font-medium text-center">Terms of Use</div>
                 <div class="mt-2 text-center text-slate-500">Go Dental Terms and Conditions. </div>
-            </div>
-            <div class="px-5 pt-10 mt-10 border-t sm:px-20 border-slate-200/60 dark:border-darkmode-400">
-            <p>
-            Welcome to the Go Dental platform. Please read these terms and conditions carefully. The following Terms of Use govern your use and access of the Platform (defined below) and the use of the Services.
-            By accessing the Platform and/or using the Services, you agree to be bound by these Terms of Use. If you do not agree to these Terms of Use, do not access and/or use this Platform or the Services.
-            Access to and use of password protected and/or secure areas of the Platform and/or use of the Services are restricted to Customers with accounts only.
-            You may not obtain or attempt to obtain unauthorized access to such parts of this Platform and/or Services, or to any other protected information, through any means not intentionally made available by us for your specific use.
-            If you are below 18 years old: you must obtain consent from your parent(s) or legal guardian(s), their acceptance of these Terms of Use and their agreement to take responsibility for:
-            (i) your actions; (ii) any charges associated with your use of any of the Services or purchase of Products; and (iii) your acceptance and compliance with these Terms of Use.
-            If you do not have consent from your parent(s) or legal guardian(s), you must stop using/accessing this Platform and using the Services.
-               </p>
-               <br>
+                </div>
+                <div class="px-5 pt-10 mt-10 border-t sm:px-20 border-slate-200/60 dark:border-darkmode-400">
+                    <p>
+                    Welcome to the Go Dental platform. Please read these terms and conditions carefully. The following Terms of Use govern your use and access of the Platform (defined below) and the use of the Services.
+                    By accessing the Platform and/or using the Services, you agree to be bound by these Terms of Use. If you do not agree to these Terms of Use, do not access and/or use this Platform or the Services.
+                    Access to and use of password protected and/or secure areas of the Platform and/or use of the Services are restricted to Customers with accounts only.
+                    You may not obtain or attempt to obtain unauthorized access to such parts of this Platform and/or Services, or to any other protected information, through any means not intentionally made available by us for your specific use.
+                    If you are below 18 years old: you must obtain consent from your parent(s) or legal guardian(s), their acceptance of these Terms of Use and their agreement to take responsibility for:
+                    (i) your actions; (ii) any charges associated with your use of any of the Services or purchase of Products; and (iii) your acceptance and compliance with these Terms of Use.
+                    If you do not have consent from your parent(s) or legal guardian(s), you must stop using/accessing this Platform and using the Services.
+                    </p>
+                    <br>
 
                 <div class="mt-1 mb-1 text-base font-medium">1. Definition & Interpretation</div>
                 <p>
@@ -26,39 +26,39 @@
                 </p>
 
                 <li>Definitions. Unless the context otherwise requires, the following expressions shall have the following meanings in these Terms of Use:</li>
-<li> “Customer” has the same meaning as in the Terms & Conditions of Sale.</li>
- <li> “Intellectual Property” means all copyright, patents, utility innovations, trademarks and service marks, geographical indications, domain names, layout design rights, registered designs, design rights, database rights, trade or business names, rights protecting trade secrets and confidential information, rights protecting goodwill and reputation, and all other similar or corresponding proprietary rights and all applications for the same, whether presently existing or created in the future, anywhere in the world, whether registered or not, and all benefits, privileges, rights to sue, recover damages and obtain relief or other remedies for any past, current or future infringement, misappropriation or violation of any of the foregoing rights.</li>
-<li> “Go Dental Indemnitees” means Go Dental and all of its respective officers, employees, directors, agents, contractors and assigns. </li>
-<li> “Go Dental”, “we”, “our” and “us” refer to Go Dental E-Services Philippines, Inc., a company incorporated pursuant to the laws of Philippines under registration number CS2452168413 and having its registered address at Grand Royale Subdivision, Barangay. Pinagbakahan, City of Malolos, Bulacan. </li>
-<li> “Listing Price” means the price of Products listed for sale to Customers, as stated on the Platform. </li>
-<li> “Losses” means all penalties, losses, settlement sums, costs (including legal fees and expenses on a solicitor-client basis), charges, expenses, actions, proceedings, claims, demands and other liabilities, whether foreseeable or not. </li>
-<li> “Materials” means, collectively, all web pages on the Platform, including the information, images, links, sounds, graphics, video, software, applications, and other materials displayed or made available on the Platform and the functionalities or services provided on the Platform. </li>
-<li> “Order” means your order for Products sent through the Platform in accordance with the Terms & Conditions of Sale. </li>
-<li> “Password” refers to the valid password that a customer who has an account with Go Dental may use in conjunction with the Username to access the relevant Platform and/or Services. </li>
-<li> “Personal Data” means data, whether true or not, that can be used to identify, contact, or locate you. Personal Data can include your name, e-mail address, billing address, shipping address, phone number and credit card information. “Personal Data” shall be deemed to include any data that you have provided to us when placing an Order, regardless of whether you have an account with us. </li>
-<li> “Platform” means (a) both the web and mobile versions of the website operated and/or owned by Go Dental which is presently located at the following URL: www.godentalph.com; and (b) the mobile applications made available from time to time by Go Dental, including the Android versions. </li>
-<li> “Product” means a product (including any installment of the product or any parts thereof) available for sale to Customers on the Platform. </li>
-<li> “Prohibited Material” means any information, graphics, photographs, data and/or any other material that: </li>
-<p>(a) contains any computer virus or other invasive or damaging code, program, or macro; </p>
-<p> (b) infringes any third-party Intellectual Property or any other proprietary rights; </p>
-<p> (c) is defamatory, libelous or threatening; </p>
-<p> (d) is obscene, pornographic, indecent, counterfeited, fraudulent, stolen, harmful or otherwise illegal under the applicable law; </p>
-<p> (e) is or may be construed as offensive and/or otherwise objectionable, in our sole opinion. </p>
-<li>“Services” means services, information and functions made available by us at the Platform. </li>
-<li> “Submission” is as defined in of these Terms of Use. </li>
-<li> “Terms & Conditions of Sale” means the terms and conditions governing a customer’s purchase of the Products. </li>
-<li> “Terms of Use” means the recitals, and any Schedules to these terms and conditions. </li>
-<li> “Trademarks” means the trademarks, service marks, trade names and logos used and displayed on the Platform, including the Go Dental trademark, which is property of Roman Dental Supplies Trading. </li>
-<li> “Username” refers to the unique login identification name or code which identifies a customer who has an account with Go Dental. </li>
-<li>“you” and “your” refer to the individuals over the age of 18 or otherwise under the supervision of a parent or legal guardian.</li>
-<li>Interpretation: Any reference in these Terms of Use to any provision of a statute shall be construed as a reference to that provision as amended, re-enacted, or extended at the relevant time. In the Agreement, whenever the words “include”, “includes” or “including” are used, they will be deemed to be followed by the words “without limitation”. Unless expressly indicated otherwise, all references to a number of days mean calendar days, and the words “month” or “monthly” as well as all references to a number of months means calendar months. Are inserted for convenience only and shall not affect the interpretation of these Terms of Use. In the event of a conflict or inconsistency between any two or more provisions under these Terms of Use, whether such provisions are contained in the same or different documents, such conflict or inconsistency shall be resolved in favor of Go Dental and the provision which is more favorable to Go Dental shall prevail. </li>
+                <li> “Customer” has the same meaning as in the Terms & Conditions of Sale.</li>
+                <li> “Intellectual Property” means all copyright, patents, utility innovations, trademarks and service marks, geographical indications, domain names, layout design rights, registered designs, design rights, database rights, trade or business names, rights protecting trade secrets and confidential information, rights protecting goodwill and reputation, and all other similar or corresponding proprietary rights and all applications for the same, whether presently existing or created in the future, anywhere in the world, whether registered or not, and all benefits, privileges, rights to sue, recover damages and obtain relief or other remedies for any past, current or future infringement, misappropriation or violation of any of the foregoing rights.</li>
+                <li> “Go Dental Indemnitees” means Go Dental and all of its respective officers, employees, directors, agents, contractors and assigns. </li>
+                <li> “Go Dental”, “we”, “our” and “us” refer to Go Dental E-Services Philippines, Inc., a company incorporated pursuant to the laws of Philippines under registration number CS2452168413 and having its registered address at Grand Royale Subdivision, Barangay. Pinagbakahan, City of Malolos, Bulacan. </li>
+                <li> “Listing Price” means the price of Products listed for sale to Customers, as stated on the Platform. </li>
+                <li> “Losses” means all penalties, losses, settlement sums, costs (including legal fees and expenses on a solicitor-client basis), charges, expenses, actions, proceedings, claims, demands and other liabilities, whether foreseeable or not. </li>
+                <li> “Materials” means, collectively, all web pages on the Platform, including the information, images, links, sounds, graphics, video, software, applications, and other materials displayed or made available on the Platform and the functionalities or services provided on the Platform. </li>
+                <li> “Order” means your order for Products sent through the Platform in accordance with the Terms & Conditions of Sale. </li>
+                <li> “Password” refers to the valid password that a customer who has an account with Go Dental may use in conjunction with the Username to access the relevant Platform and/or Services. </li>
+                <li> “Personal Data” means data, whether true or not, that can be used to identify, contact, or locate you. Personal Data can include your name, e-mail address, billing address, shipping address, phone number and credit card information. “Personal Data” shall be deemed to include any data that you have provided to us when placing an Order, regardless of whether you have an account with us. </li>
+                <li> “Platform” means (a) both the web and mobile versions of the website operated and/or owned by Go Dental which is presently located at the following URL: www.godentalph.com; and (b) the mobile applications made available from time to time by Go Dental, including the Android versions. </li>
+                <li> “Product” means a product (including any installment of the product or any parts thereof) available for sale to Customers on the Platform. </li>
+                <li> “Prohibited Material” means any information, graphics, photographs, data and/or any other material that: </li>
+                <p> (a) contains any computer virus or other invasive or damaging code, program, or macro; </p>
+                <p> (b) infringes any third-party Intellectual Property or any other proprietary rights; </p>
+                <p> (c) is defamatory, libelous or threatening; </p>
+                <p> (d) is obscene, pornographic, indecent, counterfeited, fraudulent, stolen, harmful or otherwise illegal under the applicable law; </p>
+                <p> (e) is or may be construed as offensive and/or otherwise objectionable, in our sole opinion. </p>
+                <li> “Services” means services, information and functions made available by us at the Platform. </li>
+                <li> “Submission” is as defined in of these Terms of Use. </li>
+                <li> “Terms & Conditions of Sale” means the terms and conditions governing a customer’s purchase of the Products. </li>
+                <li> “Terms of Use” means the recitals, and any Schedules to these terms and conditions. </li>
+                <li> “Trademarks” means the trademarks, service marks, trade names and logos used and displayed on the Platform, including the Go Dental trademark, which is property of Roman Dental Supplies Trading. </li>
+                <li> “Username” refers to the unique login identification name or code which identifies a customer who has an account with Go Dental. </li>
+                <li> “you” and “your” refer to the individuals over the age of 18 or otherwise under the supervision of a parent or legal guardian.</li>
+                <li>Interpretation: Any reference in these Terms of Use to any provision of a statute shall be construed as a reference to that provision as amended, re-enacted, or extended at the relevant time. In the Agreement, whenever the words “include”, “includes” or “including” are used, they will be deemed to be followed by the words “without limitation”. Unless expressly indicated otherwise, all references to a number of days mean calendar days, and the words “month” or “monthly” as well as all references to a number of months means calendar months. Are inserted for convenience only and shall not affect the interpretation of these Terms of Use. In the event of a conflict or inconsistency between any two or more provisions under these Terms of Use, whether such provisions are contained in the same or different documents, such conflict or inconsistency shall be resolved in favor of Go Dental and the provision which is more favorable to Go Dental shall prevail. </li>
 
 
                 <br>
 
                 <div class="mt-1 mb-1 text-base font-medium">2. General use of Services and/or access of Platform</div>
                 <p>
-                    <li>
+                <li>
                 Guidelines to the use of Platform and/or Services: You agree to comply with any and all the guidelines, notices, operating rules and policies and instructions pertaining to the use of the Services and/or access to the Platform, as well as any amendments to the aforementioned, issued by us, from time to time. We reserve the right to revise these guidelines, notices, operating rules and policies and instructions at any time and you are deemed to be aware of and bound by any changes to the foregoing upon their publication on the Platform.
                 Restricted activities: You agree and undertake NOT to:</p>
                 <p>(a) impersonate any person or entity or to falsely state or otherwise misrepresent your affiliation with any person or entity; </p>
@@ -84,7 +84,7 @@
                 Privacy Policy: Your use of the Services and/or access to the Platform is also subject to the Privacy Policy.
                 Terms & Conditions of Sale: Purchases of any Product would be subject to the Terms & Conditions of Sale.
                 Additional terms: In addition to these Terms of Use, the use of specific aspects of the Materials and Services, more comprehensive or updated versions of the Materials offered by us or our designated sub-contractors, may be subject to additional terms and conditions, which will apply in full force and effect.
-            </li>
+                </li>
 
                 <br>
 
@@ -96,16 +96,12 @@
 
                 <p>(a) to access and/or use the Services only for lawful purposes and in a lawful manner at all times and further agree to conduct any activity relating to the Services in good faith;</p>
                 <p>(b) to ensure that any information or data you post or cause to appear on the Platform in connection with the Services is accurate and agree to take sole responsibility for such information and data.</p>
-
-               <li> Product description: While we endeavor to provide an accurate description of the Products, we do not warrant that such description is accurate, current or free from error.
-                Prices of Products: All Listing Prices are subject to taxes, unless otherwise stated. We reserve the right to amend the Listing Prices at any time without giving any reason or prior notice.
-                Third Party Vendors: You acknowledge that parties other than Go Dental (i.e., Third Party-Vendors) list and sell Products on the Platform. Whether a particular Product is listed for sale on the Platform by Go Dental or a Third-Party Vendor may be stated on the webpage listing that Product. For the avoidance of doubt, each agreement entered into for the sale of a Third-Party Vendor’s Products to a Customer shall be an agreement entered into directly and only between the Third-Party Vendor and the Customer. You further acknowledge that Third Party Vendors may utilize paid services offered by Go Dental to promote their Product listings within your search results on the Platform. Such Product listings may be accompanied by a “megaphone” logo.
-                </li>
                 <br>
 
                 <div class="mt-1 mb-1 text-base font-medium">4. Customer with Go Dental Accounts</div>
 
-                <li>Username/Password: Certain Services that may be made available on the Platform may require creation of an account with us or for you to provide Personal Data. If you request to create an account with us, a Username and Password may either be: (i) determined and issued to you by us; or (ii) provided by you and accepted by us in our sole and absolute discretion in connection with the use of the Services and/or access to the relevant Platform.
+                <li>
+                Username/Password: Certain Services that may be made available on the Platform may require creation of an account with us or for you to provide Personal Data. If you request to create an account with us, a Username and Password may either be: (i) determined and issued to you by us; or (ii) provided by you and accepted by us in our sole and absolute discretion in connection with the use of the Services and/or access to the relevant Platform.
                 We may at any time in our sole and absolute discretion, request that you update your Personal Data or forthwith invalidate the Username and/or Password without giving any reason or prior notice and shall not be liable or responsible for any Losses suffered by or caused by you or arising out of or in connection with or by reason of such request or invalidation.
                 You hereby agree to change your Password from time to time and to keep the Username and Password confidential and shall be responsible for the security of your account and liable for any disclosure or use (whether such use is authorized or not) of the Username and/or Password.
                 You should notify us immediately if you have knowledge that or have reason for suspecting that the confidentiality of the Username and/or Password has been compromised or if there has been any unauthorized use of the Username and/or Password or if your Personal Data requires updating.
@@ -145,7 +141,7 @@
                 <div class="mt-1 mb-1 text-base font-medium">7. Hyperlinks and alerts</div>
 
                 <li>Hyperlinks: For your convenience, we may include hyperlinks to other websites or content on the Internet that are owned or operated by third parties. Such linked websites or content are not under our control, and we are not liable for any errors, omissions, delays, defamation, libel, slander, falsehood, obscenity, pornography, profanity, inaccuracy or any other objectionable material contained in the contents, or the consequences of accessing, any linked website. Any hyperlinks to any other websites or content are not an endorsement or verification of such websites or content and you agree that your access to or use of such linked websites or content is entirely at your own risk. </li>
-                <li>Promotions: We may attach banners, java applets and/or such other materials to the Platform for the purposes of promoting our or our Third-Party Vendors’ products and/or services. For the avoidance of doubt, you shall not be entitled to receive any payment, fee and/or commission in respect of any such promotional materials.</li>
+                <li>Promotions: We may attach banners, java applets and/or such other materials to the Platform for the purposes of promoting our and/or services. For the avoidance of doubt, you shall not be entitled to receive any payment, fee and/or commission in respect of any such promotional materials.</li>
                     <br>
 
                 <div class="mt-1 mb-1 text-base font-medium">8. Your submission and information</div>

@@ -129,7 +129,7 @@
                                     </div>
                                 </td>
                                 <td>
-                                    <a href="" class="font-medium whitespace-nowrap">{{$product->name}}</a>
+                                    <a href="{{ Route('product.edit',$product) }}" class="font-medium whitespace-nowrap">{{$product->name}}</a>
                                     <div class="text-slate-500 text-xs whitespace-nowrap mt-0.5">{{$product->brand->name}}</div>
                                 </td>
                                 <td class="text-center">{{$product->SKU}}</td>

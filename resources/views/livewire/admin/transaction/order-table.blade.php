@@ -15,6 +15,8 @@
                     <option value="Packed">Packed</option>
                     <option value="Out For Delivery">Out For Delivery</option>
                     <option value="Rejected">Rejected</option>
+                    <option value="Return Request Rejected">Return Rejected</option>
+                    <option value="Refunded">Refunded</option>
                     <option value="Completed">Completed</option>
                 </select>
             </div>
@@ -49,9 +51,9 @@
                                 </a>
                             </td>
                             <td class="text-center">
-                                @if($order->status == "Completed")
+                                @if($order->status == "Completed" || $order->status == "Refunded")
                                 <div class="flex items-center justify-center whitespace-nowrap text-primary">{{ $order->status }}</div>
-                                @elseif($order->status == "Rejected" || $order->status == "Cancelled")
+                                @elseif($order->status == "Rejected" || $order->status == "Cancelled" || $order->status == "Return Request Rejected")
                                 <div class="flex items-center justify-center whitespace-nowrap text-danger">{{ $order->status }}</div>
                                 @else
                                 <div class="flex items-center justify-center whitespace-nowrap text-pending">{{ $order->status }}</div>
